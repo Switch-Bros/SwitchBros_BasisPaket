@@ -1,0 +1,32 @@
+Basiert auf:
+
+Hekate 6.0.1 + Nyx 1.5.1
+atmosphere 1.4.0 commit -09c05e8f2 + hbl-2.4.3 + hbmenu-3.5.1
+TeslaExplorer 4.1.0 (deutsch)
+Lockpick_RCM 1.9.9
+
+== Apps
+
+90DNS Tester 1.0.4
+AIO Switch Updater 2.21.3
+DBI 462
+FTPD 3.1.0
+Homebrew Menu 3.5.1
+HB-AppStore 2.2
+JKSV 09/01/2021
+linkalho 2.0.1
+NXDumpTool 1.1.15
+NX-Shell 4.01
+vgedit 2.1
+
+
+== System Module
+
+BootSoundNX 1.3.0
+fastCFWswitch 1.3.0
+Fizeau 2.4.0
+Mission Control 0.8.0
+nx-ovlloader 1.0.6
+ovl-sysmodule 1.3.0
+Status-Monitor-Overlay 0.7
+Tesla-Menu 1.2
