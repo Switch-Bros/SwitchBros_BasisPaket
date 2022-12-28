@@ -1,0 +1,11 @@
+{
+  "title": "Switch 90DNS tester",
+  "author": "meganukebmp",
+  "category": "tool",
+  "version": "1.0.4",
+  "url": "https://github.com/meganukebmp/Switch_90DNS_tester/releases",
+  "license": "Lesser GPLv3",
+  "description": "test 90DNS on the switch",
+  "details": "A simple switch homebrew that does DNS resolution to see if we reach Nintendo's servers.",
+  "changelog": "1.0.4\\n\\nThis update adds a new icon by @DraconicNEO\\nIt also adds a new message for when the program is running in an offline state (disconnected or airplane mode) to avoid ambiguity.\\nProgram should now build against latest libnx HID changes. Thanks to @wolfmic\\n\\n1.0.3\\n\\nThis update adds new china specific domains to the checklist from PRs #1 and #2\\nIt also adds a better status display (coloring the domain name and showing \"in progress\" dots)\\nIt also expands the statuses reported by the resolver to include unresolved domains closing issue #3.\\nSome minor efficiency refactoring.\\n\\n1.0.2\\n\\nRecompiled with the latest libnx, input should work fine on 9.0.0+"
+}

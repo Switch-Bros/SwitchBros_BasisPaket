@@ -1,0 +1,11 @@
+{
+  "title": "Homebrew App Store",
+  "author": "vgmoose",
+  "category": "tool",
+  "version": "2.2",
+  "url": "https://github.com/vgmoose/appstorenx",
+  "license": "GPLv3",
+  "description": "Download and manage homebrew apps",
+  "details": "The Homebrew App Store is graphical frontend to the get package manager for downloading and managing homebrew on the Nintendo Switch. This is a replacement to the Wii U Homebrew App Store.\\n\\nFor further information you can visit source repo here : https://gitlab.com/4tu/hb-appstore",
+  "changelog": "2.2\\n- No more loading bar! Icons load on the fly\\n- Recovery mode added, accessed by pressing repeatedly L/R immediately after launching\\n- Switched to Chesto/resinfs for drawing UI and asset storage\\n- Updated Credits/About Screen\\n- Bugfixes around UI and unpacking files\\n\\n2.1\\n- Install and browse themes directly\\n- Launch NROs directly after installing\\n- Faster downloads!\\n- Exit using minus button\\n\\n2.0\\nNew Features:\\n- Search functionality with on screen keyboard\\n- Allow sorting of app list by: most recently updated, download count, alphabetically, download size, and randomly\\n- Add new \"Advanced\" category including some system/hekate modules\\n- Redesigned \"App Details\" screen to show much more information about each app such as long scrollable description, download count, download size, and last updated date\\n- Added feedback reporting for any app to collect data about what works and doesn't work. This feedback will be passed along to the app's author if appropriate\\n\\nEnhancements:\\n- All touch and controller controls refactored and more responsive to input (highlights, buttons, etc)\\n- Add four-column \"wide\" view activated by pressing L or ZL in the app listing\\n- New offline screen when internet connection isn't detected instead of empty progress bar\\n- List other apps by the same author from the details page\\n\\nBug fixes:\\n- Switched to curl instead of old hacky HTTP downloading curl\\n- Empty folders are now removed upon uninstallation of a package\\n- Corrupt cached icons should no longer freeze loading\\n- Uses romfs for storing images instead of an external folder\\n- Some settings for cleaning up any empty folders leftover by the old app and wiping the icon cache"
+}

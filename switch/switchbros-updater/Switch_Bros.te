@@ -14,6 +14,25 @@ maj=0
 
 wait={t=timer()while(timer()<(t+tw)){print()}}
 
+p()
+color(GELB)
+p()
+p(".        ***** Update Switch Bros. Paket *****")
+p()
+p()
+p("Mit diesem Script, kannst du dass Switch Bros. System,")
+p("auf die neuste Atmosphere CFW Version aktualisieren.")
+p()
+p("Switch Lite und Tablet Nutzer:")
+p()
+p("Vol + / -    : navigieren / abbrechen / beenden")
+p("Power Button : bestaetigen")
+p()
+p("Druecke die A Taste, um Switch Bros. Paket zu aktualisieren.")
+p("Switch Bros. Version: 1.1.0, atmosphere build: 8d9e3f2")
+p()
+p("Druecke zum Beenden die B Taste.")
+
 if (is_erista()){
 	if (fsexists("sd:/switch/prod.keys"))
 	{
@@ -28,20 +47,22 @@ if (is_erista()){
 			pat=((ver>>16)&((1<<4)- 1))
 			min=((ver>>20)&((1<<6)- 1))
 			maj=((ver>>26)&((1<<6)- 1))
-		}.else(){print("Firmware nicht gefunden")pe()}
+		}.else(){print("FW nicht gefunden")pe()}
 		a=0 fwstr()}
 		if(mountsys("SYSTEM")){maj=0}
 		fv()
 	}.else(){
-		if (fsexists("sd:/config/switchbros-helper/lockpick_sys.bin")){
-			payload("sd:/config/switchbros-helper/lockpick_sys.bin")
+		if (fsexists("sd:/switchbros/config/lockpick_sys.bin")){
+			payload("sd:/switchbros/config/lockpick_sys.bin")
 		}.else(){
-		payload("sd:/witchBros_BasisPaket/config/switchbros-helper/lockpick_sys.bin")
+		payload("sd:/config/switchbros/lockpick_sys.bin")
 		}
 	}
 }
 
-boot=fsexists("sd:/boot.dat")
+if (fsexists("sd:/boot.dat")) {
+	boot=1
+}
 
 if (fsexists("sd:/atmosphere/contents/690000000000000D/flags/boot2.flag")) {
 	syscon=1
@@ -52,13 +73,13 @@ if (fsexists("sd:/atmosphere/contents/010000000000bd00/flags/boot2.flag")) {
 }
 
 # Setze MissionControl Status
-#missioncontrol=0
+# missioncontrol=0
 
 # 1. Ordner und Dateien loeschen
 p("* alte Dateien entfernen")
 
 # Wenn es sich um ein Update handelt
-if (fsexists("sd:/SwitchBros_BasisPaket")){
+if (fsexists("sd:/switchbros")) {
 	delfile("sd:/atmosphere/stratosphere.romfs");
 	delfile("sd:/atmosphere/hbl.nsp");
 	delfile("sd:/atmosphere/reboot_payload.bin");
@@ -68,13 +89,15 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmosphere/erpt_reports");
 	deldir("sd:/atmosphere/fatal_errors");
 	deldir("sd:/atmosphere/contents/00FF0000000002AA");
-	deldir("sd:/atmosphere/contents/00FF747765616BFF");
+	deldir("sd:/atmosphere/contents/00FF0000636C6BFF");
+	deldir("sd:/atmosphere/contents/0000000000534C56");
 	deldir("sd:/atmosphere/contents/010000000000bd00");
 	deldir("sd:/atmosphere/contents/0100000000000F12");
-	deldir("sd:/atmosphere/contents/4200000000000010");
 	deldir("sd:/atmosphere/contents/420000000007E51A");
-	deldir("sd:/atmosphere/contents/690000000000000D");
+	deldir("sd:/atmosphere/contents/420000000000000E");
+	deldir("sd:/atmosphere/contents/4200000000000010");
 
+	deldir("sd:/bootloader/boot");
 	deldir("sd:/bootloader/payloads");
 	deldir("sd:/bootloader/res");
 	deldir("sd:/bootloader/sys");
@@ -87,7 +110,7 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	delfile("sd:/switch/daybreak.nro");
 	delfile("sd:/switch/daybreak/daybreak.nro");
 
-	delfile("sd:/Switch Bros. SD-Werkzeug.bat");
+	delfile("sd:/Switch Bros. SD-Werkzeug.exe");
 	delfile("sd:/exosphere.ini");
 	delfile("sd:/hbmenu.nro");
 	delfile("sd:/BasisApps.txt");

@@ -1,0 +1,11 @@
+{
+  "title": "Incognito_RCM",
+  "author": "jimzrt",
+  "category": "advanced",
+  "version": "0.6.1",
+  "url": "https://github.com/jimzrt/Incognito_RCM/releases",
+  "license": "GPLv2",
+  "description": "Wipes personal information from your Nintendo Switch",
+  "details": "Incognito_RCM is a bare metal Nintendo Switch payload that derives encryption keys for de- and encrypting PRODINFO partition (sysnand and emummc) and wiping personal information from your Nintendo Switch as to go online while worrying slightly less about a ban.\\n\\nIt is heavily based on Lockpick_RCM and takes inspiration from incognito.\\n\\nMassive Thanks to CTCaer, shchmue and blawar!\\n\\nThis project is in early stage, so have a nand backup!! There is not much of error handling going on.\\n\\nUsage\\nLaunch Incoginito_RCM.bin using your favorite payload injector\\nUse menu to make a backup! (Will be written to sd:/prodinfo_sysnand.bin and sd:/prodinfo_emunand.bin respectively)\\nChoose either Incognito (sysNAND) or Incognito (emuMMC) to wipe personal information\\nIf you ever want to revert, choose restore menu points\\nKeep in mind that backups will be overwritten, so don't backup after applying Incognito!",
+  "changelog": "0.6.1\\n\\nbugfix: write to emummc instead of sdmmc\\n\\n0.5.1\\n\\nsupport for firmware 9.1.0\\n\\n0.4.0\\n\\nadopt lockpick_rcm and hekate changes (includes fixing of possible bugs and better resource management)\\nreduced payload size\\nuse tui progressbar\\n\\n0.3.0\\n\\nmore error handling\\nbackup validation when reading and writing\\nretry up to 5 times when reading and writing before aborting\\n\\n0.2.0\\n\\nmore validation\\ncode cleanup and refactoring\\n\\n0.1.0\\n\\nmuch faster read and write speed (not sector by sector anymore)\\nmuch more validation and verification (still not perfect)\\nmore error handling (still not perfect)\\nbackups aren't overwritten, old backups are renamed\\ncheck for backup before applying incognito\\nauto-restore backup if something goes wrong"
+}

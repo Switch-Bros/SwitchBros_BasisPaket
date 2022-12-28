@@ -1,0 +1,11 @@
+{
+  "title": "linkalho",
+  "author": "rdmrocha",
+  "category": "tool",
+  "version": "2.0.1",
+  "url": "https://github.com/rdmrocha/linkalho/releases",
+  "license": "GPLv3",
+  "description": "Link or Unlink NNID's",
+  "details": "Linkalho is an homebrew app that will link NNID accounts offline. It links (or unlinks) existing accounts so you won't lose your saves. This app does not create a new account. If you create a new account and want to link it, just re-run the app.\\n\\nLink all accounts\\nWill link all accounts on the console. If any of the existing accounts is already linked, it will be re-linked. This operation creates a backup in /switch/linkalho/backups\\n\\nUnlink all accounts\\nWill remove all NNID linking from any accounts on the console regardless of the NNIDs being officially linked or not. This operation creates a backup in /switch/linkalho/backups\\n\\nRestore backup\\nRestores any previous state from a backup file. The file must be places in /switch/linkalho/restore/restore.zip This operation creates a backup in /switch/linkalho/backups",
+  "changelog": "2.0.1\\n\\nv2.0.1 fixes critical bug on some instances of account id extraction\\n\\n2.0.0\\n\\nIntroducing the ability for the user to select which accounts will be linked/unlinked\\nIntroducing the ability for the user to select which country will be injected into the linked profile\\nGenerators now feed from system settings to get locale and timezone settings instead of injecting hard-coded ones\\nOverall code refactor\\n\\n1.0.6\\n\\nReboot more gently on mariko thanks to @carcaschoi\\nMinor text tweaks\\n\\n1.0.5\\n\\nErista/Mariko detection. If a non Erista is found, reboot to payload is disabled\\nReworked reboot to payload: now requires explicit reboot.bin in linkalho folder. If the file is found, it will attempt to reboot to that payload (Erista only)\\nUpdated Borealis library to latest version\\n\\n1.0.4\\n\\nadded support for firmware 11.0.0\\n\\n1.0.3\\n\\nfixed mounting issue for manual backup creation\\n"
+}
