@@ -29,37 +29,35 @@ if (is_erista()){
 		if (fsexists("sd:/config/switchbros-helper/lockpick_sys.bin")){
 			payload("sd:/config/switchbros-helper/lockpick_sys.bin")
 		}.else(){
-		payload("sd:/config/switchbros-helper/lockpick_sys.bin")
+		payload("sd:/SwitchBros_BasisPaket/config/switchbros-helper/lockpick_sys.bin")
 		}
 	}
 }
 
 boot=fsexists("sd:/boot.dat")
-
 if (fsexists("sd:/atmosphere/contents/690000000000000D/flags/boot2.flag")) {
 	syscon=1
 }
-
 if (fsexists("sd:/atmosphere/contents/010000000000bd00/flags/boot2.flag")) {
 	missioncontrol=1
 }
-
 # Set mission control status
 #missioncontrol=0
-
 # 1. Ordner und Dateien loeschen
 p("* alte Dateien entfernen")
-
 # Wenn es sich um ein Update handelt
 if (fsexists("sd:/SwitchBros_BasisPaket")){
 	delfile("sd:/atmosphere/stratosphere.romfs");
 	delfile("sd:/atmosphere/hbl.nsp");
 	delfile("sd:/atmosphere/reboot_payload.bin");
+	delfile("sd:/atmosphere/BCT.ini");
+	delfile("sd:/atmosphere/config/BCT.ini");
 	delfile("sd:/atmosphere/package3");
 	deldir("sd:/atmosphere/exefs_patches");
 	deldir("sd:/atmosphere/kip_patches");
 	deldir("sd:/atmosphere/erpt_reports");
 	deldir("sd:/atmosphere/fatal_errors");
+
 	deldir("sd:/atmosphere/contents/00FF0000000002AA");
 	deldir("sd:/atmosphere/contents/00FF0000A53BB665");
 	deldir("sd:/atmosphere/contents/00FF747765616BFF");
@@ -69,34 +67,47 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmosphere/contents/420000000007E51A");
 	deldir("sd:/atmosphere/contents/690000000000000D");
 
-	deldir("sd:/bootloader/sys");
+	delfile("sd:/bootloader/payloads/Lockpick_RCM.bin");
+	delfile("sd:/bootloader/payloads/fusee.bin");
+	delfile("sd:/bootloader/hekate_ipl.ini");
 	delfile("sd:/bootloader/update.bin");
 	delfile("sd:/bootloader/patches.ini");
+	delfile("sd:/bootloader/res/icon_payload.bmp");
+	delfile("sd:/bootloader/res/icon_switch.bmp");
 
-	copyfile("sd:/bootloader/hekate_ipl.ini", "sd:/switchbros/hekate_ipl.ini")
-	copyfile("sd:/bootloader/nyx.ini", "sd:/switchbros/nyx.ini")
-	copyfile("sd:/config/fastCFWswitch/config.ini", "sd:/switchbros/config.ini")
+	delfile("sd:/switch/NxThemesInstaller/NxThemesInstaller.nro");
+	delfile("sd:/switch/daybreak.nro");
+	delfile("sd:/switch/dbi/dbi.nro");
+	delfile("sd:/switch/NX-Activity-Log.nro");
+	delfile("sd:/switch/switchbros-updater/switchbros-updater.nro");
+	delfile("sd:/switch/switchbros-updater/switchbros-updater.bin");
+	deldir("sd:/switch/switchbros-updater");
+	deldir("sd:/switch/NX-Activity-Log/");
+	deldir("sd:/switch/fakenews-injector");
 
-	delfile("sd:/switch/*.nro");
-
-	delfile("sd:/SwitchBros_SD-Werkzeug.bat");
-	delfile("sd:/exosphere.ini");
 	delfile("sd:/hbmenu.nro");
-	delfile("sd:/BasisApps.txt");
-	
-}.else(){
+	delfile("sd:/boot.dat");
+	delfile("sd:/boot.ini");
+}
 
-	deldir("sd:/atmosphere/config");
-	deldir("sd:/atmosphere/config_templates");
-	deldir("sd:/atmosphere/erpt_reports");
-	deldir("sd:/atmosphere/exefs_patches");
-	deldir("sd:/atmosphere/fatal_errors");
-	deldir("sd:/atmosphere/fatal_reports");
-	deldir("sd:/atmosphere/flags");
-	deldir("sd:/atmosphere/hosts");
-	deldir("sd:/atmosphere/kip_patches");
-	deldir("sd:/atmosphere/kips");
-	deldir("sd:/atmosphere/update");
+	delfile("sd:/atmosphere/fusee-secondary.bin");
+	delfile("sd:/atmosphere/fusee-secondary_atmo.bin");
+	delfile("sd:/atmosphere/hbl_atmo.nsp");
+	delfile("sd:/atmosphere/fusee-secondary.bin.sig");
+	delfile("sd:/atmosphere/hbl.nsp.sig");
+	delfile("sd:/atmosphere/hbl.json");
+	delfile("sd:/atmosphere/system_settings.ini");
+	delfile("sd:/atmosphere/system_settings.ini");
+	delfile("sd:/atmosphere/kips/fs_mitm.kip");
+	delfile("sd:/atmosphere/kips/ldn_mitm.kip");
+	delfile("sd:/atmosphere/kips/loader.kip");
+	delfile("sd:/atmosphere/kips/pm.kip");
+	delfile("sd:/atmosphere/kips/sm.kip");
+	delfile("sd:/atmosphere/kips/ams_mitm.kip");
+	delfile("sd:/atmosphere/flags/hbl_cal_read.flag");
+	delfile("sd:/atmosphere/exosphere.bin");
+	delfile("sd:/atmosphere/loader.ini");
+	deldir("sd:/atmosphere/hekate_kips");
 
 	deldir("sd:/atmosphere/contents/0100000000000008");
 	deldir("sd:/atmosphere/contents/010000000000100B");
@@ -111,16 +122,15 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmosphere/contents/010000000000100C");
 	deldir("sd:/atmosphere/contents/010000000000100D");
 	deldir("sd:/atmosphere/contents/0100000000001000");
+	deldir("sd:/atmosphere/contents/0100000000001005");
+	deldir("sd:/atmosphere/contents/0100000000001007");
 	deldir("sd:/atmosphere/contents/0100000000001013");
-
 	deldir("sd:/atmosphere/contents/0000000000534C56");
-	deldir("sd:/atmosphere/contents/00FF0000000002AA");
 	deldir("sd:/atmosphere/contents/00FF0000636C6BF2");
 	deldir("sd:/atmosphere/contents/00FF0000636C6BFF");
 	deldir("sd:/atmosphere/contents/00FF00006D7470FF");
 	deldir("sd:/atmosphere/contents/00FF0012656180FF");
 	deldir("sd:/atmosphere/contents/01FF415446660000");
-	deldir("sd:/atmosphere/contents/00FF747765616BFF");
 	deldir("sd:/atmosphere/contents/0100000000000052");
 	deldir("sd:/atmosphere/contents/0100000000000081");
 	deldir("sd:/atmosphere/contents/0100000000000352");
@@ -130,11 +140,9 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmosphere/contents/0100000000000BED");
 	deldir("sd:/atmosphere/contents/0100000000000BEF");
 	deldir("sd:/atmosphere/contents/0100000000000DAD");
-	deldir("sd:/atmosphere/contents/0100000000000F12");
 	deldir("sd:/atmosphere/contents/0100000000000FAF");
 	deldir("sd:/atmosphere/contents/0100000000006480");
 	deldir("sd:/atmosphere/contents/0100000000007200");
-	deldir("sd:/atmosphere/contents/010000000000bd00");
 	deldir("sd:/atmosphere/contents/010000000000C235");
 	deldir("sd:/atmosphere/contents/010000000000f00f");
 	deldir("sd:/atmosphere/contents/010000000000FFAB");
@@ -146,12 +154,10 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmosphere/contents/4200000000000000");
 	deldir("sd:/atmosphere/contents/420000000000000E");
 	deldir("sd:/atmosphere/contents/420000000000000F");
-	deldir("sd:/atmosphere/contents/4200000000000010");
 	deldir("sd:/atmosphere/contents/4200000000000811");
 	deldir("sd:/atmosphere/contents/4200000000000BA6");
 	deldir("sd:/atmosphere/contents/4200000000000FFF");
 	deldir("sd:/atmosphere/contents/010000000007E51A");
-	deldir("sd:/atmosphere/contents/420000000007E51A");
 	deldir("sd:/atmosphere/contents/4200000000474442");
 	deldir("sd:/atmosphere/contents/4200000000696969");
 	deldir("sd:/atmosphere/contents/4200000AF1E8DA89");
@@ -164,12 +170,31 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmosphere/contents/43000000000000FF");
 	deldir("sd:/atmosphere/contents/4300000000000909");
 	deldir("sd:/atmosphere/contents/5600000000000000");
-	deldir("sd:/atmosphere/contents/690000000000000D");
 
-	deldir("sd:/bootloader");
-	
+	delfile("sd:/bootloader/payloads/fusee-primary.bin");
+	delfile("sd:/bootloader/payloads/fusee-primary-payload.bin");
+	delfile("sd:/bootloader/payloads/biskeydump.bin");
+	delfile("sd:/bootloader/payloads/fusee-payload.bin");
+	delfile("sd:/bootloader/payloads/sxos.bin");
+	delfile("sd:/bootloader/payloads/rajnx_ipl.bin");
+	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin");
+	delfile("sd:/bootloader/ini/Atmosphere.ini");
+	delfile("sd:/bootloader/ini/atmosphere.ini");
+	delfile("sd:/bootloader/ini/sxos.ini");
+	delfile("sd:/bootloader/ini/hekate_keys.ini");
+	delfile("sd:/bootloader/hekate_keys.ini");
+	delfile("sd:/bootloader/switchbros.ini");
+	delfile("sd:/bootloader/ini/RajNX.ini");
+	delfile("sd:/bootloader/update.bin.sig");
+	delfile("sd:/bootloader/patches_template.ini");
+	delfile("sd:/bootloader/bootlogo.bmp");
+	delfile("sd:/bootloader/updating.bmp");
+	delfile("sd:/bootloader/payloads/rajnx_ipl.bin");
+	deldir("sd:/bootloader/debug");
+
 	deldir("sd:/switch/.overlays");
 	deldir("sd:/switch/*amsPACK*");
+
 	deldir("sd:/switch/*ShallowSea*");
 	deldir("sd:/switch/NightFall");
 	deldir("sd:/switch/*kefir*");
@@ -184,15 +209,18 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/switch/mercury");
 	deldir("sd:/switch/LinkUser");
 	deldir("sd:/switch/pplay");
+	deldir("sd:/switch/NX-Shell");
 	deldir("sd:/switch/NX-Update-Checker");
 	deldir("sd:/switch/switch-time");
 	deldir("sd:/switch/incognito");
 	deldir("sd:/switch/ChoiDujourNX");
 	deldir("sd:/switch/NXMPforMe");
 	deldir("sd:/switch/SX*");
+	deldir("sd:/switch/NxThemesInstaller");
 	deldir("sd:/switch/daybreak");
 	deldir("sd:/switch/nxmtp");
 	deldir("sd:/switch/reboot_to_payload");
+
 	deldir("sd:/switch/Lockpick");
 	deldir("sd:/switch/n1dus");
 	deldir("sd:/switch/ChoiDujourNX");
@@ -206,25 +234,39 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/switch/tinfoil/db");
 	deldir("sd:/switch/tinfoil/licenses");
 	deldir("sd:/switch/tinfoil/themes");
+	deldir("sd:/switch/games");
+	deldir("sd:/switch/switch-cheats-updater");
+	deldir("sd:/switch/ldnmitm_config");
+	deldir("sd:/switch/nxmp");
+	delfile("sd:/switch/tinfoil/keys.txt");
 	deldir("sd:/switch/tinwoo");
 	deldir("sd:/switch/tinleaf");
 	delfile("sd:/switch/dbi.libusbhsfs" );
+
 	delfile("sd:/switch/tinfoil/keys.txt");
 	delfile("sd:/switch/tinfoil/tinfoil.nro");
 	delfile("sd:/switch/tinfoil/options.json");
 	delfile("sd:/switch/*.nro");
 	delfile("sd:/switch/*.ini");
 	delfile("sd:/switch/*.jar");
+	delfile("sd:/switch/*.star");
+	delfile("sd:/switch/switchbros-updater/cheats.zip");
+	delfile("sd:/switch/switchbros-updater/switchbros.zip");
+	delfile("sd:/switch/switchbros-updater/firmware.zip");
 
 	deldir("sd:/config/btred");
 	deldir("sd:/config/N-Xplorer");
 	deldir("sd:/config/reinx-spoofer");
-	deldir("sd:/config/ShallowSea-updater");
-	deldir("sd:/config/amsPACK*");
+	deldir("sd:/config/*ShallowSea*");
+	deldir("sd:/config/*amsPACK*");
 
+	delfile("sd:/SwitchBros_SD-Werkzeug.bat");
+	delfile("sd:/exosphere.ini");
+	delfile("sd:/hekate_ctcaer*.bin");
 	deldir("sd:/atmo");
 	deldir("sd:/btpair");
 	deldir("sd:/Custom-Themes");
+
 	deldir("sd:/Firmware*");
 	deldir("sd:/games");
 	deldir("sd:/modules");
@@ -250,30 +292,45 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	delfile("sd:/*.bat");
 	delfile("sd:/*.txt");
 	delfile("sd:/*.te");
-}
+	delfile("sd:/*.nro");
+
   p()
   p("Abgeschlossen")
   wait(tw = 1000)
-
+  
 # if update 
 if (fsexists("sd:/SwitchBros_BasisPaket")) {
 # 2. Switch Bros. Paket auf SD kopieren
 	clear()
-	p("* Kopiere Switch Bros. Paket auf SD-Karte")
-	
+	p("* Kopiere SwitchBros. Paket auf SD-Karte")
+
 	deldir("sd:/SwitchBros_BasisPaket/switch/switchbrosupdater/")
 	copydir("sd:/SwitchBros_BasisPaket/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/NSPs", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
 
 	if(boot) {
 		copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
 		copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
-		copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/boot.ini")
+		copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
+		deldir("sd:/config/fastCFWswitch")
+		deldir("sd:/atmosphere/contents/0100000000000F12")
+		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
+		deldir("sd:/switch/appstore/.get/packages/Fizeau")
+		deldir("sd:/switch/Fizeau")
+		delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
+		delfile("sd:/switch/.overlays/*Fizeau*.*")
+		delfile("sd:/switch/.overlays/*fastCFWswitch*.*")
+	}.else(){
+		delfile("sd:/boot.dat");
+		delfile("sd:/boot.ini")
+		delfile("sd:/payload.bin")
+		delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
 	}
-	copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
+
 	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
@@ -289,7 +346,6 @@ if (fsexists("sd:/SwitchBros_BasisPaket")) {
 	p("Abgeschlossen")
 	wait(tw = 1000)
 }
-
 # Attribute reparieren und MacOS Kram loeschen
 clear()
 p("* Entferne MacOS bezogenen Muell")
@@ -297,49 +353,55 @@ removemacfolders()
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
-
 clear()
 p("* Behebe Attribute")
 fixattrib()
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
-
 # 3. Hinter uns aufräumen und ordnen
 clear()
 p("* Entferne Update Ordner")
 
-if (!boot) {
-	delfile("sd:/boot.dat");
-	delfile("sd:/boot.ini")
-	delfile("sd:/payload.bin")
-	delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
-	
-}.else(){
+deldir("sd:/SwitchBros_BasisPaket")
+delfile("sd:/switch/switchbros-updater/startup.te")
+delfile("sd:/switch/switchbros-updater/update.te")
+deldir("sd:/switchbros");
+delfile("sd:/tegraexplorer/scripts/Switch_Bros.te");
+delfile("sd:/atmosphere/stratosphere.romfs.aio");
+delfile("sd:/atmosphere/fusee-secondary.bin.aio");
+delfile("sd:/sept/payload.bin.aio");
+delfile("sd:/payload.bin.aio");
+delfile("sd:/startup.te")
+copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/bootloader/hekate_ipl.ini")
+delfile("sd:/bootloader/hekate_ipl_.ini")
+delfile("sd:/bootloader/ini/!switchbros_updater.ini")
+delfile("sd:/bootloader/ini/switchbros_updater.ini")
+delfile("sd:/bootloader/res/icon_SB_nobox.bmp")
+delfile("sd:/switch/switchbrosupdater/switchbros-updater.bin")
+delfile("sd:/switch/switchbrosupdater/startup.te")
+deldir("sd:/switch/switchbrosupdater")
 
-	deldir("sd:/config/fastCFWswitch");
-	deldir("sd:/atmosphere/contents/0100000000000F12");
-	deldir("sd:/switch/appstore/.get/packages/fastCFWswitch");
-	deldir("sd:/switch/appstore/.get/packages/Fizeau");
-	deldir("sd:/switch/Fizeau");
-	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin");
-	delfile("sd:/switch/.overlays/*Fizeau*.*");
-	delfile("sd:/switch/.overlays/*fastCFWswitch*.*");
+if (!syscon) {
+	deldir("sd:/atmosphere/contents/690000000000000D")
+	deldir("sd:/config/sys-con")
 }
 
 if (!missioncontrol) {
 	deldir("sd:/atmosphere/contents/010000000000bd00")
 	deldir("sd:/config/missioncontrol")
 }
-	deldir("sd:/switchbros");
-	delfile("sd:/tegraexplorer/scripts/Switch_Bros.te");
-	delfile("sd:/atmosphere/stratosphere.romfs.aio");
-	delfile("sd:/atmosphere/fusee-secondary.bin.aio");
-	delfile("sd:/sept/payload.bin.aio");
-	delfile("sd:/payload.bin.aio");
+
+if (!fsexists("sd:/bootloader/nyx.ini")){
+	delfile("sd:/bootloader/nyx.ini")
+	movefile("sd:/bootloader/nyx.ini_" "sd:/bootloader/nyx.ini")
+}.else(){
+	delfile("sd:/bootloader/nyx.ini_")
+}
 
 if (maj != 4) {
 	if (fuse_patched()){
+
 		deldir("sd:/switch/fakenews-injector");
 		deldir("sd:/pegascape");
 		delfile("sd:/bootloader/payloads/Incognito_RCM.bin");
@@ -354,14 +416,12 @@ p("Abgeschlossen")
 
 # 5. Neustart in hekate 
 clear()
-color(GRUEN)
-p("Das neue Switch Bros. Paket wurde erfolgreich installiert!")
+p("Das neue SwitchBros Paket wurde erfolgreich installiert!")
 p()
 p("Neustart in hekate")
 wait(tw = 3000)
 
 if (is_erista()) {
-	payload("sd:/atmosphere/reboot_payload.bin")
+	payload("sd:/bootloader/update.bin")
 }.else(){
 	reboot_ofw();
-}
