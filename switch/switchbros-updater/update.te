@@ -1,3 +1,4 @@
+
 p=println
 pe={pause() exit()}
 boot=0
@@ -35,16 +36,21 @@ if (is_erista()){
 }
 
 boot=fsexists("sd:/boot.dat")
+
 if (fsexists("sd:/atmosphere/contents/690000000000000D/flags/boot2.flag")) {
 	syscon=1
 }
+
 if (fsexists("sd:/atmosphere/contents/010000000000bd00/flags/boot2.flag")) {
 	missioncontrol=1
 }
+
 # Set mission control status
 #missioncontrol=0
+
 # 1. Ordner und Dateien loeschen
 p("* alte Dateien entfernen")
+
 # Wenn es sich um ein Update handelt
 if (fsexists("sd:/SwitchBros_BasisPaket")){
 	delfile("sd:/atmosphere/stratosphere.romfs");
@@ -125,6 +131,7 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmosphere/contents/0100000000001005");
 	deldir("sd:/atmosphere/contents/0100000000001007");
 	deldir("sd:/atmosphere/contents/0100000000001013");
+
 	deldir("sd:/atmosphere/contents/0000000000534C56");
 	deldir("sd:/atmosphere/contents/00FF0000636C6BF2");
 	deldir("sd:/atmosphere/contents/00FF0000636C6BFF");
@@ -191,10 +198,9 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	delfile("sd:/bootloader/updating.bmp");
 	delfile("sd:/bootloader/payloads/rajnx_ipl.bin");
 	deldir("sd:/bootloader/debug");
-
+	
 	deldir("sd:/switch/.overlays");
 	deldir("sd:/switch/*amsPACK*");
-
 	deldir("sd:/switch/*ShallowSea*");
 	deldir("sd:/switch/NightFall");
 	deldir("sd:/switch/*kefir*");
@@ -216,11 +222,10 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/switch/ChoiDujourNX");
 	deldir("sd:/switch/NXMPforMe");
 	deldir("sd:/switch/SX*");
-	deldir("sd:/switch/NxThemesInstaller");
+	delfile("sd:/switch/NxThemesInstaller.nro");
 	deldir("sd:/switch/daybreak");
 	deldir("sd:/switch/nxmtp");
 	deldir("sd:/switch/reboot_to_payload");
-
 	deldir("sd:/switch/Lockpick");
 	deldir("sd:/switch/n1dus");
 	deldir("sd:/switch/ChoiDujourNX");
@@ -242,7 +247,6 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/switch/tinwoo");
 	deldir("sd:/switch/tinleaf");
 	delfile("sd:/switch/dbi.libusbhsfs" );
-
 	delfile("sd:/switch/tinfoil/keys.txt");
 	delfile("sd:/switch/tinfoil/tinfoil.nro");
 	delfile("sd:/switch/tinfoil/options.json");
@@ -266,7 +270,6 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
 	deldir("sd:/atmo");
 	deldir("sd:/btpair");
 	deldir("sd:/Custom-Themes");
-
 	deldir("sd:/Firmware*");
 	deldir("sd:/games");
 	deldir("sd:/modules");
@@ -297,13 +300,13 @@ if (fsexists("sd:/SwitchBros_BasisPaket")){
   p()
   p("Abgeschlossen")
   wait(tw = 1000)
-  
+
 # if update 
 if (fsexists("sd:/SwitchBros_BasisPaket")) {
 # 2. Switch Bros. Paket auf SD kopieren
 	clear()
 	p("* Kopiere SwitchBros. Paket auf SD-Karte")
-
+	
 	deldir("sd:/SwitchBros_BasisPaket/switch/switchbrosupdater/")
 	copydir("sd:/SwitchBros_BasisPaket/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/bootloader", "sd:/")
@@ -346,6 +349,7 @@ if (fsexists("sd:/SwitchBros_BasisPaket")) {
 	p("Abgeschlossen")
 	wait(tw = 1000)
 }
+
 # Attribute reparieren und MacOS Kram loeschen
 clear()
 p("* Entferne MacOS bezogenen Muell")
@@ -353,12 +357,14 @@ removemacfolders()
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
+
 clear()
 p("* Behebe Attribute")
 fixattrib()
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
+
 # 3. Hinter uns aufräumen und ordnen
 clear()
 p("* Entferne Update Ordner")
@@ -401,7 +407,6 @@ if (!fsexists("sd:/bootloader/nyx.ini")){
 
 if (maj != 4) {
 	if (fuse_patched()){
-
 		deldir("sd:/switch/fakenews-injector");
 		deldir("sd:/pegascape");
 		delfile("sd:/bootloader/payloads/Incognito_RCM.bin");
@@ -425,3 +430,4 @@ if (is_erista()) {
 	payload("sd:/bootloader/update.bin")
 }.else(){
 	reboot_ofw();
+}
