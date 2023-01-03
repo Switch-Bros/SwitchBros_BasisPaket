@@ -1,5 +1,6 @@
+
 @echo off &setlocal enabledelayedexpansion
-chcp 65001 >nul 2>&1
+chcp 1252 >nul 2>&1
 title Switch Bros. SD-Werkzeug
 rem Dieses Skript basiert auf der Batch-Datei von rashevskyv seinem Kefir Paket
 rem der ebenfalls Entwickler von DBI ist! RIESEN DANK!!! an diesen tollen Entwickler!
@@ -11,15 +12,13 @@ set cfw=AMS
 set cfwname=Atmosphere
 set theme_flag=0
 set theme=0
-set dbi=0
-set tesla=0
-set tesla_flag=1
-set modchip=1
-set bootdat=1
 set syscon=1
 set missioncontrol=1
+set bootdat=1
 set payloadbin=1
-set nyx=0
+
+set sd=%1
+if not defined %sd% (GOTO main)
 
 :NEUEKARTE
 COLOR 0E
@@ -42,7 +41,7 @@ echo.
 echo ------------------------------------------------------------------------
 echo.
 
-for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " FS: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
+for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
 echo.
 set /P sd="Laufwerksbuchstabe der SD-Karte: "
 
@@ -54,10 +53,9 @@ if not exist "%sd%:\" (
 )
 
 :MAIN
-if not exist "%sd%:\boot.dat" (set bootdat=0)
+if not exist "%sd%:\boot.dat" (if exist "%sd%:\atmosphere" (set bootdat=0))
 if not exist "%sd%:\atmosphere\contents\690000000000000D\flags\boot2.flag" (set syscon=0)
 if not exist "%sd%:\atmosphere\contents\010000000000bd00\flags\boot2.flag" (set missioncontrol=0)
-if not exist "%sd%:\payload.bin" (set payloadbin=0)
 
 echo.
 cls
@@ -202,6 +200,7 @@ if exist "%sd%:\*firmware*" (RD /s /q "%sd%:\*firmware*")
 if exist "%sd%:\*Custom*" (RD /s /q "%sd%:\*Custom*")
 if exist "%sd%:\SaltySD" (RD /s /q "%sd%:\SaltySD")
 if exist "%sd%:\atmo" (RD /s /q "%sd%:\atmo")
+if exist "%sd%:\ams" (RD /s /q "%sd%:\ams")
 if exist "%sd%:\scripts" (RD /s /q "%sd%:\scripts")
 if exist "%sd%:\music" (RD /s /q "%sd%:\music")
 if exist "%sd%:\tools*" (RD /s /q "%sd%:\tools*")
@@ -220,7 +219,12 @@ if exist "%sd%:\*.log" (del "%sd%:\*.log")
 if exist "%sd%:\hbmenu.nro" (del "%sd%:\hbmenu.nro")
 if exist "%sd%:\startup.te" (del "%sd%:\startup.te")
 
-if exist "%sd%:\sxos" (RD /s /q  "%sd%:\sxos")
+if exist "%sd%:\sxos\bootloader" (RD /s /q  "%sd%:\sxos\bootloader")
+if exist "%sd%:\sxos\switch" (RD /s /q  "%sd%:\sxos\switch")
+if exist "%sd%:\sxos\exefs_patches" (RD /s /q  "%sd%:\sxos\exefs_patches")
+if exist "%sd%:\sxos\boot.dat" (del "%sd%:\sxos\boot.dat")
+if exist "%sd%:\sxos\sxos" (xcopy %sd%:\sxos\sxos\* %sd%:\sxos\ /Y /S /E /H /R /D)
+if exist "%sd%:\sxos\sx" (RD /s /q "%sd%:\sxos\sx")
 
 if exist "%sd%:\switch\*amsPack*" (RD /s /q "%sd%:\switch\amsPack*")
 if exist "%sd%:\switch\*DeepSea*" (RD /s /q "%sd%:\switch\DeepSea*")
@@ -336,6 +340,11 @@ echo       Entweder sind die Systeme bereits bei dir installiert, oder du
 echo       moechtest diese spaeter installieren = Die Partitionen dafuer
 echo       nicht vergessen (Partiton nachtraeglich geht nicht)!
 echo.
+echo             Achtung modchip Besitzer = LAKKA und Ubuntu Bionic
+echo                          werden unterstuetzt!
+echo.
+echo        Android und die anderen Linux Distributionen z.Zt. NICHT!!!
+echo.
 echo 0 = alte hekate_ipl.ini behalten (nicht empfohlen)
 echo 1 = Basis (Standard)
 echo 2 = Basis + Android
@@ -379,7 +388,7 @@ echo.
 echo Welche der vier Linux Distributionen wirst du später nutzen?
 echo.
 echo A = Arch Linux
-echo B = Ubuntu Bionic (empfohlen, wenn unsicher (modchip wird unterstuetzt))
+echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo C = Fedora Linux
 echo D = Ubuntu
 echo.
@@ -403,7 +412,7 @@ echo.
 echo Welche der vier Linux Distributionen wirst du später nutzen?
 echo.
 echo A = Arch Linux
-echo B = Ubuntu Bionic (empfohlen, wenn unsicher (modchip wird unterstuetzt))
+echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo C = Fedora Linux
 echo D = Ubuntu
 echo.
@@ -427,7 +436,7 @@ echo.
 echo Welche der vier Linux Distributionen wirst du später nutzen?
 echo.
 echo A = Arch Linux
-echo B = Ubuntu Bionic (empfohlen, wenn unsicher (modchip wird unterstuetzt))
+echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo C = Fedora Linux
 echo D = Ubuntu
 echo.
@@ -447,7 +456,7 @@ echo.
 echo Welche der vier Linux Distributionen wirst du später nutzen?
 echo.
 echo A = Arch Linux
-echo B = Ubuntu Bionic (empfohlen, wenn unsicher (modchip wird unterstuetzt))
+echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo C = Fedora Linux
 echo D = Ubuntu
 echo.
@@ -487,6 +496,9 @@ if exist "%sd%:\config" (
 if exist "%sd%:\NSPs" (
 	attrib -A -R /S /D %sd%:\NSPs\*
 	attrib -A -R %sd%:\NSPs)
+if exist "%sd%:\emuiibo" (
+	attrib -A -R /S /D %sd%:\emuiibo\*
+	attrib -A -R %sd%:\emuiibo)
 if exist "%sd%:\switch" (
 	attrib -A -R /S /D %sd%:\switch\*
 	attrib -A -R %sd%:\switch)
@@ -509,8 +521,8 @@ rem USB3 high speed in die Registry eintragen (hekate - USB3 Verbindung)
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v MaximumTransferLength /t REG_DWORD /d 00100000 /f>nul 2>&1
 
 rem Nach uns die Sintflut! Nein! Hinter uns wird natuerlich aufgeraemt :)
+if exist "%sd%:\SwitchBros_BasisPaket" (RD /s /q "%sd%:\SwitchBros_BasisPaket")
 if exist "%sd%:\switchbros" (RD /s /q "%sd%:\switchbros")
-if exist "%sd%:\switch\switchbros-updater\startup.te" (del "%sd%:\switch\switchbros-updater\startup.te")
 if exist "%sd%:\switch\switchbros-updater\update.te" (del "%sd%:\switch\switchbros-updater\update.te")
 if exist "%sd%:\temp" (RD /s /q "%sd%:\temp")
 if exist "%sd%:\startup.te" (del "%sd%:\startup.te")
@@ -524,7 +536,6 @@ if exist "%sd%:\*.exe" (del "%sd%:\*.exe")
 if exist "%sd%:\*.bak" (del "%sd%:\*.bak")
 if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%SwitchBros_BasisPaket.zip")
 if exist "%sd%:\switch\switchbrosupdater" (RD /s /q "%sd%:\switch\switchbrosupdater")
-if exist "%sd%:\SwitchBros_BasisPaket" (RD /s /q "%sd%:\SwitchBros_BasisPaket")
 
 if %syscon%==0 (
 	RD /s /q "%sd%:\atmosphere\contents\690000000000000D"
@@ -542,15 +553,15 @@ if %bootdat%==0 (
 	if exist "%sd%:\boot.ini" (del "%sd%:\boot.ini") 
 	if exist "%sd%:\payload.bin" (del "%sd%:\payload.bin")
 	) 
-	) else (
-if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
-if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
-if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau")
-if exist "%sd%:\switch\.overlays\*Fizeau*.ovl" (del "%sd%:\switch\.overlays\*fizeau*.ovl")
-if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /s /q "%sd%:\atmosphere\contents\0100000000000F12")
-if exist "%sd%:\bootloader\ini" (RD /s /q "%sd%:\bootloader\ini")
-if exist "%sd%:\switch\.overlays\*fastCFWswitch*.ovl" (del "%sd%:\switch\.overlays\*fastCFWswitch*.ovl")
-if exist "%sd%:\bootloader\payloads\CommonProblemResolver.bin" (del "%sd%:\bootloader\payloads\CommonProblemResolver.bin")
+) else (
+	if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
+	if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
+	if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau")
+	if exist "%sd%:\switch\.overlays\*Fizeau*.ovl" (del "%sd%:\switch\.overlays\*fizeau*.ovl")
+	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /s /q "%sd%:\atmosphere\contents\0100000000000F12")
+	if exist "%sd%:\bootloader\ini" (RD /s /q "%sd%:\bootloader\ini")
+	if exist "%sd%:\switch\.overlays\*fastCFWswitch*.ovl" (del "%sd%:\switch\.overlays\*fastCFWswitch*.ovl")
+	if exist "%sd%:\bootloader\payloads\CommonProblemResolver.bin" (del "%sd%:\bootloader\payloads\CommonProblemResolver.bin")
 )
 
 cd %sd%:\
@@ -579,7 +590,7 @@ echo.
 set st=
 set /p st=:
 
-for %%A in ("Y" "y" "1" "?" "?") do if "%st%"==%%A (GOTO MAIN)
+for %%A in ("J" "j" "1" "?" "?") do if "%st%"==%%A (GOTO MAIN)
 for %%A in ("N" "n" "2" "?" "?") do if "%st%"==%%A (GOTO NEUEKARTE)
 for %%A in ("Q" "q" "?" "?") do if "%st%"==%%A (GOTO ENDE)
 
@@ -592,7 +603,27 @@ echo                             Bitte warten!
 echo.
 echo ------------------------------------------------------------------------
 
-if exist "%wd%" (RD /s /q "%wd%\*")
+if exist "%wd%"(
+	RD /s /q "%wd%\*"
+)else(
+if exist "%sd%:\_backup"(
+	RD /s /q "%sd%:\_backup")
+)
+goto MAIN
+
+echo ------------------------------------------------------------------------
+echo.
+echo                         Entferne Backup Ordner
+echo                             Bitte warten!
+echo.
+echo ------------------------------------------------------------------------
+
+if exist "%wd%"(
+	RD /s /q "%wd%\*"
+)else(
+if exist "%sd%:\_backup"(
+	RD /s /q "%sd%:\_backup")
+)
 goto MAIN
 
 :ENDE
