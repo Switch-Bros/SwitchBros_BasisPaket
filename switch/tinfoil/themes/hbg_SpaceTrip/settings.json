@@ -1,0 +1,56 @@
+{
+	"color": "FFFFFFFF",
+	"logo": "sdmc:/switch/tinfoil/themes/hbg_SpaceTrip/logo.png",
+	"background": {
+		"color": "0000007F",
+		"image": "sdmc:/switch/tinfoil/themes/hbg_SpaceTrip/bg.jpg"
+	},
+
+	"selection": {
+		"color": "FFFFFFFF",
+		"background": {
+			"color": "A794F6FF"
+		},
+		"border": {
+			"color": "7941F6FF",
+			"width": 3
+		}
+	},
+	"menu": {
+		"selection": {
+			"color": "A794F6FF",
+			"background": {
+				"color": "000000CF"
+			},
+			"border": {
+				"color": "7941F6FF",
+				"width": 3
+			}
+		},
+		"background": {
+			"color":  "00000000"
+		}
+	},
+	"border": {
+		"color": "7941F6FF",
+		"width": 1
+	},
+	"progressBar": {
+		"color": "A794F6FF",
+		"background": {
+			"color": "7941F63F"
+		},
+		"width": 1
+	},
+	"scrollBar": {
+		"color": "A794F6FF",
+		"background": {
+			"color": "0000003F"
+		},
+		"width": 1
+	},
+	"music": {
+		"url": "sdmc:/switch/tinfoil/themes/hbg_SpaceTrip/SpaceTrip.mp3",
+		"volume": 15
+	}
+}

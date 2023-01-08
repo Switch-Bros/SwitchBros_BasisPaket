@@ -1,0 +1,11 @@
+{
+  "title": "ThemezerNX",
+  "author": "suchmememanyskill",
+  "category": "theme",
+  "version": "2.0.0",
+  "url": "https://github.com/suchmememanyskill/themezer-nx/releases",
+  "license": "GPLv3",
+  "description": "A switch theme downloader ",
+  "details": "This app downloads themes from https://themezer.net/ and installs them through the nxthemesinstaller.\\n\\nYou probably want to have the nxthemesinstaller either installed via the hbappstore or as nro in the switch folder in order for this app to be able to install themes.\\nYou can also download themes, and they'll be stored inside sd:/Themes/ThemezerNX/(target)/(creator)/(themename).nxtheme\\n\\n\\n\\n",
+  "changelog": "2.0.0\\n\\nA lot of the ui has been re-organised or re-colored by @Migushthe2nd!\\n\\nAdded:\\nButton shortcuts are now displayed in the UI\\nIcons have been added to the side menus\\nThe path /switch/NXThemesInstaller/NXThemesInstaller.nro is now an option for the installer nro placement (thanks @FlyingBananaTree)\\nErrors in queries are now displayed to the user, rather than silently ignored\\nModified:\\nThe color scheme and iconography now more closely resembles the site's UI\\nButton shortcuts have been expanded, besides L and R now X, Y and minus have an assignment (see above)\\nThe queued installs menu now only shows installs that are queued\\n\\n1.1.2\\n\\nThemezer-nx now auto starts at the Packs tab, rather than the All tab\\nThe LR buttons can now be used to navigate between pages"
+}

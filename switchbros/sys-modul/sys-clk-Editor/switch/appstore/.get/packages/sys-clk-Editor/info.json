@@ -1,0 +1,11 @@
+{
+  "title": "sys-clk-Editor",
+  "author": "SunTheCourier",
+  "category": "tool",
+  "version": "2.0.1",
+  "url": "https://github.com/SunTheCourier/sys-clk-Editor/releases",
+  "license": "GPLv2",
+  "description": "Editor for your sys-clk configuration!",
+  "details": "Edit your sys-clk configuration!\\nThe icon is mostly a placeholder, suggestions for a proper icon are appreciated!\\n\\n",
+  "changelog": "2.0.1\\n\\nImproved writes to Configuration which show make it look much nicer :)\\nUpdated Libraries\\n\\n2\\n\\nThe app has been completely written thanks to @cathery (#18)\\nThe app will now tell you when something is wrong wit sys-clk when you try to launch it\\nController inputs now act more like official Nintendo applications\\nOverall should be more stable\\n.elf file is only included for debugging purposes and as such is not needed on the SD to run the application\\n\\n1.3\\n\\nUpdated to use libnx v3.0.0\\nUpdated to support AMS v0.10.0 and greater\\n\\n1.2.5\\n\\nGeneral Fixes\\n\\n1.2.4\\n\\nThe name of the game is now put under the TID (in the section)\\n\\n1.2.3\\n\\nFixed an edge case where if a title was improperly installed and has no name the editor would crash\\nRefactor lots of code, made error screens faster, etc\\nCompiled with latest LibNX for fw 9.0.0 compatibility\\nNames at the top of a section have been disabled due to a bug in the ini parser library\\n\\n1.2.2\\n\\nChanged the version correctly\\nFixed an issue where file handles were not freed correctly\\n\\n1.2.1\\n\\nAdded a proper Icon thanks to @cucholix\\nRemoved unused code, should load 0.01x faster :P\\n\\n1.2.0\\n\\nAdded comments from the sys-clk clock table (#8)\\nChanged RAM to MEM for consistency\\nFurther improvements to overall application stability and other minor adjustments have been made to enhance the user experience.\\n\\n\\n1.1.1\\n\\nFixed application missing some configurations due to casing of letters in Title ID\\nFurther improvements to overall application stability and other minor adjustments have been made to enhance the user experience."
+}

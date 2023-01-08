@@ -11,7 +11,6 @@ Lockpick_RCM 1.9.9
 SwitchBros Updater 2.21.3-SB
 DBI 462
 FTPD 3.1.0
-Homebrew Menu 3.5.1
 HB-AppStore 2.2
 JKSV 09/01/2021
 linkalho 2.0.1
@@ -29,4 +28,5 @@ Mission Control 0.8.0
 nx-ovlloader 1.0.6
 ovl-sysmodule 1.3.0
 Status-Monitor-Overlay 0.7
+sys-con 0.6.4
 Tesla-Menu 1.2

@@ -1,0 +1,54 @@
+{
+	"color": "FFFFFFFF",
+	"logo": "sdmc:/switch/tinfoil/themes/bp_dark/logo.png",
+	"background": {
+		"color": "1A1A1AFF"
+	},
+	"selection": {
+		"color": "FFFFFFFF",
+		"background": {
+			"color": "1A1A1AFF"
+		},
+		"border": {
+			"color": "FFFFFFFF",
+			"width": 3
+		}
+	},
+	"menu": {
+		"selection": {
+			"color": "FFFFFFFF",
+			"background": {
+				"color": "333333FF"
+			},
+			"border": {
+				"color": "FFFFFFFF",
+				"width": 3
+			}
+		},
+		"background": {
+			"color":  "1A1A1AFF"
+		}
+	},
+	"border": {
+		"color": "FFFFFFFF",
+		"width": 1
+	},
+	"progressBar": {
+		"color": "4AC8F6FF",
+		"background": {
+			"color": "25637AFF"
+		},
+		"width": 1
+	},
+	"scrollBar": {
+		"color": "FFFFFFFF",
+		"background": {
+			"color": "333333FF"
+		},
+		"width": 1
+	},
+	"music": {
+		"url": "sdmc:/switch/tinfoil/themes/bp_dark/blackpearl.mp3",
+		"volume": 5
+	}
+}

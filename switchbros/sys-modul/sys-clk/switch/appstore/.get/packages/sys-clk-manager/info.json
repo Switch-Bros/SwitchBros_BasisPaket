@@ -1,0 +1,11 @@
+{
+  "title": "sys-clk-Overlay",
+  "author": "Sun-Research-University",
+  "category": "advanced",
+  "version": "1.1",
+  "url": "https://github.com/Sun-Research-University/sys-clk-Overlay/releases",
+  "license": "GPLv2",
+  "description": "Editor for your sys-clk configuration using ovl-loader",
+  "details": "Edit your sys-clk configuration using a Tesla Overlay.",
+  "changelog": "1.1\\n\\nUpdated to the most recent libtesla\\nYou can now go to the previous value using X or dpad left and well as going to the next value with dpad right\\nBetter transitions between games\\nLots of bug fixes"
+}

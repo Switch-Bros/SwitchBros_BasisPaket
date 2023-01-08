@@ -347,12 +347,16 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	copydir("sd:/SwitchBros_BasisPaket/NSPs", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
+	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
+	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
+	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
 
 	if(boot) {
 		copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
 		copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
 		copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
 		deldir("sd:/config/fastCFWswitch")
+		deldir("sd:/config/Fizeau")
 		deldir("sd:/atmosphere/contents/0100000000000F12")
 		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
 		deldir("sd:/switch/appstore/.get/packages/Fizeau")
@@ -367,14 +371,19 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 		delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
 	}
 
-	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
-	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
-	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
- 
   p()
 	p("Abgeschlossen")
 	wait(tw = 1000)
 }
+
+color(WHITE)
+println()
+println()
+println()
+println("SwitchBros. wurde erfolgreich aktualisiert!")
+println()
+println("Druecke eine beliebige Taste, zum fortfahren.")
+pause()
 
 # Attribute reparieren und MacOS Kram loeschen
 clear()
