@@ -6,6 +6,7 @@ rem Dieses Skript basiert auf der Batch-Datei von rashevskyv seinem Kefir Paket
 rem der ebenfalls Entwickler von DBI ist! RIESEN DANK!!! an diesen tollen Entwickler!
 
 COLOR 0E
+set wd=%temp%\files
 set clear=0
 set cfw=AMS
 set cfwname=Atmosphere
@@ -106,7 +107,7 @@ echo.
 echo                   Druecke die Eingabetaste zum beenden
 echo ------------------------------------------------------------------------
 
-if exist "%tmp%" (RD /s /q "%tmp%\*")
+if exist "%wd%" (RD /s /q "%wd%\*")
 pause>nul 2>&1
 exit
 
@@ -398,7 +399,7 @@ goto KINDER
 :linux
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du spÃ¤ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -422,7 +423,7 @@ goto KINDER
 :androidlinux
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du spÃ¤ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -446,7 +447,7 @@ goto KINDER
 :androidlinuxlakka
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du spÃ¤ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -466,7 +467,7 @@ goto KINDER
 :linuxlakka
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du spÃ¤ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -502,25 +503,28 @@ echo ------------------------------------------------------------------------
 echo.
 
 set /p kinder=Waehle deine Tinfoil Version: 
-	if /i "%kinder%"=="1" goto TINFOILA
-	if /i "%kinder%"=="2" goto TINFOILB
-	if /i "%kinder%"=="3" goto TINFOILC
+	if /i "%kinder%"=="1" goto ATINFOIL
+	if /i "%kinder%"=="2" goto BTINFOIL
+	if /i "%kinder%"=="3" goto CTINFOIL
 
-:TINFOILA
+:ATINFOIL
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
 if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf")
+pause
 goto THEME
 
-:TINFOILB
+:BTINFOIL
 xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
 if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf")
+pause
 goto THEME
 
-:TINFOILC
-RD /s /q "%sd%:\switch\tinfoil"
+:CTINFOIL
+if exists "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
 if exists "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp" (del "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp")
+pause
 goto THEME
 
 :THEME
@@ -767,7 +771,7 @@ rem Nach uns die Sintflut! Nein! Hinter uns wird natuerlich aufgeraemt :)
 if exist "%sd%:\SwitchBros_BasisPaket" (RD /s /q "%sd%:\SwitchBros_BasisPaket")
 if exist "%sd%:\switchbros" (RD /s /q "%sd%:\switchbros")
 if exist "%sd%:\switch\switchbros-updater\update.te" (del "%sd%:\switch\switchbros-updater\update.te")
-if exist "%sd%:\tmp" (RD /s /q "%sd%:\tmp")
+if exist "%wd%" (RD /s /q "%wd%\*")
 if exist "%sd%:\startup.te" (del "%sd%:\startup.te")
 if exist "%sd%:\bootloader\hekate_ipl_.bak" (del "%sd%:\bootloader\hekate_ipl_.bak")
 if exist "%sd%:\bootloader\setup" (RD /s /q "%sd%:bootloader\setup")
@@ -849,7 +853,7 @@ echo                             Bitte warten!
 echo.
 echo ------------------------------------------------------------------------
 
-if exist "%tmp%" (RD /s /q "%tmp%\*")
+if exist "%wd%" (RD /s /q "%wd%\*")
 goto ANFANG
 
 echo ------------------------------------------------------------------------
@@ -859,7 +863,7 @@ echo                             Bitte warten!
 echo.
 echo ------------------------------------------------------------------------
 
-if exist "%tmp%" (RD /s /q "%tmp%\*")
+if exist "%wd%" (RD /s /q "%wd%\*")
 goto ANFANG
 
 :ENDE
@@ -876,6 +880,6 @@ echo.
 echo                   Druecke irgendeine Taste zum beenden
 echo ------------------------------------------------------------------------
 
-if exist "%tmp%" (RD /s /q "%tmp%\*")
+if exist "%wd%" (RD /s /q "%wd%\*")
 pause>nul 2>&1
 exit
