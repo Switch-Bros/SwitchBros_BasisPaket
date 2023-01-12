@@ -18,9 +18,10 @@ set bootdat=1
 set payloadbin=1
 
 set sd=%1
-if not defined %sd% (goto ANFANG)
+if not defined %sd% (GOTO anfang)
 
-:NEUEKARTE
+REM =========================================================================
+:neuekarte
 echo.
 cls
 echo ------------------------------------------------------------------------
@@ -57,21 +58,22 @@ set /P sd="Laufwerksbuchstabe der SD-Karte: "
 
 if not exist "%sd%:\" (
 	set word=        Es befindet sich keine SD-Karte im Laufwerk %sd%         
-	goto FALSCHESD
+	GOTO falschesdkarte
 ) else (
-	if not exist "%sd%:\*" (goto FALSCHESD)
+	if not exist "%sd%:\*" (GOTO falschesdkarte)
 )
 
-:ANFANG
+REM =========================================================================
+:anfang
 if not exist "%sd%:\boot.dat" (if exist "%sd%:\atmosphere" (set bootdat=0))
 if not exist "%sd%:\atmosphere\contents\690000000000000D\flags\boot2.flag" (set syscon=0)
 if not exist "%sd%:\atmosphere\contents\010000000000bd00\flags\boot2.flag" (set missioncontrol=0)
 if not exist "%sd%:\switchbros\backup" (
-md "%sd%:\switchbros\backup"
-md "%sd%:\switchbros\backup\fastCFWSwitch"
-md "%sd%:\switchbros\backup\Fizeau"
-md "%sd%:\switchbros\backup\Tinfoil"
-md "%sd%:\switchbros\backup\ftpd"
+	md "%sd%:\switchbros\backup"
+	md "%sd%:\switchbros\backup\fastCFWSwitch"
+	md "%sd%:\switchbros\backup\Fizeau"
+	md "%sd%:\switchbros\backup\Tinfoil"
+	md "%sd%:\switchbros\backup\ftpd"
 )
 
 echo.
@@ -92,10 +94,11 @@ echo ------------------------------------------------------------------------
 echo.
 
 set /p neuistgut="Waehle deine Pille: "
-if /i "%neuistgut%"=="A" goto GIBGAS
-if /i "%neuistgut%"=="B" goto ENDEB
+if /i "%neuistgut%"=="A" GOTO sbgibgas
+if /i "%neuistgut%"=="B" GOTO endefeige
 
-:ENDEB
+REM =========================================================================
+:endefeige
 COLOR 09
 echo. 
 cls
@@ -111,13 +114,26 @@ if exist "%wd%" (RD /s /q "%wd%\*")
 pause>nul 2>&1
 exit
 
-:GIBGAS
-if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /Y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup")
-if exist "%sd%:\bootloader\nyx.ini" (xcopy /Y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup")
-if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /Y "%sd%:\config\fastCFWSwitch" "%sd%:\switchbros\backup\fastCFWSwitch")
-if exist "%sd%:\config\Fizeau\config.ini" (xcopy /Y "%sd%:\config\Fizeau" "%sd%:\switchbros\backup\Fizeau")
-if exist "%sd%:\config\ftpd\config.ini" (xcopy /Y "%sd%:\config\ftpd" "%sd%:\switchbros\backup\ftpd")
-if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /Y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil")
+REM =========================================================================
+:sbgibgas
+if exist "%sd%:\bootloader\hekate_ipl.ini" (
+	xcopy /Y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
+)
+if exist "%sd%:\bootloader\nyx.ini" (
+	xcopy /Y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
+)
+if exist "%sd%:\config\fastCFWSwitch\config.ini" (
+	xcopy /Y "%sd%:\config\fastCFWSwitch" "%sd%:\switchbros\backup\fastCFWSwitch" /H /Y /C /R /S /E /I
+)
+if exist "%sd%:\config\Fizeau\config.ini" (
+	xcopy /Y "%sd%:\config\Fizeau" "%sd%:\switchbros\backup\Fizeau" /H /Y /C /R /S /E /I
+)
+if exist "%sd%:\config\ftpd\config.ini" (
+	xcopy /Y "%sd%:\config\ftpd" "%sd%:\switchbros\backup\ftpd" /H /Y /C /R /S /E /I
+)
+if exist "%sd%:\switch\tinfoil\locations.conf" (
+	xcopy /Y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil" /H /Y /C /R /S /E /I
+)
 
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
@@ -270,9 +286,13 @@ if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
 if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 if exist "%sd%:\switch\dbi\dbi.nro" (del "%sd%:\switch\dbi\dbi.nro")
-if exist "%sd%:\switch\dbi\dbi.config" (xcopy /Y "%sd%:\switch\dbi\dbi.config" "%sd%:\switchbros\backup\dbi.config")
+if exist "%sd%:\switch\dbi\dbi.config" (
+	xcopy /Y "%sd%:\switch\dbi\dbi.config" "%sd%:\switchbros\backup\dbi.config" /H /Y /C /R /S /E /I
+)
 if exist "%sd%:\switch\dbi\dbi.config" (del "%sd%:\switch\dbi\dbi.config")
 
+REM =========================================================================
+:backupordner
 echo.
 cls
 echo ------------------------------------------------------------------------
@@ -313,10 +333,11 @@ if defined LW (
     md "%LW%:\SwitchBackup\SD-Karten_Backup"
   ) 2>nul
 ) else (
-    goto LOS
+    GOTO sblegtlos
 )
 
-:LOS
+REM =========================================================================
+:sblegtlos
 echo.
 cls
 echo ------------------------------------------------------------------------
@@ -334,7 +355,8 @@ pause>nul 2>&1
 
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E
 
-:SYSTEME
+REM =========================================================================
+:systempartitionen
 echo.
 cls
 echo ------------------------------------------------------------------------
@@ -367,39 +389,45 @@ echo ------------------------------------------------------------------------
 echo.
 
 set /p eingabe="Deine Systemkombination: "
-if /i "%eingabe%"=="0" goto behalten
-if /i "%eingabe%"=="1" goto basis
-if /i "%eingabe%"=="2" goto android
-if /i "%eingabe%"=="3" goto linux
-if /i "%eingabe%"=="4" goto lakka
-if /i "%eingabe%"=="5" goto androidlinux
-if /i "%eingabe%"=="6" goto androidlakka
-if /i "%eingabe%"=="7" goto androidlinuxlakka
-if /i "%eingabe%"=="8" goto linuxlakka
+if /i "%eingabe%"=="0" GOTO altesystembehalten
+if /i "%eingabe%"=="1" GOTO nurbasissystem
+if /i "%eingabe%"=="2" GOTO androidpartition
+if /i "%eingabe%"=="3" GOTO linuxpartition
+if /i "%eingabe%"=="4" GOTO lakkapartition
+if /i "%eingabe%"=="5" GOTO androidlinux
+if /i "%eingabe%"=="6" GOTO androidlakka
+if /i "%eingabe%"=="7" GOTO androidlinuxlakka
+if /i "%eingabe%"=="8" GOTO linuxlakka
 
-:behalten
-if exist "%sd%:\bootloader\nyx.bkp" (
-	copy "%sd%:\bootloader\nyx.bkp" "%sd%:\bootloader\nyx.ini"
-	del "%sd%:\bootloader\nyx.bkp"
-	)
+REM =========================================================================
+:altesystembehalten
+if exist "%sd%:\bootloader\nyx.bkp" (del "%sd%:\bootloader\nyx.bkp")
+if exist "%sd%:\switchbros\backup\nyx.ini" (
+	xcopy /Y "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I
+)
+if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (
+	xcopy /Y "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I
+)
+if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (
+	xcopy /Y "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini" /H /Y /C /R /S /E /I
+)
+GOTO kindgerecht
 
-if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy /Y "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini")
-if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy /Y "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini")
-if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy /Y "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini")
-goto KINDER
-
-:basis
+REM =========================================================================
+:nurbasissystem
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
-:android
+REM =========================================================================
+:androidpartition
 xcopy "%sd%:\switchbros\system\ba\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
-:linux
+REM =========================================================================
+:linuxpartition
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+ï¿½ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -414,16 +442,18 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\bu\arch\*" "%sd%:\" /H /Y /C
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\bu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
-:lakka
+REM =========================================================================
+:lakkapartition
 xcopy "%sd%:\switchbros\system\bl\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
+REM =========================================================================
 :androidlinux
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+ï¿½ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -438,16 +468,18 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\bau\arch\*" "%sd%:\" /H /Y /
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\bau\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bau\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bau\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
+REM =========================================================================
 :androidlakka
 xcopy "%sd%:\switchbros\system\bal\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
+REM =========================================================================
 :androidlinuxlakka
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+ï¿½ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -462,12 +494,13 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\balu\arch\*" "%sd%:\" /H /Y 
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\balu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\balu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\balu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
+REM =========================================================================
 :linuxlakka
 echo ------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+±ter nutzen?
+echo Welche der vier Linux Distributionen wirst du sp+ï¿½ter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -482,9 +515,10 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\blu\arch\*" "%sd%:\" /H /Y /
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\blu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\blu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\blu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-goto KINDER
+GOTO kindgerecht
 
-:KINDER
+REM =========================================================================
+:kindgerecht
 echo.
 cls
 echo ------------------------------------------------------------------------
@@ -502,32 +536,37 @@ echo.
 echo ------------------------------------------------------------------------
 echo.
 
-set /p kinder=Waehle deine Tinfoil Version: 
-	if /i "%kinder%"=="1" goto ATINFOIL
-	if /i "%kinder%"=="2" goto BTINFOIL
-	if /i "%kinder%"=="3" goto CTINFOIL
+set /p kindgerecht=Waehle deine Tinfoil Version: 
+	if /i "%kindgerecht%"=="1" GOTO tinfoilhbmenu
+	if /i "%kindgerecht%"=="2" GOTO tinfoilhome
+	if /i "%kindgerecht%"=="3" GOTO tinfoilnogo
 
-:ATINFOIL
+REM =========================================================================
+:tinfoilhbmenu
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
-if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf")
-pause
-goto THEME
+if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
+	xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
+)
+GOTO themepaket
 
-:BTINFOIL
+REM =========================================================================
+:tinfoilhome
 xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
-if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf")
-pause
-goto THEME
+if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
+	xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
+)
+GOTO themepaket
 
-:CTINFOIL
+REM =========================================================================
+:tinfoilnogo
 if exists "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
 if exists "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp" (del "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp")
-pause
-goto THEME
+GOTO themepaket
 
-:THEME
+REM =========================================================================
+:themepaket
 echo.
 cls
 echo ------------------------------------------------------------------------
@@ -550,20 +589,23 @@ echo.
 echo ------------------------------------------------------------------------
 echo.
 
-set /p theme=Sollen die ThemeApps installiert werden: 
-	if /i "%theme%"=="1" goto THEMEAPPS
-	if /i "%theme%"=="2" goto SYSMODULE
+set /p themepaket=Sollen die ThemeApps installiert werden: 
+	if /i "%themepaket%"=="1" GOTO themepaketinst
+	if /i "%themepaket%"=="2" GOTO systemmodule
 
-:THEMEAPPS
+REM =========================================================================
+:themepaketinst
     xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto SYSMODULE
+	GOTO systemmodule
 
-:SYSMODULE
+REM =========================================================================
+:systemmodule
 echo.
 cls
 echo ------------------------------------------------------------------------
 echo.
 echo     Das Tesla Overlay Menue wird aufgerufen mit: 
+echo.
 echo                          ZL + ZR + PLUS Taste 
 echo.
 echo 1. - Tesla-Overlay mit allen Modulen (nicht empfohlen)!
@@ -576,20 +618,22 @@ echo ------------------------------------------------------------------------
 echo.
 
 set /p sysmod=Welches Tesla-Overlay soll installiert werden?: 
-	if /i "%sysmod%"=="1" goto TESLAA
-	if /i "%sysmod%"=="2" goto TESLAB
-	if /i "%sysmod%"=="3" goto TESLAC
-	if /i "%sysmod%"=="4" goto ABSCHLUSS
+	if /i "%sysmod%"=="1" GOTO teslakomplett
+	if /i "%sysmod%"=="2" GOTO teslaminimal
+	if /i "%sysmod%"=="3" GOTO teslamodintro
+	if /i "%sysmod%"=="4" GOTO fertisch
 
-:TESLAA
+REM =========================================================================
+:teslakomplett
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini")
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini")
+	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
+		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
+	)
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I
@@ -598,34 +642,41 @@ set /p sysmod=Welches Tesla-Overlay soll installiert werden?:
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto ABSCHLUSS
+	GOTO fertisch
 
-:TESLAB
+REM =========================================================================
+:teslaminimal
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini")
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini")
+	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
+		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
+	)
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto ABSCHLUSS
+	GOTO fertisch
 
-:TESLAC
+REM =========================================================================
+:teslamodintro
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:TESLAMENUE
+REM =========================================================================
+:teslamodular
 echo.
 cls
 echo ------------------------------------------------------------------------
 echo.
-echo     Waehle hier nacheinander die Module die du haben moechtest! 
+echo     Waehle hier die Module die du im Tesla-Overlay haben moechtest! 
+echo     Das Tesla-Overlay ist bereits installiert! 
+echo.
+echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt! 
 echo.
 echo 1.  BootSoundNX (Bootsound.mp3 beim Starten der Switch abspielen)
 echo 2.  Edizon (cheat app)
@@ -648,76 +699,94 @@ echo.
 
 set "teslamods="
 set /p teslamods=Welche Tesla-Overlay Module sollen installiert werden?: 
-	if /i "%teslamods%"=="1" goto BOOTSOUNDNX
-	if /i "%teslamods%"=="2" goto EDIZON
-	if /i "%teslamods%"=="3" goto EMUIIBO
-	if /i "%teslamods%"=="4" goto FASTCFWSWITCH
-	if /i "%teslamods%"=="5" goto FIZEAU
-	if /i "%teslamods%"=="6" goto LDNMITM
-	if /i "%teslamods%"=="7" goto MISSIONCONTROL
-	if /i "%teslamods%"=="8" goto OVLSSYSMODULE
-	if /i "%teslamods%"=="9" goto STATMON
-	if /i "%teslamods%"=="10" goto SYSCLK
-	if /i "%teslamods%"=="11" goto SYSCLKEDIT
-	if /i "%teslamods%"=="12" goto SYSCON
-	if /i "%teslamods%"=="13" goto SYSDVR
-	if /i "%teslamods%"=="W" goto ABSCHLUSS
+	if /i "%teslamods%"=="1" GOTO bootsoundnx
+	if /i "%teslamods%"=="2" GOTO edizon
+	if /i "%teslamods%"=="3" GOTO emuiibo
+	if /i "%teslamods%"=="4" GOTO fastcfwswitch
+	if /i "%teslamods%"=="5" GOTO fizeau
+	if /i "%teslamods%"=="6" GOTO ldnmitm
+	if /i "%teslamods%"=="7" GOTO missioncontrol
+	if /i "%teslamods%"=="8" GOTO ovlssysmodule
+	if /i "%teslamods%"=="9" GOTO statmon
+	if /i "%teslamods%"=="10" GOTO sysclk
+	if /i "%teslamods%"=="11" GOTO sysclkedit
+	if /i "%teslamods%"=="12" GOTO syscon
+	if /i "%teslamods%"=="13" GOTO sysdvr
+	if /i "%teslamods%"=="W" GOTO fertisch
 
-:BOOTSOUNDNX
+REM =========================================================================
+:bootsoundnx
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:EDIZON
+REM =========================================================================
+:edizon
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:EMUIIBO
+REM =========================================================================
+:emuiibo
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:FASTCFWSWITCH
+REM =========================================================================
+:fastcfwswitch
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini")
-	goto TESLAMENUE
+	if exists "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (
+		xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini" /H /Y /C /R /S /E /I
+	)
+	GOTO teslamodular
 
-:FIZEAU
+REM =========================================================================
+:fizeau
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini")
-	goto TESLAMENUE
+	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
+		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
+	)
+	GOTO teslamodular
 
-:LDNMITM
+REM =========================================================================
+:ldnmitm
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:MISSIONCONTROL
+REM =========================================================================
+:missioncontrol
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:OVLSSYSMODULE
+REM =========================================================================
+:ovlssysmodule
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:STATMON
+REM =========================================================================
+:statmon
 	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:SYSCLK
+REM =========================================================================
+:sysclk
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:SYSCLKEDIT
+REM =========================================================================
+:sysclkedit
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:SYSCON
+REM =========================================================================
+:syscon
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:SYSDVR
+REM =========================================================================
+:sysdvr
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I
-	goto TESLAMENUE
+	GOTO teslamodular
 
-:ABSCHLUSS
+REM =========================================================================
+:fertisch
 echo ------------------------------------------------------------------------
 echo.
 echo                       Attribute werden korrigiert! 
@@ -820,9 +889,10 @@ cd %sd%:\
 rem Entfernen typischer MacOS Dateien (die sind ueberall die Bruedaz)
 if exist .DS_STORE del /s /q /f /a .DS_STORE
 if exist ._.* del /s /q /f /a ._.*
-goto ENDE
+GOTO endemutig
 
-:FALSCHESD
+REM =========================================================================
+:falschesdkarte
 cls
 COLOR 0C
 echo ------------------------------------------------------------------------
@@ -840,10 +910,11 @@ echo.
 set st=
 set /p st=:
 
-for %%A in ("J" "j" "1" "?" "?") do if "%st%"==%%A (GOTO ANFANG)
-for %%A in ("N" "n" "2" "?" "?") do if "%st%"==%%A (GOTO NEUEKARTE)
-for %%A in ("B" "b" "?" "?") do if "%st%"==%%A (GOTO ENDE)
+for %%A in ("J" "j" "1" "?" "?") do if "%st%"==%%A (GOTO anfang)
+for %%A in ("N" "n" "2" "?" "?") do if "%st%"==%%A (GOTO neuekarte)
+for %%A in ("B" "b" "?" "?") do if "%st%"==%%A (GOTO endemutig)
 
+REM =========================================================================
 :rembkp
 
 echo ------------------------------------------------------------------------
@@ -853,8 +924,8 @@ echo                             Bitte warten!
 echo.
 echo ------------------------------------------------------------------------
 
-if exist "%wd%" (RD /s /q "%wd%\*")
-goto ANFANG
+RD /s /q "%sd%:\_backup"
+GOTO anfang
 
 echo ------------------------------------------------------------------------
 echo.
@@ -863,10 +934,11 @@ echo                             Bitte warten!
 echo.
 echo ------------------------------------------------------------------------
 
-if exist "%wd%" (RD /s /q "%wd%\*")
-goto ANFANG
+RD /s /q "%sd%:\_backup"
+GOTO anfang
 
-:ENDE
+REM =========================================================================
+:endemutig
 echo. 
 cls
 COLOR 0A
