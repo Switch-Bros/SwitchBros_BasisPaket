@@ -117,22 +117,22 @@ exit
 REM =========================================================================
 :sbgibgas
 if exist "%sd%:\bootloader\hekate_ipl.ini" (
-	xcopy /Y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\bootloader\nyx.ini" (
-	xcopy /Y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\config\fastCFWSwitch\config.ini" (
-	xcopy /Y "%sd%:\config\fastCFWSwitch" "%sd%:\switchbros\backup\fastCFWSwitch" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\config\fastCFWSwitch" "%sd%:\switchbros\backup\fastCFWSwitch" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\config\Fizeau\config.ini" (
-	xcopy /Y "%sd%:\config\Fizeau" "%sd%:\switchbros\backup\Fizeau" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\config\Fizeau" "%sd%:\switchbros\backup\Fizeau" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\config\ftpd\config.ini" (
-	xcopy /Y "%sd%:\config\ftpd" "%sd%:\switchbros\backup\ftpd" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\config\ftpd" "%sd%:\switchbros\backup\ftpd" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\switch\tinfoil\locations.conf" (
-	xcopy /Y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil" /H /Y /C /R /S /E /I
 )
 
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
@@ -531,39 +531,33 @@ echo     1. Tinfoil im hbmenu (nicht neben anderen Spielen auf dem homescreen)
 echo.
 echo     2. Tinfoil auf dem homescreen (aktualisiert sich spaeter selbst)
 echo.
-echo     3. Ich will kein Tinfoil (Spiele manuell holen und installieren)
+echo     W = Kein Tinfoil (Spiele manuell holen und installieren)
 echo.
 echo ------------------------------------------------------------------------
 echo.
 
 set /p kindgerecht=Waehle deine Tinfoil Version: 
-	if /i "%kindgerecht%"=="1" GOTO tinfoilhbmenu
-	if /i "%kindgerecht%"=="2" GOTO tinfoilhome
-	if /i "%kindgerecht%"=="3" GOTO tinfoilnogo
-
-REM =========================================================================
-:tinfoilhbmenu
-xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\" /H /Y /C /R /S /E /I
-xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
-if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
-	xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
-)
-GOTO themepaket
-
-REM =========================================================================
-:tinfoilhome
-xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
-xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
-if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
-	xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
-)
-GOTO themepaket
-
-REM =========================================================================
-:tinfoilnogo
-if exists "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
-if exists "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp" (del "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp")
-GOTO themepaket
+	if /i "%kindgerecht%"=="1" (
+		xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\" /H /Y /C /R /S /E /I
+		xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
+		if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
+			xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
+		)
+	GOTO tinfoilhbmenu
+	)
+	if /i "%kindgerecht%"=="2" (
+		xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
+		xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
+		if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
+			xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
+		)
+	GOTO tinfoilhbmenu
+	)
+	if /i "%kindgerecht%"=="W" (
+		if exists "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
+		if exists "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp" (del "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp")
+		GOTO themepaket
+	)
 
 REM =========================================================================
 :themepaket
@@ -582,16 +576,16 @@ echo     Icongrabber = Verbinde dich ueber die steamgriddb.com Seite und
 echo                   hole dir dein Lieblings-Icon (Steam API wird benoetigt)! 
 echo     sys-tweak = Wird fuer Vertikale und horzontale Icons benoetigt! 
 echo.
-echo     1 = ThemeApps_Paket installieren!
+echo     Ja = ThemeApps_Paket installieren!
 echo.
-echo     2 = Kein ThemeApps_Paket / Ueberspringen und Weiter! 
+echo     Nein = Kein ThemeApps_Paket / Ueberspringen und Weiter! 
 echo.
 echo ------------------------------------------------------------------------
 echo.
 
 set /p themepaket=Sollen die ThemeApps installiert werden: 
-	if /i "%themepaket%"=="1" GOTO themepaketinst
-	if /i "%themepaket%"=="2" GOTO systemmodule
+	if /i "%themepaket%"=="Ja" GOTO themepaketinst
+	if /i "%themepaket%"=="Nein" GOTO systemmodule
 
 REM =========================================================================
 :themepaketinst
