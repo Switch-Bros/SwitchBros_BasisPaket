@@ -68,13 +68,6 @@ REM =========================================================================
 if not exist "%sd%:\boot.dat" (if exist "%sd%:\atmosphere" (set bootdat=0))
 if not exist "%sd%:\atmosphere\contents\690000000000000D\flags\boot2.flag" (set syscon=0)
 if not exist "%sd%:\atmosphere\contents\010000000000bd00\flags\boot2.flag" (set missioncontrol=0)
-if not exist "%sd%:\switchbros\backup" (
-	md "%sd%:\switchbros\backup"
-	md "%sd%:\switchbros\backup\fastCFWSwitch"
-	md "%sd%:\switchbros\backup\Fizeau"
-	md "%sd%:\switchbros\backup\Tinfoil"
-	md "%sd%:\switchbros\backup\ftpd"
-)
 
 echo.
 cls
@@ -117,22 +110,22 @@ exit
 REM =========================================================================
 :sbgibgas
 if exist "%sd%:\bootloader\hekate_ipl.ini" (
-	xcopy "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup\hekate_ipl.ini" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\bootloader\nyx.ini" (
-	xcopy "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\nyx.ini" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\config\fastCFWSwitch\config.ini" (
-	xcopy "%sd%:\config\fastCFWSwitch" "%sd%:\switchbros\backup\fastCFWSwitch" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\config.ini" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\config\Fizeau\config.ini" (
-	xcopy "%sd%:\config\Fizeau" "%sd%:\switchbros\backup\Fizeau" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\config.ini" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\config\ftpd\config.ini" (
-	xcopy "%sd%:\config\ftpd" "%sd%:\switchbros\backup\ftpd" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\config\ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\config.ini" /H /Y /C /R /S /E /I
 )
 if exist "%sd%:\switch\tinfoil\locations.conf" (
-	xcopy "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil" /H /Y /C /R /S /E /I
+	xcopy "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\locations.conf" /H /Y /C /R /S /E /I
 )
 
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
@@ -286,9 +279,6 @@ if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
 if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 if exist "%sd%:\switch\dbi\dbi.nro" (del "%sd%:\switch\dbi\dbi.nro")
-if exist "%sd%:\switch\dbi\dbi.config" (
-	xcopy /Y "%sd%:\switch\dbi\dbi.config" "%sd%:\switchbros\backup\dbi.config" /H /Y /C /R /S /E /I
-)
 if exist "%sd%:\switch\dbi\dbi.config" (del "%sd%:\switch\dbi\dbi.config")
 
 REM =========================================================================
@@ -527,9 +517,9 @@ echo     Solltest du Kinder haben, und NICHT wollen das die App = Tinfoil
 echo     auf dem homescreen erscheint (empfohlen), dann kannst du hier
 echo     auswaehlen welche Version von Tinfoil installiert werden soll!
 echo.
-echo     1. Tinfoil im hbmenu (nicht neben anderen Spielen auf dem homescreen)
+echo     1 = Tinfoil im hbmenu (nicht neben anderen Spielen auf dem homescreen)
 echo.
-echo     2. Tinfoil auf dem homescreen (aktualisiert sich spaeter selbst)
+echo     2 = Tinfoil auf dem homescreen (aktualisiert sich spaeter selbst)
 echo.
 echo     W = Kein Tinfoil (Spiele manuell holen und installieren)
 echo.
@@ -543,7 +533,6 @@ set /p kindgerecht=Waehle deine Tinfoil Version:
 		if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
 			xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
 		)
-	GOTO tinfoilhbmenu
 	)
 	if /i "%kindgerecht%"=="2" (
 		xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
@@ -551,12 +540,10 @@ set /p kindgerecht=Waehle deine Tinfoil Version:
 		if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
 			xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
 		)
-	GOTO tinfoilhbmenu
 	)
 	if /i "%kindgerecht%"=="W" (
 		if exists "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
 		if exists "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp" (del "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp")
-		GOTO themepaket
 	)
 
 REM =========================================================================
@@ -576,21 +563,20 @@ echo     Icongrabber = Verbinde dich ueber die steamgriddb.com Seite und
 echo                   hole dir dein Lieblings-Icon (Steam API wird benoetigt)! 
 echo     sys-tweak = Wird fuer Vertikale und horzontale Icons benoetigt! 
 echo.
-echo     Ja = ThemeApps_Paket installieren!
+echo     1 = ThemeApps_Paket installieren!
 echo.
-echo     Nein = Kein ThemeApps_Paket / Ueberspringen und Weiter! 
+echo     W = Kein ThemeApps_Paket / Ueberspringen und Weiter! 
 echo.
 echo ------------------------------------------------------------------------
 echo.
 
 set /p themepaket=Sollen die ThemeApps installiert werden: 
-	if /i "%themepaket%"=="Ja" GOTO themepaketinst
-	if /i "%themepaket%"=="Nein" GOTO systemmodule
+	if /i "%themepaket%"=="1" GOTO themepaketinst
+	if /i "%themepaket%"=="W" GOTO systemmodule
 
 REM =========================================================================
 :themepaketinst
-    xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
-	GOTO systemmodule
+xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
 
 REM =========================================================================
 :systemmodule
@@ -602,11 +588,11 @@ echo     Das Tesla Overlay Menue wird aufgerufen mit:
 echo.
 echo                          ZL + ZR + PLUS Taste 
 echo.
-echo 1. - Tesla-Overlay mit allen Modulen (nicht empfohlen)!
-echo 2. - Tesla-Overlay mit Standard SwitchBros Modulen (empfohlen wenn unsicher)!
-echo 3. - Tesla-Overlay mit einzeln ausgewaehlten Modulen (empfohlen)!
+echo 1 = Tesla-Overlay mit allen Modulen (nicht empfohlen)!
+echo 2 = Tesla-Overlay mit Standard SwitchBros Modulen (empfohlen wenn unsicher)!
+echo 3 = Tesla-Overlay mit einzeln ausgewaehlten Modulen (empfohlen)!
 echo.
-echo 4. - Kein Tesla-Overlay / Ueberspringen und Weiter!
+echo W = Kein Tesla-Overlay / Ueberspringen und Weiter!
 echo.
 echo ------------------------------------------------------------------------
 echo.
@@ -615,7 +601,7 @@ set /p sysmod=Welches Tesla-Overlay soll installiert werden?:
 	if /i "%sysmod%"=="1" GOTO teslakomplett
 	if /i "%sysmod%"=="2" GOTO teslaminimal
 	if /i "%sysmod%"=="3" GOTO teslamodintro
-	if /i "%sysmod%"=="4" GOTO fertisch
+	if /i "%sysmod%"=="W" GOTO fertisch
 
 REM =========================================================================
 :teslakomplett
@@ -624,9 +610,6 @@ REM =========================================================================
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (
-		xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini" /H /Y /C /R /S /E /I
-	)
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
 	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
 		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
@@ -647,9 +630,6 @@ REM =========================================================================
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (
-		xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini" /H /Y /C /R /S /E /I
-	)
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
 	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
 		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
@@ -664,8 +644,7 @@ REM =========================================================================
 
 REM =========================================================================
 :teslamodintro
-	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
-	GOTO teslamodular
+xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
 
 REM =========================================================================
 :teslamodular
