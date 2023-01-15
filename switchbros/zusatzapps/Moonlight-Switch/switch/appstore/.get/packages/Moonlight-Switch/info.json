@@ -1,0 +1,11 @@
+{
+  "title": "Moonlight-Switch",
+  "author": "XITRIX",
+  "category": "tool",
+  "version": "0.12.1",
+  "url": "https://github.com/XITRIX/Moonlight-Switch/releases",
+  "license": "GPLv3",
+  "description": "Moonlight port for Nintendo Switch",
+  "details": "Moonlight-Switch is a port of Moonlight Game Streaming Project for Nintendo Switch.\\n\\nControls:\\n- Mouse\\nWith touch screen you can move your coursor, tap to left click, scroll 2 fingers to scroll.\\n\\nWhile touching screen ZR and ZL buttons will work like left and right mouse buttons.\\n\\nAlso While touching screen L and R sticks will work like scrolling wheel.\\n\\nUSB mouse working as well.\\n\\n- Keyboard\\nYou can use onscreen keyboard, tap 3 fingers on screen to show it.\\n\\nUSB keyboard working as well.\\n\\n- Gamepad\\nBy default Switch gamepad configured as X360 gamepad (A/B and X/Y swapped). Key mapping availale in application settings.\\n\\nUp to 5 gamepads (includes handheld mode) supported. Half of joycons are also supported.\\n\\n- Ingame overlay\\nTo open overlay, press - and + key simultaneously by default or Hold ESC on keyboard.\\n\\nKey combination and holding time are configurable in settings.",
+  "changelog": "0.12.1\\n\\nAdded Korean localization\\nFixed Chinese localication\\n\\n0.12\\n\\nMoonlight-Core version updated\\nApp recompiled with latest versions of NXKit toolkits\\n\\n0.11\\n\\n- Multiply controller support\\n- Key combo for Mouse input mode\\n- Chinese simplified localization\\n- About app page\\n- New touch to mouse gestures (tap as left click, 2 finger scroll)\\n- Reduced memory leaks\\n- Minor bugs fixed\\n\\n0.10\\n\\n- Keys mapping layouts\\n- Also minor improvements and bugfixes"
+}

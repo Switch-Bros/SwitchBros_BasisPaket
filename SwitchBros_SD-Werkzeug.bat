@@ -17,39 +17,30 @@ set missioncontrol=1
 set bootdat=1
 set payloadbin=1
 
-set sd=%1
-if not defined %sd% (GOTO anfang)
+REM set sd=%1
+REM if not defined %sd% (GOTO anfang)
+
+REM =========================================================================
+:willkommen
+type "%~dp0SwitchBros.txt"
+pause>nul 2>&1
 
 REM =========================================================================
 :neuekarte
 echo.
 cls
-echo ------------------------------------------------------------------------
-echo.
-echo                             Willkommen zum
-echo.
-echo                       ..--== Switch Bros. ==--..
-echo.
-echo                        SD-Werkzeug fuer Windows
-echo.
-echo     Switch Bros. - The Switch Hacking, Modding and Themes Community!
-echo.
-echo ------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------
 echo                     - WARNUNG - WARNUNG - WARNUNG -
 echo. 
 echo   Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus
 echo   gestartet hast, dann schliesse es bitte sofort!
 echo. 
 echo   Starte die SD-Werkzeug.bat NUR aus dem "Basis" Ordner von deinem PC!
-echo ------------------------------------------------------------------------
-echo.
-echo   Schritt 1 = Stecke deine SD-Karte in deinen PC
-echo   Schritt 2 = Navigiere zum Basis Ordner auf deinem PC und fuehre dort
-echo               diese Datei hier aus (SD-Werkzeug.bat)
+echo --------------------------------------------------------------------------------
 echo.
 echo   Bitte gib (NUR) den Laufwerksbuchstaben deiner SD-Karte ein
 echo.
-echo ------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------
 echo.
 
 for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
@@ -65,7 +56,7 @@ if not exist "%sd%:\" (
 
 REM =========================================================================
 :anfang
-if not exist "%sd%:\boot.dat" (if exist "%sd%:\atmosphere" (set bootdat=0))
+if not exist "%sd%:\payload.bin" (if exist "%sd%:\atmosphere" (set bootdat=0))
 if not exist "%sd%:\atmosphere\contents\690000000000000D\flags\boot2.flag" (set syscon=0)
 if not exist "%sd%:\atmosphere\contents\010000000000bd00\flags\boot2.flag" (set missioncontrol=0)
 
@@ -109,24 +100,12 @@ exit
 
 REM =========================================================================
 :sbgibgas
-if exist "%sd%:\bootloader\hekate_ipl.ini" (
-	xcopy "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup\hekate_ipl.ini" /H /Y /C /R /S /E /I
-)
-if exist "%sd%:\bootloader\nyx.ini" (
-	xcopy "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\nyx.ini" /H /Y /C /R /S /E /I
-)
-if exist "%sd%:\config\fastCFWSwitch\config.ini" (
-	xcopy "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\config.ini" /H /Y /C /R /S /E /I
-)
-if exist "%sd%:\config\Fizeau\config.ini" (
-	xcopy "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\config.ini" /H /Y /C /R /S /E /I
-)
-if exist "%sd%:\config\ftpd\config.ini" (
-	xcopy "%sd%:\config\ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\config.ini" /H /Y /C /R /S /E /I
-)
-if exist "%sd%:\switch\tinfoil\locations.conf" (
-	xcopy "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\locations.conf" /H /Y /C /R /S /E /I
-)
+if exist "%sd%:\bootloader\hekate_ipl.ini" (copy /y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup\hekate_ipl.ini")
+if exist "%sd%:\bootloader\nyx.ini" (copy /y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\nyx.ini")
+if exist "%sd%:\config\fastCFWSwitch\config.ini" (copy /y "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\config.ini")
+if exist "%sd%:\config\Fizeau\config.ini" (copy /y "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\config.ini")
+if exist "%sd%:\config\ftpd\config.ini" (copy /y "%sd%:\config\ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\config.ini")
+if exist "%sd%:\switch\tinfoil\locations.conf" (copy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\locations.conf")
 
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
@@ -243,7 +222,6 @@ if exist "%sd%:\*.bin" (del "%sd%:\*.bin")
 if exist "%sd%:\*.txt" (del "%sd%:\*.txt")
 if exist "%sd%:\*.dat" (del "%sd%:\*.dat")
 if exist "%sd%:\*.log" (del "%sd%:\*.log")
-
 if exist "%sd%:\*sxos*" (RD /s /q  "%sd%:\*sxos*")
 
 if exist "%sd%:\switch\*amsPack*" (RD /s /q "%sd%:\switch\*amsPack*")
@@ -521,30 +499,33 @@ echo     1 = Tinfoil im hbmenu (nicht neben anderen Spielen auf dem homescreen)
 echo.
 echo     2 = Tinfoil auf dem homescreen (aktualisiert sich spaeter selbst)
 echo.
-echo     W = Kein Tinfoil (Spiele manuell holen und installieren)
+echo     W = Kein Tinfoil (Spiele manuell holen und installieren, zb mit DBI)
 echo.
 echo ------------------------------------------------------------------------
 echo.
-
 set /p kindgerecht=Waehle deine Tinfoil Version: 
-	if /i "%kindgerecht%"=="1" (
-		xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\" /H /Y /C /R /S /E /I
-		xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
-		if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
-			xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
-		)
-	)
-	if /i "%kindgerecht%"=="2" (
-		xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
-		xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs" /H /Y /C /R /S /E /I
-		if exists "%sd%:\switchbros\backup\Tinfoil\locations.conf" (
-			xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\locations.conf" /H /Y /C /R /S /E /I
-		)
-	)
-	if /i "%kindgerecht%"=="W" (
-		if exists "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
-		if exists "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp" (del "%sd%:\NSPs\Tinfoil[050000BADDAD0000][15.0][v0].nsp")
-	)
+	if /i "%kindgerecht%"=="1" GOTO tinfoila
+	if /i "%kindgerecht%"=="2" GOTO tinfoilb
+	if /i "%kindgerecht%"=="W" GOTO tinfoilno
+
+:tinfoila
+xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\" /H /Y /C /R /S /E /I
+GOTO themepaket
+
+:tinfoilb
+xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\" /H /Y /C /R /S /E /I
+GOTO themepaket
+
+:tinfoilno
+RD /s /q "%sd%:\switch\tinfoil"
+del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp"
+GOTO themepaket
 
 REM =========================================================================
 :themepaket
@@ -611,9 +592,7 @@ REM =========================================================================
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
-		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
-	)
+	xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I
@@ -631,9 +610,7 @@ REM =========================================================================
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
-		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
-	)
+	xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I
@@ -657,21 +634,21 @@ echo     Das Tesla-Overlay ist bereits installiert!
 echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt! 
 echo.
-echo 1.  BootSoundNX (Bootsound.mp3 beim Starten der Switch abspielen)
-echo 2.  Edizon (cheat app)
-echo 3.  emuiibo (damit kann man virtuelle amiibos nutzen)
-echo 4.  fastCFWswitch (ein launcher in alle Systeme (nicht fuer Modchip))
-echo 5.  Fizeau ()
-echo 6.  ldn_mitm (LAN-Play (Lokal mit anderen online spielen))
-echo 7.  MissionControl (Controller mit echtem Bluetooth an der Switch nutzen)
-echo 8.  ovlSysmodule
-echo 9.  Status-Monitor-Overlay (zeigt einige Werte deiner Switch an (zum Beenden L3 + R3 druecken))
-echo 10. sys-clk (app zum Uebertakten aber auch Untertakten)
-echo 11. sys-clk-Editor (damit kann man neue Werte in die config.ini von sys-clk eintragen)
-echo 12. sys-con (fremd Controller ueber USB nutzen)
-echo 13. SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
+echo  1 = BootSoundNX (Bootsound.mp3 beim Starten der Switch abspielen)
+echo  2 = Edizon (cheat app)
+echo  3 = emuiibo (damit kann man virtuelle amiibos nutzen)
+echo  4 = fastCFWswitch (ein launcher in alle Systeme (nicht fuer Modchip))
+echo  5 = Fizeau (mit den richtigen Einstellungen sieht der v1 Bildschirm aus wie OLED)
+echo  6 = ldn_mitm (LAN-Play (Lokal mit anderen online spielen))
+echo  7 = MissionControl (Controller mit echtem Bluetooth an der Switch nutzen)
+echo  8 = ovlSysmodule (damit kannst du im Overlay module aktivieren/deaktivieren)
+echo  9 = Status-Monitor-Overlay (zeigt einige Werte deiner Switch an (zum Beenden L3 + R3 druecken))
+echo 10 = sys-clk (app zum Uebertakten aber auch Untertakten)
+echo 11 = sys-clk-Editor (damit kann man neue Werte in die config.ini von sys-clk eintragen)
+echo 12 = sys-con (fremd Controller ueber USB nutzen)
+echo 13 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
 echo.
-echo W = Weiter
+echo  W = Weiter
 echo.
 echo ------------------------------------------------------------------------
 echo.
@@ -711,17 +688,12 @@ REM =========================================================================
 REM =========================================================================
 :fastcfwswitch
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (
-		xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\config.ini" /H /Y /C /R /S /E /I
-	)
 	GOTO teslamodular
 
 REM =========================================================================
 :fizeau
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I
-	if exists "%sd%:\switchbros\backup\Fizeau\config.ini" (
-		xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
-	)
+	xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I
 	GOTO teslamodular
 
 REM =========================================================================

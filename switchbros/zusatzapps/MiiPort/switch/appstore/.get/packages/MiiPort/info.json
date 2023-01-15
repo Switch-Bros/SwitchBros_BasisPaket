@@ -1,0 +1,11 @@
+{
+  "title": "MiiPort",
+  "author": "Genwald",
+  "category": "tool",
+  "version": "0.1.1",
+  "url": "https://github.com/Genwald/MiiPort",
+  "license": "",
+  "description": "A tool for importing and exporting Miis.",
+  "details": "Imports and exports Miis in multiple formats, including QR codes.\\nPlace Mii character files in \"sd:/MiiPort/Miis/\" with a file extension that corresponds to their format.\\nCurrently supported import formats include:\\n- jpeg images of Mii QR codes\\n-- requires the Mii QR key\\n- charinfo\\n-- can also use the .bin extension\\n- NFIF\\n-- can also use the .dat extension\\n- coredata\\n- storedata\\nNote: Only switch versions of these formats are supported. For importing from previous consoles, use a QR code.",
+  "changelog": ""
+}

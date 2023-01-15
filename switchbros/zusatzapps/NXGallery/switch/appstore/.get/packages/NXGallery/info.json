@@ -1,0 +1,11 @@
+{
+  "title": "NXGallery",
+  "author": "iUltimateLP",
+  "category": "tool",
+  "version": "2.0.0",
+  "url": "https://github.com/iUltimateLP/NXGallery/releases",
+  "license": "MIT",
+  "description": "View your album from your phone or PC.",
+  "details": "NXGallery is a Nintendo Switch Homebrew Application to transfer your screenshots or videos to your phone or PC in no-time. Simply run this app and enter the address prompted on the screen in your web browser and et voilà, you can share your favourite moments!",
+  "changelog": "2.0.0\\n\\nThis is a huge rework of the existing NXGallery project.\\n\\n* a complete new UI which adapts to the Switch visuals, and your preferred color scheme\\n* a scannable QR code to simplify the connection between the Switch and your smartphone\\n* a faster and more optimized web frontend which will not load all full images anymore but only thumbnails\\n* a new way of accessing the media files - all bugs regarding file-based emuMMC or different configurations should be fixed now\\n* ...and more technical stuff"
+}
