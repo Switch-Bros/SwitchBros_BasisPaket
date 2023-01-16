@@ -433,6 +433,8 @@ echo 6 = Basis + Android + LAKKA
 echo 7 = Basis + Android + Linux + LAKKA
 echo 8 = Basis + Linux + LAKKA
 echo.
+echo     W = System(e) sind gewaehlt, weiter im Skript
+echo.
 echo --------------------------------------------------------------------------------
 echo     H = Zurueck zum Hauptmenue
 echo --------------------------------------------------------------------------------
@@ -448,6 +450,7 @@ if /i "%eingabe%"=="5" GOTO androidlinux
 if /i "%eingabe%"=="6" GOTO androidlakka
 if /i "%eingabe%"=="7" GOTO androidlinuxlakka
 if /i "%eingabe%"=="8" GOTO linuxlakka
+if /i "%eingabe%"=="W" GOTO kindgerecht
 if /i "%eingabe%"=="H" GOTO hauptmenue
 
 REM ================================================================================
@@ -455,23 +458,23 @@ REM ============================================================================
 if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I)
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :nurbasissystem
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :androidpartition
 xcopy "%sd%:\switchbros\system\ba\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :linuxpartition
 echo --------------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+�ter nutzen?
+echo Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -486,18 +489,18 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\bu\arch\*" "%sd%:\" /H /Y /C
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\bu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :lakkapartition
 xcopy "%sd%:\switchbros\system\bl\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :androidlinux
 echo --------------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+�ter nutzen?
+echo Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -512,18 +515,18 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\bau\arch\*" "%sd%:\" /H /Y /
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\bau\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bau\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bau\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :androidlakka
 xcopy "%sd%:\switchbros\system\bal\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :androidlinuxlakka
 echo --------------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+�ter nutzen?
+echo Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -538,13 +541,13 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\balu\arch\*" "%sd%:\" /H /Y 
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\balu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\balu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\balu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :linuxlakka
 echo --------------------------------------------------------------------------------
 echo.
-echo Welche der vier Linux Distributionen wirst du sp+�ter nutzen?
+echo Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
 echo A = Arch Linux
 echo B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
@@ -559,7 +562,7 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\blu\arch\*" "%sd%:\" /H /Y /
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\blu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\blu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\blu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
-GOTO kindgerecht
+GOTO systempartitionen
 
 REM ================================================================================
 :kindgerecht
@@ -708,6 +711,34 @@ REM ============================================================================
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I
+	RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
+	RD /s /q "%sd%:\config\BootSoundNX"
+	RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000"
+	RD /s /q "%sd%:\atmosphere\contents\010000000000000D"
+	RD /s /q "%sd%:\atmosphere\contents\0100000000001013"
+	RD /s /q "%sd%:\switch\EdiZon"
+	RD /s /q "%sd%:\switch\breeze"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
+	del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
+	RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
+	RD /s /q "%sd%:\emuiibo"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
+	del "%sd%:\switch\.overlays\2_emuiibo.ovl"
+	RD /s /q "%sd%:\atmosphere\contents\0100000000000F12"
+	RD /s /q "%sd%:\config\Fizeau"
+	RD /s /q "%sd%:\switch\Fizeau"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau"
+	del "%sd%:\switch\.overlays\5_Fizeau.ovl"
+	RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
+	RD /s /q "%sd%:\switch\ldn_mitm_config"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
+	del "%sd%:\switch\.overlays\1_ldnmitm_config"
+	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
+	RD /s /q "%sd%:\config\sysdvr"
+	RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
+	RD /s /q "%sd%:\switch\SysDVR-conf"
 	GOTO attributeundmac
 
 REM ================================================================================
