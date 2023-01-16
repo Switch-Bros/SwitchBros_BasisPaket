@@ -83,11 +83,12 @@ echo.
 cls
 echo --------------------------------------------------------------------------------
 echo.
-echo          Dein altes Paket (egal welches) wird jetzt bereinigt!
-echo.
-echo          Du entscheidest wie es weiter geht Neo!
+echo    Neue SD-Karte oder zum SwitchBros Paket wechseln? 
+echo    Bitte das ganze Skript komplett durchgehen! Danke!
 echo.
 echo    1 = SD-Karte bereinigen und zum SwitchBros. Paket wechseln!
+echo.
+echo --------------------------------------------------------------------------------
 echo.
 echo    2 = Backup Ordner auf deinem PC erstellen (fuer BOOT0, BOOT1, RAW GPP und KEYS)!
 echo.
@@ -107,9 +108,7 @@ echo    9 = Volle USB3 Geschwindigkeit in die Registry eintragen lassen!
 echo.
 echo.
 echo    F = Ich moechte mein altes Paket doch behalten!
-echo.
 echo    B = Dieses Skript Beenden!
-echo.
 echo --------------------------------------------------------------------------------
 echo.
 
