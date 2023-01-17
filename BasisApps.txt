@@ -2,10 +2,10 @@ Basiert auf:
 
 Hekate 6.0.1 + Nyx 1.5.1
 SwitchBros-O-sphere 1.4.0 commit -7de9a3e47 + hbl-2.4.3 + hbmenu-3.5.1
-TeslaExplorer 4.1.0 (deutsch)
-Lockpick_RCM 1.9.9
+TeslaExplorer 4.1.0 (Deutsch)
+Lockpick_RCM 1.9.9 (Deutsch)
 
-== Apps
+== Basis Apps
 
 90DNS Tester 1.0.4
 SwitchBros Updater 2.21.3-SB
@@ -32,3 +32,24 @@ sys-clk 1.0.2
 sys-clk-Overlay 1.1
 sys-con 0.6.4
 Tesla-Menu 1.2
+
+== Mögliche Zusatz Apps
+
+Amiibo Generator 1.4.0
+Amiigo 2.3.1
+Chiaki 2.1.1
+Fake-08 0.0.2.19
+GoldLeaf 0.10
+Homebrew-Details 1.05
+MelonDS release6fix1
+MiiPort 0.1.1
+Moonlight-Switch 0.12.1
+Neumann 0.0.21
+NX-Activity-Log 1.4.0
+NX-Locale-Switcher 1.1.2
+NX-Shell 4.01
+NXGallery 2.0.0
+NXMP v0.6.3 Rev 7
+Switch-Remote-Play 1.0.0
+TencentSwitcherGUI 0.1.2
+Vgedit 2.1
