@@ -94,7 +94,7 @@ echo    2 = Backup Ordner auf deinem PC erstellen (fuer BOOT0, BOOT1, RAW GPP un
 echo.
 echo    3 = Gib deine Systempartitionen an (Linux, LAKKA, Android)!
 echo.
-echo    4 = Kinder-Modus einrichten (verstecken von Apps)!
+echo    4 = Kinder-Modus einrichten (verstecken von Apps zb Tinfoil)!
 echo.
 echo    5 = ThemeApps Paket installieren/deinstallieren!
 echo.
@@ -212,7 +212,9 @@ if exist "%sd%:\atmosphere\fatal_errors" (RD /s /q "%sd%:\atmosphere\fatal_error
 if exist "%sd%:\atmosphere\fatal_reports" (RD /s /q "%sd%:\atmosphere\fatal_reports")
 if exist "%sd%:\atmosphere\flags" (RD /s /q "%sd%:\atmosphere\flags")
 if exist "%sd%:\atmosphere\hosts" (RD /s /q  "%sd%:\atmosphere\hosts")
+if exist "%sd%:\atmosphere\kips" (RD /s /q  "%sd%:\atmosphere\kips")
 if exist "%sd%:\atmosphere\kip_patches" (RD /s /q "%sd%:\atmosphere\kip_patches")
+if exist "%sd%:\atmosphere\hekate_kips" (RD /s /q "%sd%:\atmosphere\hekate_kips")
 if exist "%sd%:\atmosphere\logs" (RD /s /q  "%sd%:\atmosphere\logs")
 
 if exist "%sd%:\atmosphere\package3" (del "%sd%:\atmosphere\package3")
@@ -294,24 +296,40 @@ if exist "%sd%:\atmosphere\contents\5600000000000000" (RD /s /q "%sd%:\atmospher
 if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /s /q "%sd%:\atmosphere\contents\690000000000000D")
 
 REM ======= BOOTLOADER ORDNER ======================================================
+if exist "%sd%:\bootloader\debug" (RD /s /q "%sd%:\bootloader\debug")
 if exist "%sd%:\bootloader\sys" (RD /s /q "%sd%:\bootloader\sys")
+if exist "%sd%:\bootloader\*.bmp" (del "%sd%:\bootloader\*.bmp")
+if exist "%sd%:\bootloader\*.ini" (del "%sd%:\bootloader\*.ini")
+if exist "%sd%:\bootloader\nyx.ini_" (del "%sd%:\bootloader\nyx.ini")
+if exist "%sd%:\bootloader\*.bin" (del "%sd%:\bootloader\*.bin")
+if exist "%sd%:\bootloader\*.sig" (del "%sd%:\bootloader\*.sig")
+
 if exist "%sd%:\bootloader\payloads\hekate_ctcaer_*.bin" (del "%sd%:\bootloader\payloads\hekate_ctcaer_*.bin")
 if exist "%sd%:\bootloader\payloads\Incognito*.bin" (del "%sd%:\bootloader\payloads\Incognito*.bin")
+if exist "%sd%:\bootloader\payloads\fusee-primary-payload.bin" (del "%sd%:\bootloader\payloads\fusee-primary-payload.bin")
+if exist "%sd%:\bootloader\payloads\biskeydump.bin" (del "%sd%:\bootloader\payloads\biskeydump.bin")
+if exist "%sd%:\bootloader\payloads\fusee-payload.bin" (del "%sd%:\bootloader\payloads\fusee-payload.bin")
+if exist "%sd%:\bootloader\payloads\fusee-primary.bin" (del "%sd%:\bootloader\payloads\fusee-primary.bin")
+if exist "%sd%:\bootloader\payloads\sxos.bin" (del "%sd%:\bootloader\payloads\sxos.bin")
+if exist "%sd%:\bootloader\payloads\rajnx_ipl.bin" (del "%sd%:\bootloader\payloads\rajnx_ipl.bin")
+
 if exist "%sd%:\bootloader\ini\!kefir_updater.ini" (del "%sd%:\bootloader\ini\!kefir_updater.ini")
 if exist "%sd%:\bootloader\ini\kefir_updater.ini" (del "%sd%:\bootloader\ini\kefir_updater.ini")
 if exist "%sd%:\bootloader\ini\fullstock.ini" (del "%sd%:\bootloader\ini\fullstock.ini")
-if exist "%sd%:\bootloader\bootlogo.bmp" (del "%sd%:\bootloader\bootlogo.bmp")
-if exist "%sd%:\bootloader\bootlogo_kefir.bmp" (del "%sd%:\bootloader\bootlogo_kefir.bmp")
-if exist "%sd%:\bootloader\updating.bmp" (del "%sd%:\bootloader\updating.bmp")
-if exist "%sd%:\bootloader\hekate_ipl.ini" (del "%sd%:\bootloader\")
-if exist "%sd%:\bootloader\hekate_ipl_.ini" (del "%sd%:\bootloader\")
-if exist "%sd%:\bootloader\nyx.ini" (del "%sd%:\bootloader\nyx.ini")
-if exist "%sd%:\bootloader\nyx.ini_" (del "%sd%:\bootloader\nyx.ini")
-if exist "%sd%:\bootloader\patches.ini" (del "%sd%:\bootloader\patches.ini")
-if exist "%sd%:\bootloader\update.bin" (del "%sd%:\bootloader\update.bin")
+if exist "%sd%:\bootloader\ini\Atmosphere.ini" (del "%sd%:\bootloader\ini\Atmosphere.ini")
+if exist "%sd%:\bootloader\ini\atmosphere.ini" (del "%sd%:\bootloader\ini\atmosphere.ini")
+if exist "%sd%:\bootloader\ini\sxos.ini" (del "%sd%:\bootloader\ini\sxos.ini")
+if exist "%sd%:\bootloader\ini\hekate_keys.ini" (del "%sd%:\bootloader\ini\hekate_keys.ini")
+if exist "%sd%:\bootloader\ini\RajNX.ini" (del "%sd%:\bootloader\ini\RajNX.ini")
+
+if exist "%sd%:\bootloader\res\icon_payload.bmp" (del "%sd%:\bootloader\res\icon_payload.bmp")
+if exist "%sd%:\bootloader\res\icon_switch.bmp" (del "%sd%:\bootloader\res\icon_switch.bmp")
 
 REM ======= CONFIG ORDNER ==========================================================
-if exist "%sd%:\config\amsPACK-Downloader" (RD /s /q "%sd%:\config\amsPACK-Downloader")
+if exist "%sd%:\config\amsPACK*" (RD /s /q "%sd%:\config\amsPACK*")
+if exist "%sd%:\config\fw-downloader" (RD /s /q "%sd%:\config\fw-downloader")
+if exist "%sd%:\config\luigi-theme-updater" (RD /s /q "%sd%:\config\luigi-theme-updater")
+if exist "%sd%:\config\mario-theme-updater" (RD /s /q "%sd%:\config\mario-theme-updater")
 if exist "%sd%:\config\sys-ftpd" (RD /s /q "%sd%:\config\sys-ftpd")
 if exist "%sd%:\config\aio-switch-updater" (RD /s /q "%sd%:\config\\aio-switch-updater")
 if exist "%sd%:\config\btred" (RD /s /q "%sd%:\config\btred")
@@ -324,43 +342,62 @@ REM ======= SD-KARTEN ROOT =====================================================
 if exist "%sd%:\modules" (RD /s /q "%sd%:\modules")
 if exist "%sd%:\NSPs" (RD /s /q "%sd%:\NSPs")
 if exist "%sd%:\firmware*" (RD /s /q "%sd%:\firmware*")
-if exist "%sd%:\Custom*" (RD /s /q "%sd%:\Custom*")
+if exist "%sd%:\Custom" (RD /s /q "%sd%:\Custom")
 if exist "%sd%:\SaltySD" (RD /s /q "%sd%:\SaltySD")
 if exist "%sd%:\atmo" (RD /s /q "%sd%:\atmo")
 if exist "%sd%:\ams" (RD /s /q "%sd%:\ams")
 if exist "%sd%:\scripts" (RD /s /q "%sd%:\scripts")
 if exist "%sd%:\music" (RD /s /q "%sd%:\music")
-if exist "%sd%:\tools*" (RD /s /q "%sd%:\tools*")
+if exist "%sd%:\tools" (RD /s /q "%sd%:\tools")
 if exist "%sd%:\games" (RD /s /q "%sd%:\games")
 if exist "%sd%:\pegascape" (RD /s /q "%sd%:\pegascape")
 if exist "%sd%:\TinGen" (RD /s /q "%sd%:\TinGen")
 if exist "%sd%:\sept" (RD /s /q  "%sd%:\sept")
 if exist "%sd%:\.git" (RD /s /q "%sd%:\.git")
-if exist "%sd%:\hbmenu.nro" (del "%sd%:\hbmenu.nro")
-if exist "%sd%:\startup.te" (del "%sd%:\startup.te")
+if exist "%sd%:\*.nro" (del "%sd%:\hbmenu.nro")
+if exist "%sd%:\*.te" (del "%sd%:\startup.te")
 if exist "%sd%:\*.ini" (del "%sd%:\*.ini")
 if exist "%sd%:\*.bin" (del "%sd%:\*.bin")
 if exist "%sd%:\*.txt" (del "%sd%:\*.txt")
 if exist "%sd%:\*.dat" (del "%sd%:\*.dat")
 if exist "%sd%:\*.log" (del "%sd%:\*.log")
-if exist "%sd%:\sxos*" (RD /s /q  "%sd%:\sxos*")
+if exist "%sd%:\sxos" (RD /s /q  "%sd%:\sxos")
 
 REM ======= SWITCH ORDNER ==========================================================
-if exist "%sd%:\switch\amsPack*" (RD /s /q "%sd%:\switch\amsPack*")
+if exist "%sd%:\switch\kefirupdater" (RD /s /q "%sd%:\switch\kefirupdater")
+if exist "%sd%:\switch\kefir-updater" (RD /s /q "%sd%:\switch\kefir-updater")
+if exist "%sd%:\switch\amsPACK*" (RD /s /q "%sd%:\switch\amsPACK*")
+if exist "%sd%:\switch\amsPACKM-downloader" (RD /s /q "%sd%:\switch\amsPACKM-downloader")
+if exist "%sd%:\switch\amsPACKE-downloader" (RD /s /q "%sd%:\switch\amsPACKE-downloader")
+if exist "%sd%:\switch\amsPACK-E-downloader" (RD /s /q "%sd%:\switch\amsPACK-E-downloader")
+if exist "%sd%:\switch\amsPACK-M-downloader" (RD /s /q "%sd%:\switch\amsPACK-M-downloader")
+if exist "%sd%:\switch\amsPACK-A-downloader" (RD /s /q "%sd%:\switch\amsPACK-A-downloader")
+if exist "%sd%:\switch\luigi-theme-updater" (RD /s /q "%sd%:\switch\luigi-theme-updater")
+if exist "%sd%:\switch\mario-theme-updater" (RD /s /q "%sd%:\switch\mario-theme-updater")
 if exist "%sd%:\switch\DeepSea*" (RD /s /q "%sd%:\switch\DeepSea*")
 if exist "%sd%:\switch\ShallowSea*" (RD /s /q "%sd%:\switch\ShallowSea*")
 if exist "%sd%:\switch\tinwoo*" (RD /s /q "%sd%:\switch\tinwoo*")
 if exist "%sd%:\switch\tinleaf*" (RD /s /q "%sd%:\switch\tinleaf*")
 if exist "%sd%:\switch\daybreak*" (RD /s /q "%sd%:\switch\daybreak*")
-if exist "%sd%:\switch\kefir*" (RD /s /q "%sd%:\switch\kefir*")
-if exist "%sd%:\switch\download*" (RD /s /q "%sd%:\switch\download*")
-if exist "%sd%:\switch\updater*" (RD /s /q "%sd%:\switch\updater*")
+
+if exist "%sd%:\switch\switch-cheats-updater" (RD /s /q "%sd%:\switch\switch-cheats-updater\")
+if exist "%sd%:\switch\btpair" (RD /s /q "%sd%:\switch\btpair")
+if exist "%sd%:\switch\incognito" (RD /s /q "%sd%:\switch\incognito")
+if exist "%sd%:\switch\Shutdown" (RD /s /q "%sd%:\switch\Shutdown")
+if exist "%sd%:\switch\Reboot" (RD /s /q "%sd%:\switch\Reboot")
+if exist "%sd%:\switch\Lockpick" (RD /s /q "%sd%:\switch\Lockpick")
+if exist "%sd%:\switch\download-helper" (RD /s /q "%sd%:\switch\download*")
+if exist "%sd%:\switch\ultimate_updater" (RD /s /q "%sd%:\switch\ultimate_updater")
+if exist "%sd%:\switch\gag-order" (RD /s /q "%sd%:\switch\gag-order")
 if exist "%sd%:\switch\switch-time" (RD /s /q "%sd%:\switch\switch-time")
+if exist "%sd%:\switch\nxmtp" (RD /s /q "%sd%:\switch\nxmtp")
 if exist "%sd%:\switch\NXMPforMe" (RD /s /q "%sd%:\switch\NXMPforMe")
 if exist "%sd%:\switch\lithium" (RD /s /q "%sd%:\switch\lithium")
 if exist "%sd%:\switch\LinkUser" (RD /s /q "%sd%:\switch\LinkUser")
 if exist "%sd%:\switch\TriPlayer" (RD /s /q "%sd%:\switch\TriPlayer")
 if exist "%sd%:\switch\KosmosToolbox" (RD /s /q "%sd%:\switch\KosmosToolbox")
+if exist "%sd%:\switch\KosmosUpdater" (RD /s /q "%sd%:\switch\KosmosUpdater")
+if exist "%sd%:\switch\games" (RD /s /q "%sd%:\switch\games")
 if exist "%sd%:\switch\mercury" (RD /s /q "%sd%:\switch\mercury")
 if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau\")
 if exist "%sd%:\switch\FreshHay" (RD /s /q "%sd%:\switch\FreshHay\")
@@ -370,16 +407,17 @@ if exist "%sd%:\switch\fakenews-injector" (RD /s /q "%sd%:\switch\fakenews-injec
 if exist "%sd%:\switch\ChoiDujourNX" (RD /s /q "%sd%:\switch\ChoiDujourNX")
 if exist "%sd%:\switch\Reboot_to_Payload" (RD /s /q "%sd%:\switch\Reboot_to_Payload")
 if exist "%sd%:\switch\pplay" (RD /s /q "%sd%:\switch\pplay")
-if exist "%sd%:\switch\SX*" (RD /s /q "%sd%:\switch\SX*")
+if exist "%sd%:\switch\sxos" (RD /s /q "%sd%:\switch\sxos")
+if exist "%sd%:\switch\SX" (RD /s /q "%sd%:\switch\SX")
 if exist "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
+if exist "%sd%:\switch\tinfoil-store-updater" (RD /s /q "%sd%:\switch\tinfoil-store-updater")
+if exist "%sd%:\switch\tinfoil-store-premium" (RD /s /q "%sd%:\switch\tinfoil-store-premium")
 if exist "%sd%:\switch\.overlays" (RD /s /q "%sd%:\switch\.overlays")
 if exist "%sd%:\switch\*.nro" (del "%sd%:\switch\*.nro")
 if exist "%sd%:\switch\*.ini" (del "%sd%:\switch\*.ini")
 if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
 if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
-if exist "%sd%:\switch\dbi\dbi.nro" (del "%sd%:\switch\dbi\dbi.nro")
-if exist "%sd%:\switch\dbi\dbi.config" (del "%sd%:\switch\dbi\dbi.config")
 
 REM ================================================================================
 :sblegtlos
@@ -648,10 +686,19 @@ set /p themepaket=Sollen die ThemeApps installiert werden:
 REM ================================================================================
 :themepaketinst
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
+GOTO systemmodule
 
 REM ================================================================================
 :themepaketdeinst
-xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
+RD /s /q "%sd%:\atmosphere\contents\00FF747765616BFF"
+RD /s /q "%sd%:\config\icongrabber"
+RD /s /q "%sd%:\switch\icongrabber"
+RD /s /q "%sd%:\switch\Switch_themes_Installer"
+RD /s /q "%sd%:\switch\ThemezerNX"
+RD /s /q "%sd%:\switch\appstore\.get\packages\NXthemes_Installer"
+RD /s /q "%sd%:\switch\appstore\.get\packages\ThemezerNX"
+del "%sd%:\ThemeApps.txt"
+GOTO systemmodule
 
 REM ================================================================================
 :systemmodule
@@ -744,6 +791,7 @@ REM ============================================================================
 :teslamodintro
 COLOR 0E
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
+GOTO teslamodular
 
 REM ================================================================================
 :teslamodular
@@ -1916,6 +1964,7 @@ GOTO hauptmenue
 
 :usb3weiter
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v MaximumTransferLength /t REG_DWORD /d 00100000 /f>nul 2>&1
+GOTO aufraeumen
 
 REM ================================================================================
 :aufraeumen
