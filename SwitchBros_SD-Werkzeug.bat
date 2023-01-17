@@ -75,7 +75,7 @@ if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ip
 if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\*")
 if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\*")
 if exist "%sd%:\config\Fizeau\config.ini" (xcopy /y "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\*")
-if exist "%sd%:\config\ftpd\config.ini" (xcopy /y "%sd%:\config\ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\*")
+if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%sd%:\switchbros\backup\ftpd\*")
 if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\*")
 
 REM =================================================================================
