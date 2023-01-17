@@ -59,7 +59,7 @@ echo.
 echo --------------------------------------------------------------------------------
 echo      Wenn du einen Modchip in deiner Konsole hast, dann gib es bitte hier an!
 echo.
-echo      1 = Modchip ist verbaut (v2, lite, OLED, trinketm0 in v1)
+echo      1 = Modchip ist verbaut (v2, lite, OLED, trinketm0 in der v1)
 echo      2 = kein Modchip verbaut
 echo.
 echo --------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ echo      5 = ThemeApps Paket installieren/deinstallieren!
 echo.
 echo      6 = Tesla-Overlay installieren/deinstallieren/manuell!
 echo.
-echo      7 = Zusatz Apps installieren/deinstallieren!
+echo      7 = Zusatz Apps installieren/deinstallieren! (Nur ueber Hauptmenue erreichbar)
 echo.
 echo      8 = Attribute (fixAttrib) und MacOS Kram beseitigen!
 echo.
@@ -134,16 +134,16 @@ cls
 echo.
 echo --------------------------------------------------------------------------------
 echo.
-echo      Bevor es losgeht, kann das Script fuer dich Backup-Ordner
-echo      erstellen in denen du spaeter die Backups von hekate
-echo      einfuegen kannst (BOOT0, BOOT1 und RAW GPP - Keys, etc.)
+echo      Bevor es losgeht, kann das Script fuer dich Backup-Ordner erstellen
+echo      in denen du spaeter die Backups von hekate einfuegen kannst =
+echo      (BOOT0, BOOT1 und RAW GPP - Keys, etc.)
 echo.
-echo      Die erstellten Backups von hekate sind nicht gerade klein!              
+echo      Die erstellten Backups von hekate sind nicht gerade klein!
 echo      Gib bitte ein Laufwerk angeben das ueber ausreichend
 echo      freien Speicherplatz verfuegt (ca. 35GB bzw. fuer OLED 65GB)!
 echo.
-echo      Folgende (leere) Ordner werden im angegebenen Laufwerk,
-echo      auf deinem PC, fuer dich angelegt:
+echo      Folgende (leere) Ordner werden im angegebenen Laufwerk, auf deinem PC,
+echo      fuer dich angelegt:
 echo.             
 echo      - SwitchBackup
 echo        - sysNAND (fuer BOOT0, BOOT1 und RAW GPP)
@@ -187,10 +187,10 @@ REM ============================================================================
 COLOR 09
 cls
 echo.
-echo --------------------------------------------------------------------------------
-echo                           JA HAU DOCH AB DU LUTSCHA!!!
+echo ------------------------------------- -------------------------------------------
+echo                       JA GENAU, HAU DOCH AB DU LUTSCHA!!!
 echo.
-echo                          BLEIB BEI DEINEM BLOEDEN PAKET!
+echo                         BLEIB BEI DEINEM BLOEDEN PAKET!
 echo.
 echo                       Druecke die Eingabetaste zum beenden
 echo --------------------------------------------------------------------------------
@@ -326,7 +326,6 @@ if exist "%sd%:\bootloader\ini\!kefir_updater.ini" (del "%sd%:\bootloader\ini\!k
 if exist "%sd%:\bootloader\ini\kefir_updater.ini" (del "%sd%:\bootloader\ini\kefir_updater.ini")
 if exist "%sd%:\bootloader\ini\fullstock.ini" (del "%sd%:\bootloader\ini\fullstock.ini")
 if exist "%sd%:\bootloader\ini\Atmosphere.ini" (del "%sd%:\bootloader\ini\Atmosphere.ini")
-if exist "%sd%:\bootloader\ini\atmosphere.ini" (del "%sd%:\bootloader\ini\atmosphere.ini")
 if exist "%sd%:\bootloader\ini\sxos.ini" (del "%sd%:\bootloader\ini\sxos.ini")
 if exist "%sd%:\bootloader\ini\hekate_keys.ini" (del "%sd%:\bootloader\ini\hekate_keys.ini")
 if exist "%sd%:\bootloader\ini\RajNX.ini" (del "%sd%:\bootloader\ini\RajNX.ini")
@@ -350,24 +349,17 @@ if exist "%sd%:\bootloader\res\icon_lockpick.bmp" (del "%sd%:\bootloader\res\ico
 if exist "%sd%:\bootloader\res\icon_tegraexplorer.bmp" (del "%sd%:\bootloader\res\icon_tegraexplorer.bmp")
 
 REM ======= CONFIG ORDNER ===========================================================
-if exist "%sd%:\config\amsPACK*" (RD /s /q "%sd%:\config\amsPACK*")
 if exist "%sd%:\config\fw-downloader" (RD /s /q "%sd%:\config\fw-downloader")
 if exist "%sd%:\config\luigi-theme-updater" (RD /s /q "%sd%:\config\luigi-theme-updater")
 if exist "%sd%:\config\mario-theme-updater" (RD /s /q "%sd%:\config\mario-theme-updater")
 if exist "%sd%:\config\sys-ftpd" (RD /s /q "%sd%:\config\sys-ftpd")
 if exist "%sd%:\config\aio-switch-updater" (RD /s /q "%sd%:\config\\aio-switch-updater")
 if exist "%sd%:\config\btred" (RD /s /q "%sd%:\config\btred")
-if exist "%sd%:\config\reinx-spoofer" (RD /s /q "%sd%:\config\reinx-spoofer")
-if exist "%sd%:\config\ShallowSea-updater" (RD /s /q "%sd%:\config\ShallowSea-updater")
-if exist "%sd%:\config\kefir-updater" (RD /s /q "%sd%:\config\kefir-updater")
-if exist "%sd%:\config\kefir-helper" (RD /s /q "%sd%:\config\kefir-helper")
 if exist "%sd%:\config\aio-switch-updater" (RD /s /q "%sd%:\config\aio-switch-updater")
 if exist "%sd%:\config\BootSoundNX" (RD /s /q "%sd%:\config\BootSoundNX")
 if exist "%sd%:\config\cheats-updater" (RD /s /q "%sd%:\config\cheats-updater")
 if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
 if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
-if exist "%sd%:\config\reinx-spoofer" (RD /s /q "%sd%:\config\reinx-spoofer")
-if exist "%sd%:\config\ShallowSea-updater" (RD /s /q "%sd%:\config\ShallowSea-updater")
 if exist "%sd%:\config\sys-clk" (RD /s /q "%sd%:\config\sys-clk")
 if exist "%sd%:\config\sys-con" (RD /s /q "%sd%:\config\sys-con")
 if exist "%sd%:\config\tesla" (RD /s /q "%sd%:\config\tesla")
@@ -375,15 +367,20 @@ if exist "%sd%:\config\tesla" (RD /s /q "%sd%:\config\tesla")
 REM ======= THEMES ORDNER ===========================================================
 if exist "%sd%:\themes\systemData" (RD /s /q "%sd%:\themes\systemData")
 if exist "%sd%:\themes\Ryu Hayabusa" (RD /s /q "%sd%:\themes\Ryu Hayabusa")
-if exist "%sd%:\themes\ThemezerNX\customLegends" (RD /s /q "%sd%:\themes\ThemezerNX\customLegends")
+
+FOR /D /R "%sd%:\" %%X IN (amsPACK*) DO RD /S /Q "%%X"
+FOR /D /R "%sd%:\" %%X IN (kefir*) DO RD /S /Q "%%X"
+FOR /D /R "%sd%:\" %%X IN (ShallowSea*) DO RD /S /Q "%%X"
+FOR /D /R "%sd%:\" %%X IN (reinx*) DO RD /S /Q "%%X"
+FOR /D /R "%sd%:\" %%X IN (firmware*) DO RD /S /Q "%%X"
+FOR /D /R "%sd%:\" %%X IN (sxos*) DO RD /S /Q "%%X"
+FOR /D /R "%sd%:\" %%X IN (custom*) DO RD /S /Q "%%X"
 
 REM ======= SD-KARTEN ROOT ==========================================================
 if exist "%sd%:\tegraexplorer" (RD /s /q "%sd%:\tegraexplorer")
 if exist "%sd%:\modules" (RD /s /q "%sd%:\modules")
 if exist "%sd%:\NSPs" (RD /s /q "%sd%:\NSPs")
 if exist "%sd%:\NSP" (RD /s /q "%sd%:\NSP")
-if exist "%sd%:\firmware*" (RD /s /q "%sd%:\firmware*")
-if exist "%sd%:\Custom-Themes" (RD /s /q "%sd%:\Custom")
 if exist "%sd%:\SaltySD" (RD /s /q "%sd%:\SaltySD")
 if exist "%sd%:\atmo" (RD /s /q "%sd%:\atmo")
 if exist "%sd%:\ams" (RD /s /q "%sd%:\ams")
@@ -403,30 +400,19 @@ if exist "%sd%:\*.bin" (del "%sd%:\*.bin")
 if exist "%sd%:\*.txt" (del "%sd%:\*.txt")
 if exist "%sd%:\*.dat" (del "%sd%:\*.dat")
 if exist "%sd%:\*.log" (del "%sd%:\*.log")
-if exist "%sd%:\sxos" (RD /s /q  "%sd%:\sxos")
 
 if exist "%sd%:\roms\*.txt" (del  "%sd%:\roms\*.txt")
 
 REM ======= SWITCH ORDNER ===========================================================
-if exist "%sd%:\switch\kefirupdater" (RD /s /q "%sd%:\switch\kefirupdater")
-if exist "%sd%:\switch\kefir-updater" (RD /s /q "%sd%:\switch\kefir-updater")
-if exist "%sd%:\switch\amsPACK*" (RD /s /q "%sd%:\switch\amsPACK*")
-if exist "%sd%:\switch\amsPACKM-downloader" (RD /s /q "%sd%:\switch\amsPACKM-downloader")
-if exist "%sd%:\switch\amsPACKE-downloader" (RD /s /q "%sd%:\switch\amsPACKE-downloader")
-if exist "%sd%:\switch\amsPACK-E-downloader" (RD /s /q "%sd%:\switch\amsPACK-E-downloader")
-if exist "%sd%:\switch\amsPACK-M-downloader" (RD /s /q "%sd%:\switch\amsPACK-M-downloader")
-if exist "%sd%:\switch\amsPACK-A-downloader" (RD /s /q "%sd%:\switch\amsPACK-A-downloader")
 if exist "%sd%:\switch\download-helper" (RD /s /q "%sd%:\switch\download*")
 if exist "%sd%:\switch\fw-downloader" (RD /s /q "%sd%:\switch\fw-downloader")
 if exist "%sd%:\switch\gamecard_installer" (RD /s /q "%sd%:\switch\gamecard_installer")
 if exist "%sd%:\switch\theme-updater" (RD /s /q "%sd%:\switch\theme-updater")
 if exist "%sd%:\switch\luigi-theme-updater" (RD /s /q "%sd%:\switch\luigi-theme-updater")
 if exist "%sd%:\switch\mario-theme-updater" (RD /s /q "%sd%:\switch\mario-theme-updater")
-if exist "%sd%:\switch\DeepSea-Toolbox" (RD /s /q "%sd%:\switch\DeepSea-Toolbox")
-if exist "%sd%:\switch\ShallowSea*" (RD /s /q "%sd%:\switch\ShallowSea*")
 
 if exist "%sd%:\switch\tinleaf" (RD /s /q "%sd%:\switch\tinleaf")
-if exist "%sd%:\switch\daybreak*" (RD /s /q "%sd%:\switch\daybreak*")
+if exist "%sd%:\switch\daybreak" (RD /s /q "%sd%:\switch\daybreak")
 if exist "%sd%:\switch\tinwoo" (RD /s /q "%sd%:\switch\tinwoo")
 if exist "%sd%:\switch\tinleaf" (RD /s /q "%sd%:\switch\tinleaf")
 if exist "%sd%:\switch\switch-cheats-updater" (RD /s /q "%sd%:\switch\switch-cheats-updater\")
@@ -455,7 +441,6 @@ if exist "%sd%:\switch\fakenews-injector" (RD /s /q "%sd%:\switch\fakenews-injec
 if exist "%sd%:\switch\ChoiDujourNX" (RD /s /q "%sd%:\switch\ChoiDujourNX")
 if exist "%sd%:\switch\Reboot_to_Payload" (RD /s /q "%sd%:\switch\Reboot_to_Payload")
 if exist "%sd%:\switch\pplay" (RD /s /q "%sd%:\switch\pplay")
-if exist "%sd%:\switch\sxos" (RD /s /q "%sd%:\switch\sxos")
 if exist "%sd%:\switch\SX" (RD /s /q "%sd%:\switch\SX")
 if exist "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
 if exist "%sd%:\switch\tinfoil-store-updater" (RD /s /q "%sd%:\switch\tinfoil-store-updater")
@@ -544,16 +529,21 @@ if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.i
 if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
 :nurbasissystem
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
 :androidpartition
 xcopy "%sd%:\switchbros\system\ba\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -575,11 +565,15 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\bu\arch\*" "%sd%:\" /H /Y /C
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\bu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
 :lakkapartition
 xcopy "%sd%:\switchbros\system\bl\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -601,11 +595,15 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\bau\arch\*" "%sd%:\" /H /Y /
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\bau\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bau\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bau\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
 :androidlakka
 xcopy "%sd%:\switchbros\system\bal\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -627,6 +625,8 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\balu\arch\*" "%sd%:\" /H /Y 
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\balu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\balu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\balu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -648,6 +648,8 @@ if /i "%Linux%"=="A" xcopy "%sd%:\switchbros\system\blu\arch\*" "%sd%:\" /H /Y /
 if /i "%Linux%"=="B" xcopy "%sd%:\switchbros\system\blu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\blu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\blu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
