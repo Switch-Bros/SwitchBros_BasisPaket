@@ -15,12 +15,11 @@ clear()
 p()
 color(YELLOW)
 p()
-p("     ***** Systeme auswaehlen um sie in hekate im 'launch' zu haben *****")
-p()
+p("Systeme auswaehlen um sie in hekate im 'launch' zu haben")
 p()
 p("Es wird dementsprechend die richtige hekate_ipl.ini eingerichtet")
 p()
-p("Welche Systeme werden spaeter genutzt:")
+p("Welche Systemkombination wird spaeter genutzt?: ")
 p()
 
 menuOptions = ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + Android + Linux", "[5] Basis + Android + LAKKA", "[6] Basis + Android + Linux + LAKKA", "[7] Basis + Linux + LAKKA"]
@@ -30,90 +29,106 @@ clear()
 
 if (resMain == 0) {
 	p()
+	p()
+	p()
 	p("Basis (Standard) wird installiert...")
 	p()
+	color(WHITE)
 	p("Installiere:")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/config", "sd:/")
-	p()
 	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/*", "sd:/")
+	p()
+	p()
 	p("Fertig!");
 }
+
+clear()
 
 if (resMain == 1) {
 	p()
+	p()
+	p()
 	p("Basis + Android wird installiert...")
 	p()
+	color(WHITE)
 	p("Installiere:")
+	color(LGREEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/*", "sd:/")
 	p()
-	color(LGREEN)
+	p()
 	p("Fertig!");
 }
 
+clear()
+
 if (resMain == 2) {
+	p()
+	p()
 	p()
 	p("Basis + Linux wird installiert...")
 	p()
+	color(WHITE)
 	p("Welche Linux Distro soll genutzt werden?")
 	p()
-	menuOptionsLIN = ["[A] Arch Linux", "[B] Ubuntu Bionic", "[C] Fedora Linux", "[D] Ubuntu focal"]
-	resLIN = menu(menuOptionsLIN, 1)
-
-	clear()
-
-		if (resLIN == 0) {
-		p()
-		p()
-		p()
-		p("Linux Arch wird installiert...")
-		p()
-		p("Installiere:")
-		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/*", "sd:/")
-		}
-
-	clear()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
   
-		if (resLIN == 1) {
-		p()
-		p()
-		p()
-		p("Linux Bionic wird installiert...")
-		p()
+    clear()
+  
+    if (resLIN == 0) {
+    p()
+    p()
+    p()
+    p("Linux Arch wird installiert...")
+    p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+    copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p()
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 2) {
-		p()
-		p()
-		p()
-		p("Linux Fedora wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+        p()
+        p()
+        p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 3) {
-		p()
-		p()
-		p()
-		p("Linux Ubuntu wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/*", "sd:/")
+    }
+	
+     if (resLIN == 3) {
+        p()
+        p()
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/*", "sd:/")
-		}
-
-	clear()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/*", "sd:/")
+    }
 }
+
+clear()
 
 if (resMain == 3) {
     p()
@@ -132,69 +147,78 @@ if (resMain == 3) {
 	p("Fertig!");
 }
 
+clear()
+
 if (resMain == 4) {
+    p()
+	p()
 	p()
 	p("Basis + Android + Linux wird installiert...")
 	p()
-	p("Welche Linux Distro soll genutzt werden?")
+	color(WHITE)
+    p("Welche Linux Distro soll genutzt werden?")
 	p()
-	menuOptionsLIN = ["[A] Arch Linux", "[B] Ubuntu Bionic", "[C] Fedora Linux", "[D] Ubuntu focal"]
-	resLIN = menu(menuOptionsLIN, 1)
-
-	clear()
-
-		if (resLIN == 0) {
-		p()
-		p()
-		p()
-		p("Linux Arch wird installiert...")
-		p()
-		p("Installiere:")
-		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/*", "sd:/")
-		}
-
-	clear()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
   
-		if (resLIN == 1) {
-		p()
-		p()
-		p()
-		p("Linux Bionic wird installiert...")
-		p()
+    clear()
+  
+    if (resLIN == 0) {
+        p()
+        p()
+        p()
+        p("Linux Arch wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 2) {
-		p()
-		p()
-		p()
-		p("Linux Fedora wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p()
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 3) {
-		p()
-		p()
-		p()
-		p("Linux Ubuntu wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+        p()
+        p()
+        p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/*", "sd:/")
-		}
-
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/*", "sd:/")
+    }
+	
 	clear()
+
+	if (resLIN == 3) {
+        p()
+        p()
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/*", "sd:/")
+    }
 }
+
+clear()
 
 if (resMain == 5) {
     p()
@@ -213,145 +237,164 @@ if (resMain == 5) {
 	p("Fertig!");
 }
 
+clear()
+
 if (resMain == 6) {
+    p()
+	p()
 	p()
 	p("Basis + Android + Linux + LAKKA wird installiert...")
 	p()
-	p("Welche Linux Distro soll genutzt werden?")
+	color(WHITE)
+    p("Welche Linux Distro soll genutzt werden?")
 	p()
-	menuOptionsLIN = ["[A] Arch Linux", "[B] Ubuntu Bionic", "[C] Fedora Linux", "[D] Ubuntu focal"]
-	resLIN = menu(menuOptionsLIN, 1)
-
-	clear()
-
-		if (resLIN == 0) {
-		p()
-		p()
-		p()
-		p("Linux Arch wird installiert...")
-		p()
-		p("Installiere:")
-		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/*", "sd:/")
-		}
-
-	clear()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
   
-		if (resLIN == 1) {
-		p()
-		p()
-		p()
-		p("Linux Bionic wird installiert...")
-		p()
+    clear()
+  
+    if (resLIN == 0) {
+        p()
+        p()
+        p()
+        p("Linux Arch wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 2) {
-		p()
-		p()
-		p()
-		p("Linux Fedora wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p()
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 3) {
-		p()
-		p()
-		p()
-		p("Linux Ubuntu wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+        p()
+        p()
+        p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/*", "sd:/")
-		}
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/*", "sd:/")
+    }
+	
+    clear()
 
-	clear()
+	if (resLIN == 3) {
+        p()
+        p()
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/*", "sd:/")
+    }
 }
+
+clear()
 
 if (resMain == 7) {
 	p()
+	p()
+	p()
 	p("Basis + Linux + LAKKA wird installiert...")
 	p()
-	p("Welche Linux Distro soll genutzt werden?")
+	color(WHITE)
+    p("Welche Linux Distro soll genutzt werden?")
 	p()
-	menuOptionsLIN = ["[A] Arch Linux", "[B] Ubuntu Bionic", "[C] Fedora Linux", "[D] Ubuntu focal"]
-	resLIN = menu(menuOptionsLIN, 1)
-
-	clear()
-
-		if (resLIN == 0) {
-		p()
-		p()
-		p()
-		p("Linux Arch wird installiert...")
-		p()
-		p("Installiere:")
-		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/*", "sd:/")
-		}
-
-	clear()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
   
-		if (resLIN == 1) {
-		p()
-		p()
-		p()
-		p("Linux Bionic wird installiert...")
-		p()
+    clear()
+  
+    if (resLIN == 0) {
+        p()
+        p()
+        p()
+        p("Linux Arch wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 2) {
-		p()
-		p()
-		p()
-		p("Linux Fedora wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p()
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/*", "sd:/")
-		}
-
-	clear()
-
-		if (resLIN == 3) {
-		p()
-		p()
-		p()
-		p("Linux Ubuntu wird installiert...")
-		p()
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+        p()
+        p()
+        p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/*", "sd:/")
-		}
-
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/*", "sd:/")
+    }
+	
 	clear()
+
+	if (resLIN == 3) {
+        p()
+        p()
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/*", "sd:/")
+    }
 }
 
+clear()
+
 p()
 p()
+p()
+color(LGREEN)
 p("Systeme sind jetzt eingerichtet!")
 p()
-p("Fertig! Die Switch schaltet sich in 5 Sek. automatisch aus.")
+p("Fertig! Die Switch schaltet sich in 10 Sek. automatisch aus.")
 p()
 color(DRED)
+p=p
 pr=print
 pe= {pause() exit()}
 wait= {t=timer()while(timer()<(t+tw)) {print("Konsole wir in ",(t+tw-timer()/1000),"Sekunden ausgeschaltet \r")}}
-tw=5000
+tw=10000
 wait()
 power(3)
 pause().raw
