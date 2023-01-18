@@ -10,11 +10,36 @@ p=println
 fse=fsexists
 pe={pause() exit()}
 boot=0
-syscon=0
-missioncontrol=0
 maj=0
-
 wait={t=timer()while(timer()<(t+tw)){print()}}
+
+p()
+color(YELLOW)
+p()
+p("               ***** SwitchBros. Updater *****")
+p()
+p()
+p("Dieses Update Script, aktualisiert dein SwitchBros. Paket")
+p("auf die neuste SwitchBros-O-sphere CFW + SigPatches.")
+p()
+p()
+p("Switch Lite und Tablet Nutzer:")
+p()
+p("Vol + / -    : navigieren / abbrechen / beenden")
+p("Power Button : bestaetigen")
+p()
+p()
+p("Druecke die A Taste, um das Update Skript zu starten,")
+p("damit dein SwitchBros. Paket aktualisiert wird.")
+color(ORANGE)
+p("SwitchBros. Version: 111")
+p()
+color(DRED)
+p("Druecke zum Beenden die B Taste.")
+
+if (!pause().a) {
+    exit()
+}
 
 if (is_erista()){
 	if (fse("sd:/switch/prod.keys")) 
@@ -43,18 +68,38 @@ if (is_erista()){
 	}
 }
 
-boot=fse("sd:/boot.dat")
+boot=fse("sd:/payload.bin")
 
-if (fse("sd:/atmosphere/contents/690000000000000D/flags/boot2.flag")) {
-	syscon=1
+# 0. Backup von einigen Dateien
+if (fse("sd:\bootloader\hekate_ipl.ini")){
+copyfile("sd:\bootloader\hekate_ipl.ini", "sd:\switchbros\backup\hekate_ipl.ini")
 }
-
-if (fse("sd:/atmosphere/contents/010000000000bd00/flags/boot2.flag")) {
-	missioncontrol=1
+if (fse("sd:\bootloader\nyx.ini")){
+copyfile("sd:\bootloader\nyx.ini", "sd:\switchbros\backup\nyx.ini")
+}
+if (fse("sd:\config\fastCFWSwitch\config.ini")){
+copyfile("sd:\config\fastCFWSwitch\config.ini", "sd:\switchbros\backup\fastCFWSwitch\config.ini")
+}
+if (fse("sd:\config\Fizeau\config.ini")){
+copyfile("sd:\config\Fizeau\config.ini", "sd:\switchbros\backup\Fizeau\config.ini")
+}
+if (fse("sd:\config\ftpd\ftpd.cfg")){
+copyfile("sd:\config\ftpd\ftpd.cfg", "sd:\switchbros\backup\ftpd\ftpd.cfg")
+}
+if (fse("sd:\switch\tinfoil\locations.conf")){
+copyfile("sd:\switch\tinfoil\locations.conf", "sd:\switchbros\backup\tinfoil\locations.conf")
 }
 
 # 1. Ordner und Dateien loeschen
-p("* alte Dateien entfernen")
+color(YELLOW)
+p()
+p()
+p()
+p("SwitchBros. Paket wird aktualisiert...")
+p()
+color(ORANGE)
+p("Vorherige CFW bereinigen:")
+color(DRED)
 
 # Wenn es sich um ein Update handelt
 if (fse("sd:/SwitchBros_BasisPaket")){
@@ -107,6 +152,10 @@ deldir("sd:/atmosphere/fatal_errors")
 deldir("sd:/atmosphere/fatal_reports")
 deldir("sd:/atmosphere/crash_errors")
 deldir("sd:/atmosphere/hekate_kips")
+deldir("sd:/atmosphere/kips")
+deldir("sd:/atmosphere/hosts")
+deldir("sd:/atmosphere/extras")
+delfile("sd:/atmosphere/extras/BCT.ini")
 delfile("sd:/atmosphere/BCT.ini")
 delfile("sd:/atmosphere/config/BCT.ini")
 delfile("sd:/atmosphere/fusee-secondary.bin")
@@ -116,12 +165,6 @@ delfile("sd:/atmosphere/fusee-secondary.bin.sig")
 delfile("sd:/atmosphere/hbl.nsp.sig")
 delfile("sd:/atmosphere/hbl.json")
 delfile("sd:/atmosphere/system_settings.ini")
-delfile("sd:/atmosphere/kips/fs_mitm.kip")
-delfile("sd:/atmosphere/kips/ldn_mitm.kip")
-delfile("sd:/atmosphere/kips/loader.kip")
-delfile("sd:/atmosphere/kips/pm.kip")
-delfile("sd:/atmosphere/kips/sm.kip")
-delfile("sd:/atmosphere/kips/ams_mitm.kip")
 delfile("sd:/atmosphere/flags/hbl_cal_read.flag")
 delfile("sd:/atmosphere/exosphere.bin")
 delfile("sd:/atmosphere/loader.ini")
@@ -209,6 +252,7 @@ delfile("sd:/bootloader/payloads/biskeydump.bin")
 delfile("sd:/bootloader/payloads/fusee-payload.bin")
 delfile("sd:/bootloader/payloads/sxos.bin")
 delfile("sd:/bootloader/payloads/rajnx_ipl.bin")
+delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
 delfile("sd:/bootloader/ini/atmosphere.ini")
 delfile("sd:/bootloader/ini/sxos.ini")
 delfile("sd:/bootloader/ini/hekate_keys.ini")
@@ -230,6 +274,19 @@ delfile("sd:/bootloader/patches.ini")
 
 deldir("sd:/switch/.overlays")
 deldir("sd:/switch/*amsPACK*")
+deldir("sd:/switch/tinfoil-store-premium")
+deldir("sd:/switch/luigi-theme-updater")
+deldir("sd:/switch/mario-theme-updater")
+deldir("sd:/switch/Shutdown")
+deldir("sd:/switch/Reboot")
+deldir("sd:/switch/tinfoil-store-updater")
+deldir("sd:/switch/appstore")
+deldir("sd:/switch/amsPACKM-downloader")
+deldir("sd:/switch/amsPACKE-downloader")
+deldir("sd:/switch/amsPACK-E-downloader")
+deldir("sd:/switch/amsPACK-M-downloader")
+deldir("sd:/switch/amsPACK-A-downloader")
+deldir("sd:/switch/download-helper")
 deldir("sd:/switch/*ShallowSea*")
 deldir("sd:/switch/*kefir*")
 deldir("sd:/switch/NightFall")
@@ -293,22 +350,78 @@ delfile("sd:/switch/switchbros-updater/switchbros-updater.bin")
 delfile("sd:/switch/NxThemesInstaller.nro")
 delfile("sd:/switch/tinfoil/keys.txt")
 
+delfile("sd:/scripts/Account_Transfer.te")
+delfile("sd:/scripts/Extras_Activator.te")
+delfile("sd:/scripts/Clean_amsPACK.te")
+delfile("sd:/scripts/Custom_Theme_Remover.te")
+delfile("sd:/scripts/Custom-Theme_Installer.te")
+delfile("sd:/scripts/emuMMC_Joy-Con_Pairing.te")
+delfile("sd:/scripts/emuMMC_Ordner_Installer.te")
+delfile("sd:/scripts/emuMMC_Ordner_Remover.te")
+delfile("sd:/scripts/Factory_Reset.te")
+delfile("sd:/scripts/GC_Slot_Aktivator.te")
+delfile("sd:/scripts/MissionControl_Installer.te")
+delfile("sd:/scripts/MissionControl_Remover.te")
+delfile("sd:/scripts/MultiBoot_Addons.te")
+delfile("sd:/scripts/Spielstand_Dumpen.te")
+delfile("sd:/scripts/System_Cleaner.te")
+delfile("sd:/scripts/Tesla_FTP_Installer.te")
+delfile("sd:/scripts/Tesla_FTP_Remover.te")
+delfile("sd:/scripts/Tesla_Menue_Installer.te")
+delfile("sd:/scripts/Tesla_Menue_Remover.te")
+delfile("sd:/scripts/Theme_+_Tesla_+_MissionControl_Installer.te")
+delfile("sd:/scripts/Theme_+_Tesla_Installer.te")
+delfile("sd:/scripts/Theme_+_Tesla_Remover.te")
+delfile("sd:/scripts/Grand_Theft_Auto_San_Andreas_Remover.te")
+delfile("sd:/scripts/UndoClean_amsPACK.te")
+delfile("sd:/scripts/FirmwareDump.te")
+
 deldir("sd:/config/MissionControl")
 deldir("sd:/config/btred")
 deldir("sd:/config/N-Xplorer")
 deldir("sd:/config/reinx-spoofer")
-deldir("sd:/config/*ShallowSea*")
+deldir("sd:/config/ShallowSea-Updater")
 deldir("sd:/config/*amsPACK*")
+deldir("sd:/config/luigi-theme-updater")
+deldir("sd:/config/mario-theme-updater")
+deldir("sd:/config/fw-downloader")
+
+deldir("sd:/Firmware*")
+deldir("sd:/Firmware 15.0.1v2")
+deldir("sd:/Firmware 15.0.1_v2")
+deldir("sd:/Firmware 15.0.1")
+deldir("sd:/Firmware 15.0.0")
+deldir("sd:/Firmware 14.1.2v4")
+deldir("sd:/Firmware 14.1.2v3")
+deldir("sd:/Firmware 14.1.2v2")
+deldir("sd:/Firmware 14.1.2_v4")
+deldir("sd:/Firmware 14.1.2_v3")
+deldir("sd:/Firmware 14.1.2_v2")
+deldir("sd:/Firmware 14.1.2")
+deldir("sd:/Firmware 14.1.1")
+deldir("sd:/Firmware 14.1.0")
+deldir("sd:/Firmware 14.0.0")
+deldir("sd:/Firmware 13.2.1")
+deldir("sd:/Firmware 13.2.0")
+deldir("sd:/Firmware 13.1.0")
+deldir("sd:/Firmware 13.0.0")
+deldir("sd:/Firmware 12.1.0")
+deldir("sd:/Firmware 12.0.3")
+deldir("sd:/Firmware 12.0.2")
+deldir("sd:/Firmware 12.0.1")
+deldir("sd:/Firmware 12.0.0")
+deldir("sd:/Firmware 11.0.1")
+deldir("sd:/Firmware 11.0.0")
+
 deldir("sd:/atmo")
 deldir("sd:/btpair")
 deldir("sd:/Custom-Themes")
-deldir("sd:/Firmware*")
 deldir("sd:/games")
 deldir("sd:/modules")
 deldir("sd:/music")
 deldir("sd:/NSPs")
 deldir("sd:/pegascape")
-deldir("sd:/*warmboot*")
+deldir("sd:/warmboot-mariko")
 deldir("sd:/SaltySD")
 deldir("sd:/scripts")
 deldir("sd:/sept/")
@@ -316,8 +429,8 @@ deldir("sd:/sxos")
 deldir("sd:/themes/ThemezerNX/customLegends")
 deldir("sd:/themes/systemData")
 deldir("sd:/System Volume Information")
-deldir("sd:/tegra*")
-deldir("sd:/tools*")
+deldir("sd:/tegraexplorer")
+deldir("sd:/tools")
 delfile("sd:/hekate_ctcaer*.bin")
 delfile("sd:/fusee.bin")
 delfile("sd:/hbmenu.nro")
@@ -346,7 +459,8 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	copydir("sd:/SwitchBros_BasisPaket/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/NSPs", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
+#	copydir("sd:/SwitchBros_BasisPaket/switchbros", "sd:/")
+    copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
 	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
@@ -376,14 +490,796 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	wait(tw = 1000)
 }
 
-color(WHITE)
-println()
-println()
-println()
-println("SwitchBros. wurde erfolgreich aktualisiert!")
-println()
-println("Druecke eine beliebige Taste, zum fortfahren.")
+color(LGREEN)
+p()
+p()
+p()
+p("SwitchBros. Paket wurde erfolgreich aktualisiert!")
+p()
+p("Druecke eine beliebige Taste, um fortzufahren.")
 pause()
+
+clear()
+
+p()
+color(YELLOW)
+p()
+p("Systeme auswaehlen um sie in hekate im 'launch' zu haben")
+p()
+p("Es wird dementsprechend die richtige hekate_ipl.ini eingerichtet")
+p()
+p("Welche Systemkombination wird spaeter genutzt?: ")
+p()
+
+menuOptions = ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + Android + Linux", "[5] Basis + Android + LAKKA", "[6] Basis + Android + Linux + LAKKA", "[7] Basis + Linux + LAKKA", "[8] alte Daten behalten (nicht empfohlen)"]
+resMain = menu(menuOptions, 0)
+
+clear()
+
+if (resMain == 0) {
+	p()
+	p("Basis (Standard) wird installiert...")
+	p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/*", "sd:/")
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+if (resMain == 1) {
+	p()
+	p("Basis + Android wird installiert...")
+	p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/*", "sd:/")
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+if (resMain == 2) {
+	p()
+	p("Basis + Linux wird installiert...")
+	p()
+	color(WHITE)
+	p("Welche Linux Distro soll genutzt werden?")
+	p()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
+  
+    clear()
+  
+    if (resLIN == 0) {
+    p()
+    p("Linux Arch wird installiert...")
+    p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+    copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+        p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/*", "sd:/")
+    }
+	
+     if (resLIN == 3) {
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/*", "sd:/")
+    }
+}
+
+clear()
+
+if (resMain == 3) {
+    p()
+	p("Basis + LAKKA wird installiert...")
+	p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/*", "sd:/")
+	color(LGREEN)
+	p()
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+if (resMain == 4) {
+    p()
+	p("Basis + Android + Linux wird installiert...")
+	p()
+	color(WHITE)
+    p("Welche Linux Distro soll genutzt werden?")
+	p()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
+  
+    clear()
+  
+    if (resLIN == 0) {
+        p()
+        p("Linux Arch wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+       p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/*", "sd:/")
+    }
+	
+	clear()
+
+	if (resLIN == 3) {
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/*", "sd:/")
+    }
+}
+
+clear()
+
+if (resMain == 5) {
+    p()
+	p("Basis + Android + LAKKA wird installiert...")
+	p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/*", "sd:/")
+	color(LGREEN)
+	p()
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+if (resMain == 6) {
+    p()
+	p("Basis + Android + Linux + LAKKA wird installiert...")
+	p()
+	color(WHITE)
+    p("Welche Linux Distro soll genutzt werden?")
+	p()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
+  
+    clear()
+  
+    if (resLIN == 0) {
+        p()
+        p("Linux Arch wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+        p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/*", "sd:/")
+    }
+	
+    clear()
+
+	if (resLIN == 3) {
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/*", "sd:/")
+    }
+}
+
+clear()
+
+if (resMain == 7) {
+	p()
+	p("Basis + Linux + LAKKA wird installiert...")
+	p()
+	color(WHITE)
+    p("Welche Linux Distro soll genutzt werden?")
+	p()
+    menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
+    resLIN = menu(menuOptionsLIN, 1)
+  
+    clear()
+  
+    if (resLIN == 0) {
+        p()
+        p("Linux Arch wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 1) {
+        p()
+        p("Linux Bionic wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/*", "sd:/")
+    }
+	
+    clear()
+  
+    if (resLIN == 2) {
+        p()
+        p("Linux Fedora wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/*", "sd:/")
+    }
+	
+	clear()
+
+	if (resLIN == 3) {
+        p()
+        p("Linux Ubuntu (focal) wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/*", "sd:/")
+    }
+}
+
+clear()
+
+if (resMain == 8) {
+	p()
+	p("alte hekate_ipl.ini, nyx.ini werden installiert...")
+	p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini", "sd:/bootloader/nyx.ini")
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+p()
+color(LBLUE)
+p()
+p("          ***** Tesla-Overlay Menue + System-Module *****")
+p()
+p()
+color(DRED)
+p("Das Tesla-Overlay Menue wird ueber die Tastencombo: ZL + ZR + PLUS aufgerufen.")
+p()
+p()
+color(LGREEN)
+p("Dieses Script installiert das SwitchBros. Tesla-Overlay Menue + Module")
+p("Das Tesla-Overlay Menue inkl. Module muss nach jedem Update vom")
+p("SwitchBros. Paket durch das Ausfuehren dieses Scripts reaktiviert werden.")
+p()
+p()
+color(LBLUE)
+p("Was soll installiert werden:")
+p()
+
+menuOptions = ["[ALLES] Tesla-Overlay Menue inkl. aller System-Module", "[MANUELL] Tesla-Overlay Menue + Module einzeln (empfohlen)", "[NICHTS] kein Tesla-Overlay, keine Module"]
+resMain = menu(menuOptions, 1)
+
+clear()
+
+if (resMain == 0) {
+    p()
+	p()
+	p()
+	p("Tesla-Overlay Menue inkl. aller  installiert...")
+	p()
+	color(WHITE)
+	p("Installiere:")
+	color(LGREEN)
+	copydir("sd:/Custom-Themes/atmosphere", "sd:/")
+	copydir("sd:/Custom-Themes/bootloader", "sd:/")
+	copydir("sd:/Custom-Themes/switch", "sd:/")
+	copydir("sd:/Custom-Themes/config", "sd:/")
+	copydir("sd:/atmosphere/extras/contents/420000000007E51A", "sd:/atmosphere/contents")
+	copydir("sd:/atmosphere/extras/contents/0100000000000352", "sd:/atmosphere/contents")
+	copydir("sd:/atmosphere/extras/contents/420000000000000E", "sd:/atmosphere/contents")
+	copydir("sd:/atmosphere/extras/contents/00FF0000636C6BFF", "sd:/atmosphere/contents")
+	copydir("sd:/atmosphere/extras/switch", "sd:/")
+	copydir("sd:/atmosphere/extras/tools", "sd:/")
+	copydir("sd:/atmosphere/extras/atmosphere", "sd:/")
+	copydir("sd:/atmosphere/extras/contents/4200000000000FFF", "sd:/atmosphere/contents")
+	copydir("sd:/atmosphere/extras/switch/TriPlayer", "sd:/switch")
+	copydir("sd:/atmosphere/extras/tools", "sd:/")
+	copyfile("sd:/atmosphere/extras/switch/.overlays/5_ovl-TriPlayer.ovl", "sd:/switch/.overlays/5_ovl-TriPlayer.ovl")	
+	color(LGREEN)
+	p()
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+if (resMain == 2) {
+    p()
+	p()
+	p()
+	p("Custom Theme + Tesla inkl. TriPlayer / FTP + MissionControl wird entfernt...")
+	p()
+	color(WHITE)
+	p("Loesche:")
+	color(DRED)
+	deldir("sd:/atmosphere/contents/0100000000001000")
+	deldir("sd:/atmosphere/contents/0100000000001013")
+	deldir("sd:/atmosphere/contents/0100000000001007")
+	deldir("sd:/atmosphere/exefs_patches/NxThemesInstaller")
+	deldir("sd:/atmosphere/exefs_patches/boot_logo")
+	deldir("sd:/config/nx-hbmenu")
+	delfile("sd:/switch/AtmoXL-Titel-Installer/background.png")
+	delfile("sd:/bootloader/bootlogo.bmp")
+	deldir("sd:/atmosphere/contents/010000000000bd00")
+	deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
+	delfile("sd:/atmosphere/config/missioncontrol.ini")
+	delfile("sd:/atmosphere/config_templates/missioncontrol.ini")
+	deldir("sd:/atmosphere/contents/420000000000000E")
+	delfile("sd:/switch/.overlays/4_sys-ftpd-ovl.ovl")
+    deldir("sd:/atmosphere/contents/420000000007E51A")
+	deldir("sd:/atmosphere/contents/420000000000000E")
+	deldir("sd:/atmosphere/contents/4200000000000FFF")
+	deldir("sd:/atmosphere/contents/0100000000000352")
+	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
+	deldir("sd:/switch/.overlays")
+	deldir("sd:/switch/TriPlayer")	
+	delfile("sd:/tools/TriPlayer-01f0d84a52f2e000.nsp")
+}
+
+clear()
+
+if (resMain == 1) {
+    p()
+    p()
+	p()
+	color(LBLUE)
+    p("Installiert dein Custom Theme aus dem [Custom Theme] Ordner!")
+	p()
+	color(LGREEN)
+	p("Sollte deine Switch Firmware noch zu niedrig sein, so passt das Theme")
+	p("eventuell noch nicht zu deiner Firmware Version.")
+	p("Hier solltest du zuerst [NEIN] waehlen und das Theme spaeter")
+	p("ueber den [Theme Updater] neu runterladen.")
+    p()
+	color(WHITE)
+    p("Moechtest du das [Theme] installieren?")
+	p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+  
+    clear()
+  
+    if (resYN == 0) {
+        p()
+        p()
+        p()
+        p("Das Custom-Theme wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/Custom-Themes/atmosphere", "sd:/")
+        copydir("sd:/Custom-Themes/bootloader", "sd:/")
+        copydir("sd:/Custom-Themes/config", "sd:/")
+        copydir("sd:/Custom-Themes/switch", "sd:/")
+    }
+	
+    clear()
+
+	if (resYN == 1) {
+        p()
+        p()
+        p()
+        p("Das Custom Theme wird entfernt...")
+        p()
+        color(WHITE)
+        p("Loesche:")
+        color(DRED)
+        deldir("sd:/atmosphere/contents/0100000000001000")
+        deldir("sd:/atmosphere/contents/0100000000001013")
+        deldir("sd:/atmosphere/contents/0100000000001007")
+        deldir("sd:/atmosphere/exefs_patches/NxThemesInstaller")
+        deldir("sd:/atmosphere/exefs_patches/boot_logo")
+        deldir("sd:/config/nx-hbmenu")
+        delfile("sd:/switch/AtmoXL-Titel-Installer/background.png")
+    }
+
+
+    clear()
+
+    p()
+    p()
+    p()
+    color(LGREEN)
+    p("Mit MissionControl kannst du einen PS4/PS5 oder Xbox One S/X Controller mit")
+    p("deiner Switch koppeln.")
+    p()
+    color(WHITE)
+    p("Moechtest du [MissionControl] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+        p()
+		p()
+        p("Das MissionControl wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/atmosphere/extras/atmosphere", "sd:/")
+    }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p()
+        p("Das MissionControl wird entfernt...")
+        p()
+        color(WHITE)
+        p("Loesche:")
+        color(DRED)
+        deldir("sd:/atmosphere/contents/010000000000bd00")
+        deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
+        delfile("sd:/atmosphere/config/missioncontrol.ini")
+        delfile("sd:/atmosphere/config_templates/missioncontrol.ini")
+    }
+
+    clear()
+    
+    p()
+    p()
+	p()
+    color(WHITE)
+    p("Das Tesla Menue beinhaltet einige Module:")
+	color(LGREEN)
+	p("amsPACK Log, Amiibos, Edizon, Overclocking, FTP, TriPlayer, Temperaturanzeige")
+	p("usw.")
+    p()
+    color(LBLUE)
+    p("Tesla FTP Modul:")
+	color(LGREEN)
+    p("Funktioniert bei den meisten microSD Karten, sollte die Switch beim Starten")
+	p("allerdings im Blackscreen enden, so muesst ihr das Tesla-FTP Modul")
+	p("deinstallieren.")
+	p()
+    color(LBLUE)
+    p("Tesla TriPlayer Modul:")
+	color(LGREEN)
+    p("ca 10% der Spiele funktionieren nicht in Verbindung mit dem TriPlayer Modul.")
+	p("Es gibt dann beim Spielen ein Systemcrash, da das Spiel bereits 2 Audiospuren")
+	p("benoetigt und dem TriPlayer keine Audiospur mehr zur Verfuegung steht.")
+    p("Die Module koennt ihr auch nachtraeglich noch ueber das Extra_Activator Script")
+	p("deinstallieren.")
+    p()
+	color(WHITE)
+    p("Wie moechtest du das Tesla Menue installieren:")
+	p()
+    menuOptionsTesla = ["[ALLES] Tesla Menue + alle Module", "[MANUELL] Tesla Menue + alle Module / (FTP + TriPlayer) (empfohlen)", "[NICHTS] Kein Tesla Menue + Module"]
+    resTE = menu(menuOptionsTesla, 1)
+	
+    clear()
+    
+    if (resTE == 0) {
+        p()
+        p()
+        p()
+        p("Tesla Menue inkl. aller Module wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+        copydir("sd:/atmosphere/extras/contents/420000000007E51A", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/contents/420000000000000E", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/contents/4200000000000FFF", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/contents/0100000000000352", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/contents/00FF0000636C6BFF", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/switch", "sd:/")
+        copydir("sd:/atmosphere/extras/tools", "sd:/")
+        copydir("sd:/atmosphere/extras/switch/.overlays", "sd:/switch")
+        copydir("sd:/atmosphere/extras/switch/TriPlayer", "sd:/switch")
+        copydir("sd:/atmosphere/extras/tools", "sd:/")
+
+        clear()
+
+    }
+    if (resTE == 1) {
+        p()
+        p()
+        p()
+        p("Das Tesla Menue inkl. aller Module ohne [FTP + TriPlayer] wird installiert...")
+		p()
+		color(WHITE)
+		p("Bereinige:")
+		color(DRED)
+        copydir("sd:/atmosphere/extras/contents/420000000007E51A", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/contents/0100000000000352", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/contents/00FF0000636C6BFF", "sd:/atmosphere/contents")
+        copydir("sd:/atmosphere/extras/switch", "sd:/")
+		color(DRED)	
+		deldir("sd:/switch/TriPlayer")
+		delfile("sd:/tools/TriPlayer-01f0d84a52f2e000.nsp")
+		delfile("sd:/switch/.overlays/5_ovl-TriPlayer.ovl")
+		deldir("sd:/atmosphere/contents/420000000000000E")
+		delfile("sd:/switch/.overlays/4_sys-ftpd-ovl.ovl")
+		
+        clear()
+     
+        p()
+        p()
+		p()
+		color(WHITE)
+        p("Tesla Modul [FTP] installieren?")
+		p()
+        menuOptionsYN = ["ja", "nein"]
+        resYN = menu(menuOptionsYN, 0)
+  
+        clear()
+      
+        if (resYN == 0) {
+            p()
+            p()
+            p()
+            p("Tesla Modul FTP wird installiert...")
+            p()
+            color(WHITE)
+            p("Installiere:")
+            color(LGREEN)
+            copydir("sd:/atmosphere/extras/contents/420000000000000E", "sd:/atmosphere/contents")
+            copydir("sd:/atmosphere/extras/switch/.overlays", "sd:/switch")
+        }
+
+        clear()
+            
+        if (resYN == 1) {
+            p()
+            p()
+            p()
+            p("Tesla Modul FTP wird entfernt...")
+            p()
+            color(WHITE)
+            p("Loesche:")
+            color(DRED)
+            deldir("sd:/atmosphere/contents/420000000000000E")
+            delfile("sd:/switch/.overlays/4_sys-ftpd-ovl.ovl")
+        }
+        
+        clear()
+            
+        p()
+        p()
+        p()
+        color(WHITE)
+        p("Tesla Modul [TriPlayer] installieren?")
+        p()
+        menuOptionsYN = ["ja", "nein"]
+        resYN = menu(menuOptionsYN, 0)
+
+        clear()
+            
+        if (resYN == 0) {
+            p()
+            p()
+            p()
+            p("Tesla Modul TriPlayer wird installiert...")
+            p()
+            color(WHITE)
+            p("Installiere:")
+            color(LGREEN)
+            copydir("sd:/atmosphere/extras/contents/4200000000000FFF", "sd:/atmosphere/contents")
+            copydir("sd:/atmosphere/extras/switch/TriPlayer", "sd:/switch")
+            copydir("sd:/atmosphere/extras/tools", "sd:/")
+            copyfile("sd:/atmosphere/extras/switch/.overlays/5_ovl-TriPlayer.ovl", "sd:/switch/.overlays/5_ovl-TriPlayer.ovl")
+        }
+            
+        clear()
+
+        if (resYN == 1) {
+            p()
+            p()
+            p()
+            p("Tesla Modul TriPlayer wird entfernt...")
+            p()
+            color(WHITE)
+            p("Loesche:")
+            color(DRED)
+            deldir("sd:/atmosphere/contents/4200000000000FFF")
+            deldir("sd:/switch/TriPlayer")
+            delfile("sd:/tools/TriPlayer-01f0d84a52f2e000.nsp")
+            delfile("sd:/switch/.overlays/5_ovl-TriPlayer.ovl")
+        }
+            
+        clear()
+
+        p()
+        p()
+		p()
+		color(LGREEN)
+        p("Du kannst festlegen ueber welche Tastencombo das Tesla Menue aufgerufen wird:")
+		p()
+		color(WHITE)
+        menuOptionsCombo = ["[L+R+PLUS] (empfohlen)", "[R2+R3]", "[MINUS+PLUS]" , "[L+R+Y]", "[L+R+X]"]
+        resCO = menu(menuOptionsCombo, 0)
+        
+        if (resCO == 0) {
+            copyfile("sd:/atmosphere/extras/teslamenue/0/config.ini", "sd:/config/tesla/config.ini")
+        }
+        if (resCO == 1) {
+            copyfile("sd:/atmosphere/extras/teslamenue/1/config.ini", "sd:/config/tesla/config.ini")
+        }
+        if (resCO == 2) {
+            copyfile("sd:/atmosphere/extras/teslamenue/2/config.ini", "sd:/config/tesla/config.ini")
+        }
+        if (resCO == 3) {
+            copyfile("sd:/atmosphere/extras/teslamenue/3/config.ini", "sd:/config/tesla/config.ini")
+        }
+        if (resCO == 4) {
+            copyfile("sd:/atmosphere/extras/teslamenue/4/config.ini", "sd:/config/tesla/config.ini")
+        }
+    }
+	if (resTE == 2) {
+        p()
+        p()
+        p()
+        p("Tesla + Module wird entfernt...")
+        p()
+        color(WHITE)
+        p("Loesche:")
+        color(DRED)
+        deldir("sd:/atmosphere/contents/420000000000000E")
+        deldir("sd:/atmosphere/contents/420000000007E51A")
+        deldir("sd:/atmosphere/contents/4200000000000FFF")
+        deldir("sd:/atmosphere/contents/0100000000000352")
+        deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
+        deldir("sd:/switch/.overlays")
+        deldir("sd:/switch/TriPlayer")	
+        delfile("sd:/tools/TriPlayer-01f0d84a52f2e000.nsp")
+        
+        clear()
+    }
+	
+    clear()
+    
+    p()
+    p()
+    p()
+    color(LGREEN)
+    p("Einige Homebrew Apps sind nur bei der Ersteinrichtung noetig, diese koennt ihr jetzt entfernen.")
+    p()
+    color(DRED)
+    p("Diese Homebrew Apps werden entfernt: Switch-Time + Linkalho")
+    p()
+    color(WHITE)
+    p("Einmal Apps loeschen?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+
+    clear()
+
+    if (resYN == 0) {
+        color(WHITE)
+        p()
+        p()
+        p()
+        p()
+        p("Loesche:")
+        color(DRED)
+        deldir("sd:/switch/linkalho")
+        deldir("sd:/switch/switch-time")
+    }
+}
+
+clear()
 
 # Attribute reparieren und MacOS Kram loeschen
 clear()
@@ -402,7 +1298,15 @@ wait(tw = 1000)
 
 # 3. Hinter uns aufräumen und ordnen
 clear()
-p("* Entferne Update Ordner")
+p()
+p()
+p()
+color(LGREEN)
+p("SwitchBros. Paket installationsdaten werden jetzt entfernt...")
+p()
+color(WHITE)
+p("Bereinige:")
+color(DRED)
 
 deldir("sd:/SwitchBros_BasisPaket")
 delfile("sd:/switch/switchbros-updater/startup.te")
@@ -419,23 +1323,7 @@ delfile("sd:/bootloader/res/icon_SB_nobox.bmp")
 delfile("sd:/switch/switchbrosupdater/switchbros-updater.bin")
 delfile("sd:/switch/switchbrosupdater/startup.te")
 deldir("sd:/switch/switchbrosupdater")
-
-if (!syscon) {
-	deldir("sd:/atmosphere/contents/690000000000000D")
-	deldir("sd:/config/sys-con")
-}
-
-if (!missioncontrol) {
-	deldir("sd:/atmosphere/contents/010000000000bd00")
-	deldir("sd:/config/missioncontrol")
-}
-
-if (!fse("sd:/bootloader/nyx.ini")){
-	delfile("sd:/bootloader/nyx.ini")
-	movefile("sd:/bootloader/nyx.ini_" "sd:/bootloader/nyx.ini")
-}.else(){
-	delfile("sd:/bootloader/nyx.ini_")
-}
+delfile("sd:/tegraexplorer/scripts/update.te")
 
 if (maj != 4) {
 	if (fuse_patched()){
@@ -449,14 +1337,16 @@ if (maj != 4) {
 }
 	
 p()
-p("Abgeschlossen")
 
 # 5. Neustart in hekate 
 clear()
-p("Das neue SwitchBros Paket wurde erfolgreich installiert!")
+p("Das neue SwitchBros. Paket wurde erfolgreich installiert!")
+color(WHITE)
 p()
-p("Neustart in hekate")
-wait(tw = 3000)
+p()
+p("Fertig! Die Switch schaltet sich in 5 Sek. automatisch aus.")
+p()
+wait(tw = 5000)
 
 if (is_erista()) {
 	payload("sd:/bootloader/update.bin")
