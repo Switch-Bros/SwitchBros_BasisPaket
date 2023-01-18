@@ -737,6 +737,29 @@ set /p themepaket=Sollen die ThemeApps installiert werden:
 REM =================================================================================
 :themepaketinst
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
+echo.
+echo --------------------------------------------------------------------------------
+echo      Wenn du moechtest gib deine Steam API fuer icongrabber ein!
+echo.
+echo      Du kannst diesen Schritt mit Eingabetaste ueberspringen!
+echo --------------------------------------------------------------------------------
+echo.
+
+set /p steamapi=Bitte gib deine Steam API ein: 
+
+if "%steamapi%" == "" (
+    goto systemmodule
+)
+set "search=deine_STEAM_API"
+set "replace=%steamapi%"
+set "textfile=%sd%:\config\icongrabber\config.ini"
+set "newfile=%sd%:\backup\config_neu.ini"
+(for /f "delims=" %%i in (%textfile%) do (
+    set "line=%%i"
+    set "line=!line:%search%=%replace%!"
+    echo !line!
+))>"%newfile%"
+move /y "%newfile%" "%textfile%"
 GOTO systemmodule
 
 REM =================================================================================
