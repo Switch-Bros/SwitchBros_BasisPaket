@@ -29,13 +29,13 @@ echo ---------------------------------------------------------------------------
 echo                      _-== WARNUNG - WARNUNG - WARNUNG ==-_
 echo.
 echo      Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus
-echo      gestartet hast, dann schliesse es bitte sofort!
+echo      gestartet hast, dann schliesse es bitte SOFORT!
 echo.
-echo      Starte die SD-Werkzeug.bat NUR aus dem "Basis" Ordner von deinem PC!
+echo      Starte die SD-Werkzeug.bat NUR aus dem "BasisPaket" Ordner von deinem PC!
 echo --------------------------------------------------------------------------------
 echo.
-echo      Hast du dieses Skript aus dem "SwitchBros_BasisPaket" aus gestartet, dann
-echo      gib jetzt bitte (NUR) den Laufwerksbuchstaben deiner SD-Karte ein!
+echo      Hast du dieses Skript aus dem "SwitchBros_BasisPaket" heraus gestartet,
+echo      dann gib jetzt bitte (NUR) den Laufwerksbuchstaben deiner SD-Karte ein!
 echo.
 echo --------------------------------------------------------------------------------
 echo.
@@ -86,10 +86,10 @@ cls
 echo.
 echo --------------------------------------------------------------------------------
 echo.
-echo      Neue SD-Karte oder zum SwitchBros Paket wechseln?
-echo      Bitte das ganze Skript komplett durchgehen! Danke!
+echo      Neue SD-Karte oder zum SwitchBros Paket wechseln? = JA!
+echo      Bitte das GANZE Skript komplett durchgehen! Danke!
 echo.
-echo      1 = SD-Karte bereinigen und zum SwitchBros. Paket wechseln!
+echo      1 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln!
 echo.
 echo --------------------------------------------------------------------------------
 echo.
@@ -101,7 +101,8 @@ echo      4 = Kinder-Modus einrichten (verstecken von Apps zb Tinfoil)!
 echo.
 echo      5 = ThemeApps Paket installieren/deinstallieren!
 echo.
-echo      5a = Gib deine Steam API an fuer IconGrabber!
+echo      5a = Gib deine Steam API an fuer IconGrabber! (Nur wenn das ThemeApps_Paket
+echo                                                   oder Icongrabber installiert ist)
 echo.
 echo      6 = Tesla-Overlay installieren/deinstallieren/manuell!
 echo.
@@ -2151,9 +2152,15 @@ echo                    Viel Spass mit unserem Paket und
 echo                 Willkommen in der Switch Bros. Community
 echo.
 echo.
-echo                   Druecke irgendeine Taste zum beenden
+echo    Druecke irgendeine Taste zum beenden oder H wenn du zum Hauptmenue willst
+echo    um die Zusatz-Apps zu installieren!
 echo --------------------------------------------------------------------------------
 
-if exist "%wd%" (RD /s /q "%wd%\*")
-pause>nul 2>&1
-exit
+set /p Beenden=Eingabetaste oder H eingeben: 
+if "%beenden%"=="" (
+    if exist "%wd%" (RD /s /q "%wd%\*")
+    exit
+)
+if "%beenden%"=="H" (
+	goto hauptmenue
+)
