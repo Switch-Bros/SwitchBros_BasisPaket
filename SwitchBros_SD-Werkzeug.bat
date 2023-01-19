@@ -2,8 +2,9 @@
 SETLOCAL EnableDelayedExpansion
 chcp 1252 >nul 2>&1
 title SwitchBros. SD-Werkzeug
-REM Dieses Skript basiert auf der Batch-Datei von rashevskyv seinem Kefir Paket
-REM der ebenfalls Entwickler von DBI ist! RIESEN DANK!!! an diesen tollen Entwickler!
+REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
+REM RIESEN DANK!!! an diesen tollen Entwickler!
+REM Dieses Skript wurde um einiges erweitert und ergänzt!
 
 COLOR 0E
 set wd=%temp%\sdfiles
@@ -2122,12 +2123,12 @@ echo                 Gewaehlter Laufwerksbuchstabe: %sd%:/
 echo                    Keine SD-Karte in Laufwerk: %sd%:/
 echo.
 echo.
-echo     1 =  Laufwerksbuchstabe ist korrekt (Zurueck zum Hauptmenue)
-echo     2 =  Anderen Laufwerksbuchstaben waehlen
+echo     1.  Laufwerksbuchstabe ist korrekt
+echo     2.  Anderen Laufwerksbuchstaben waehlen
 echo.
 echo --------------------------------------------------------------------------------
 echo.
-echo     B = Beenden
+echo     B.  Beenden
 echo.
 
 set st=
@@ -2149,11 +2150,8 @@ echo                    Viel Spass mit unserem Paket und
 echo                 Willkommen in der Switch Bros. Community
 echo.
 echo.
-echo    Druecke irgendeine Taste zum beenden oder gehe zurueck zum Hauptmenue
-echo    falls du noch die Zusatz-Apps installieren willst! 
-echo.
-echo --------------------------------------------------------------------------------
-echo     H = Zurueck zum Hauptmenue
+echo    Druecke irgendeine Taste zum beenden oder H wenn du zum Hauptmenue willst
+echo    um die Zusatz-Apps zu installieren!
 echo --------------------------------------------------------------------------------
 
 set /p Beenden=Eingabetaste oder H eingeben: 
