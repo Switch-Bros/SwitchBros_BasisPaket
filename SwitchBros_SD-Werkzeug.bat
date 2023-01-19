@@ -2122,12 +2122,12 @@ echo                 Gewaehlter Laufwerksbuchstabe: %sd%:/
 echo                    Keine SD-Karte in Laufwerk: %sd%:/
 echo.
 echo.
-echo     1.  Laufwerksbuchstabe ist korrekt
-echo     2.  Anderen Laufwerksbuchstaben waehlen
+echo     1 =  Laufwerksbuchstabe ist korrekt (Zurueck zum Hauptmenue)
+echo     2 =  Anderen Laufwerksbuchstaben waehlen
 echo.
 echo --------------------------------------------------------------------------------
 echo.
-echo     B.  Beenden
+echo     B = Beenden
 echo.
 
 set st=
@@ -2149,8 +2149,11 @@ echo                    Viel Spass mit unserem Paket und
 echo                 Willkommen in der Switch Bros. Community
 echo.
 echo.
-echo    Druecke irgendeine Taste zum beenden oder H wenn du zum Hauptmenue willst
-echo    um die Zusatz-Apps zu installieren!
+echo    Druecke irgendeine Taste zum beenden oder gehe zurueck zum Hauptmenue
+echo    falls du noch die Zusatz-Apps installieren willst! 
+echo.
+echo --------------------------------------------------------------------------------
+echo     H = Zurueck zum Hauptmenue
 echo --------------------------------------------------------------------------------
 
 set /p Beenden=Eingabetaste oder H eingeben: 
