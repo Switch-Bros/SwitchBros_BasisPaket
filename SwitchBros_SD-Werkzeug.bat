@@ -191,10 +191,11 @@ REM ============================================================================
 COLOR 09
 cls
 echo.
-echo ------------------------------------- -------------------------------------------
+echo --------------------------------------------------------------------------------
 echo                       JA GENAU, HAU DOCH AB DU LUTSCHA!!!
 echo.
 echo                         BLEIB BEI DEINEM BLOEDEN PAKET!
+echo               ZIEHE NICHT UEBER LOS! UND STREICHE KEINE 2000€ EIN!
 echo.
 echo                       Druecke die Eingabetaste zum beenden
 echo --------------------------------------------------------------------------------
@@ -768,15 +769,15 @@ echo ---------------------------------------------------------------------------
 echo      Wenn du moechtest gib deine Steam API fuer IconGrabber ein damit
 echo      IconGrabber die SteamGridDB durchsuchen kann!
 echo.
-echo      Du solltest dich hier = https://www.steamgriddb.com/ mit deinem normalen
-echo      STEAM-Account anmelden!
+echo      Du solltest dich hier = https://www.steamgriddb.com/ (STRG + LMT auf Link)
+echo      mit deinem normalen STEAM-Account anmelden!
 echo      Rechts oben auf deinen Namen ^> Preferences ^> dann links der letzte TAB
 echo      = API - Wo du deine SteamAPI kopieren kannst!
 echo.
 echo      Die kopierte API kannst du in diesem Fenster mit einem klick der rechten
 echo      Maustaste einfuegen lassen und Eingabetaste zum bestaetigen! 
 echo.
-echo      Du kannst diesen Schritt mit Eingabetaste ueberspringen!
+echo      Du kannst diesen Schritt nur mit druecken der Eingabetaste ueberspringen!
 echo --------------------------------------------------------------------------------
 echo.
 
@@ -816,7 +817,7 @@ cls
 echo.
 echo --------------------------------------------------------------------------------
 echo.
-echo     Das Tesla Overlay Menue wird aufgerufen mit: 
+echo     Das Tesla-Overlay Menue koennt ihr auf der Switch aufrufen mit: 
 echo.
 echo                          ZL + ZR + PLUS Taste 
 echo.
