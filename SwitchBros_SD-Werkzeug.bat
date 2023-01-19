@@ -478,6 +478,7 @@ echo ---------------------------------------------------------------------------
 pause>nul 2>&1
 
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E
+TIMEOUT 3 /nobreak
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
@@ -2057,7 +2058,7 @@ echo.
 echo     1 = USB3 in die Registry eintragen und weiter im Skript!
 echo.
 echo.
-echo     2 = USB3 in die Registry eintragen und zurueck zum Hauptmenue!
+echo     2 = USB3 nicht in die Registry eintragen und weiter im Skript!
 echo.
 echo --------------------------------------------------------------------------------
 echo     H = Zurueck zum Hauptmenue
@@ -2066,12 +2067,8 @@ echo.
 
 set /p usb3=Welches Tesla-Overlay soll installiert werden?: 
 	if /i "%usb3%"=="1" GOTO usb3weiter
-	if /i "%usb3%"=="2" GOTO usb3haupt
+	if /i "%usb3%"=="2" GOTO aufraeumen
 	if /i "%usb3%"=="H" GOTO hauptmenue
-
-:usb3haupt
-reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v MaximumTransferLength /t REG_DWORD /d 00100000 /f>nul 2>&1
-GOTO hauptmenue
 
 :usb3weiter
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v MaximumTransferLength /t REG_DWORD /d 00100000 /f>nul 2>&1
