@@ -100,6 +100,8 @@ echo      4 = Kinder-Modus einrichten (verstecken von Apps zb Tinfoil)!
 echo.
 echo      5 = ThemeApps Paket installieren/deinstallieren!
 echo.
+echo      5a = Gib deine Steam API an fuer IconGrabber!
+echo.
 echo      6 = Tesla-Overlay installieren/deinstallieren/manuell!
 echo.
 echo      7 = Zusatz Apps installieren/deinstallieren! (Nur ueber Hauptmenue erreichbar)
@@ -120,6 +122,7 @@ if /i "%neuistgut%"=="2" GOTO backupordner
 if /i "%neuistgut%"=="3" GOTO systempartitionen
 if /i "%neuistgut%"=="4" GOTO kindgerecht
 if /i "%neuistgut%"=="5" GOTO themepaket
+if /i "%neuistgut%"=="5a" GOTO steamapiangeben
 if /i "%neuistgut%"=="6" GOTO systemmodule
 if /i "%neuistgut%"=="7" GOTO zusatzapps
 if /i "%neuistgut%"=="8" GOTO attributeundmac
@@ -737,6 +740,9 @@ set /p themepaket=Sollen die ThemeApps installiert werden:
 REM =================================================================================
 :themepaketinst
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
+GOTO steamapiangeben
+
+:steamapiangeben
 echo.
 echo --------------------------------------------------------------------------------
 echo      Wenn du moechtest gib deine Steam API fuer icongrabber ein!
@@ -752,8 +758,8 @@ if "%steamapi%" == "" (
 )
 set "search=deine_STEAM_API"
 set "replace=%steamapi%"
-set "textfile=%sd%:\config\icongrabber\config.ini"
-set "newfile=%sd%:\backup\config_neu.ini"
+set "textfile=%sd%:\config\icongrabber\config.json"
+set "newfile=%sd%:\backup\config_neu.json"
 (for /f "delims=" %%i in (%textfile%) do (
     set "line=%%i"
     set "line=!line:%search%=%replace%!"
