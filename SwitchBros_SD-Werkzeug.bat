@@ -1356,8 +1356,8 @@ echo     Waehle hier Apps die zusaetzlich installiert/deinstalliert werden solle
 echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt! 
 echo.
-echo      1 = Amiibo Generator (Bootsound beim Systemstart)
-echo      2 = Amiigo (Cheats nutzen)
+echo      1 = Amiibo Generator (Generiert Amiibos)
+echo      2 = Amiigo (Amiibos ueber emuiibo im Tesla-Overlay nutzen)
 echo      3 = chiaki (PS4/PS5 auf der Switch streamen)
 echo      4 = fake08 (Pico8 Emulator)
 echo      5 = Goldleaf (NSP installieren und andere Dinge)
@@ -2057,6 +2057,7 @@ echo.
 echo     Volle USB3 Geschwindigkeit mit hekate USM Modus!
 echo.
 echo     1 = USB3 in die Registry eintragen und weiter im Skript!
+echo         (muss nur einmal fuer einen PC ausgefuehrt werden)
 echo.
 echo.
 echo     2 = USB3 nicht in die Registry eintragen und weiter im Skript!
@@ -2066,7 +2067,7 @@ echo     H = Zurueck zum Hauptmenue
 echo --------------------------------------------------------------------------------
 echo.
 
-set /p usb3=Welches Tesla-Overlay soll installiert werden?: 
+set /p usb3=Welche USB3 Einstellung: 
 	if /i "%usb3%"=="1" GOTO usb3weiter
 	if /i "%usb3%"=="2" GOTO aufraeumen
 	if /i "%usb3%"=="H" GOTO hauptmenue
@@ -2155,10 +2156,10 @@ echo    um die Zusatz-Apps zu installieren!
 echo --------------------------------------------------------------------------------
 
 set /p Beenden=Eingabetaste oder H eingeben: 
-if "%beenden%"=="" (
+if /i "%beenden%"=="" (
     if exist "%wd%" (RD /s /q "%wd%\*")
     exit
 )
-if "%beenden%"=="H" (
+if /i "%beenden%"=="H" (
 	goto hauptmenue
 )
