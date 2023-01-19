@@ -75,6 +75,7 @@ if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ip
 if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\*")
 if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\*")
 if exist "%sd%:\config\Fizeau\config.ini" (xcopy /y "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\*")
+if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrabber\config.json" "%sd%:\switchbros\backup\IconGrabber\*")
 if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%sd%:\switchbros\backup\ftpd\*")
 if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\*")
 
@@ -374,6 +375,7 @@ if exist "%sd%:\themes\Ryu Hayabusa" (RD /s /q "%sd%:\themes\Ryu Hayabusa")
 FOR /D /R "%sd%:\" %%X IN (amsPACK*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (kefir*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (ShallowSea*) DO RD /S /Q "%%X"
+FOR /D /R "%sd%:\" %%X IN (DeepSea*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (reinx*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (firmware*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (sxos*) DO RD /S /Q "%%X"
@@ -474,6 +476,9 @@ echo ---------------------------------------------------------------------------
 pause>nul 2>&1
 
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 
 REM =================================================================================
 :systempartitionen
@@ -533,6 +538,7 @@ if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backu
 if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -540,6 +546,7 @@ REM ============================================================================
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -547,6 +554,7 @@ REM ============================================================================
 xcopy "%sd%:\switchbros\system\ba\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -570,6 +578,7 @@ if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bu\fedora\*" "%sd%:\" /H /Y 
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -600,6 +609,7 @@ if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\bau\fedora\*" "%sd%:\" /H /Y
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\bau\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -607,6 +617,7 @@ REM ============================================================================
 xcopy "%sd%:\switchbros\system\bal\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -630,6 +641,7 @@ if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\balu\fedora\*" "%sd%:\" /H /
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\balu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -653,6 +665,7 @@ if /i "%Linux%"=="C" xcopy "%sd%:\switchbros\system\blu\fedora\*" "%sd%:\" /H /Y
 if /i "%Linux%"=="D" xcopy "%sd%:\switchbros\system\blu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
 REM =================================================================================
@@ -683,20 +696,23 @@ set /p kindgerecht=Waehle deine Tinfoil Version:
 	if /i "%kindgerecht%"=="W" GOTO tinfoilno
 	if /i "%kindgerecht%"=="H" GOTO hauptmenue
 
+REM ================================================================================
 :tinfoila
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I
-xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\" /H /Y /C /R /S /E /I
-xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\*" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I
 GOTO themepaket
 
+REM ================================================================================
 :tinfoilb
-xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\" /H /Y /C /R /S /E /I
-xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\" /H /Y /C /R /S /E /I
-xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\" /H /Y /C /R /S /E /I
-xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\*" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I
+xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I
 GOTO themepaket
 
+REM ================================================================================
 :tinfoilno
 RD /s /q "%sd%:\switch\tinfoil"
 del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp"
@@ -740,26 +756,39 @@ set /p themepaket=Sollen die ThemeApps installiert werden:
 REM =================================================================================
 :themepaketinst
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
+if exist "%sd%:\backup\IconGrabber\config.json" (xcopy "%sd%:\backup\IconGrabber\config.json" "%sd%:\config\IconGrabber\*" /H /Y /C /R /S /E /I)
 GOTO steamapiangeben
 
+REM =================================================================================
 :steamapiangeben
+COLOR 0E
+cls
 echo.
 echo --------------------------------------------------------------------------------
-echo      Wenn du moechtest gib deine Steam API fuer icongrabber ein!
+echo      Wenn du moechtest gib deine Steam API fuer IconGrabber ein damit
+echo      IconGrabber die SteamGridDB durchsuchen kann!
+echo.
+echo      Du solltest dich hier = https://www.steamgriddb.com/ mit deinem normalen
+echo      STEAM-Account anmelden!
+echo      Rechts oben auf deinen Namen ^> Preferences ^> dann links der letzte TAB
+echo      = API - Wo du deine SteamAPI kopieren kannst!
+echo.
+echo      Die kopierte API kannst du in diesem Fenster mit einem klick der rechten
+echo      Maustaste einfuegen lassen und Eingabetaste zum bestaetigen! 
 echo.
 echo      Du kannst diesen Schritt mit Eingabetaste ueberspringen!
 echo --------------------------------------------------------------------------------
 echo.
 
 set /p steamapi=Bitte gib deine Steam API ein: 
-
-if "%steamapi%" == "" (
+set "config_path=%sd%:\config\icongrabber\config.json"
+if "%steamapi%"=="" (
     goto systemmodule
 )
 set "search=deine_STEAM_API"
 set "replace=%steamapi%"
-set "textfile=%sd%:\config\icongrabber\config.json"
-set "newfile=%sd%:\backup\config_neu.json"
+set "textfile=%config_path%"
+set "newfile=%sd%:\config\icongrabber\config_neu.json"
 (for /f "delims=" %%i in (%textfile%) do (
     set "line=%%i"
     set "line=!line:%search%=%replace%!"
