@@ -4,7 +4,7 @@ chcp 1252 >nul 2>&1
 title SwitchBros. SD-Werkzeug
 REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
-REM Dieses Skript wurde um einiges erweitert und ergänzt!
+REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
 set wd=%temp%\sdfiles
@@ -13,32 +13,35 @@ set cfw=AMS
 set cfwname=Atmosphere
 set theme_flag=0
 set theme=0
+set ftpd=0
+set fizeau=0
+set icograb=0
 set sd=%1
 REM if not defined %sd% (GOTO hauptmenue)
 
-REM ================================================================================
+REM ============================================================
 :willkommen
 type "%~dp0SwitchBros.txt"
 pause>nul 2>&1
 
-REM ================================================================================
+REM ============================================================
 :neuekarte
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
-echo                      _-== WARNUNG - WARNUNG - WARNUNG ==-_
+echo -----------------------------------------------------------------------------------------------------
+echo                            _-== WARNUNG - WARNUNG - WARNUNG - WARNUNG ==-_
 echo.
-echo      Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus
-echo      gestartet hast, dann schliesse es bitte SOFORT!
+echo      Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus gestartet hast, dann
+echo          SCHLIESSE es bitte SOFORT^^! NICHT von SD-Karte aus starten^^!
 echo.
-echo      Starte die SD-Werkzeug.bat NUR aus dem "BasisPaket" Ordner von deinem PC!
-echo --------------------------------------------------------------------------------
+echo      Bitte starte die SD-Werkzeug.bat ^>NUR^< aus dem "BasisPaket" Ordner von deinem PC^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Hast du dieses Skript aus dem "SwitchBros_BasisPaket" heraus gestartet,
-echo      dann gib jetzt bitte (NUR) den Laufwerksbuchstaben deiner SD-Karte ein!
+echo      Hast du dieses Skript aus dem "SwitchBros_BasisPaket" heraus gestartet, dann gib jetzt
+echo      bitte ^>NUR^< den Laufwerksbuchstaben deiner SD-Karte ein^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
@@ -52,25 +55,25 @@ if not exist "%sd%:\" (
 	if not exist "%sd%:\*" (GOTO falschesdkarte)
 )
 
-REM =================================================================================
+REM ============================================================
 :modchip
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
-echo      Wenn du einen Modchip in deiner Konsole hast, dann gib es bitte hier an!
+echo -----------------------------------------------------------------------------------------------------
+echo      Wenn du einen Modchip in deiner Konsole hast, dann gib es bitte hier an^^!
 echo.
 echo      1 = Modchip ist verbaut (v2, lite, OLED, trinketm0 in der v1)
 echo      2 = kein Modchip verbaut
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p modchip="Ist ein Modchip verbaut: "
 if /i "%modchip%"=="1" SET bootdat=1
 if /i "%modchip%"=="2" SET bootdat=0
 
-REM =================================================================================
+REM ============================================================
 :datensichern
 if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup\*")
 if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\*")
@@ -80,43 +83,43 @@ if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrab
 if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%sd%:\switchbros\backup\ftpd\*")
 if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\*")
 
-REM =================================================================================
+REM ============================================================
 :hauptmenue
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Neue SD-Karte oder zum SwitchBros Paket wechseln? = JA!
-echo      Bitte das GANZE Skript komplett durchgehen! Danke!
+echo      Bitte das GANZE Skript komplett durchgehen wenn du die CFW zum ersten Mal aufsetzt, oder wenn
+echo      von einem anderen Paket kommst oder wenn es sich um eine neue SD-Karte handelt^^! DANKE^^!
 echo.
-echo      1 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln!
+echo      1 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      2 = Backup Ordner auf dem PC erstellen (fuer BOOT0, BOOT1, RAW GPP und KEYS)!
+echo      2 = Backup Ordner auf dem PC erstellen (fuer BOOT0, BOOT1, RAW GPP und KEYS)^^!
 echo.
-echo      3 = Gib deine Systempartitionen an (Linux, LAKKA, Android)!
+echo      3 = Gib die Systeme an die du spaeter nutzen wirst (Linux, LAKKA, Android)^^!
 echo.
-echo      4 = Kinder-Modus einrichten (verstecken von Apps zb Tinfoil)!
+echo      4 = Kinder-Modus einrichten (verstecken von Apps zb Tinfoil)^^!
 echo.
-echo      5 = ThemeApps Paket installieren/deinstallieren!
+echo      5 = ThemeApps Paket installieren / deinstallieren^^!
 echo.
-echo      5a = Gib deine Steam API an fuer IconGrabber! (Nur wenn das ThemeApps_Paket
-echo                                                   oder Icongrabber installiert ist)
+echo      5a = Gib deine Steam API an fuer IconGrabber^^! (Nur wenn das ThemeApps_Paket oder Icongrabber
+echo                                                     installiert ist)
 echo.
-echo      6 = Tesla-Overlay installieren/deinstallieren/manuell!
+echo      6 = Tesla-Overlay installieren / deinstallieren / manuell^^!
 echo.
-echo      7 = Zusatz Apps installieren/deinstallieren! (Nur ueber Hauptmenue erreichbar)
+echo      7 = Zusatz Apps installieren / deinstallieren^^! (Nur ueber Hauptmenue erreichbar)
 echo.
-echo      8 = Attribute (fixAttrib) und MacOS Kram beseitigen!
+echo      8 = Attribute (fix ArchiveBit) und MacOS Kram beseitigen^^!
 echo.
-echo      9 = Volle USB3 Geschwindigkeit in die Registry eintragen lassen!
+echo      9 = Volle USB3 Geschwindigkeit in die Registry eintragen lassen^^!
 echo.
 echo.
-echo      F = Ich moechte mein altes Paket doch behalten!
-echo      B = Dieses Skript Beenden!
-echo --------------------------------------------------------------------------------
+echo      F = Unsicher, altes Paket behalten                             B = Dieses Skript Beenden
+echo.     
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p neuistgut="Bitte gib deine Auswahl ein: "
@@ -133,23 +136,21 @@ if /i "%neuistgut%"=="9" GOTO hekateusb
 if /i "%neuistgut%"=="F" GOTO endefeige
 if /i "%neuistgut%"=="B" GOTO endemutig
 
-REM =================================================================================
+REM ============================================================
 :backupordner
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Bevor es losgeht, kann das Script fuer dich Backup-Ordner erstellen
-echo      in denen du spaeter die Backups von hekate einfuegen kannst =
-echo      (BOOT0, BOOT1 und RAW GPP - Keys, etc.)
+echo      Bevor es losgeht, kann das Script fuer dich Backup-Ordner erstellen in denen du spaeter die
+echo      Backups von hekate einfuegen kannst = (BOOT0, BOOT1 und RAW GPP - Keys, etc.)
 echo.
-echo      Die erstellten Backups von hekate sind nicht gerade klein!
-echo      Gib bitte ein Laufwerk angeben das ueber ausreichend
-echo      freien Speicherplatz verfuegt (ca. 35GB bzw. fuer OLED 65GB)!
+echo      Die erstellten Backups von hekate sind nicht gerade klein^^!
+echo      Gib bitte ein Laufwerk an (NICHT deine SD-Karte), dass ueber ausreichend freien Speicherplatz
+echo      verfuegt (ca. 35GB fuer v1, v2 und lite bzw. 65GB fuer OLED Konsolen)!
 echo.
-echo      Folgende (leere) Ordner werden im angegebenen Laufwerk, auf deinem PC,
-echo      fuer dich angelegt:
+echo      Folgende (leere) Ordner werden im angegebenen Laufwerk, auf deinem PC, fuer dich angelegt:
 echo.             
 echo      - SwitchBackup
 echo        - sysNAND (fuer BOOT0, BOOT1 und RAW GPP)
@@ -159,10 +160,9 @@ echo          - Partial_AES_Keys (partial_aes.keys (Mariko Chip))
 echo          - Amiibo_Keys
 echo        - SD-Karten_Backup (CFW eingerichtet = Ein Backup davon)
 echo.
+echo      Brauchst du die Ordner nicht dann druecke nur die Eingabetaste^^!
 echo.
-echo      Brauchst du die Ordner nicht dann druecke nur die Eingabetaste!
-echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "LW="
@@ -176,38 +176,41 @@ if defined LW (
     md "%LW%:\SwitchBackup\Lockpick\Amiibo_Keys"
     md "%LW%:\SwitchBackup\SD-Karten_Backup"
   ) 2>nul
+    cls
 	echo.
-	echo --------------------------------------------------------------------------------
+	echo -----------------------------------------------------------------------------------------------------
 	echo      Die Ordner fuer deine Backups wurden im Laufwerk "%LW%:\" erstellt
 	echo.
-	echo      Beliebige Taste um zum Hauptmenue zurueckzukehren!
-	echo --------------------------------------------------------------------------------
+	echo      Beliebige Taste um zum Hauptmenue zurueckzukehren^^!
+	echo -----------------------------------------------------------------------------------------------------
 	pause>nul 2>&1
 	GOTO hauptmenue
 ) else (
     GOTO hauptmenue
 )
 
-REM =================================================================================
+REM ============================================================
 :endefeige
 COLOR 09
 cls
 echo.
-echo --------------------------------------------------------------------------------
-echo                       JA GENAU, HAU DOCH AB DU LUTSCHA!!!
+echo --------------------------------------------------- --------------------------------------------------
+echo                                    JA GENAU, HAU DOCH AB DU LUTSCHA^^!^^!^^!
 echo.
-echo                         BLEIB BEI DEINEM BLOEDEN PAKET!
-echo               ZIEHE NICHT UEBER LOS! UND STREICHE KEINE 2000€ EIN!
+echo                                     BLEIB BEI DEINEM BLOEDEN PAKET^^!
+echo                           ZIEHE NICHT UEBER LOS^^! UND STREICHE KEINE 2000€ EIN^^!
 echo.
-echo                       Druecke die Eingabetaste zum beenden
-echo --------------------------------------------------------------------------------
+echo.
+echo.
+echo      Druecke die Eingabetaste zum beenden
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 if exist "%wd%" (RD /s /q "%wd%\*")
 pause>nul 2>&1
 exit
 
-REM ======= ATMOSPHERE ORDNER =======================================================
+REM ======= ATMOSPHERE ORDNER ==================================
 :sbgibgas
 COLOR 0E
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
@@ -238,7 +241,7 @@ if exist "%sd%:\atmosphere\*.sig" (del "%sd%:\atmosphere\*.sig")
 if exist "%sd%:\atmosphere\*.json" (del "%sd%:\atmosphere\*.json")
 if exist "%sd%:\atmosphere\*.ini" (del "%sd%:\atmosphere\*.ini")
 
-REM ======= ATMOSPHERE CONTENTS ORDNER ==============================================
+REM ======= ATMOSPHERE CONTENTS ORDNER =========================
 if exist "%sd%:\atmosphere\contents\0100000000000008" (RD /s /q "%sd%:\atmosphere\contents\0100000000000008")
 if exist "%sd%:\atmosphere\contents\010000000000100B" (RD /s /q "%sd%:\atmosphere\contents\010000000000100B")
 if exist "%sd%:\atmosphere\contents\010000000000000D" (RD /s /q "%sd%:\atmosphere\contents\010000000000000D")
@@ -308,7 +311,7 @@ if exist "%sd%:\atmosphere\contents\4300000000000909" (RD /s /q "%sd%:\atmospher
 if exist "%sd%:\atmosphere\contents\5600000000000000" (RD /s /q "%sd%:\atmosphere\contents\5600000000000000")
 if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /s /q "%sd%:\atmosphere\contents\690000000000000D")
 
-REM ======= BOOTLOADER ORDNER =======================================================
+REM ======= BOOTLOADER ORDNER ==================================
 if exist "%sd%:\bootloader\debug" (RD /s /q "%sd%:\bootloader\debug")
 if exist "%sd%:\bootloader\sys" (RD /s /q "%sd%:\bootloader\sys")
 if exist "%sd%:\bootloader\*.bmp" (del "%sd%:\bootloader\*.bmp")
@@ -355,7 +358,7 @@ if exist "%sd%:\bootloader\res\Zahnrad.bmp" (del "%sd%:\bootloader\res\Zahnrad.b
 if exist "%sd%:\bootloader\res\icon_lockpick.bmp" (del "%sd%:\bootloader\res\icon_lockpick.bmp")
 if exist "%sd%:\bootloader\res\icon_tegraexplorer.bmp" (del "%sd%:\bootloader\res\icon_tegraexplorer.bmp")
 
-REM ======= CONFIG ORDNER ===========================================================
+REM ======= CONFIG ORDNER ======================================
 if exist "%sd%:\config\fw-downloader" (RD /s /q "%sd%:\config\fw-downloader")
 if exist "%sd%:\config\luigi-theme-updater" (RD /s /q "%sd%:\config\luigi-theme-updater")
 if exist "%sd%:\config\mario-theme-updater" (RD /s /q "%sd%:\config\mario-theme-updater")
@@ -371,7 +374,7 @@ if exist "%sd%:\config\sys-clk" (RD /s /q "%sd%:\config\sys-clk")
 if exist "%sd%:\config\sys-con" (RD /s /q "%sd%:\config\sys-con")
 if exist "%sd%:\config\tesla" (RD /s /q "%sd%:\config\tesla")
 
-REM ======= THEMES ORDNER ===========================================================
+REM ======= THEMES ORDNER ======================================
 if exist "%sd%:\themes\systemData" (RD /s /q "%sd%:\themes\systemData")
 if exist "%sd%:\themes\Ryu Hayabusa" (RD /s /q "%sd%:\themes\Ryu Hayabusa")
 
@@ -384,7 +387,7 @@ FOR /D /R "%sd%:\" %%X IN (firmware*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (sxos*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (custom*) DO RD /S /Q "%%X"
 
-REM ======= SD-KARTEN ROOT ==========================================================
+REM ======= SD-KARTEN ROOT =====================================
 if exist "%sd%:\tegraexplorer" (RD /s /q "%sd%:\tegraexplorer")
 if exist "%sd%:\modules" (RD /s /q "%sd%:\modules")
 if exist "%sd%:\NSPs" (RD /s /q "%sd%:\NSPs")
@@ -411,7 +414,7 @@ if exist "%sd%:\*.log" (del "%sd%:\*.log")
 
 if exist "%sd%:\roms\*.txt" (del  "%sd%:\roms\*.txt")
 
-REM ======= SWITCH ORDNER ===========================================================
+REM ======= SWITCH ORDNER ======================================
 if exist "%sd%:\switch\download-helper" (RD /s /q "%sd%:\switch\download*")
 if exist "%sd%:\switch\fw-downloader" (RD /s /q "%sd%:\switch\fw-downloader")
 if exist "%sd%:\switch\gamecard_installer" (RD /s /q "%sd%:\switch\gamecard_installer")
@@ -460,22 +463,22 @@ if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
 if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 
-REM =================================================================================
+REM ============================================================
 :sblegtlos
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -------------------------------------------------- ---------------------------------------------------
 echo.
-echo       Jetzt wird das satanarchaeoluegenialkohoellische Switch Bros. Paket              
-echo                     direkt auf deine SD-Karte geballert!         
+echo                    Jetzt wird das satanarchaeoluegenialkohoellische Switch Bros. Paket              
+echo                                  direkt auf deine SD-Karte geballert^^!         
 echo.
-echo                       Du verdienst halt nur das BESTE!      
+echo                                    Du verdienst halt nur das BESTE^^!      
 echo.
 echo.
-echo             Druecke die Eingabetaste und loese dich von der Matrix!
+echo                          Druecke die Eingabetaste und loese dich von der Matrix^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 pause>nul 2>&1
 
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E
@@ -484,26 +487,24 @@ if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\ba
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 
-REM =================================================================================
+REM ============================================================
 :systempartitionen
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Waehle die hekate Systeme aus, die dir spaeter in hekate zur
-echo     Verfuegung stehen sollen!
+echo     Waehle die hekate Systeme aus, die dir spaeter in hekate zur Verfuegung stehen sollen^^!
 echo.
-echo     Entweder sind die Systeme bereits bei dir installiert, oder du
-echo     moechtest diese spaeter installieren = Die Partitionen dafuer
-echo     nicht vergessen (Partiton nachtraeglich geht nicht)!
+echo     Entweder sind die Systeme bereits bei dir installiert, oder du moechtest diese spaeter
+echo     installieren = Die Partitionen dafuer nicht vergessen (Partiton nachtraeglich geht nicht)^^!
+echo    
 echo.
-echo --------------------------------------------------------------------------------
-echo     Achtung modchip Besitzer = LAKKA und Ubuntu Bionic Distro
-echo                                werden jetzt unterstuetzt!
+echo -----------------------------------------------------------------------------------------------------
+echo     Achtung modchip Besitzer = LAKKA und Ubuntu Bionic Distro werden jetzt unterstuetzt^^!
 echo.
-echo     Android und die anderen Linux Distributionen z.Zt. NICHT!!!
-echo --------------------------------------------------------------------------------
+echo     Android und die anderen Linux Distributionen z.Zt. NICHT^^!^^!^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 echo     0 = alte hekate_ipl.ini behalten (nicht empfohlen)
 echo     1 = Basis (Standard)
@@ -517,9 +518,9 @@ echo     8 = Basis + Linux + LAKKA
 echo.
 echo     W = System(e) sind gewaehlt, weiter im Skript
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo     H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p eingabe="Deine Systemkombination: "
@@ -535,7 +536,7 @@ if /i "%eingabe%"=="8" GOTO linuxlakka
 if /i "%eingabe%"=="W" GOTO kindgerecht
 if /i "%eingabe%"=="H" GOTO hauptmenue
 
-REM =================================================================================
+REM ============================================================
 :altesystembehalten
 if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I)
@@ -545,7 +546,7 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :nurbasissystem
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
@@ -553,7 +554,7 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :androidpartition
 xcopy "%sd%:\switchbros\system\ba\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
@@ -561,9 +562,9 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :linuxpartition
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
@@ -572,7 +573,7 @@ echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo      C = Fedora Linux
 echo      D = Ubuntu
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 set "Linux="
 set /p Linux=Waehle deine Linux Distribution: 
@@ -585,16 +586,16 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :lakkapartition
 xcopy "%sd%:\switchbros\system\bl\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :androidlinux
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
@@ -603,7 +604,7 @@ echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo      C = Fedora Linux
 echo      D = Ubuntu
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 set "Linux="
 set /p Linux=Waehle deine Linux Distribution: 
@@ -616,7 +617,7 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :androidlakka
 xcopy "%sd%:\switchbros\system\bal\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I)
@@ -624,9 +625,9 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :androidlinuxlakka
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
@@ -635,7 +636,7 @@ echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo      C = Fedora Linux
 echo      D = Ubuntu
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 set "Linux="
 set /p Linux=Waehle deine Linux Distribution: 
@@ -648,9 +649,9 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :linuxlakka
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
 echo.
@@ -659,7 +660,7 @@ echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
 echo      C = Fedora Linux
 echo      D = Ubuntu
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 set "Linux="
 set /p Linux=Waehle deine Linux Distribution: 
@@ -672,26 +673,25 @@ if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I)
 GOTO systempartitionen
 
-REM =================================================================================
+REM ============================================================
 :kindgerecht
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Solltest du Kinder haben, und NICHT wollen das die App = Tinfoil 
-echo      auf dem homescreen erscheint (empfohlen), dann kannst du hier
-echo      auswaehlen welche Version von Tinfoil installiert werden soll!
+echo      Solltest du Kinder haben, und NICHT wollen das die App = Tinfoil  auf dem homescreen erscheint,
+echo      dann kannst du hier auswaehlen welche Version von Tinfoil installiert werden soll^^!
 echo.
-echo      1 = Tinfoil im hbmenu (nicht neben anderen Spielen auf dem homescreen)
+echo      1 = Tinfoil im hbmenu (nicht neben anderen Spielen auf dem homescreen (empfohlen))
 echo.
 echo      2 = Tinfoil auf dem homescreen (aktualisiert sich spaeter selbst)
 echo.
-echo      W = Kein Tinfoil (Spiele manuell holen und installieren, zb mit DBI)
+echo      W = Kein Tinfoil (Spiele manuell "ausleihen" und installieren, zum Beispiel mit der App DBI)
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo      H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p kindgerecht=Waehle deine Tinfoil Version: 
@@ -700,7 +700,7 @@ set /p kindgerecht=Waehle deine Tinfoil Version:
 	if /i "%kindgerecht%"=="W" GOTO tinfoilno
 	if /i "%kindgerecht%"=="H" GOTO hauptmenue
 
-REM ================================================================================
+REM ============================================================
 :tinfoila
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\*" /H /Y /C /R /S /E /I
@@ -708,7 +708,7 @@ xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I
 GOTO themepaket
 
-REM ================================================================================
+REM ============================================================
 :tinfoilb
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\*" /H /Y /C /R /S /E /I
@@ -716,39 +716,39 @@ xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I
 GOTO themepaket
 
-REM ================================================================================
+REM ============================================================
 :tinfoilno
 RD /s /q "%sd%:\switch\tinfoil"
 del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp"
 GOTO themepaket
 
-REM ================================================================================
+REM ============================================================
 :themepaket
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Hier kannst du unser SwitchBros_ThemeApps-Paket installieren lassen! 
-echo                        (Geht auch spaeter manuell) 
+echo      Hier kannst du unser SwitchBros_ThemeApps-Paket installieren lassen^^! 
 echo.
 echo      Das ThemeApps_Paket besteht aus folgenden Apps: 
 echo.
-echo      NX-ThemeInstaller = Theme-System einrichten und Themes installieren! 
-echo      ThemezerNX = mehr als 1000 Themes suchen und downloaden! 
+echo      NX-ThemeInstaller = Theme-System einrichten und Themes installieren^^! 
+echo.
+echo      ThemezerNX = mehr als 1000 Themes suchen und downloaden^^! 
 echo      Icongrabber = Verbinde dich ueber die steamgriddb.com Seite und
-echo                    hole dir dein Lieblings-Icon (Steam API wird benoetigt)! 
-echo      sys-tweak = Wird fuer Vertikale und horzontale Icons benoetigt! 
+echo                    passe deine Spiele-Icons an (Steam API wird benoetigt (naechster Schritt))^^! 
+echo      sys-tweak = Wird fuer Vertikale und horzontale Icons benoetigt^^! 
 echo.
-echo      1 = ThemeApps_Paket installieren!
+echo      1 = ThemeApps_Paket installieren^^!
 echo.
-echo      2 = ThemeApps_Paket deinstallieren!
+echo      2 = ThemeApps_Paket deinstallieren^^!
 echo.
-echo      W = Ueberspringen und im Skript weiter gehen!
+echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo      H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p themepaket=Sollen die ThemeApps installiert werden: 
@@ -757,31 +757,32 @@ set /p themepaket=Sollen die ThemeApps installiert werden:
 	if /i "%themepaket%"=="W" GOTO systemmodule
 	if /i "%themepaket%"=="H" GOTO hauptmenue
 
-REM =================================================================================
+REM ============================================================
 :themepaketinst
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\backup\IconGrabber\config.json" (xcopy "%sd%:\backup\IconGrabber\config.json" "%sd%:\config\IconGrabber\*" /H /Y /C /R /S /E /I)
 GOTO steamapiangeben
 
-REM =================================================================================
+REM ============================================================
 :steamapiangeben
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
-echo      Wenn du moechtest gib deine Steam API fuer IconGrabber ein damit
-echo      IconGrabber die SteamGridDB durchsuchen kann!
+echo -----------------------------------------------------------------------------------------------------
+echo      Wenn du moechtest gib deine Steam API fuer IconGrabber ein damit IconGrabber die SteamGridDB
+echo      durchsuchen kann^^!
 echo.
-echo      Du solltest dich hier = https://www.steamgriddb.com/ (STRG + LMT auf Link)
-echo      mit deinem normalen STEAM-Account anmelden!
-echo      Rechts oben auf deinen Namen ^> Preferences ^> dann links der letzte TAB
-echo      = API - Wo du deine SteamAPI kopieren kannst!
+echo      Du solltest dich hier = https://www.steamgriddb.com/ (STRG + LMT auf den Link zum aufrufen)
+echo      mit deinem normalen STEAM-Account anmelden^^!
+echo      Rechts oben auf deinen Namen ^> Preferences ^> dann links der letzte TAB = API
+echo      Kopiere jetzt dort deine SteamAPI (RMT + kopieren)^^!
 echo.
-echo      Die kopierte API kannst du in diesem Fenster mit einem klick der rechten
-echo      Maustaste einfuegen lassen und Eingabetaste zum bestaetigen! 
+echo      Die kopierte API kannst du in diesem Fenster einfuegen indem du nur einmal die rechte
+echo      Maustaste klickst^^! Dann mit Eingabetaste bestaetigen^^! 
 echo.
-echo      Du kannst diesen Schritt nur mit druecken der Eingabetaste ueberspringen!
-echo --------------------------------------------------------------------------------
+echo      Drueckst du hier nur die Eingabetaste ohne Eingabe wird dieser Schritt uebersprungen^^!
+echo      (Sinnvoll wenn du die API bereits in der IconGrabber config drin hast^^!)
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p steamapi=Bitte gib deine Steam API ein: 
@@ -801,7 +802,7 @@ set "newfile=%sd%:\config\icongrabber\config_neu.json"
 move /y "%newfile%" "%textfile%"
 GOTO systemmodule
 
-REM =================================================================================
+REM ============================================================
 :themepaketdeinst
 RD /s /q "%sd%:\atmosphere\contents\00FF747765616BFF"
 RD /s /q "%sd%:\config\icongrabber"
@@ -813,12 +814,12 @@ RD /s /q "%sd%:\switch\appstore\.get\packages\ThemezerNX"
 del "%sd%:\ThemeApps.txt"
 GOTO systemmodule
 
-REM =================================================================================
+REM ============================================================
 :systemmodule
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 echo     Das Tesla-Overlay Menue koennt ihr auf der Switch aufrufen mit: 
 echo.
@@ -828,11 +829,11 @@ echo     1 = Tesla-Overlay mit allen Modulen (nicht empfohlen)!
 echo     2 = Tesla-Overlay mit Standard SwitchBros Modulen (empfohlen wenn unsicher)!
 echo     3 = Tesla-Overlay mit einzeln ausgewaehlten Modulen (empfohlen)!
 echo.
-echo     W = Ueberspringen und im Skript weiter gehen!
+echo     W = Ueberspringen und im Skript weiter gehen^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo     H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p sysmod=Welches Tesla-Overlay soll installiert werden?: 
@@ -842,7 +843,7 @@ set /p sysmod=Welches Tesla-Overlay soll installiert werden?:
 	if /i "%sysmod%"=="W" GOTO attributeundmac
 	if /i "%sysmod%"=="H" GOTO hauptmenue
 
-REM =================================================================================
+REM ============================================================
 :teslakomplett
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I
@@ -860,7 +861,7 @@ REM ============================================================================
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I
 	GOTO attributeundmac
 
-REM =================================================================================
+REM ============================================================
 :teslaminimal
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I
@@ -900,23 +901,24 @@ REM ============================================================================
 	RD /s /q "%sd%:\switch\SysDVR-conf"
 	GOTO attributeundmac
 
-REM =================================================================================
+REM ============================================================
 :teslamodintro
 COLOR 0E
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I
 GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :teslamodular
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Waehle hier die Module die du im Tesla-Overlay haben moechtest! 
-echo     Das Tesla-Overlay wurde hier bereits installiert! 
+echo     Waehle hier die Module die du im Tesla-Overlay haben moechtest^^! 
+echo     Das Tesla-Overlay ist in diesem Schritt bereits installiert^^! 
+echo     Sonst machen die Module ja keinen Sinn^^! 
 echo.
-echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt! 
+echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
 echo       1 = BootSoundNX (Bootsound beim Systemstart)
 echo       2 = Edizon (Cheats nutzen)
@@ -932,11 +934,11 @@ echo      11 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
 echo      12 = sys-con (fremd Controller ueber USB)
 echo      13 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
 echo.
-echo       W = Ueberspringen und im Skript weiter gehen!
+echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo       H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "teslamods="
@@ -957,19 +959,19 @@ set /p teslamods=Welche Tesla-Overlay Module sollen installiert werden?:
 	if /i "%teslamods%"=="W" GOTO attributeundmac
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
-REM =================================================================================
+REM ============================================================
 :bootsoundnx
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll BootSoundNX installiert oder deinstalliert werden?
 echo.
 echo    1 = BootSoundNX installieren
 echo    2 = BootSoundNX deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "bootsoundnx="
@@ -985,19 +987,19 @@ set /p bootsoundnx=Bitte triff deine Auswahl:
 	)
 	if /i "%bootsoundnx%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :edizon
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll EdiZon installiert oder deinstalliert werden?
 echo.
 echo    1 = EdiZon installieren
 echo    2 = EdiZon deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "edizon="
@@ -1018,19 +1020,19 @@ set /p edizon=Bitte triff deine Auswahl:
 	)
 	if /i "%edizon%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :emuiibo
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll emuiibo installiert oder deinstalliert werden?
 echo.
 echo    1 = emuiibo installieren
 echo    2 = emuiibo deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "emuiibo="
@@ -1048,19 +1050,19 @@ set /p emuiibo=Bitte triff deine Auswahl:
 	)
 	if /i "%emuiibo%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :fastcfwswitch
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll emuiibo installiert oder deinstalliert werden?
 echo.
 echo    1 = emuiibo installieren
 echo    2 = emuiibo deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "fastcfwswitch="
@@ -1077,19 +1079,19 @@ set /p fastcfwswitch=Bitte triff deine Auswahl:
 	)
 	if /i "%fastcfwswitch%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :fizeau
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Fizeau installiert oder deinstalliert werden?
 echo.
 echo    1 = Fizeau installieren
 echo    2 = Fizeau deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "fizeau="
@@ -1109,19 +1111,19 @@ set /p fizeau=Bitte triff deine Auswahl:
 	)
 	if /i "%fizeau%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :ldnmitm
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll ldnmitm installiert oder deinstalliert werden?
 echo.
 echo    1 = ldnmitm installieren
 echo    2 = ldnmitm deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "ldnmitm="
@@ -1139,19 +1141,19 @@ set /p ldnmitm=Bitte triff deine Auswahl:
 	)
 	if /i "%ldnmitm%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :missioncontrol
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll MissionControl installiert oder deinstalliert werden?
 echo.
 echo    1 = MissionControl installieren
 echo    2 = MissionControl deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "missioncontrol="
@@ -1169,19 +1171,19 @@ set /p missioncontrol=Bitte triff deine Auswahl:
 	)
 	if /i "%missioncontrol%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :ovlssysmodule
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll ovl-Sysmodul installiert oder deinstalliert werden?
 echo.
 echo    1 = ovl-Sysmodul installieren
 echo    2 = ovl-Sysmodul deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "ovlssysmodule="
@@ -1197,19 +1199,19 @@ set /p ovlssysmodule=Bitte triff deine Auswahl:
 	)
 	if /i "%ovlssysmodule%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :statmon
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Status-Monitor-Overlay installiert oder deinstalliert werden?
 echo.
 echo    1 = Status-Monitor-Overlay installieren
 echo    2 = Status-Monitor-Overlay deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "statmon="
@@ -1225,19 +1227,19 @@ set /p statmon=Bitte triff deine Auswahl:
 	)
 	if /i "%statmon%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :sysclk
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll sys-clk installiert oder deinstalliert werden?
 echo.
 echo    1 = sys-clk installieren
 echo    2 = sys-clk deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "sysclk="
@@ -1256,19 +1258,19 @@ set /p sysclk=Bitte triff deine Auswahl:
 	)
 	if /i "%sysclk%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :sysclkedit
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll sys-clk-Editor installiert oder deinstalliert werden?
 echo.
 echo    1 = sys-clk-Editor installieren
 echo    2 = sys-clk-Editor deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "sysclkedit="
@@ -1284,19 +1286,19 @@ set /p sysclkedit=Bitte triff deine Auswahl:
 	)
 	if /i "%sysclkedit%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :syscon
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll sys-con installiert oder deinstalliert werden?
 echo.
 echo    1 = sys-con installieren
 echo    2 = sys-con deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "syscon="
@@ -1313,19 +1315,19 @@ set /p syscon=Bitte triff deine Auswahl:
 	)
 	if /i "%syscon%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :sysdvr
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll sysDVR installiert oder deinstalliert werden?
 echo.
 echo    1 = sysDVR installieren
 echo    2 = sysDVR deinstallieren
 echo.
-echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "syscon="
@@ -1345,16 +1347,16 @@ set /p syscon=Bitte triff deine Auswahl:
 	)
 	if /i "%syscon%"=="3" GOTO teslamodular
 
-REM =================================================================================
+REM ============================================================
 :zusatzapps
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Waehle hier Apps die zusaetzlich installiert/deinstalliert werden sollen! 
+echo     Waehle hier ein paar Apps die zusaetzlich installiert / deinstalliert werden sollen^^! 
 echo.
-echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt! 
+echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
 echo      1 = Amiibo Generator (Generiert Amiibos)
 echo      2 = Amiigo (Amiibos ueber emuiibo im Tesla-Overlay nutzen)
@@ -1375,11 +1377,11 @@ echo     16 = Switch-Remote-Play (PC auf der Switch streamen)
 echo     15 = TencentSwitcherGui (Chinesisch auf englisch stellen)
 echo     15 = vgedit (Dateien auf der Switch bearbeiten)
 echo.
-echo      W = Ueberspringen und im Skript weiter gehen!
+echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo      H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "datenapps="
@@ -1405,19 +1407,19 @@ set /p datenapps=Welche Tesla-Overlay Module sollen installiert werden?:
 	if /i "%datenapps%"=="W" GOTO attributeundmac
 	if /i "%datenapps%"=="H" GOTO hauptmenue
 
-REM =================================================================================
+REM ============================================================
 :amiibogenerator
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Amiibo Generator installiert oder deinstalliert werden?
 echo.
 echo    1 = Amiibo Generator installieren
 echo    2 = Amiibo Generator deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "amiibogenerator="
@@ -1433,19 +1435,19 @@ set /p amiibogenerator=Bitte triff deine Auswahl:
 	)
 	if /i "%amiibogenerator%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :amiigo
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Amiigo installiert oder deinstalliert werden?
 echo.
 echo    1 = Amiigo installieren
 echo    2 = Amiigo deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "amiigo="
@@ -1461,19 +1463,19 @@ set /p amiigo=Bitte triff deine Auswahl:
 	)
 	if /i "%amiigo%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :chiaki
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll chiaki installiert oder deinstalliert werden?
 echo.
 echo    1 = chiaki installieren
 echo    2 = chiaki deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "chiaki="
@@ -1488,19 +1490,19 @@ set /p chiaki=Bitte triff deine Auswahl:
 	)
 	if /i "%chiaki%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :fake08
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Fake-08 installiert oder deinstalliert werden?
 echo.
 echo    1 = Fake-08 installieren
 echo    2 = Fake-08 deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "fake08="
@@ -1515,19 +1517,19 @@ set /p fake08=Bitte triff deine Auswahl:
 	)
 	if /i "%fake08%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :goldleaf
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Goldleaf installiert oder deinstalliert werden?
 echo.
 echo    1 = Goldleaf installieren
 echo    2 = Goldleaf deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "goldleaf="
@@ -1543,19 +1545,19 @@ set /p goldleaf=Bitte triff deine Auswahl:
 	)
 	if /i "%goldleaf%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :homebrewdetails
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Homebrew-Details installiert oder deinstalliert werden?
 echo.
 echo    1 = Homebrew-Details installieren
 echo    2 = Homebrew-Details deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "homebrewdetails="
@@ -1571,19 +1573,19 @@ set /p homebrewdetails=Bitte triff deine Auswahl:
 	)
 	if /i "%homebrewdetails%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :melonds
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll MelonDS installiert oder deinstalliert werden?
 echo.
 echo    1 = MelonDS installieren
 echo    2 = MelonDS deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "melonds="
@@ -1599,19 +1601,19 @@ set /p melonds=Bitte triff deine Auswahl:
 	)
 	if /i "%melonds%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :miiport
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll MiiPort installiert oder deinstalliert werden?
 echo.
 echo    1 = MiiPort installieren
 echo    2 = MiiPort deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "miiport="
@@ -1627,19 +1629,19 @@ set /p miiport=Bitte triff deine Auswahl:
 	)
 	if /i "%miiport%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :moonlight
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Moonlight installiert oder deinstalliert werden?
 echo.
 echo    1 = Moonlight installieren
 echo    2 = Moonlight deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "moonlight="
@@ -1655,19 +1657,19 @@ set /p moonlight=Bitte triff deine Auswahl:
 	)
 	if /i "%moonlight%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :neumann
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Neumann installiert oder deinstalliert werden?
 echo.
 echo    1 = Neumann installieren
 echo    2 = Neumann deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "neumann="
@@ -1683,19 +1685,19 @@ set /p neumann=Bitte triff deine Auswahl:
 	)
 	if /i "%neumann%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :nxactivitylog
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll NX-Activity-Log installiert oder deinstalliert werden?
 echo.
 echo    1 = NX-Activity-Log installieren
 echo    2 = NX-Activity-Log deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "nxactivitylog="
@@ -1711,19 +1713,19 @@ set /p nxactivitylog=Bitte triff deine Auswahl:
 	)
 	if /i "%nxactivitylog%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :nxlocaleswitcher
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll NX-Locale-Switcher installiert oder deinstalliert werden?
 echo.
 echo    1 = NX-Locale-Switcher installieren
 echo    2 = NX-Locale-Switcher deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "nxlocaleswitcher="
@@ -1739,19 +1741,19 @@ set /p nxlocaleswitcher=Bitte triff deine Auswahl:
 	)
 	if /i "%nxlocaleswitcher%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :nxshell
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll NX-Shell installiert oder deinstalliert werden?
 echo.
 echo    1 = NX-Shell installieren
 echo    2 = NX-Shell deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "nxshell="
@@ -1767,19 +1769,19 @@ set /p nxshell=Bitte triff deine Auswahl:
 	)
 	if /i "%nxshell%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :nxgallery
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll NXGallery installiert oder deinstalliert werden?
 echo.
 echo    1 = NXGallery installieren
 echo    2 = NXGallery deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "nxgallery="
@@ -1795,19 +1797,19 @@ set /p nxgallery=Bitte triff deine Auswahl:
 	)
 	if /i "%nxgallery%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :nxmp
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll NXMP installiert oder deinstalliert werden?
 echo.
 echo    1 = NXMP installieren
 echo    2 = NXMP deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "nxmp="
@@ -1823,19 +1825,19 @@ set /p nxmp=Bitte triff deine Auswahl:
 	)
 	if /i "%nxmp%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :switchremoteplay
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll Switch-Remote-Play installiert oder deinstalliert werden?
 echo.
 echo    1 = Switch-Remote-Play installieren
 echo    2 = Switch-Remote-Play deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "switchremoteplay="
@@ -1851,19 +1853,19 @@ set /p switchremoteplay=Bitte triff deine Auswahl:
 	)
 	if /i "%switchremoteplay%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :tencentswitcher
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll TencentSwitcherGui installiert oder deinstalliert werden?
 echo.
 echo    1 = TencentSwitcherGui installieren
 echo    2 = TencentSwitcherGui deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "tencentswitcher="
@@ -1878,19 +1880,19 @@ set /p tencentswitcher=Bitte triff deine Auswahl:
 	)
 	if /i "%tencentswitcher%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :vgedit
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo    Soll vgedit installiert oder deinstalliert werden?
 echo.
 echo    1 = vgedit installieren
 echo    2 = vgedit deinstallieren
 echo.
-echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue!
-echo --------------------------------------------------------------------------------
+echo    T = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "vgedit="
@@ -1906,23 +1908,25 @@ set /p vgedit=Bitte triff deine Auswahl:
 	)
 	if /i "%vgedit%"=="3" GOTO zusatzapps
 
-REM =================================================================================
+REM ============================================================
 :attributeundmac
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Attribute in Ordnung bringen und MacOS Dateien entfernen!
-echo.
-echo     1 = Attribute bereinigen (fixArchiveBit) und weiter im Skript!
+echo     Attribute in Ordnung bringen und MacOS Dateien entfernen^^!
 echo.
 echo.
-echo     2 = Attribute bereinigen (fixArchiveBit) und zurueck zum Hauptmenue!
 echo.
-echo --------------------------------------------------------------------------------
+echo     1 = Attribute bereinigen (fixArchiveBit) und weiter im Skript^^!
+echo.
+echo.
+echo     2 = Attribute bereinigen (fixArchiveBit) und zurueck zum Hauptmenue^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
 echo     H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p fixattrib=Welches Tesla-Overlay soll installiert werden?: 
@@ -1930,23 +1934,23 @@ set /p fixattrib=Welches Tesla-Overlay soll installiert werden?:
 	if /i "%fixattrib%"=="2" GOTO fixattribhaupt
 	if /i "%fixattrib%"=="H" GOTO hauptmenue
 
-REM ================================================================================
+REM ============================================================
 :fixattribhaupt
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo                         Attribute werden korrigiert! 
+echo                         Attribute werden korrigiert^^! 
 echo                             (Fix archive bit) 
 echo.
-echo                    MacOS typische Dateien werden entfernt! 
+echo                    MacOS typische Dateien werden entfernt^^! 
 echo.
-echo                         Schreibschutz wird entfernt! 
+echo                         Schreibschutz wird entfernt^^! 
 echo.
 echo       BITTE WARTEN...
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 if exist "%sd%:\atmosphere" (
@@ -1989,23 +1993,23 @@ if exist .DS_STORE del /s /q /f /a .DS_STORE
 if exist ._.* del /s /q /f /a ._.*
 GOTO hauptmenue
 
-REM =================================================================================
+REM ============================================================
 :fixattribweiter
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo                         Attribute werden korrigiert! 
+echo                         Attribute werden korrigiert^^! 
 echo                             (Fix archive bit) 
 echo.
-echo                    MacOS typische Dateien werden entfernt! 
+echo                    MacOS typische Dateien werden entfernt^^! 
 echo.
-echo                         Schreibschutz wird entfernt! 
+echo                         Schreibschutz wird entfernt^^! 
 echo.
 echo       BITTE WARTEN...
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 if exist "%sd%:\atmosphere" (
@@ -2047,24 +2051,24 @@ rem Entfernen typischer MacOS Dateien (die sind ueberall die Bruedaz)
 if exist .DS_STORE del /s /q /f /a .DS_STORE
 if exist ._.* del /s /q /f /a ._.*
 
-REM ================================================================================
+REM ============================================================
 :hekateusb
 COLOR 0E
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Volle USB3 Geschwindigkeit mit hekate USM Modus!
+echo     Volle USB3 Geschwindigkeit mit hekate USM Modus^^!
 echo.
-echo     1 = USB3 in die Registry eintragen und weiter im Skript!
+echo     1 = USB3 in die Registry eintragen und weiter im Skript^^!
 echo         (muss nur einmal fuer einen PC ausgefuehrt werden)
 echo.
 echo.
-echo     2 = USB3 nicht in die Registry eintragen und weiter im Skript!
+echo     2 = USB3 nicht in die Registry eintragen und weiter im Skript^^!
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo     H = Zurueck zum Hauptmenue
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p usb3=Welche USB3 Einstellung: 
@@ -2076,7 +2080,7 @@ set /p usb3=Welche USB3 Einstellung:
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v MaximumTransferLength /t REG_DWORD /d 00100000 /f>nul 2>&1
 GOTO aufraeumen
 
-REM ================================================================================
+REM ============================================================
 :aufraeumen
 if exist "%sd%:\SwitchBros_BasisPaket" (RD /s /q "%sd%:\SwitchBros_BasisPaket")
 if exist "%sd%:\switchbros" (RD /s /q "%sd%:\switchbros")
@@ -2114,12 +2118,12 @@ if %bootdat%==0 (
 cd %sd%:\
 GOTO endemutig
 
-REM ================================================================================
+REM ============================================================
 :falschesdkarte
 COLOR 0C
 cls
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo                 Gewaehlter Laufwerksbuchstabe: %sd%:/
 echo                    Keine SD-Karte in Laufwerk: %sd%:/
 echo.
@@ -2127,7 +2131,7 @@ echo.
 echo     1.  Laufwerksbuchstabe ist korrekt
 echo     2.  Anderen Laufwerksbuchstaben waehlen
 echo.
-echo --------------------------------------------------------------------------------
+echo -----------------------------------------------------------------------------------------------------
 echo.
 echo     B.  Beenden
 echo.
@@ -2139,27 +2143,26 @@ for %%A in ("J" "j" "1" "?" "?") do if "%st%"==%%A (GOTO hauptmenue)
 for %%A in ("N" "n" "2" "?" "?") do if "%st%"==%%A (GOTO neuekarte)
 for %%A in ("B" "b" "?" "?") do if "%st%"==%%A (GOTO endemutig)
 
-REM ================================================================================
+REM ============================================================
 :endemutig
 COLOR 0A
 cls
 echo. 
-echo --------------------------------------------------------------------------------
-echo                           Alles abgeschlossen
+echo -------------------------------------------------- ---------------------------------------------------
+echo                                         Alles abgeschlossen^^!^^!^^!
 echo.
-echo                    Viel Spass mit unserem Paket und
-echo                 Willkommen in der Switch Bros. Community
+echo                    Viel Spass mit unserem Paket und Willkommen in der Switch Bros. Community
+echo                
 echo.
 echo.
-echo    Druecke irgendeine Taste zum beenden oder H wenn du zum Hauptmenue willst
-echo    um die Zusatz-Apps zu installieren!
-echo --------------------------------------------------------------------------------
+echo    Tippe "H" ein wenn du zum Hauptmenue willst um zum Beispiel die Zusatz-Apps zu installieren^^!
+echo    Nur Eingabetaste zum Beenden des Skripts und schliessen des Fensters^^!
+echo -----------------------------------------------------------------------------------------------------
 
 set /p Beenden=Eingabetaste oder H eingeben: 
-if /i "%beenden%"=="" (
-    if exist "%wd%" (RD /s /q "%wd%\*")
-    exit
-)
 if /i "%beenden%"=="H" (
 	goto hauptmenue
+) else (
+if exist "%wd%" (RD /s /q "%wd%\*")
+exit
 )
