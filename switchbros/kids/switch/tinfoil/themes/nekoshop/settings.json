@@ -1,0 +1,55 @@
+{
+  "color": "FFFFFFFF",
+  "logo": "sdmc:/switch/tinfoil/themes/nekoshop/logo.png",
+  "background": {
+    "color": "00000000",
+    "image": "sdmc:/switch/tinfoil/themes/nekoshop/bg.jpg"
+  },
+  "selection": {
+    "color": "82599AFF",
+    "background": {
+      "color": "0000007F"
+    },
+    "border": {
+      "color": "82599AFF",
+      "width": 3
+    }
+  },
+  "menu": {
+    "selection": {
+      "color": "82599AFF",
+      "background": {
+        "color": "000000FF"
+      },
+      "border": {
+        "color": "82599AFF",
+        "width": 3
+      }
+    },
+    "background": {
+      "color": "00000000"
+    }
+  },
+  "border": {
+    "color": "82599AFF",
+    "width": 0
+  },
+  "progressBar": {
+    "color": "82599AFF",
+    "background": {
+      "color": "362242FF"
+    },
+    "width": 1
+  },
+  "scrollBar": {
+    "color": "82599AFF",
+    "background": {
+      "color": "00000000"
+    },
+    "width": 1
+  },
+  "music": {
+      "url": "sdmc:/switch/tinfoil/themes/nekoshop/awoo.mp3",
+      "volume": 50
+  }
+}

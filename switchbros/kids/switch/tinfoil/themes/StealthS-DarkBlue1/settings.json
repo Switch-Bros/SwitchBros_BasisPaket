@@ -1,0 +1,51 @@
+{
+	"color": "c0d0deff",
+	"logo": "sdmc:/switch/tinfoil/themes/StealthS-DarkBlue1/logo.png",
+	"background": {
+		"color": "1e374b59",
+		"image": "sdmc:/switch/tinfoil/themes/StealthS-DarkBlue1/bg.jpg"
+	},
+	"selection": {
+		"color": "0555b4ff",
+		"background": {
+			"color": "05121c99"
+		},
+		"border": {
+			"color": "13273fff",
+			"width": 1
+		}
+	},
+	"menu": {
+		"selection": {
+			"color": "0555b4ff",
+			"background": {
+				"color": "1e374be6"
+			},
+			"border": {
+				"color": "000000ff",
+				"width": 0
+			}
+		},
+		"background": {
+			"color":  "1e374b59"
+		}
+	},
+	"border": {
+		"color": "e410ff80",
+		"width": 0
+	},
+	"progressBar": {
+		"color": "0555b4ff",
+		"background": {
+			"color": "13283e80"
+		},
+		"width": 1
+	},
+	"scrollBar": {
+		"color": "13283eb3",
+		"background": {
+			"color": "1e374b40"
+		},
+		"width": 1
+	}
+}

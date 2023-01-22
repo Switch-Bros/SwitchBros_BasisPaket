@@ -1,0 +1,68 @@
+BLUE = 0x0000FF
+YELLOW = 0xFDE100
+RED = 0xFF0000
+GREEN = 0x00FF00
+WHITE = 0xFFFFFF
+ORANGE = 0xFFA500
+VIOLET = 0x8F00FF
+
+p=println
+fse=fsexists
+pe={pause() exit()}
+boot=0
+syscon=0
+missioncontrol=0
+maj=0
+
+wait={t=timer()while(timer()<(t+tw)){print()}}
+
+a = readdir("sd:/switch/")
+a.files.foreach("x"){
+  b = x.split(".")
+  if (b[b.len() - 1] == "ini"){
+    delfile(combinepath("sd:/switch", x))
+  }
+}
+
+deldir("sd:/switch/amsPACK*")
+deldir("sd:/switch/ShallowSea*")
+deldir("sd:/switch/kefir*")
+deldir("sd:/Firmware*")
+delfile("sd:/hekate_ctcaer*.bin")
+delfile("sd:/*.ini")
+delfile("sd:/*.zip")
+
+p()
+p("Abgeschlossen")
+wait(tw = 1000)
+
+# Attribute reparieren und MacOS Kram loeschen
+clear()
+p("* Entferne MacOS bezogenen Muell")
+removemacfolders()
+p()
+p("Abgeschlossen")
+wait(tw = 1000)
+
+clear()
+p("* Behebe Attribute")
+fixattrib()
+p()
+p("Abgeschlossen")
+wait(tw = 1000)
+
+p()
+p("Abgeschlossen")
+
+# 5. Neustart in hekate 
+clear()
+p("Das neue SwitchBros Paket wurde erfolgreich installiert!")
+p()
+p("Neustart in hekate")
+wait(tw = 3000)
+
+if (is_erista()) {
+	payload("sd:/bootloader/update.bin")
+}.else(){
+	reboot_ofw()
+}
