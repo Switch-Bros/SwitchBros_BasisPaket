@@ -111,8 +111,7 @@ echo      4 = Kinder-Modus einrichten (verstecken von Apps zb Tinfoil)^^!
 echo.
 echo      5 = ThemeApps Paket installieren / deinstallieren^^!
 echo.
-echo      5a = Gib deine Steam API an fuer IconGrabber^^! (Nur wenn das ThemeApps_Paket oder Icongrabber
-echo                                                     installiert ist)
+echo      5a = SteamAPI fuer IconGrabber eingeben^^! (Nur wenn das ThemeApps_Paket oder Icongrabber installiert ist)
 echo.
 echo      6 = Tesla-Overlay installieren / deinstallieren / manuell^^!
 echo.
