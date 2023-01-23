@@ -522,7 +522,7 @@ echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
-TIMEOUT 3 /nobreak
+TIMEOUT /t 3 /nobreak
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -2443,14 +2443,13 @@ echo
 echo.
 echo.
 echo    Eingabetaste/Enter = zurueck zum Hauptmenue^^!
-echo    Keine Eingabe innerhalb von 10 Sekunden = Das Programm beendet sich von selbst^^!
+echo    Ansonsten warte 10 Sekunden = Das Programm beendet sich von selbst^^!
 echo -----------------------------------------------------------------------------------------------------
 
-set /p Beenden=Hauptmenue oder Beenden: 
-if /i "%beenden%"=="" (
-GOTO hauptmenue
+TIMEOUT /t 10 /nobreak
+if errorlevel 1 (
+	GOTO hauptmenue
 ) else (
-if exist "%wd%" (RD /s /q "%wd%\*")
-TIMEOUT 10
-exit
+	if exist "%wd%" (RD /s /q "%wd%\*")
+	exit
 )
