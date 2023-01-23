@@ -1065,7 +1065,7 @@ echo ---------------------------------------------------------------------------
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO attributeundmac
+	GOTO zusatzapps
 
 REM ============================================================
 :teslaminimal
@@ -1113,7 +1113,7 @@ echo ---------------------------------------------------------------------------
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
 	RD /s /q "%sd%:\switch\SysDVR-conf"
-	GOTO attributeundmac
+	GOTO zusatzapps
 
 REM ============================================================
 :teslamodintro
@@ -1171,7 +1171,7 @@ set /p teslamods=Welche Tesla-Overlay Module sollen installiert werden?:
 	if /i "%teslamods%"=="11" GOTO sysclkedit
 	if /i "%teslamods%"=="12" GOTO syscon
 	if /i "%teslamods%"=="13" GOTO sysdvr
-	if /i "%teslamods%"=="W" GOTO attributeundmac
+	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
 REM ============================================================
@@ -2413,7 +2413,7 @@ echo                 Gewaehlter Laufwerksbuchstabe: %sd%:/
 echo                    Keine SD-Karte in Laufwerk: %sd%:/
 echo.
 echo.
-echo     1.  Laufwerksbuchstabe ist korrekt
+echo     1.  Laufwerksbuchstabe ist korrekt^^!
 echo     2.  Anderen Laufwerksbuchstaben waehlen
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -2442,13 +2442,15 @@ echo                    Viel Spass mit unserem Paket und Willkommen in der Switc
 echo                
 echo.
 echo.
-echo    Tippe "H" ein wenn du zum Hauptmenue willst um zum Beispiel die Zusatz-Apps zu installieren^^!
-echo    Nur Eingabetaste zum Beenden des Skripts und schliessen des Fensters^^!
+echo    Eingabetaste/Enter = zurueck zum Hauptmenue^^!
+echo    Keine Eingabe innerhalb von 10 Sekunden = Das Programm beendet sich von selbst^^!
 echo -----------------------------------------------------------------------------------------------------
 
-set /p Beenden=Eingabetaste oder H eingeben: 
-if /i "%beenden%"=="H" GOTO hauptmenue
+set /p Beenden=Hauptmenue oder Beenden: 
 if /i "%beenden%"=="" (
+GOTO hauptmenue
+) else (
 if exist "%wd%" (RD /s /q "%wd%\*")
+TIMEOUT 10
 exit
 )
