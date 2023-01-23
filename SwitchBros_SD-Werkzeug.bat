@@ -1279,10 +1279,10 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo    Soll emuiibo installiert oder deinstalliert werden?
+echo    Soll fastCFWSwitch installiert oder deinstalliert werden?
 echo.
-echo    1 = emuiibo installieren
-echo    2 = emuiibo deinstallieren
+echo    1 = fastCFWSwitch installieren
+echo    2 = fastCFWSwitch deinstallieren
 echo.
 echo    T = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
 echo -----------------------------------------------------------------------------------------------------
@@ -1292,6 +1292,7 @@ set "fastcfwswitch="
 set /p fastcfwswitch=Bitte triff deine Auswahl: 
 	if /i "%fastcfwswitch%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\fastCFWSwitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 	GOTO teslamodular
 	)
 	if /i "%fastcfwswitch%"=="2" (
@@ -1616,8 +1617,8 @@ echo     13 = NX-Shell (Dateimanager)
 echo     14 = NX-Gallery (Switch Album am PC oder Handy ansehen)
 echo     15 = NXMP (Mediaplayer)
 echo     16 = Switch-Remote-Play (PC auf der Switch streamen)
-echo     15 = TencentSwitcherGui (Chinesisch auf englisch stellen)
-echo     15 = vgedit (Dateien auf der Switch bearbeiten)
+echo     17 = TencentSwitcherGui (Chinesisch auf englisch stellen)
+echo     18 = vgedit (Dateien auf der Switch bearbeiten)
 echo.
 echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -2446,9 +2447,8 @@ echo    Nur Eingabetaste zum Beenden des Skripts und schliessen des Fensters^^!
 echo -----------------------------------------------------------------------------------------------------
 
 set /p Beenden=Eingabetaste oder H eingeben: 
-if /i "%beenden%"=="H" (
-	goto hauptmenue
-) else (
+if /i "%beenden%"=="H" GOTO hauptmenue
+if /i "%beenden%"=="" (
 if exist "%wd%" (RD /s /q "%wd%\*")
 exit
 )
