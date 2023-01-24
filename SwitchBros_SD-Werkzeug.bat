@@ -2450,14 +2450,14 @@ echo ---------------------------------------------------------------------------
 set /p ende=Soll das Programm beendet werden?: 
 if /i "%ende%"=="J" (
     powershell -Command "Start-Sleep -Seconds 3"
-    for /f "tokens=2 delims==" %%a in ('wmic volume where driveletter="%sd%:" get deviceid /value') do set "DeviceID=%%a"
-    powershell -Command "Get-WmiObject win32_volume -Filter 'DeviceID^=^""^%DeviceID^%""' | %{$_.Dismount()} "
+    for /f "tokens=2 delims==" %%a in ('wmic volume where driveletter^="%sd%:" get deviceid /value') do set "DeviceID=%%a"
+    powershell -Command "(Get-WmiObject win32_volume -Filter 'DeviceID^=^""^%DeviceID^%""').Dismount()"
   echo.
   echo     Deine SD-Karte wurde sicher entfernt^^!
   echo     Das Programm wird jetzt beendet^^!
   echo.
   echo     BITTE WARTEN...
-powershell -Command "Start-Sleep -Seconds 6"
+    powershell -Command "Start-Sleep -Seconds 6"
     exit
 )
 
