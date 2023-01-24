@@ -2440,27 +2440,15 @@ echo.
 echo                    Viel Spass mit unserem Paket und Willkommen in der Switch Bros. Community
 echo.
 echo.
-echo    Dieses Programm beendet sich in 10 Sekunden selbstaendig^^!
-echo    Druecke eine beliebige Taste in der Zeit falls du zum Hauptmenue zurueck willst^^!
+echo    Soll dieses Programm jetzt beendet werden^^?
+echo.
+echo    J/j/1 = Dieses Programm beenden^^!
+echo    N/n/2 = Zurueck zum Hauptmenue^^!
 echo.  
 echo -----------------------------------------------------------------------------------------------------
 
-set "key="
-for /f "tokens=1,2" %%a in ('cmd /c "set /p key=&& echo !key!"') do (
-    set "key=%%b"
-)
-if not defined key (
-    for /L %%i in (10,-1,0) do (
-        timeout /t 1 >nul
-        set "key="
-        for /f "tokens=1,2" %%a in ('cmd /c "set /p key=&& echo !key!"') do (
-            set "key=%%b"
-        )
-        if defined key (
-            GOTO hauptmenue
-        )
-    )
-    exit
-) else (
-    GOTO hauptmenue
-)
+set schlumilu=
+set /p schlumilu=:
+
+for %%A in ("J" "j" "1" "?" "?") do if "%st%"==%%A (EXIT)
+for %%A in ("N" "n" "2" "?" "?") do if "%st%"==%%A (GOTO hauptmenue)
