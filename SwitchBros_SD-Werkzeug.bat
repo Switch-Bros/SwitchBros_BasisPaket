@@ -115,7 +115,7 @@ echo      5a = SteamAPI fuer IconGrabber eingeben^^! (Nur wenn das ThemeApps_Pak
 echo.
 echo      6 = Tesla-Overlay installieren / deinstallieren / manuell^^!
 echo.
-echo      7 = Zusatz Apps installieren / deinstallieren^^! (Nur ueber Hauptmenue erreichbar)
+echo      7 = Zusatz Apps installieren / deinstallieren^^!
 echo.
 echo      8 = Attribute (fix ArchiveBit) und MacOS Kram beseitigen^^!
 echo.
@@ -2438,17 +2438,15 @@ echo.
 echo                                         Alles abgeschlossen^^!^^!^^!
 echo.
 echo                    Viel Spass mit unserem Paket und Willkommen in der Switch Bros. Community
-echo                
 echo.
 echo.
 echo    Eingabetaste/Enter = zurueck zum Hauptmenue^^!
 echo    Ansonsten warte 10 Sekunden = Das Programm beendet sich von selbst^^!
 echo -----------------------------------------------------------------------------------------------------
 
-TIMEOUT /t 10 /nobreak
-if errorlevel 1 (
-	GOTO hauptmenue
-) else (
-	if exist "%wd%" (RD /s /q "%wd%\*")
+choice /t 10 /c B /n /d B
+	if errorlevel 1 (
 	exit
+) else (
+	GOTO hauptmenue
 )
