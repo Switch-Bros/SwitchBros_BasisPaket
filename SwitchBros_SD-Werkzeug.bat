@@ -2442,13 +2442,19 @@ echo.
 echo.
 echo    Soll dieses Programm jetzt beendet werden^^?
 echo.
-echo    J/j/1 = Dieses Programm beenden^^!
-echo    N/n/2 = Zurueck zum Hauptmenue^^!
+echo    J = Dieses Programm beenden^^!
+echo    N = Zurueck zum Hauptmenue^^!
 echo.  
 echo -----------------------------------------------------------------------------------------------------
 
-set schlumilu=
-set /p schlumilu=:
-
-for %%A in ("J" "j" "1" "?" "?") do if "%st%"==%%A (EXIT)
-for %%A in ("N" "n" "2" "?" "?") do if "%st%"==%%A (GOTO hauptmenue)
+set /p ende=Soll das Programm beendet werden?: 
+	if /I "%ende%"=="N" GOTO hauptmenue
+	if /i "%ende%"=="J" (
+Timeout /T 3 /nobreak
+eject %sd%:
+echo Deine SD-Karte wurde sicher entfernt^^!
+echo Das Programm wird jetzt beendet^^!
+Timeout /T 6 /nobreak
+exit
+)
+	
