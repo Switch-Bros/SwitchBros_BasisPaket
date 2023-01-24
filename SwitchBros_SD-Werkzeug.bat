@@ -2451,16 +2451,16 @@ for /f "tokens=1,2" %%a in ('cmd /c "set /p key=&& echo !key!"') do (
 )
 if not defined key (
     for /L %%i in (10,-1,0) do (
-        timeout 1 >nul
+        timeout /t 1 >nul
         set "key="
         for /f "tokens=1,2" %%a in ('cmd /c "set /p key=&& echo !key!"') do (
             set "key=%%b"
         )
         if defined key (
-            goto hauptmenue
+            GOTO hauptmenue
         )
     )
     exit
 ) else (
-    goto hauptmenue
+    GOTO hauptmenue
 )
