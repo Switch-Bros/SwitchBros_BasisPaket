@@ -75,8 +75,8 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p modchip="Ist ein Modchip verbaut: "
-if /i "%modchip%"=="1" SET bootdat=1
-if /i "%modchip%"=="2" SET bootdat=0
+if "%modchip%"=="1" SET bootdat=1
+if "%modchip%"=="2" SET bootdat=0
 
 REM ============================================================
 :datensichern
@@ -128,16 +128,16 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p neuistgut="Bitte gib deine Auswahl ein: "
-if /i "%neuistgut%"=="1" GOTO sbgibgas
-if /i "%neuistgut%"=="2" GOTO backupordner
-if /i "%neuistgut%"=="3" GOTO systempartitionen
-if /i "%neuistgut%"=="4" GOTO kindgerecht
-if /i "%neuistgut%"=="5" GOTO themepaket
-if /i "%neuistgut%"=="5a" GOTO steamapiangeben
-if /i "%neuistgut%"=="6" GOTO systemmodule
-if /i "%neuistgut%"=="7" GOTO zusatzapps
-if /i "%neuistgut%"=="8" GOTO attributeundmac
-if /i "%neuistgut%"=="9" GOTO hekateusb
+if "%neuistgut%"=="1" GOTO sbgibgas
+if "%neuistgut%"=="2" GOTO backupordner
+if "%neuistgut%"=="3" GOTO systempartitionen
+if "%neuistgut%"=="4" GOTO kindgerecht
+if "%neuistgut%"=="5" GOTO themepaket
+if "%neuistgut%"=="5a" GOTO steamapiangeben
+if "%neuistgut%"=="6" GOTO systemmodule
+if "%neuistgut%"=="7" GOTO zusatzapps
+if "%neuistgut%"=="8" GOTO attributeundmac
+if "%neuistgut%"=="9" GOTO hekateusb
 if /i "%neuistgut%"=="F" GOTO endefeige
 if /i "%neuistgut%"=="B" GOTO endemutig
 
@@ -563,15 +563,15 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p eingabe="Deine Systemkombination: "
-if /i "%eingabe%"=="0" GOTO altesystembehalten
-if /i "%eingabe%"=="1" GOTO nurbasissystem
-if /i "%eingabe%"=="2" GOTO androidpartition
-if /i "%eingabe%"=="3" GOTO linuxpartition
-if /i "%eingabe%"=="4" GOTO lakkapartition
-if /i "%eingabe%"=="5" GOTO androidlinux
-if /i "%eingabe%"=="6" GOTO androidlakka
-if /i "%eingabe%"=="7" GOTO androidlinuxlakka
-if /i "%eingabe%"=="8" GOTO linuxlakka
+if "%eingabe%"=="0" GOTO altesystembehalten
+if "%eingabe%"=="1" GOTO nurbasissystem
+if "%eingabe%"=="2" GOTO androidpartition
+if "%eingabe%"=="3" GOTO linuxpartition
+if "%eingabe%"=="4" GOTO lakkapartition
+if "%eingabe%"=="5" GOTO androidlinux
+if "%eingabe%"=="6" GOTO androidlakka
+if "%eingabe%"=="7" GOTO androidlinuxlakka
+if "%eingabe%"=="8" GOTO linuxlakka
 if /i "%eingabe%"=="W" GOTO kindgerecht
 if /i "%eingabe%"=="H" GOTO hauptmenue
 
@@ -847,8 +847,8 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p kindgerecht=Waehle deine Tinfoil Version: 
-	if /i "%kindgerecht%"=="1" GOTO tinfoila
-	if /i "%kindgerecht%"=="2" GOTO tinfoilb
+	if "%kindgerecht%"=="1" GOTO tinfoila
+	if "%kindgerecht%"=="2" GOTO tinfoilb
 	if /i "%kindgerecht%"=="W" GOTO tinfoilno
 	if /i "%kindgerecht%"=="H" GOTO hauptmenue
 
@@ -929,8 +929,8 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p themepaket=Sollen die ThemeApps installiert werden: 
-	if /i "%themepaket%"=="1" GOTO themepaketinst
-	if /i "%themepaket%"=="2" GOTO themepaketdeinst
+	if "%themepaket%"=="1" GOTO themepaketinst
+	if "%themepaket%"=="2" GOTO themepaketdeinst
 	if /i "%themepaket%"=="W" GOTO systemmodule
 	if /i "%themepaket%"=="H" GOTO hauptmenue
 
@@ -1034,9 +1034,9 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p sysmod=Welches Tesla-Overlay soll installiert werden?: 
-	if /i "%sysmod%"=="1" GOTO teslakomplett
-	if /i "%sysmod%"=="2" GOTO teslaminimal
-	if /i "%sysmod%"=="3" GOTO teslamodintro
+	if "%sysmod%"=="1" GOTO teslakomplett
+	if "%sysmod%"=="2" GOTO teslaminimal
+	if "%sysmod%"=="3" GOTO teslamodintro
 	if /i "%sysmod%"=="W" GOTO attributeundmac
 	if /i "%sysmod%"=="H" GOTO hauptmenue
 
@@ -1157,19 +1157,19 @@ echo.
 
 set "teslamods="
 set /p teslamods=Welche Tesla-Overlay Module sollen installiert werden?: 
-	if /i "%teslamods%"=="1" GOTO bootsoundnx
-	if /i "%teslamods%"=="2" GOTO edizon
-	if /i "%teslamods%"=="3" GOTO emuiibo
-	if /i "%teslamods%"=="4" GOTO fastcfwswitch
-	if /i "%teslamods%"=="5" GOTO fizeau
-	if /i "%teslamods%"=="6" GOTO ldnmitm
-	if /i "%teslamods%"=="7" GOTO missioncontrol
-	if /i "%teslamods%"=="8" GOTO ovlssysmodule
-	if /i "%teslamods%"=="9" GOTO statmon
-	if /i "%teslamods%"=="10" GOTO sysclk
-	if /i "%teslamods%"=="11" GOTO sysclkedit
-	if /i "%teslamods%"=="12" GOTO syscon
-	if /i "%teslamods%"=="13" GOTO sysdvr
+	if "%teslamods%"=="1" GOTO bootsoundnx
+	if "%teslamods%"=="2" GOTO edizon
+	if "%teslamods%"=="3" GOTO emuiibo
+	if "%teslamods%"=="4" GOTO fastcfwswitch
+	if "%teslamods%"=="5" GOTO fizeau
+	if "%teslamods%"=="6" GOTO ldnmitm
+	if "%teslamods%"=="7" GOTO missioncontrol
+	if "%teslamods%"=="8" GOTO ovlssysmodule
+	if "%teslamods%"=="9" GOTO statmon
+	if "%teslamods%"=="10" GOTO sysclk
+	if "%teslamods%"=="11" GOTO sysclkedit
+	if "%teslamods%"=="12" GOTO syscon
+	if "%teslamods%"=="13" GOTO sysdvr
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -1192,16 +1192,16 @@ echo.
 
 set "bootsoundnx="
 set /p bootsoundnx=Bitte triff deine Auswahl: 
-	if /i "%bootsoundnx%"=="1" (
+	if "%bootsoundnx%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%bootsoundnx%"=="2" (
+	if "%bootsoundnx%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
 	RD /s /q "%sd%:\config\BootSoundNX"
 	GOTO teslamodular
 	)
-	if /i "%bootsoundnx%"=="3" GOTO teslamodular
+	if "%bootsoundnx%"=="3" GOTO teslamodular
 
 REM ============================================================
 :edizon
@@ -1222,11 +1222,11 @@ echo.
 
 set "edizon="
 set /p edizon=Bitte triff deine Auswahl: 
-	if /i "%edizon%"=="1" (
+	if "%edizon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%edizon%"=="2" (
+	if "%edizon%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000"
 	RD /s /q "%sd%:\atmosphere\contents\010000000000000D"
 	RD /s /q "%sd%:\atmosphere\contents\0100000000001013"
@@ -1236,7 +1236,7 @@ set /p edizon=Bitte triff deine Auswahl:
 	del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
 	GOTO teslamodular
 	)
-	if /i "%edizon%"=="3" GOTO teslamodular
+	if "%edizon%"=="3" GOTO teslamodular
 
 REM ============================================================
 :emuiibo
@@ -1257,18 +1257,18 @@ echo.
 
 set "emuiibo="
 set /p emuiibo=Bitte triff deine Auswahl: 
-	if /i "%emuiibo%"=="1" (
+	if "%emuiibo%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%emuiibo%"=="2" (
+	if "%emuiibo%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
 	RD /s /q "%sd%:\emuiibo"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
 	del "%sd%:\switch\.overlays\2_emuiibo.ovl"
 	GOTO teslamodular
 	)
-	if /i "%emuiibo%"=="3" GOTO teslamodular
+	if "%emuiibo%"=="3" GOTO teslamodular
 
 REM ============================================================
 :fastcfwswitch
@@ -1289,18 +1289,18 @@ echo.
 
 set "fastcfwswitch="
 set /p fastcfwswitch=Bitte triff deine Auswahl: 
-	if /i "%fastcfwswitch%"=="1" (
+	if "%fastcfwswitch%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\fastCFWSwitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%fastcfwswitch%"=="2" (
+	if "%fastcfwswitch%"=="2" (
 	RD /s /q "%sd%:\config\fastCFWSwitch"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\fastCFWSwitch"
 	del "%sd%:\switch\.overlays\0_fastCFWswitch.ovl"
 	GOTO teslamodular
 	)
-	if /i "%fastcfwswitch%"=="3" GOTO teslamodular
+	if "%fastcfwswitch%"=="3" GOTO teslamodular
 
 REM ============================================================
 :fizeau
@@ -1321,12 +1321,12 @@ echo.
 
 set "fizeau="
 set /p fizeau=Bitte triff deine Auswahl: 
-	if /i "%fizeau%"=="1" (
+	if "%fizeau%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%fizeau%"=="2" (
+	if "%fizeau%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\0100000000000F12"
 	RD /s /q "%sd%:\config\Fizeau"
 	RD /s /q "%sd%:\switch\Fizeau"
@@ -1334,7 +1334,7 @@ set /p fizeau=Bitte triff deine Auswahl:
 	del "%sd%:\switch\.overlays\5_Fizeau.ovl"
 	GOTO teslamodular
 	)
-	if /i "%fizeau%"=="3" GOTO teslamodular
+	if "%fizeau%"=="3" GOTO teslamodular
 
 REM ============================================================
 :ldnmitm
@@ -1355,18 +1355,18 @@ echo.
 
 set "ldnmitm="
 set /p ldnmitm=Bitte triff deine Auswahl: 
-	if /i "%ldnmitm%"=="1" (
+	if "%ldnmitm%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%ldnmitm%"=="2" (
+	if "%ldnmitm%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
 	RD /s /q "%sd%:\switch\ldn_mitm_config"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
 	del "%sd%:\switch\.overlays\1_ldnmitm_config"
 	GOTO teslamodular
 	)
-	if /i "%ldnmitm%"=="3" GOTO teslamodular
+	if "%ldnmitm%"=="3" GOTO teslamodular
 
 REM ============================================================
 :missioncontrol
@@ -1387,18 +1387,18 @@ echo.
 
 set "missioncontrol="
 set /p missioncontrol=Bitte triff deine Auswahl: 
-	if /i "%missioncontrol%"=="1" (
+	if "%missioncontrol%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%missioncontrol%"=="2" (
+	if "%missioncontrol%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\010000000000bd00"
 	RD /s /q "%sd%:\atmosphere\contents\exefs_patches\bluetooth_patches"
 	RD /s /q "%sd%:\config\MissionControl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\missioncontrol"
 	GOTO teslamodular
 	)
-	if /i "%missioncontrol%"=="3" GOTO teslamodular
+	if "%missioncontrol%"=="3" GOTO teslamodular
 
 REM ============================================================
 :ovlssysmodule
@@ -1419,16 +1419,16 @@ echo.
 
 set "ovlssysmodule="
 set /p ovlssysmodule=Bitte triff deine Auswahl: 
-	if /i "%ovlssysmodule%"=="1" (
+	if "%ovlssysmodule%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%ovlssysmodule%"=="2" (
+	if "%ovlssysmodule%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\ovlssysmodule"
 	del "%sd%:\switch\.overlays\7_ovlSysmodules.ovl"
 	GOTO teslamodular
 	)
-	if /i "%ovlssysmodule%"=="3" GOTO teslamodular
+	if "%ovlssysmodule%"=="3" GOTO teslamodular
 
 REM ============================================================
 :statmon
@@ -1449,16 +1449,16 @@ echo.
 
 set "statmon="
 set /p statmon=Bitte triff deine Auswahl: 
-	if /i "%statmon%"=="1" (
+	if "%statmon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%statmon%"=="2" (
+	if "%statmon%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
 	del "%sd%:\switch\.overlays\8_Status-Monitor-Overlay.ovl"
 	GOTO teslamodular
 	)
-	if /i "%statmon%"=="3" GOTO teslamodular
+	if "%statmon%"=="3" GOTO teslamodular
 
 REM ============================================================
 :sysclk
@@ -1479,11 +1479,11 @@ echo.
 
 set "sysclk="
 set /p sysclk=Bitte triff deine Auswahl: 
-	if /i "%sysclk%"=="1" (
+	if "%sysclk%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%sysclk%"=="2" (
+	if "%sysclk%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF"
 	RD /s /q "%sd%:\config\sys-clk"
 	RD /s /q "%sd%:\switch\.overlays\3_sys-clk-overlay"
@@ -1491,7 +1491,7 @@ set /p sysclk=Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\sys-clk-manager"
 	GOTO teslamodular
 	)
-	if /i "%sysclk%"=="3" GOTO teslamodular
+	if "%sysclk%"=="3" GOTO teslamodular
 
 REM ============================================================
 :sysclkedit
@@ -1512,16 +1512,16 @@ echo.
 
 set "sysclkedit="
 set /p sysclkedit=Bitte triff deine Auswahl: 
-	if /i "%sysclkedit%"=="1" (
+	if "%sysclkedit%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%sysclkedit%"=="2" (
+	if "%sysclkedit%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-Editor"
 	RD /s /q "%sd%:\switch\sys-clk-Editor"
 	GOTO teslamodular
 	)
-	if /i "%sysclkedit%"=="3" GOTO teslamodular
+	if "%sysclkedit%"=="3" GOTO teslamodular
 
 REM ============================================================
 :syscon
@@ -1542,17 +1542,17 @@ echo.
 
 set "syscon="
 set /p syscon=Bitte triff deine Auswahl: 
-	if /i "%syscon%"=="1" (
+	if "%syscon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%syscon%"=="2" (
+	if "%syscon%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\690000000000000D"
 	RD /s /q "%sd%:\config\sys-con"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-con"
 	GOTO teslamodular
 	)
-	if /i "%syscon%"=="3" GOTO teslamodular
+	if "%syscon%"=="3" GOTO teslamodular
 
 REM ============================================================
 :sysdvr
@@ -1573,11 +1573,11 @@ echo.
 
 set "syscon="
 set /p syscon=Bitte triff deine Auswahl: 
-	if /i "%syscon%"=="1" (
+	if "%syscon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if /i "%syscon%"=="2" (
+	if "%syscon%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
 	RD /s /q "%sd%:\config\sysdvr"
 	RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
@@ -1586,7 +1586,7 @@ set /p syscon=Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\SysDVR-conf"
 	GOTO teslamodular
 	)
-	if /i "%syscon%"=="3" GOTO teslamodular
+	if "%syscon%"=="3" GOTO teslamodular
 
 REM ============================================================
 :zusatzapps
@@ -1628,24 +1628,24 @@ echo.
 
 set "datenapps="
 set /p datenapps=Welche Tesla-Overlay Module sollen installiert werden?: 
-	if /i "%datenapps%"=="1" GOTO amiibogenerator
-	if /i "%datenapps%"=="2" GOTO amiigo
-	if /i "%datenapps%"=="3" GOTO chiaki
-	if /i "%datenapps%"=="4" GOTO fake08
-	if /i "%datenapps%"=="5" GOTO goldleaf
-	if /i "%datenapps%"=="6" GOTO homebrewdetails
-	if /i "%datenapps%"=="7" GOTO melonds
-	if /i "%datenapps%"=="8" GOTO miiport
-	if /i "%datenapps%"=="9" GOTO moonlight
-	if /i "%datenapps%"=="10" GOTO neumann
-	if /i "%datenapps%"=="11" GOTO nxactivitylog
-	if /i "%datenapps%"=="12" GOTO nxlocaleswitcher
-	if /i "%datenapps%"=="13" GOTO nxshell
-	if /i "%datenapps%"=="14" GOTO nxgallery
-	if /i "%datenapps%"=="15" GOTO nxmp
-	if /i "%datenapps%"=="16" GOTO switchremoteplay
-	if /i "%datenapps%"=="17" GOTO tencentswitcher
-	if /i "%datenapps%"=="18" GOTO vgedit
+	if "%datenapps%"=="1" GOTO amiibogenerator
+	if "%datenapps%"=="2" GOTO amiigo
+	if "%datenapps%"=="3" GOTO chiaki
+	if "%datenapps%"=="4" GOTO fake08
+	if "%datenapps%"=="5" GOTO goldleaf
+	if "%datenapps%"=="6" GOTO homebrewdetails
+	if "%datenapps%"=="7" GOTO melonds
+	if "%datenapps%"=="8" GOTO miiport
+	if "%datenapps%"=="9" GOTO moonlight
+	if "%datenapps%"=="10" GOTO neumann
+	if "%datenapps%"=="11" GOTO nxactivitylog
+	if "%datenapps%"=="12" GOTO nxlocaleswitcher
+	if "%datenapps%"=="13" GOTO nxshell
+	if "%datenapps%"=="14" GOTO nxgallery
+	if "%datenapps%"=="15" GOTO nxmp
+	if "%datenapps%"=="16" GOTO switchremoteplay
+	if "%datenapps%"=="17" GOTO tencentswitcher
+	if "%datenapps%"=="18" GOTO vgedit
 	if /i "%datenapps%"=="W" GOTO attributeundmac
 	if /i "%datenapps%"=="H" GOTO hauptmenue
 
@@ -1668,16 +1668,16 @@ echo.
 
 set "amiibogenerator="
 set /p amiibogenerator=Bitte triff deine Auswahl: 
-	if /i "%amiibogenerator%"=="1" (
+	if "%amiibogenerator%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\AmiiboGenerator\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%amiibogenerator%"=="2" (
+	if "%amiibogenerator%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\AmiiboGenerator"
 	RD /s /q "%sd%:\switch\AmiiboGenerator"
 	GOTO zusatzapps
 	)
-	if /i "%amiibogenerator%"=="3" GOTO zusatzapps
+	if "%amiibogenerator%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :amiigo
@@ -1698,16 +1698,16 @@ echo.
 
 set "amiigo="
 set /p amiigo=Bitte triff deine Auswahl: 
-	if /i "%amiigo%"=="1" (
+	if "%amiigo%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Amiigo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%amiigo%"=="2" (
+	if "%amiigo%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Amiigo"
 	RD /s /q "%sd%:\switch\Amiigo"
 	GOTO zusatzapps
 	)
-	if /i "%amiigo%"=="3" GOTO zusatzapps
+	if "%amiigo%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :chiaki
@@ -1728,15 +1728,15 @@ echo.
 
 set "chiaki="
 set /p chiaki=Bitte triff deine Auswahl: 
-	if /i "%chiaki%"=="1" (
+	if "%chiaki%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%chiaki%"=="2" (
+	if "%chiaki%"=="2" (
 	RD /s /q "%sd%:\switch\chiaki"
 	GOTO zusatzapps
 	)
-	if /i "%chiaki%"=="3" GOTO zusatzapps
+	if "%chiaki%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :fake08
@@ -1757,15 +1757,15 @@ echo.
 
 set "fake08="
 set /p fake08=Bitte triff deine Auswahl: 
-	if /i "%fake08%"=="1" (
+	if "%fake08%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%fake08%"=="2" (
+	if "%fake08%"=="2" (
 	RD /s /q "%sd%:\switch\fake08"
 	GOTO zusatzapps
 	)
-	if /i "%fake08%"=="3" GOTO zusatzapps
+	if "%fake08%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :goldleaf
@@ -1786,16 +1786,16 @@ echo.
 
 set "goldleaf="
 set /p goldleaf=Bitte triff deine Auswahl: 
-	if /i "%goldleaf%"=="1" (
+	if "%goldleaf%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Goldleaf\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%goldleaf%"=="2" (
+	if "%goldleaf%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Goldleaf"
 	RD /s /q "%sd%:\switch\Goldleaf"
 	GOTO zusatzapps
 	)
-	if /i "%goldleaf%"=="3" GOTO zusatzapps
+	if "%goldleaf%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :homebrewdetails
@@ -1816,16 +1816,16 @@ echo.
 
 set "homebrewdetails="
 set /p homebrewdetails=Bitte triff deine Auswahl: 
-	if /i "%homebrewdetails%"=="1" (
+	if "%homebrewdetails%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Homebrew-Details\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%homebrewdetails%"=="2" (
+	if "%homebrewdetails%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Homebrew-Details"
 	RD /s /q "%sd%:\switch\Homebrew-Details"
 	GOTO zusatzapps
 	)
-	if /i "%homebrewdetails%"=="3" GOTO zusatzapps
+	if "%homebrewdetails%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :melonds
@@ -1846,16 +1846,16 @@ echo.
 
 set "melonds="
 set /p melonds=Bitte triff deine Auswahl: 
-	if /i "%melonds%"=="1" (
+	if "%melonds%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\melonDS\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%melonds%"=="2" (
+	if "%melonds%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\melonDS"
 	RD /s /q "%sd%:\switch\melonDS"
 	GOTO zusatzapps
 	)
-	if /i "%melonds%"=="3" GOTO zusatzapps
+	if "%melonds%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :miiport
@@ -1876,16 +1876,16 @@ echo.
 
 set "miiport="
 set /p miiport=Bitte triff deine Auswahl: 
-	if /i "%miiport%"=="1" (
+	if "%miiport%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\MiiPort\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%miiport%"=="2" (
+	if "%miiport%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\MiiPort"
 	RD /s /q "%sd%:\switch\MiiPort"
 	GOTO zusatzapps
 	)
-	if /i "%miiport%"=="3" GOTO zusatzapps
+	if "%miiport%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :moonlight
@@ -1906,16 +1906,16 @@ echo.
 
 set "moonlight="
 set /p moonlight=Bitte triff deine Auswahl: 
-	if /i "%moonlight%"=="1" (
+	if "%moonlight%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Moonlight\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%moonlight%"=="2" (
+	if "%moonlight%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Moonlight-Switch"
 	RD /s /q "%sd%:\switch\Moonlight-Switch"
 	GOTO zusatzapps
 	)
-	if /i "%moonlight%"=="3" GOTO zusatzapps
+	if "%moonlight%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :neumann
@@ -1936,16 +1936,16 @@ echo.
 
 set "neumann="
 set /p neumann=Bitte triff deine Auswahl: 
-	if /i "%neumann%"=="1" (
+	if "%neumann%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Neumann\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%neumann%"=="2" (
+	if "%neumann%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Neumann"
 	RD /s /q "%sd%:\switch\Neumann"
 	GOTO zusatzapps
 	)
-	if /i "%neumann%"=="3" GOTO zusatzapps
+	if "%neumann%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :nxactivitylog
@@ -1966,16 +1966,16 @@ echo.
 
 set "nxactivitylog="
 set /p nxactivitylog=Bitte triff deine Auswahl: 
-	if /i "%nxactivitylog%"=="1" (
+	if "%nxactivitylog%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\NX-Activity-Log\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%nxactivitylog%"=="2" (
+	if "%nxactivitylog%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\NX-Activity-Log"
 	RD /s /q "%sd%:\switch\NX-Activity-Log"
 	GOTO zusatzapps
 	)
-	if /i "%nxactivitylog%"=="3" GOTO zusatzapps
+	if "%nxactivitylog%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :nxlocaleswitcher
@@ -1996,16 +1996,16 @@ echo.
 
 set "nxlocaleswitcher="
 set /p nxlocaleswitcher=Bitte triff deine Auswahl: 
-	if /i "%nxlocaleswitcher%"=="1" (
+	if "%nxlocaleswitcher%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\nx-locale-switcher\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%nxlocaleswitcher%"=="2" (
+	if "%nxlocaleswitcher%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\nx-locale-switcher"
 	RD /s /q "%sd%:\switch\nx-locale-switcher"
 	GOTO zusatzapps
 	)
-	if /i "%nxlocaleswitcher%"=="3" GOTO zusatzapps
+	if "%nxlocaleswitcher%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :nxshell
@@ -2026,16 +2026,16 @@ echo.
 
 set "nxshell="
 set /p nxshell=Bitte triff deine Auswahl: 
-	if /i "%nxshell%"=="1" (
+	if "%nxshell%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\NX-Shell\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%nxshell%"=="2" (
+	if "%nxshell%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\NX-Shell"
 	RD /s /q "%sd%:\switch\NX-Shell"
 	GOTO zusatzapps
 	)
-	if /i "%nxshell%"=="3" GOTO zusatzapps
+	if "%nxshell%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :nxgallery
@@ -2056,16 +2056,16 @@ echo.
 
 set "nxgallery="
 set /p nxgallery=Bitte triff deine Auswahl: 
-	if /i "%nxgallery%"=="1" (
+	if "%nxgallery%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\NXGallery\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%nxgallery%"=="2" (
+	if "%nxgallery%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\NXGallery"
 	RD /s /q "%sd%:\switch\NXGallery"
 	GOTO zusatzapps
 	)
-	if /i "%nxgallery%"=="3" GOTO zusatzapps
+	if "%nxgallery%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :nxmp
@@ -2086,16 +2086,16 @@ echo.
 
 set "nxmp="
 set /p nxmp=Bitte triff deine Auswahl: 
-	if /i "%nxmp%"=="1" (
+	if "%nxmp%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\nxmp\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%nxmp%"=="2" (
+	if "%nxmp%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\nxmp"
 	RD /s /q "%sd%:\switch\nxmp"
 	GOTO zusatzapps
 	)
-	if /i "%nxmp%"=="3" GOTO zusatzapps
+	if "%nxmp%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :switchremoteplay
@@ -2116,16 +2116,16 @@ echo.
 
 set "switchremoteplay="
 set /p switchremoteplay=Bitte triff deine Auswahl: 
-	if /i "%switchremoteplay%"=="1" (
+	if "%switchremoteplay%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\switch-remote-play\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%switchremoteplay%"=="2" (
+	if "%switchremoteplay%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\switch-remote-play"
 	RD /s /q "%sd%:\switch\switch-remote-play"
 	GOTO zusatzapps
 	)
-	if /i "%switchremoteplay%"=="3" GOTO zusatzapps
+	if "%switchremoteplay%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :tencentswitcher
@@ -2146,15 +2146,15 @@ echo.
 
 set "tencentswitcher="
 set /p tencentswitcher=Bitte triff deine Auswahl: 
-	if /i "%tencentswitcher%"=="1" (
+	if "%tencentswitcher%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%tencentswitcher%"=="2" (
+	if "%tencentswitcher%"=="2" (
 	RD /s /q "%sd%:\switch\TencentSwitcherGui"
 	GOTO zusatzapps
 	)
-	if /i "%tencentswitcher%"=="3" GOTO zusatzapps
+	if "%tencentswitcher%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :vgedit
@@ -2175,16 +2175,16 @@ echo.
 
 set "vgedit="
 set /p vgedit=Bitte triff deine Auswahl: 
-	if /i "%vgedit%"=="1" (
+	if "%vgedit%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 	)
-	if /i "%vgedit%"=="2" (
+	if "%vgedit%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\vgedit"
 	RD /s /q "%sd%:\switch\vgedit"
 	GOTO zusatzapps
 	)
-	if /i "%vgedit%"=="3" GOTO zusatzapps
+	if "%vgedit%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :attributeundmac
@@ -2209,8 +2209,8 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p fixattrib=Welches Tesla-Overlay soll installiert werden?: 
-	if /i "%fixattrib%"=="1" GOTO fixattribweiter
-	if /i "%fixattrib%"=="2" GOTO fixattribhaupt
+	if "%fixattrib%"=="1" GOTO fixattribweiter
+	if "%fixattrib%"=="2" GOTO fixattribhaupt
 	if /i "%fixattrib%"=="H" GOTO hauptmenue
 
 REM ============================================================
@@ -2354,8 +2354,8 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p usb3=Welche USB3 Einstellung: 
-	if /i "%usb3%"=="1" GOTO usb3weiter
-	if /i "%usb3%"=="2" GOTO aufraeumen
+	if "%usb3%"=="1" GOTO usb3weiter
+	if "%usb3%"=="2" GOTO aufraeumen
 	if /i "%usb3%"=="H" GOTO hauptmenue
 
 :usb3weiter
@@ -2440,13 +2440,21 @@ echo.
 echo                    Viel Spass mit unserem Paket und Willkommen in der Switch Bros. Community
 echo.
 echo.
-echo    Eingabetaste/Enter = zurueck zum Hauptmenue^^!
-echo    Ansonsten warte 10 Sekunden = Das Programm beendet sich von selbst^^!
+echo    Soll dieses Programm jetzt beendet werden^^?
+echo.
+echo    J = Dieses Programm beenden^^!
+echo    N = Zurueck zum Hauptmenue^^!
+echo.  
 echo -----------------------------------------------------------------------------------------------------
 
-choice /t 10 /c B /n /d B
-	if errorlevel 1 (
-	exit
-) else (
-	GOTO hauptmenue
+set /p ende=Soll das Programm beendet werden?: 
+	if /I "%ende%"=="N" GOTO hauptmenue
+	if /i "%ende%"=="J" (
+Timeout /T 3 /nobreak
+eject %sd%:
+echo Deine SD-Karte wurde sicher entfernt^^!
+echo Das Programm wird jetzt beendet^^!
+Timeout /T 6 /nobreak
+exit
 )
+	
