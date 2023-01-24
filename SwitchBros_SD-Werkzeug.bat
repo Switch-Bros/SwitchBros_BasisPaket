@@ -2448,13 +2448,17 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 
 set /p ende=Soll das Programm beendet werden?: 
-	if /I "%ende%"=="N" GOTO hauptmenue
-	if /i "%ende%"=="J" (
-Timeout /T 3 /nobreak
-eject %sd%:
-echo Deine SD-Karte wurde sicher entfernt^^!
-echo Das Programm wird jetzt beendet^^!
-Timeout /T 6 /nobreak
-exit
+if /i "%ende%"=="J" (
+    powershell -Command "Start-Sleep -Seconds 3"
+    for /f "tokens=2 delims==" %%a in ('wmic volume where driveletter^="%sd%:" get deviceid /value') do set "DeviceID=%%a"
+    powershell -Command "gwmi win32_volume -Filter 'DeviceID^=^""%DeviceID%""' | %{$_.Dismount()} "
+  echo.
+  echo     Deine SD-Karte wurde sicher entfernt^^!
+  echo     Das Programm wird jetzt beendet^^!
+  echo.
+  echo     BITTE WARTEN...
+powershell -Command "Start-Sleep -Seconds 6"
+    exit
 )
-	
+
+if /i "%ende%"=="N" GOTO hauptmenue
