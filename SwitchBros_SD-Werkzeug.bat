@@ -2447,9 +2447,9 @@ echo    N = Zurueck zum Hauptmenue^^!
 echo.  
 echo -----------------------------------------------------------------------------------------------------
 
-set /p ende=Soll das Programm beendet werden? (J/N): 
+set /p ende=        Soll das Programm beendet werden? (J/N): 
 if /i "%ende%"=="J" (
-    call powershell -Command "Start-Sleep -Seconds 3; Get-WmiObject win32_volume -Filter 'DriveLetter = \"%sd%:\"';$_.Dismount();echo 'Deine SD-Karte wurde sicher entfernt.';echo 'Das Programm wird jetzt beendet!';echo;echo 'BITTE WARTEN...';Start-Sleep -Seconds 6"
+    call powershell -Command "Start-Sleep -Seconds 2; Get-WmiObject win32_volume -Filter 'DriveLetter = \"%sd%:\"';$_.Dismount();echo '        Deine SD-Karte wurde sicher entfernt.';echo '        Das Programm wird jetzt beendet!';echo;echo '        BITTE WARTEN...';Start-Sleep -Seconds 7"
     exit
 )
 
