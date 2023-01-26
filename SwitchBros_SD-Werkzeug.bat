@@ -1,5 +1,5 @@
 @ECHO OFF
-SETLOCAL EnableDelayedExpansion
+SETLOCAL ENABLEDELAYEDEXPANSION
 chcp 1252 >nul 2>&1
 title SwitchBros. SD-Werkzeug
 REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
@@ -2440,15 +2440,15 @@ echo.
 echo                    Viel Spass mit unserem Paket und Willkommen in der Switch Bros. Community
 echo.
 echo.
-echo    Soll dieses Programm jetzt beendet werden^^?
+echo    Soll dieses Programm jetzt beendet werden?
 echo.
 echo    J = Dieses Programm beenden^^!
 echo    N = Zurueck zum Hauptmenue^^!
 echo.  
 echo -----------------------------------------------------------------------------------------------------
 
-set /p ende=Soll das Programm beendet werden (J/N): 
-	if /I "%ende%"=="N" GOTO hauptmenue
+set /p ende=Soll das Programm beendet werden? (J/N): 
+	if /i "%ende%"=="N" GOTO hauptmenue
 	if /i "%ende%"=="J" (
 powershell -Command "Start-Sleep -Seconds 5"
 exit
