@@ -96,10 +96,11 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Bitte das GANZE Skript komplett durchgehen wenn du die CFW zum ersten Mal aufsetzt, oder wenn
-echo      von einem anderen Paket kommst oder wenn es sich um eine neue SD-Karte handelt^^! DANKE^^!
+echo      0 = Das SwitchBros. Paket installieren, ohne etwas tun zu muessen^^! (AK47 Automatik fuer Noobs)
 echo.
 echo      1 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln^^!
+echo          Das GANZE Skript komplett durchgehen wenn du die CFW zum ersten Mal aufsetzt, oder wenn du
+echo          von einem anderen Paket kommst, oder wenn es sich um eine neue SD-Karte handelt^^! DANKE^^!
 echo.
 echo =====================================================================================================
 echo.
@@ -128,6 +129,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p neuistgut="Bitte gib deine Auswahl ein: "
+if "%neuistgut%"=="0" GOTO ak47
 if "%neuistgut%"=="1" GOTO sbgibgas
 if "%neuistgut%"=="2" GOTO backupordner
 if "%neuistgut%"=="3" GOTO systempartitionen
@@ -222,6 +224,11 @@ echo.
 if exist "%wd%" (RD /s /q "%wd%\*")
 pause>nul 2>&1
 exit
+
+REM ============================================================
+:ak47
+call ak47.bat
+GOTO endemutig
 
 REM ======= ATMOSPHERE ORDNER ==================================
 :sbgibgas
@@ -521,7 +528,7 @@ echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
-TIMEOUT /t 3 /nobreak
+timeout /t 3 /nobreak
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
