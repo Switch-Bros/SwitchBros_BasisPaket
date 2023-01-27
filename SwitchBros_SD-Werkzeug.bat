@@ -541,13 +541,13 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Waehle die hekate Systeme aus, die dir spaeter in hekate zur Verfuegung stehen sollen^^!
+echo     Waehle die Systeme aus, die in hekate, unter "Launch",  zur Verfuegung stehen sollen^^!
 echo.
 echo     Entweder sind die Systeme bereits bei dir installiert, oder du moechtest diese spaeter
 echo     installieren = Die Partitionen dafuer nicht vergessen (Partiton nachtraeglich geht nicht)^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
-echo     Achtung modchip Besitzer = LAKKA und Ubuntu Bionic Distro werden jetzt unterstuetzt^^!
+echo     Achtung Modchip Besitzer = LAKKA und die Ubuntu Bionic Distro werden jetzt unterstuetzt^^!
 echo.
 echo     Android und die anderen Linux Distributionen z.Zt. NICHT^^!^^!^^!
 echo -----------------------------------------------------------------------------------------------------
@@ -562,7 +562,7 @@ echo     6 = Basis + Android + LAKKA
 echo     7 = Basis + Android + Linux + LAKKA
 echo     8 = Basis + Linux + LAKKA
 echo.
-echo     W = System(e) sind gewaehlt, weiter im Skript
+echo     W = BITTE eingeben um fortzufahren wenn System(e) installiert wurden^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo     H = Zurueck zum Hauptmenue
@@ -592,12 +592,14 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -610,10 +612,12 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -626,11 +630,13 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 xcopy "%sd%:\switchbros\system\ba\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -650,6 +656,7 @@ echo      D = Ubuntu
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux=Waehle deine Linux Distribution: 
 if /i "%Linux%"=="A" (
@@ -670,7 +677,7 @@ xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >n
 )
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -683,10 +690,13 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 xcopy "%sd%:\switchbros\system\bl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -727,7 +737,7 @@ xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >n
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -737,15 +747,17 @@ COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      BITTE WARTEN...^^! >nul 2>nul
+echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 xcopy "%sd%:\switchbros\system\bal\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -787,7 +799,7 @@ xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -828,7 +840,7 @@ xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >n
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -869,6 +881,8 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
@@ -885,6 +899,8 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
@@ -901,6 +917,8 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 RD /s /q "%sd%:\switch\tinfoil" >nul 2>nul
 del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp" >nul 2>nul
 GOTO themepaket
@@ -951,6 +969,8 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\backup\IconGrabber\config.json" (xcopy "%sd%:\backup\IconGrabber\config.json" "%sd%:\config\IconGrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO steamapiangeben
@@ -980,7 +1000,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p steamapi=Bitte gib deine Steam API ein: 
+set /p steamapi=     Bitte gib deine Steam API ein: 
 set "config_path=%sd%:\config\icongrabber\config.json"
 if "%steamapi%"=="" (
     goto systemmodule
@@ -1007,6 +1027,8 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 RD /s /q "%sd%:\atmosphere\contents\00FF747765616BFF" >nul 2>nul
 RD /s /q "%sd%:\config\icongrabber" >nul 2>nul
 RD /s /q "%sd%:\switch\icongrabber" >nul 2>nul
@@ -1025,13 +1047,13 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Das Tesla-Overlay Menue koennt ihr auf der Switch aufrufen mit: 
+echo     Das Tesla-Overlay Menue kannst du auf deiner Switch aufrufen ueber: 
 echo.
 echo                          ZL + ZR + PLUS Taste 
 echo.
-echo     1 = Tesla-Overlay mit allen Modulen (nicht empfohlen)!
-echo     2 = Tesla-Overlay mit Standard SwitchBros Modulen (empfohlen wenn unsicher)!
-echo     3 = Tesla-Overlay mit einzeln ausgewaehlten Modulen (empfohlen)!
+echo     1 = Tesla-Overlay mit allen Modulen (nicht empfohlen)^^!
+echo     2 = Tesla-Overlay mit Standard SwitchBros Modulen (empfohlen wenn unsicher)^^!
+echo     3 = Tesla-Overlay mit einzeln ausgewaehlten Modulen (empfohlen)^^!
 echo.
 echo     W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1040,7 +1062,7 @@ echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p sysmod=Welches Tesla-Overlay soll installiert werden?: 
+set /p sysmod=     Waehle deine Tesla-Overlay Version: 
 	if "%sysmod%"=="1" GOTO teslakomplett
 	if "%sysmod%"=="2" GOTO teslaminimal
 	if "%sysmod%"=="3" GOTO teslamodintro
@@ -1057,6 +1079,8 @@ echo.
 echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
+echo.
+
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1080,46 +1104,48 @@ COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      BITTE WARTEN...^^! >nul 2>nul
+echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
-	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
-	RD /s /q "%sd%:\config\BootSoundNX"
-	RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000"
-	RD /s /q "%sd%:\atmosphere\contents\010000000000000D"
-	RD /s /q "%sd%:\atmosphere\contents\0100000000001013"
-	RD /s /q "%sd%:\switch\EdiZon"
-	RD /s /q "%sd%:\switch\breeze"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
-	del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
-	RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
-	RD /s /q "%sd%:\emuiibo"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
-	del "%sd%:\switch\.overlays\2_emuiibo.ovl"
-	RD /s /q "%sd%:\atmosphere\contents\0100000000000F12"
-	RD /s /q "%sd%:\config\Fizeau"
-	RD /s /q "%sd%:\switch\Fizeau"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau"
-	del "%sd%:\switch\.overlays\5_Fizeau.ovl"
-	RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
-	RD /s /q "%sd%:\switch\ldn_mitm_config"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
-	del "%sd%:\switch\.overlays\1_ldnmitm_config"
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
-	RD /s /q "%sd%:\config\sysdvr"
-	RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
-	RD /s /q "%sd%:\switch\SysDVR-conf"
-	GOTO zusatzapps
+echo.
+
+xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
+RD /s /q "%sd%:\config\BootSoundNX"
+RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000"
+RD /s /q "%sd%:\atmosphere\contents\010000000000000D"
+RD /s /q "%sd%:\atmosphere\contents\0100000000001013"
+RD /s /q "%sd%:\switch\EdiZon"
+RD /s /q "%sd%:\switch\breeze"
+RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
+del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
+RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
+RD /s /q "%sd%:\emuiibo"
+RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
+del "%sd%:\switch\.overlays\2_emuiibo.ovl"
+RD /s /q "%sd%:\atmosphere\contents\0100000000000F12"
+RD /s /q "%sd%:\config\Fizeau"
+RD /s /q "%sd%:\switch\Fizeau"
+RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau"
+del "%sd%:\switch\.overlays\5_Fizeau.ovl"
+RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
+RD /s /q "%sd%:\switch\ldn_mitm_config"
+RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
+del "%sd%:\switch\.overlays\1_ldnmitm_config"
+RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
+RD /s /q "%sd%:\config\sysdvr"
+RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
+RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
+RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
+RD /s /q "%sd%:\switch\SysDVR-conf"
+GOTO zusatzapps
 
 REM ============================================================
 :teslamodintro
@@ -1163,7 +1189,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "teslamods="
-set /p teslamods=Welche Tesla-Overlay Module sollen installiert werden?: 
+set /p teslamods=     Waehle das Tesla-Overlay Modul: 
 	if "%teslamods%"=="1" GOTO bootsoundnx
 	if "%teslamods%"=="2" GOTO edizon
 	if "%teslamods%"=="3" GOTO emuiibo
@@ -1198,7 +1224,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "bootsoundnx="
-set /p bootsoundnx=Bitte triff deine Auswahl: 
+set /p bootsoundnx=     Bitte triff deine Auswahl: 
 	if "%bootsoundnx%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1228,7 +1254,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "edizon="
-set /p edizon=Bitte triff deine Auswahl: 
+set /p edizon=     Bitte triff deine Auswahl: 
 	if "%edizon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1263,7 +1289,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "emuiibo="
-set /p emuiibo=Bitte triff deine Auswahl: 
+set /p emuiibo=     Bitte triff deine Auswahl: 
 	if "%emuiibo%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1295,7 +1321,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "fastcfwswitch="
-set /p fastcfwswitch=Bitte triff deine Auswahl: 
+set /p fastcfwswitch=     Bitte triff deine Auswahl: 
 	if "%fastcfwswitch%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\fastCFWSwitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -1327,7 +1353,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "fizeau="
-set /p fizeau=Bitte triff deine Auswahl: 
+set /p fizeau=     Bitte triff deine Auswahl: 
 	if "%fizeau%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1361,7 +1387,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "ldnmitm="
-set /p ldnmitm=Bitte triff deine Auswahl: 
+set /p ldnmitm=     Bitte triff deine Auswahl: 
 	if "%ldnmitm%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1393,7 +1419,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "missioncontrol="
-set /p missioncontrol=Bitte triff deine Auswahl: 
+set /p missioncontrol=     Bitte triff deine Auswahl: 
 	if "%missioncontrol%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1425,7 +1451,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "ovlssysmodule="
-set /p ovlssysmodule=Bitte triff deine Auswahl: 
+set /p ovlssysmodule=     Bitte triff deine Auswahl: 
 	if "%ovlssysmodule%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1455,7 +1481,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "statmon="
-set /p statmon=Bitte triff deine Auswahl: 
+set /p statmon=     Bitte triff deine Auswahl: 
 	if "%statmon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1485,7 +1511,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "sysclk="
-set /p sysclk=Bitte triff deine Auswahl: 
+set /p sysclk=     Bitte triff deine Auswahl: 
 	if "%sysclk%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1518,7 +1544,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "sysclkedit="
-set /p sysclkedit=Bitte triff deine Auswahl: 
+set /p sysclkedit=     Bitte triff deine Auswahl: 
 	if "%sysclkedit%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1548,7 +1574,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "syscon="
-set /p syscon=Bitte triff deine Auswahl: 
+set /p syscon=     Bitte triff deine Auswahl: 
 	if "%syscon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1579,7 +1605,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "syscon="
-set /p syscon=Bitte triff deine Auswahl: 
+set /p syscon=     Bitte triff deine Auswahl: 
 	if "%syscon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
@@ -1634,7 +1660,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "datenapps="
-set /p datenapps=Welche Tesla-Overlay Module sollen installiert werden?: 
+set /p datenapps=     Waehle deine Zusatz-App(s):      
 	if "%datenapps%"=="1" GOTO amiibogenerator
 	if "%datenapps%"=="2" GOTO amiigo
 	if "%datenapps%"=="3" GOTO chiaki
@@ -1674,7 +1700,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "amiibogenerator="
-set /p amiibogenerator=Bitte triff deine Auswahl: 
+set /p amiibogenerator=     Bitte triff deine Auswahl: 
 	if "%amiibogenerator%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\AmiiboGenerator\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1704,7 +1730,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "amiigo="
-set /p amiigo=Bitte triff deine Auswahl: 
+set /p amiigo=     Bitte triff deine Auswahl: 
 	if "%amiigo%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Amiigo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1734,7 +1760,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "chiaki="
-set /p chiaki=Bitte triff deine Auswahl: 
+set /p chiaki=     Bitte triff deine Auswahl: 
 	if "%chiaki%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1763,7 +1789,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "fake08="
-set /p fake08=Bitte triff deine Auswahl: 
+set /p fake08=     Bitte triff deine Auswahl: 
 	if "%fake08%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1792,7 +1818,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "goldleaf="
-set /p goldleaf=Bitte triff deine Auswahl: 
+set /p goldleaf=     Bitte triff deine Auswahl: 
 	if "%goldleaf%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Goldleaf\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1822,7 +1848,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "homebrewdetails="
-set /p homebrewdetails=Bitte triff deine Auswahl: 
+set /p homebrewdetails=     Bitte triff deine Auswahl: 
 	if "%homebrewdetails%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Homebrew-Details\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1852,7 +1878,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "melonds="
-set /p melonds=Bitte triff deine Auswahl: 
+set /p melonds=     Bitte triff deine Auswahl: 
 	if "%melonds%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\melonDS\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1882,7 +1908,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "miiport="
-set /p miiport=Bitte triff deine Auswahl: 
+set /p miiport=     Bitte triff deine Auswahl: 
 	if "%miiport%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\MiiPort\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1912,7 +1938,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "moonlight="
-set /p moonlight=Bitte triff deine Auswahl: 
+set /p moonlight=     Bitte triff deine Auswahl: 
 	if "%moonlight%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Moonlight\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1942,7 +1968,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "neumann="
-set /p neumann=Bitte triff deine Auswahl: 
+set /p neumann=     Bitte triff deine Auswahl: 
 	if "%neumann%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\Neumann\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1972,7 +1998,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "nxactivitylog="
-set /p nxactivitylog=Bitte triff deine Auswahl: 
+set /p nxactivitylog=     Bitte triff deine Auswahl: 
 	if "%nxactivitylog%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\NX-Activity-Log\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2002,7 +2028,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "nxlocaleswitcher="
-set /p nxlocaleswitcher=Bitte triff deine Auswahl: 
+set /p nxlocaleswitcher=     Bitte triff deine Auswahl: 
 	if "%nxlocaleswitcher%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\nx-locale-switcher\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2032,7 +2058,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "nxshell="
-set /p nxshell=Bitte triff deine Auswahl: 
+set /p nxshell=     Bitte triff deine Auswahl: 
 	if "%nxshell%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\NX-Shell\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2062,7 +2088,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "nxgallery="
-set /p nxgallery=Bitte triff deine Auswahl: 
+set /p nxgallery=     Bitte triff deine Auswahl: 
 	if "%nxgallery%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\NXGallery\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2092,7 +2118,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "nxmp="
-set /p nxmp=Bitte triff deine Auswahl: 
+set /p nxmp=     Bitte triff deine Auswahl: 
 	if "%nxmp%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\nxmp\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2122,7 +2148,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "switchremoteplay="
-set /p switchremoteplay=Bitte triff deine Auswahl: 
+set /p switchremoteplay=     Bitte triff deine Auswahl: 
 	if "%switchremoteplay%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\switch-remote-play\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2152,7 +2178,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "tencentswitcher="
-set /p tencentswitcher=Bitte triff deine Auswahl: 
+set /p tencentswitcher=     Bitte triff deine Auswahl: 
 	if "%tencentswitcher%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2181,7 +2207,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "vgedit="
-set /p vgedit=Bitte triff deine Auswahl: 
+set /p vgedit=     Bitte triff deine Auswahl: 
 	if "%vgedit%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -2460,4 +2486,3 @@ set /p ende=Soll das Programm beendet werden? (J/N):
 powershell -Command "Start-Sleep -Seconds 5"
 exit
 )
-
