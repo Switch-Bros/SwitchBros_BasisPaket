@@ -26,7 +26,6 @@ pause>nul 2>&1
 
 REM ============================================================
 :neuekarte
-ECHO OFF
 COLOR 0C
 cls
 echo.
@@ -49,10 +48,10 @@ echo.
 
 for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
 echo.
-set /P sd="Laufwerksbuchstabe der SD-Karte: "
+set /P sd="     Laufwerksbuchstabe der SD-Karte: "
 
 if not exist "%sd%:\" (
-	set word=        Es befindet sich keine SD-Karte im Laufwerk %sd%         
+	set word=     Es befindet sich keine SD-Karte im Laufwerk %sd%         
 	GOTO falschesdkarte
 ) else (
 	if not exist "%sd%:\*" (GOTO falschesdkarte)
@@ -60,7 +59,6 @@ if not exist "%sd%:\" (
 
 REM ============================================================
 :modchip
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -74,7 +72,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p modchip="Ist ein Modchip verbaut: "
+set /p modchip="     Ist ein Modchip verbaut: "
 if "%modchip%"=="1" SET bootdat=1
 if "%modchip%"=="2" SET bootdat=0
 
@@ -90,7 +88,6 @@ if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\l
 
 REM ============================================================
 :hauptmenue
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -128,7 +125,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p neuistgut="Bitte gib deine Auswahl ein: "
+set /p neuistgut="     Bitte gib deine Auswahl ein: "
 if "%neuistgut%"=="0" GOTO ak47
 if "%neuistgut%"=="1" GOTO sbgibgas
 if "%neuistgut%"=="2" GOTO backupordner
@@ -145,7 +142,6 @@ if /i "%neuistgut%"=="B" GOTO endemutig
 
 REM ============================================================
 :backupordner
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -174,7 +170,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "LW="
-set /p LW=Bitte gib einen gueltigen Laufwerksbuchstaben ein: 
+set /p LW=     Bitte gib einen gueltigen Laufwerksbuchstaben ein: 
 
 if defined LW (
  (
@@ -184,7 +180,6 @@ if defined LW (
     md "%LW%:\SwitchBackup\Lockpick\Amiibo_Keys"
     md "%LW%:\SwitchBackup\SD-Karten_Backup"
   ) 2>nul
-    ECHO OFF
 	COLOR 0E
 	cls
 	echo.
@@ -231,8 +226,7 @@ call ak47.bat
 GOTO endemutig
 
 REM ======= ATMOSPHERE ORDNER ==================================
-:sbgibgas
-ECHO OFF
+:sbgibga
 COLOR 0E
 cls
 echo.
@@ -516,7 +510,6 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 pause>nul 2>&1
 
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -528,14 +521,13 @@ echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
-timeout /t 3 /nobreak
+powershell -Command "Start-Sleep -Seconds 5"
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
 
 REM ============================================================
-:systempartitionen
-ECHO OFF
+:systempartitione
 COLOR 0E
 cls
 echo.
@@ -569,7 +561,7 @@ echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p eingabe="Deine Systemkombination: "
+set /p eingabe="     Waehle deine Systemkombination: "
 if "%eingabe%"=="0" GOTO altesystembehalten
 if "%eingabe%"=="1" GOTO nurbasissystem
 if "%eingabe%"=="2" GOTO androidpartition
@@ -584,7 +576,6 @@ if /i "%eingabe%"=="H" GOTO hauptmenue
 
 REM ============================================================
 :altesystembehalten
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -604,7 +595,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :nurbasissystem
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -622,7 +612,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :androidpartition
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -641,7 +630,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :linuxpartition
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -658,7 +646,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "Linux="
-set /p Linux=Waehle deine Linux Distribution: 
+set /p Linux=     Waehle deine Linux Distribution: 
 if /i "%Linux%"=="A" (
 xcopy "%sd%:\switchbros\system\bu\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -682,7 +670,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :lakkapartition
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -701,7 +688,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :androidlinux
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -717,7 +703,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 set "Linux="
-set /p Linux=Waehle deine Linux Distribution: 
+set /p Linux=     Waehle deine Linux Distribution: 
 if /i "%Linux%"=="A" (
 xcopy "%sd%:\switchbros\system\bau\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -742,7 +728,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :androidlakka
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -762,7 +747,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :androidlinuxlakka
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -778,7 +762,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 set "Linux="
-set /p Linux=Waehle deine Linux Distribution: 
+set /p Linux=     Waehle deine Linux Distribution: 
 if /i "%Linux%"=="A" (
 xcopy "%sd%:\switchbros\system\balu\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -804,7 +788,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :linuxlakka
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -820,7 +803,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 set "Linux="
-set /p Linux=Waehle deine Linux Distribution: 
+set /p Linux=     Waehle deine Linux Distribution: 
 if /i "%Linux%"=="A" (
 xcopy "%sd%:\switchbros\system\blu\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -845,7 +828,6 @@ GOTO systempartitionen
 
 REM ============================================================
 :kindgerecht
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -865,7 +847,7 @@ echo      H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p kindgerecht=Waehle deine Tinfoil Version: 
+set /p kindgerecht=     Waehle deine Tinfoil Version: 
 	if "%kindgerecht%"=="1" GOTO tinfoila
 	if "%kindgerecht%"=="2" GOTO tinfoilb
 	if /i "%kindgerecht%"=="W" GOTO tinfoilno
@@ -873,7 +855,6 @@ set /p kindgerecht=Waehle deine Tinfoil Version:
 
 REM ============================================================
 :tinfoila
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -891,7 +872,6 @@ GOTO themepaket
 
 REM ============================================================
 :tinfoilb
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -909,7 +889,6 @@ GOTO themepaket
 
 REM ============================================================
 :tinfoilno
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -925,7 +904,6 @@ GOTO themepaket
 
 REM ============================================================
 :themepaket
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -953,7 +931,7 @@ echo      H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p themepaket=Sollen die ThemeApps installiert werden: 
+set /p themepaket=     Soll ThemeApps Paket installiert werden: 
 	if "%themepaket%"=="1" GOTO themepaketinst
 	if "%themepaket%"=="2" GOTO themepaketdeinst
 	if /i "%themepaket%"=="W" GOTO systemmodule
@@ -961,7 +939,6 @@ set /p themepaket=Sollen die ThemeApps installiert werden:
 
 REM ============================================================
 :themepaketinst
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -977,7 +954,6 @@ GOTO steamapiangeben
 
 REM ============================================================
 :steamapiangeben
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1019,7 +995,6 @@ GOTO systemmodule
 
 REM ============================================================
 :themepaketdeinst
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1041,7 +1016,6 @@ GOTO systemmodule
 
 REM ============================================================
 :systemmodule
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1071,7 +1045,6 @@ set /p sysmod=     Waehle deine Tesla-Overlay Version:
 
 REM ============================================================
 :teslakomplett
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1099,7 +1072,6 @@ echo.
 
 REM ============================================================
 :teslaminimal
-ECHO OFF
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1155,7 +1127,6 @@ GOTO teslamodular
 
 REM ============================================================
 :teslamodular
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1208,7 +1179,6 @@ set /p teslamods=     Waehle das Tesla-Overlay Modul:
 
 REM ============================================================
 :bootsoundnx
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1238,7 +1208,6 @@ set /p bootsoundnx=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :edizon
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1273,7 +1242,6 @@ set /p edizon=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :emuiibo
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1305,7 +1273,6 @@ set /p emuiibo=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :fastcfwswitch
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1337,7 +1304,6 @@ set /p fastcfwswitch=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :fizeau
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1371,7 +1337,6 @@ set /p fizeau=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :ldnmitm
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1403,7 +1368,6 @@ set /p ldnmitm=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :missioncontrol
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1435,7 +1399,6 @@ set /p missioncontrol=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :ovlssysmodule
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1465,7 +1428,6 @@ set /p ovlssysmodule=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :statmon
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1495,7 +1457,6 @@ set /p statmon=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :sysclk
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1528,7 +1489,6 @@ set /p sysclk=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :sysclkedit
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1558,7 +1518,6 @@ set /p sysclkedit=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :syscon
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1589,7 +1548,6 @@ set /p syscon=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :sysdvr
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1623,7 +1581,6 @@ set /p syscon=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :zusatzapps
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1684,7 +1641,6 @@ set /p datenapps=     Waehle deine Zusatz-App(s):
 
 REM ============================================================
 :amiibogenerator
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1714,7 +1670,6 @@ set /p amiibogenerator=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :amiigo
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1744,7 +1699,6 @@ set /p amiigo=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :chiaki
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1773,7 +1727,6 @@ set /p chiaki=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :fake08
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1802,7 +1755,6 @@ set /p fake08=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :goldleaf
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1832,7 +1784,6 @@ set /p goldleaf=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :homebrewdetails
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1862,7 +1813,6 @@ set /p homebrewdetails=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :melonds
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1892,7 +1842,6 @@ set /p melonds=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :miiport
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1922,7 +1871,6 @@ set /p miiport=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :moonlight
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1952,7 +1900,6 @@ set /p moonlight=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :neumann
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -1982,7 +1929,6 @@ set /p neumann=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :nxactivitylog
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2012,7 +1958,6 @@ set /p nxactivitylog=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :nxlocaleswitcher
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2042,7 +1987,6 @@ set /p nxlocaleswitcher=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :nxshell
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2072,7 +2016,6 @@ set /p nxshell=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :nxgallery
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2102,7 +2045,6 @@ set /p nxgallery=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :nxmp
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2132,7 +2074,6 @@ set /p nxmp=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :switchremoteplay
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2162,7 +2103,6 @@ set /p switchremoteplay=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :tencentswitcher
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2191,7 +2131,6 @@ set /p tencentswitcher=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :vgedit
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2221,7 +2160,6 @@ set /p vgedit=     Bitte triff deine Auswahl:
 
 REM ============================================================
 :attributeundmac
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2241,14 +2179,13 @@ echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p fixattrib=Welches Tesla-Overlay soll installiert werden?: 
+set /p fixattrib=     Bitte triff deine Auswahl: 
 	if "%fixattrib%"=="1" GOTO fixattribweiter
 	if "%fixattrib%"=="2" GOTO fixattribhaupt
 	if /i "%fixattrib%"=="H" GOTO hauptmenue
 
 REM ============================================================
 :fixattribhaupt
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2308,7 +2245,6 @@ GOTO hauptmenue
 
 REM ============================================================
 :fixattribweiter
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2367,7 +2303,6 @@ if exist ._.* del /s /q /f /a ._.*
 
 REM ============================================================
 :hekateusb
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2386,7 +2321,7 @@ echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p usb3=Welche USB3 Einstellung: 
+set /p usb3=     Welche USB3 Einstellung: 
 	if "%usb3%"=="1" GOTO usb3weiter
 	if "%usb3%"=="2" GOTO aufraeumen
 	if /i "%usb3%"=="H" GOTO hauptmenue
@@ -2435,7 +2370,6 @@ GOTO endemutig
 
 REM ============================================================
 :falschesdkarte
-ECHO OFF
 COLOR 0E
 cls
 echo.
@@ -2462,7 +2396,6 @@ for %%A in ("B" "b" "?" "?") do if "%st%"==%%A (GOTO endemutig)
 
 REM ============================================================
 :endemutig
-ECHO OFF
 COLOR 0A
 cls
 echo.
