@@ -1,7 +1,7 @@
 Basiert auf:
 
 Hekate 6.0.1 + Nyx 1.5.1
-SwitchBros-O-sphere 1.4.0 commit -a5151d675 + hbl-2.4.3 + hbmenu-3.5.1
+SwitchBros-O-sphere 1.4.1 commit -aafddac0d + hbl-2.4.3 + hbmenu-3.5.1
 TeslaExplorer 4.1.0 (Deutsch)
 Lockpick_RCM 1.9.9 (Deutsch)
 
@@ -51,6 +51,7 @@ NX-Locale-Switcher 1.1.2
 NX-Shell 4.01
 NXGallery 2.0.0
 NXMP v0.6.3 Rev7
+Switch FTP Client 1.0.7
 Switch-Remote-Play 1.0.0
 TencentSwitcherGUI 0.1.2
 Vgedit 2.1
