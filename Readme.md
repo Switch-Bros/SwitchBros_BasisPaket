@@ -4,7 +4,9 @@
 <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Switch-Bros/SwitchBros_BasisPaket/total">
 <img alt="GitHub Releases" src="https://img.shields.io/github/downloads/Switch-Bros/SwitchBros_BasisPaket/latest/total">
 <a href="https://discord.gg/aygcJ35"><img alt="Discord" src="https://img.shields.io/discord/322458533880659969?style=plastic"/></a>
-
+https://img.shields.io/discord/322458533880659969?style=plastic
+.. image:: https://img.shields.io/discord/322458533880659969?style=plastic
+   :alt: Discord
 # SwitchBros_BasisPaket
 SwitchBros. - The Switch Hacking, Modding and Themes Community!
 
