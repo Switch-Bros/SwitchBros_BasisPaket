@@ -1,4 +1,4 @@
-<img alt="Discord" src="https://img.shields.io/discord/322458533880659969?label=Discord&style=plastic">
+[<img alt="Discord" src="https://img.shields.io/discord/322458533880659969?label=Discord&style=plastic">(https://discord.gg/aygcJ35)
 
 # SwitchBros_BasisPaket
 SwitchBros. - The Switch Hacking, Modding and Themes Community!
