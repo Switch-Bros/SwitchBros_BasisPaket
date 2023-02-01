@@ -6,7 +6,7 @@ SwitchBros. - The Switch Hacking, Modding and Themes Community!
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Switch-Bros/SwitchBros_BasisPaket">
 <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Switch-Bros/SwitchBros_BasisPaket/total">
 <img alt="GitHub Releases" src="https://img.shields.io/github/downloads/Switch-Bros/SwitchBros_BasisPaket/latest/total">
-<a href="https://discord.gg/aygcJ35"><img alt="Discord Server" src="https://discordapp.com/api/guilds/322458533880659969/widget.png?style=shield"/></a>
+<a href="https://discord.gg/aygcJ35"><img alt="Discord" src="https://img.shields.io/discord/322458533880659969?style=plastic"/></a>
 
 Besuche unseren [SwitchBros Discord Server](https://discord.gg/aygcJ35)
 
