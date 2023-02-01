@@ -1,6 +1,3 @@
-https://img.shields.io/discord/322458533880659969?style=plastic
-.. image:: https://img.shields.io/discord/322458533880659969?style=plastic
-   :alt: Discord
 # SwitchBros_BasisPaket
 SwitchBros. - The Switch Hacking, Modding and Themes Community!
 
