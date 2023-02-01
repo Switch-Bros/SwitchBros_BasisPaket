@@ -1,9 +1,3 @@
-<p align="left">
-<img alt="GitHub" src="https://img.shields.io/github/license/Switch-Bros/SwitchBros_BasisPaket">
-<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Switch-Bros/SwitchBros_BasisPaket">
-<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Switch-Bros/SwitchBros_BasisPaket/total">
-<img alt="GitHub Releases" src="https://img.shields.io/github/downloads/Switch-Bros/SwitchBros_BasisPaket/latest/total">
-<a href="https://discord.gg/aygcJ35"><img alt="Discord" src="https://img.shields.io/discord/322458533880659969?style=plastic"/></a>
 https://img.shields.io/discord/322458533880659969?style=plastic
 .. image:: https://img.shields.io/discord/322458533880659969?style=plastic
    :alt: Discord
