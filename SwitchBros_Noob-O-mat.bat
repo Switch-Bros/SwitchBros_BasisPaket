@@ -68,15 +68,17 @@ echo ---------------------------------------------------------------------------
 echo.
 echo      Wenn du einen Modchip in deiner Konsole hast, dann gib es bitte hier an^^!
 echo.
-echo      1 = Ja, ich habe einen Modchip verbaut (v2, lite, OLED, trinketm0 in der v1)
-echo      2 = Nein, ich habe keinen Modchip verbaut
+echo      1 = Ja, ich habe einen Modchip verbaut (v2, lite, OLED)
+echo      2 = Ja, ich habe einen trinketm0 in meiner v1
+echo      3 = Nein, ich habe keinen Modchip verbaut
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p modchip="     Ist ein Modchip verbaut: "
 if "%modchip%"=="1" SET bootdat=1
-if "%modchip%"=="2" SET bootdat=0
+if "%modchip%"=="3" SET bootdat=2
+if "%modchip%"=="2" SET bootdat=3
 
 REM ============================================================
 :datensichern
@@ -519,7 +521,7 @@ RD /s /q "%sd%:\atmosphere\contents\0100000000001013"
 RD /s /q "%sd%:\switch\EdiZon"
 RD /s /q "%sd%:\switch\breeze"
 RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
-del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
+del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl"
 RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
 RD /s /q "%sd%:\emuiibo"
 RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
@@ -661,23 +663,28 @@ if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%:\SwitchBros_BasisPaket.zip
 if exist "%sd%:\SwitchBros.txt" (del "%sd%:\SwitchBros.txt")
 if exist "%sd%:\switch\switchbrosupdater" (RD /s /q "%sd%:\switch\switchbrosupdater")
 
-if %bootdat%==0 (
-  (
-	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
-	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
-	if exist "%sd%:\boot.dat" (del "%sd%:\boot.dat")
-	if exist "%sd%:\boot.ini" (del "%sd%:\boot.ini") 
-	if exist "%sd%:\payload.bin" (del "%sd%:\payload.bin")
-	) 
-) else (
+if %bootdat%==1 (
 	if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
 	if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
 	if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau")
 	if exist "%sd%:\switch\.overlays\5_Fizeau.ovl" (del "%sd%:\switch\.overlays\*fizeau*.ovl")
 	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /s /q "%sd%:\atmosphere\contents\0100000000000F12")
-	if exist "%sd%:\switch\.overlays\0_fastCFWswitch.ovl" (del "%sd%:\switch\.overlays\fastCFWswitch.ovl")
+	if exist "%sd%:\switch\.overlays\0_fastCFWswitch.ovl" (del "%sd%:\switch\.overlays\0_fastCFWswitch.ovl")
 	if exist "%sd%:\bootloader\payloads\CommonProblemResolver.bin" (del "%sd%:\bootloader\payloads\CommonProblemResolver.bin")
 )
+if %bootdat%==2 (
+	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
+	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
+	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
+	)
+if %bootdat%==3 (
+	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
+	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
+	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
+	if exist "%sd%:\boot.dat" (del "%sd%:\boot.dat")
+	if exist "%sd%:\boot.ini" (del "%sd%:\boot.ini") 
+	if exist "%sd%:\payload.bin" (del "%sd%:\payload.bin")
+	)
 
 cd %sd%:\
 GOTO endemutig

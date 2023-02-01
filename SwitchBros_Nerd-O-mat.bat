@@ -95,37 +95,36 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      0 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln^^!
+echo      1 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln^^!
 echo          Das GANZE Skript komplett durchgehen wenn du die CFW zum ersten Mal aufsetzt, wenn du von
 echo          einem anderen Paket kommst, oder wenn es sich um eine neue SD-Karte handelt^^! DANKE^^!
 echo.
 echo =====================================================================================================
 echo.
-echo      1 = Systeme (Linux, LAKKA, Android)^^!      ^|      2 = Backup Ordner anlegen^^!
-echo                                                  ^|
-echo      3 = Kinder-Modus^^!                         ^|
-echo                                                  ^|
-echo      4 = ThemeApps Paket^^!                      ^|      5 = SteamAPI eingeben^^! (Icongrabber)
-echo                                                  ^|
-echo      6 = Tesla-Overlay Menue^^!                  ^|      7 = Zusatz Apps^^!
-echo                                                  ^|
-echo _________________________________________________^| _________________________________________________
-echo                                                  ^|
-echo      8 = fix ArchiveBit^^!                       ^|      9 = USB3 Speed eintragen^^!
-echo                                                  ^|
-echo                                                  ^|
-echo      F = Unsicher, altes Paket behalten          ^|                    B = Dieses Skript Beenden
+echo      2 = Systeme (Linux, LAKKA, Android)^^!         3 = Backup Ordner anlegen^^!
+echo.
+echo      4 = Kinder-Modus^^!
+echo.
+echo      5 = ThemeApps Paket^^!                        5a = SteamAPI eingeben^^! (Icongrabber)
+echo.
+echo      6 = Tesla-Overlay Menue^^!                     7 = Zusatz Apps^^!
+echo.
+echo.
+echo      8 = fix ArchiveBit^^!                          9 = USB3 Speed eintragen^^!
+echo.
+echo.
+echo      F = Unsicher, altes Paket behalten                             B = Dieses Skript Beenden
 echo.     
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set /p neuistgut="     Bitte gib deine Auswahl ein: "
-if "%neuistgut%"=="0" GOTO sbgibgas
-if "%neuistgut%"=="1" GOTO systempartitionen
-if "%neuistgut%"=="2" GOTO backupordner
-if "%neuistgut%"=="3" GOTO kindgerecht
-if "%neuistgut%"=="4" GOTO themepaket
-if "%neuistgut%"=="5" GOTO steamapiangeben
+if "%neuistgut%"=="1" GOTO sbgibgas
+if "%neuistgut%"=="2" GOTO systempartitionen
+if "%neuistgut%"=="3" GOTO backupordner
+if "%neuistgut%"=="4" GOTO kindgerecht
+if "%neuistgut%"=="5" GOTO themepaket
+if /i "%neuistgut%"=="5a" GOTO steamapiangeben
 if "%neuistgut%"=="6" GOTO systemmodule
 if "%neuistgut%"=="7" GOTO zusatzapps
 if "%neuistgut%"=="8" GOTO attributeundmac
@@ -1245,7 +1244,7 @@ RD /s /q "%sd%:\atmosphere\contents\0100000000001013" >nul 2>nul
 RD /s /q "%sd%:\switch\EdiZon" >nul 2>nul
 RD /s /q "%sd%:\switch\breeze" >nul 2>nul
 RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon" >nul 2>nul
-del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl" >nul 2>nul
+del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl" >nul 2>nul
 RD /s /q "%sd%:\atmosphere\contents\0100000000000352" >nul 2>nul
 RD /s /q "%sd%:\emuiibo" >nul 2>nul
 RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo" >nul 2>nul
@@ -1338,6 +1337,7 @@ echo      1 = BootSoundNX installieren
 echo      2 = BootSoundNX deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1367,6 +1367,7 @@ echo      1 = EdiZon installieren
 echo      2 = EdiZon deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1383,7 +1384,7 @@ set /p edizon="     Bitte triff deine Auswahl: "
 	RD /s /q "%sd%:\switch\EdiZon"
 	RD /s /q "%sd%:\switch\breeze"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
-	del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
+	del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl"
 	GOTO teslamodular
 	)
 	if "%edizon%"=="3" GOTO teslamodular
@@ -1401,6 +1402,7 @@ echo      1 = emuiibo installieren
 echo      2 = emuiibo deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1432,6 +1434,7 @@ echo      1 = fastCFWSwitch installieren
 echo      2 = fastCFWSwitch deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1463,6 +1466,7 @@ echo      1 = Fizeau installieren
 echo      2 = Fizeau deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1496,6 +1500,7 @@ echo      1 = ldnmitm installieren
 echo      2 = ldnmitm deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1527,6 +1532,7 @@ echo      1 = MissionControl installieren
 echo      2 = MissionControl deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1558,6 +1564,7 @@ echo      1 = ovl-Sysmodul installieren
 echo      2 = ovl-Sysmodul deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1587,6 +1594,7 @@ echo      1 = Status-Monitor-Overlay installieren
 echo      2 = Status-Monitor-Overlay deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1616,6 +1624,7 @@ echo      1 = sys-clk installieren
 echo      2 = sys-clk deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1648,6 +1657,7 @@ echo      1 = sys-clk-Editor installieren
 echo      2 = sys-clk-Editor deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1677,6 +1687,7 @@ echo      1 = sys-con installieren
 echo      2 = sys-con deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1707,6 +1718,7 @@ echo      1 = sysDVR installieren
 echo      2 = sysDVR deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1726,6 +1738,7 @@ set /p syscon=     Bitte triff deine Auswahl:
 	GOTO teslamodular
 	)
 	if "%syscon%"=="3" GOTO teslamodular
+	if "%syscon%"=="" GOTO teslamodular
 
 REM ============================================================
 :zusatzapps
@@ -1910,10 +1923,7 @@ REM RD /s /q "%sd%:\switch\appstore\.get\packages\switch-ftp-client"
 REM RD /s /q "%sd%:\switch\switch-ftp-client"
 REM )
 
-if exist "%sd%:\switch\linkalho" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\linkalho"
-RD /s /q "%sd%:\switch\linkalho"
-)
+
 
 GOTO attributeundmac
 
@@ -2732,7 +2742,6 @@ if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%:\SwitchBros_BasisPaket.zip
 if exist "%sd%:\SwitchBros.txt" (del "%sd%:\SwitchBros.txt")
 if exist "%sd%:\switch\switchbrosupdater" (RD /s /q "%sd%:\switch\switchbrosupdater")
 
-
 if %bootdat%==1 (
 	if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
 	if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
@@ -2745,10 +2754,12 @@ if %bootdat%==1 (
 if %bootdat%==2 (
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
+	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
 	)
 if %bootdat%==3 (
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
+	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
 	if exist "%sd%:\boot.dat" (del "%sd%:\boot.dat")
 	if exist "%sd%:\boot.ini" (del "%sd%:\boot.ini") 
 	if exist "%sd%:\payload.bin" (del "%sd%:\payload.bin")
