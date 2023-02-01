@@ -1,3 +1,4 @@
+https://img.shields.io/github/v/release/Switch-Bros/SwitchBros_BasisPaket?label=Version&style=plastic
 <img alt="Discord" src="https://img.shields.io/discord/322458533880659969?label=Discord&style=plastic">
 
 # SwitchBros_BasisPaket
