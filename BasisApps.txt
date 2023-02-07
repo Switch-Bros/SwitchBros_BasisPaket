@@ -1,7 +1,7 @@
 Basiert auf:
 
 Hekate 6.0.1 + Nyx 1.5.1
-SwitchBros-O-sphere 1.4.1 commit -13b69b459 + hbl-2.4.3 + hbmenu-3.5.1
+SwitchBros-O-sphere 1.4.1 commit -c45f55104 + hbl-2.4.3 + hbmenu-3.5.1
 TeslaExplorer 4.1.0 (Deutsch)
 Lockpick_RCM 1.9.9 (Deutsch)
 
