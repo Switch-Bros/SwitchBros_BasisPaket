@@ -16,6 +16,7 @@ JKSV 09/01/2021
 linkalho 2.0.1
 NXDumpTool 1.1.15
 N-Xplorer 0.7.1
+Reset parental control 1.2.0
 sys-clk-Editor 2.0.1
 
 
