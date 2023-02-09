@@ -890,7 +890,6 @@ if (resMain == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", sd:/")
-	color(LGREEN)
 	p()
 	p()
 	p("Fertig!");
@@ -961,6 +960,10 @@ if (resMain == 2) {
 	deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 	delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 	deldir("sd:/switch/SysDVR-conf")
+	p()
+	p()
+	p("Fertig!");
+	p()
 }
 
 clear()
@@ -1007,6 +1010,10 @@ if (resMain == 1) {
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 	
     clear()
@@ -1021,6 +1028,10 @@ if (resMain == 1) {
         color(DRED)
        	deldir("sd:/atmosphere/contents/00FF0000000002AA")
 		deldir("sd:/config/BootSoundNX")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 
     clear()
@@ -1051,6 +1062,10 @@ if (resMain == 1) {
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 	
     clear()
@@ -1070,6 +1085,10 @@ if (resMain == 1) {
 		deldir("sd:/switch/breeze")
 		deldir("sd:/switch/EdiZon")
 		deldir("sd:/switch/appstore/.get/packages/EdiZon")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 
     clear()
@@ -1101,6 +1120,10 @@ if (resMain == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 	
     clear()
@@ -1117,6 +1140,10 @@ if (resMain == 1) {
 		deldir("sd:/emuiibo")
 		delfile("sd:/switch/.overlays/2_emuiibo.ovl")
 		deldir("sd:/switch/appstore/.get/packages/emuiibo")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 
     clear()
@@ -1149,6 +1176,10 @@ if (resMain == 1) {
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 	
     clear()
@@ -1164,6 +1195,10 @@ if (resMain == 1) {
 		deldir("sd:/config/fastCFWswitch")
 		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
 		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 
     clear()
@@ -1195,6 +1230,10 @@ if (resMain == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 	
     clear()
@@ -1212,6 +1251,10 @@ if (resMain == 1) {
 		deldir("sd:/switch/Fizeau")
 		delfile("sd:/switch/.overlays/5_Fizeau.ovl")
 		deldir("sd:/switch/appstore/.get/packages/Fizeau")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 
     clear()
@@ -1243,6 +1286,10 @@ if (resMain == 1) {
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 	
     clear()
@@ -1259,6 +1306,10 @@ if (resMain == 1) {
 		deldir("sd:/switch/ldnmitm_config")
 		delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
 		deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 
     clear()
@@ -1290,6 +1341,10 @@ if (resMain == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 	
     clear()
@@ -1306,6 +1361,10 @@ if (resMain == 1) {
 		deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
 		deldir("sd:/config/MissionControl")
 		deldir("sd:/switch/appstore/.get/packages/MissionControl")
+		p()
+		p()
+		p("Fertig!");
+		p()
     }
 
     clear()
@@ -1335,6 +1394,10 @@ if (resMain == 1) {
 		p("Installiere:")
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 	
     clear()
@@ -1349,6 +1412,10 @@ if (resMain == 1) {
         color(DRED)
 		delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
 		deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 
     clear()
@@ -1377,6 +1444,10 @@ if (resMain == 1) {
 		p("Installiere:")
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 	
     clear()
@@ -1391,6 +1462,10 @@ if (resMain == 1) {
         color(DRED)
 		delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
 		deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 
     clear()
@@ -1424,6 +1499,10 @@ if (resMain == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 	
     clear()
@@ -1441,6 +1520,10 @@ if (resMain == 1) {
 		deldir("sd:/switch/sys-clk")
 		delfile("sd:/switch/.overlays/3_sys-clk-overlay.ovl")
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 
     clear()
@@ -1470,6 +1553,10 @@ if (resMain == 1) {
 		p("Installiere:")
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 	
     clear()
@@ -1484,6 +1571,10 @@ if (resMain == 1) {
         color(DRED)
 		deldir("sd:/switch/sys-clk-Editor")
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 
     clear()
@@ -1515,6 +1606,10 @@ if (resMain == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 	
     clear()
@@ -1530,6 +1625,10 @@ if (resMain == 1) {
 		deldir("sd:/atmosphere/contents/690000000000000D")
 		deldir("sd:/config/sys-con")
 		deldir("sd:/switch/appstore/.get/packages/sys-con")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 
     clear()
@@ -1560,6 +1659,10 @@ if (resMain == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 	
     clear()
@@ -1578,37 +1681,1068 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
    }
 }
 
+clear()
+
+color(YELLOW)
+p()
+p()
+p("          ***** Zusatz-Apps installieren/deinstallieren *****")
+p()
+p()
+p("     Was soll installiert werden:")
+p()
+
+menuOptions = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)", "[BESTIMMTE] bestimmte Zusatz-Apps werden installiert"]
+resMain = menu(menuOptions, 1)
+
+clear()
+
+if (resMain == 0) {
+    p()
+	p()
+	p("Alle Zusatz-Apps werden installiert...")
+	p()
+	p()
+	color(WHITE)
+	p("Dateien werden installiert:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", sd:/")
+	p()
+	p()
+	p("Fertig!");
+	p()
+}
+
+if (resMain == 2) {
+    p()
+	p()
+	p("Bestimmte/Ausgesuchte Zusatz-Apps werden installiert...")
+	p()
+	p()
+	color(WHITE)
+	p("Dateien werden installiert:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", sd:/")
+	p()
+	p()
+	p("Fertig!");
+	p()
+}
+
+if (resMain == 1) {
+    p()
+	p()
+	p("Bestimme selbst welche Zusatz-Apps installiert werden sollen...")
+	p()
+	p()
     clear()
-    
+
     p()
     p()
-    p()
-    color(LGREEN)
-    p("Einige Homebrew Apps sind nur bei der Ersteinrichtung noetig, diese koennt ihr jetzt entfernen.")
-    p()
-    color(DRED)
-    p("Diese Homebrew Apps werden entfernt: Switch-Time + Linkalho")
-    p()
+    color(YELLOW)
+	p("-- APP - AmiiboGenerator")
+	p()
+    p("Der AmiiboGenerator erstellt Amiibos fuer dich.")
+	p()
     color(WHITE)
-    p("Einmal Apps loeschen?")
+    p("Moechtest du [AmiiboGenerator] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
     resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App AmiiboGenerator wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App AmiiboGenerator wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
 
     clear()
 
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - Amiigo")
+	p()
+    p("Mit Amiigo waehlst du die Amiibos aus die dir in Spielen zur Verfuegung.")
+	p("stehen sollen")
+	p()
+    color(WHITE)
+    p("Moechtest du [Amiigo] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
     if (resYN == 0) {
         p()
+		p()
+        p("Die App Amiigo wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App Amiigo wird entfernt...")
         p()
         color(WHITE)
-        p("Loesche:")
+        p("Deinstalliere:")
         color(DRED)
-        deldir("sd:/switch/linkalho")
-        deldir("sd:/switch/switch-time")
-    }
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - Chiaki")
+	p()
+    p("Mit Chiaki kannst du deine PlayStation auf die Switch streamen.")
+	p()
+    color(WHITE)
+    p("Moechtest du [Chiaki] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App Chiaki wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App Chiaki wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - fake08")
+	p()
+    p("fake08 ist ein einfacher pico8 Emulator.")
+	p()
+    color(WHITE)
+    p("Moechtest du [fake08] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App fake08 wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App fake08 wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - GoldLeaf")
+	p()
+    p("Mit GoldLeaf kannst du NSP Dateien installieren und mehr.")
+	p()
+    color(WHITE)
+    p("Moechtest du [GoldLeaf] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App GoldLeaf wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App GoldLeaf wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - Homebrew-Details")
+	p()
+    p("Homebrew-Details zeigt dir alles zu deinen Homebrew Apps an.")
+	p()
+    color(WHITE)
+    p("Moechtest du [Homebrew-Details] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App Homebrew-Details wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App Homebrew-Details wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - MelonDS")
+	p()
+    p("MelonDS ist ein guter NintendoDS Emulator.")
+	p()
+    color(WHITE)
+    p("Moechtest du [MelonDS] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App MelonDS wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App MelonDS wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - MiiPort")
+	p()
+    p("Mit MiiPort kannst du Miis importieren/exportieren.")
+	p()
+    color(WHITE)
+    p("Moechtest du [MiiPort] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App MiiPort wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App MiiPort wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - Moonlight-Switch")
+	p()
+    p("Mit Moonlight-Switch kannst du das laufende Spiel an deinen PC uebetragen und aufnehmen.")
+	p()
+    color(WHITE)
+    p("Moechtest du [Moonlight-Switch] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App Moonlight-Switch wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App Moonlight-Switch wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - Neumann")
+	p()
+    p("Mit Neumann kannst du die Speicherdaten deiner Spiele sichern.")
+	p()
+    color(WHITE)
+    p("Moechtest du [Neumann] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App Neumann wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App Neumann wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - NX-Activity-Log")
+	p()
+    p("NX-Activity-Log zeigt dir alle Statistiken zu deinen gespielten Spielen an.")
+	p()
+    color(WHITE)
+    p("Moechtest du [NX-Activity-Log] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App NX-Activity-Log wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App NX-Activity-Log wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - NXGallery")
+	p()
+    p("Mit NXGallery kannst du Bilder aus dem Album an dein Handy schicken.")
+	p()
+    color(WHITE)
+    p("Moechtest du [NXGallery] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App NXGallery wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App NXGallery wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - nx-locale-switcher")
+	p()
+    p("Mit nx-locale-switcher kannst du die Region von Spielen einstellen.")
+	p()
+    color(WHITE)
+    p("Moechtest du [nx-locale-switcher] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App nx-locale-switcher wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App nx-locale-switcher wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - NXMP")
+	p()
+    p("NXMP ist das Multimedia Tool schlechthin. Spielt sehr viele Videoformate ab.")
+	p("Kann sogar mit einem Server verbunden werden um von dort zu streamen")
+	p()
+    color(WHITE)
+    p("Moechtest du [NXMP] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App NXMP wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App NXMP wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - NX-Shell")
+	p()
+    p("NX-Shell ist ein sehr guter Datei-Explorer fuer die Switch.")
+	p()
+    color(WHITE)
+    p("Moechtest du [NX-Shell] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App NX-Shell wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App NX-Shell wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - switch-remote-play")
+	p()
+    p("Mit switch-remote-play kannst du deinen PC auf die Switch streamen.")
+	p()
+    color(WHITE)
+    p("Moechtest du [switch-remote-play] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App switch-remote-play wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App switch-remote-play wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - TencentSwitcherGui")
+	p()
+    p("Mit TencentSwitcherGui kannst du eine chinesische Switch zumindest wieder.")
+	p("auf englisch stellen! Bei Tencent Switch gibt es NUR noch chinesisch")
+	p()
+    color(WHITE)
+    p("Moechtest du [TencentSwitcherGui] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App TencentSwitcherGui wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App TencentSwitcherGui wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+
+   clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- APP - vgedit")
+	p()
+    p("vgedit ist ein sehr einfacher Explorer mit Hauptaugenmerk auf Dateien.")
+	p("bearbeiten .ini, .json, .cfg, etc...")
+	p()
+    color(WHITE)
+    p("Moechtest du [vgedit] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Die App vgedit wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", sd:/")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Die App vgedit wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+		p()
+   }
 }
 
 if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
