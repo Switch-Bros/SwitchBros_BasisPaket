@@ -967,72 +967,309 @@ clear()
 
 if (resMain == 1) {
     p()
+	p()
+	p("Tesla-Overlay Menue inkl. aller Module manuell installieren...")
+	p()
+	p()
+	p("Tesla-Overlay Menue wurde bereits installiert")
+	p("Waehle nacheinander die Module die installiert/deinstalliert")
+	p("werden sollen aus und entscheide selbst")
     p()
-	p()
-	color(LBLUE)
-    p("Installiert dein Custom Theme aus dem [Custom Theme] Ordner!")
-	p()
-	color(LGREEN)
-	p("Sollte deine Switch Firmware noch zu niedrig sein, so passt das Theme")
-	p("eventuell noch nicht zu deiner Firmware Version.")
-	p("Hier solltest du zuerst [NEIN] waehlen und das Theme spaeter")
-	p("ueber den [Theme Updater] neu runterladen.")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", sd:/")
+	
+    clear()
+
     p()
- copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", sd:/")
-  copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", sd:/")
-  copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", sd:/")
-	color(WHITE)
-    p("Moechtest du das [Theme] installieren?")
+    p()
+    color(YELLOW)
+	p("-- Modul - BootSoundNX")
 	p()
+    p("Mit BootSoundNX kannst du eine mp3 Datei beim Start der Konsole")
+    p("abspielen lassen.")
+    p()
+    color(WHITE)
+    p("Moechtest du [BootSoundNX] installieren?")
+    p()
     menuOptionsYN = ["ja", "nein"]
     resYN = menu(menuOptionsYN, 0)
-  
+      
     clear()
   
     if (resYN == 0) {
         p()
-        p()
-        p()
-        p("Das Custom-Theme wird installiert...")
+		p()
+        p("Das Modul BootSoundNX wird installiert...")
         p()
 		color(WHITE)
-		p("Dateien werden installiert:")
+		p("Installiere:")
 		color(LGREEN)
-        copydir("sd:/Custom-Themes/atmosphere", "sd:/")
-        copydir("sd:/Custom-Themes/bootloader", "sd:/")
-        copydir("sd:/Custom-Themes/config", "sd:/")
-        copydir("sd:/Custom-Themes/switch", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", sd:/")
     }
 	
     clear()
-
+	
 	if (resYN == 1) {
         p()
         p()
-        p()
-        p("Das Custom Theme wird entfernt...")
+        p("Das Modul BootSoundNX wird entfernt...")
         p()
         color(WHITE)
-        p("Loesche:")
+        p("Deinstalliere:")
         color(DRED)
-        deldir("sd:/atmosphere/contents/0100000000001000")
-        deldir("sd:/atmosphere/contents/0100000000001013")
-        deldir("sd:/atmosphere/contents/0100000000001007")
-        deldir("sd:/atmosphere/exefs_patches/NxThemesInstaller")
-        deldir("sd:/atmosphere/exefs_patches/boot_logo")
-        deldir("sd:/config/nx-hbmenu")
-        delfile("sd:/switch/AtmoXL-Titel-Installer/background.png")
+       	deldir("sd:/atmosphere/contents/00FF0000000002AA")
+		deldir("sd:/config/BootSoundNX")
     }
-
 
     clear()
 
     p()
     p()
+    color(YELLOW)
+	p("-- Modul - EdiZon")
+	p()
+    p("Mit EdiZon kannst du Cheats in Spielen aufrufen und nutzen.")
+	p("Im Tesla-Overlay heisst das Modul = Zing.")
     p()
-    color(LGREEN)
+    color(WHITE)
+    p("Moechtest du [EdiZon] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul EdiZon wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", sd:/")
+    }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul EdiZon wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/054e4f4558454000")
+		deldir("sd:/atmosphere/contents/010000000000000D")
+		deldir("sd:/atmosphere/contents/0100000000001013")
+		delfile("sd:/switch/.overlays/4_Breeze-Overlay.ovl")
+		deldir("sd:/switch/breeze")
+		deldir("sd:/switch/EdiZon")
+		deldir("sd:/switch/appstore/.get/packages/EdiZon")
+    }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - Emuiibo")
+	p()
+    p("Mit Emuiibo kannst du Amiibos emulieren und im Spiel dann aufrufen.")
+	p("Die Amiibos werden mit der App Amiigo bereitgestellt.")
+    p()
+    color(WHITE)
+    p("Moechtest du [Emuiibo] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul Emuiibo wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", sd:/")
+    }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul Emuiibo wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/0100000000000352")
+		deldir("sd:/emuiibo")
+		delfile("sd:/switch/.overlays/2_emuiibo.ovl")
+		deldir("sd:/switch/appstore/.get/packages/emuiibo")
+    }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - fastCFWswitch")
+	p()
+    p("Mit fastCFWswitch kannst du die Systeme wechseln.")
+	p("Du kannst z.B. direkt den hekate UMS Modus starten = hekate/PC Verbindung")
+	p()
+	p("Achtung: Funktioniert nicht mit Modchip!")
+    p()
+    color(WHITE)
+    p("Moechtest du [fastCFWswitch] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul fastCFWswitch wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", sd:/")
+    }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul fastCFWswitch wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/config/fastCFWswitch")
+		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
+		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
+    }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - Fizeau")
+	p()
+    p("Mit Fizeau kannst du dein Display anpassen um fast OLED feeling zu bekommen.")
+	p("Dieses Modul lohnt sich daher nicht auf einer OLED Konsole.")
+    p()
+    color(WHITE)
+    p("Moechtest du [Fizeau] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul Fizeau wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", sd:/")
+    }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul Fizeau wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/0100000000000F12")
+		deldir("sd:/config/Fizeau")
+		deldir("sd:/switch/Fizeau")
+		delfile("sd:/switch/.overlays/5_Fizeau.ovl")
+		deldir("sd:/switch/appstore/.get/packages/Fizeau")
+    }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - ldnmitm")
+	p()
+    p("Mit ldnmitm hast du die Moeglichkeit mit anderen ueber den lokalen Modus")
+	p("deines Spiels, zusammen zu spielen. Und zwar Online")
+	p("Der lokale Modus wird so gesehen online gemacht.")
+    p()
+    color(WHITE)
+    p("Moechtest du [ldnmitm] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul ldnmitm wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", sd:/")
+    }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul ldnmitm wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/4200000000000010")
+		deldir("sd:/switch/ldnmitm_config")
+		delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
+		deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
+    }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - MissionControl")
+	p()
     p("Mit MissionControl kannst du einen PS4/PS5 oder Xbox One S/X Controller mit")
-    p("deiner Switch koppeln.")
+    p("deiner Switch koppeln. Fast alle Controller die ECHTES Bluetooth besitzen.")
     p()
     color(WHITE)
     p("Moechtest du [MissionControl] installieren?")
@@ -1044,14 +1281,15 @@ if (resMain == 1) {
   
     if (resYN == 0) {
         p()
-        p()
 		p()
-        p("Das MissionControl wird installiert...")
+        p("Das Modul MissionControl wird installiert...")
         p()
 		color(WHITE)
-		p("Dateien werden installiert:")
+		p("Installiere:")
 		color(LGREEN)
-        copydir("sd:/atmosphere/extras/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", sd:/")
     }
 	
     clear()
@@ -1059,231 +1297,290 @@ if (resMain == 1) {
 	if (resYN == 1) {
         p()
         p()
-        p()
-        p("Das MissionControl wird entfernt...")
+        p("Das Modul MissionControl wird entfernt...")
         p()
         color(WHITE)
-        p("Loesche:")
+        p("Deinstalliere:")
         color(DRED)
-        deldir("sd:/atmosphere/contents/010000000000bd00")
-        deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
-        delfile("sd:/atmosphere/config/missioncontrol.ini")
-        delfile("sd:/atmosphere/config_templates/missioncontrol.ini")
+		deldir("sd:/atmosphere/contents/010000000000bd00")
+		deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
+		deldir("sd:/config/MissionControl")
+		deldir("sd:/switch/appstore/.get/packages/MissionControl")
     }
 
     clear()
-    
+
     p()
     p()
+    color(YELLOW)
+	p("-- Modul - ovlSysmodule")
+	p()
+    p("Mit ovlSysmodule kannst du alle Tesla-Overlay Module im laufenden Betrieb")
+    p("einschalten/ausschalten.")
+    p()
+    color(WHITE)
+    p("Moechtest du [ovlSysmodule] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul ovlSysmodule wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", sd:/")
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul ovlSysmodule wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
+		deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
+   }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - Status-Monitor-Overlay")
+	p()
+    p("Mit Status-Monitor-Overlay kannst du dir Infos deiner Konsole anzeigen lassen.")
+    p()
+    color(WHITE)
+    p("Moechtest du [Status-Monitor-Overlay] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul Status-Monitor-Overlay wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", sd:/")
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul Status-Monitor-Overlay wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
+		deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
+   }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - sys-clk")
+	p()
+    p("Mit sys-clk kannst du deine Konsole uebertakten oder auch untertakten.")
+	p("Du kannst die Taktrate von CPU, GPU und RAM einstellen.")
+	p("Im config Ordner befindet sich eine Datei in der pro Titel die")
+	p("Einstellungen festgelegt werden koennen!")
+    p()
+    color(WHITE)
+    p("Moechtest du [sys-clk] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul sys-clk wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", sd:/")
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul sys-clk wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
+		deldir("sd:/config/sys-clk")
+		deldir("sd:/switch/sys-clk")
+		delfile("sd:/switch/.overlays/3_sys-clk-overlay.ovl")
+		deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
+   }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - sys-clk-Editor")
+	p()
+    p("Mit dem sys-clk-Editor kannst du die Einstellungen pro Titel vornehmen und diese.")
+	p("in die config von sys-clk eintragen lassen.")
+    p()
+    color(WHITE)
+    p("Moechtest du [sys-clk-Editor] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul sys-clk-Editor wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", sd:/")
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul sys-clk-Editor wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/switch/sys-clk-Editor")
+		deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
+   }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - sys-con")
+	p()
+    p("Mit sys-con kannst du Controller anderer Hersteller PS, XBOX etc. ueber.")
+	p("USB mit der Konsole Verbinden.")
+    p()
+    color(WHITE)
+    p("Moechtest du [sys-con] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul sys-con wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", sd:/")
+   }
+	
+    clear()
+	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul sys-con wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/690000000000000D")
+		deldir("sd:/config/sys-con")
+		deldir("sd:/switch/appstore/.get/packages/sys-con")
+   }
+
+    clear()
+
+    p()
+    p()
+    color(YELLOW)
+	p("-- Modul - SysDVR")
+	p()
+    p("Mit SysDVR kannst du das laufende Spiel an deinen PC uebetragen und aufnehmen.")
 	p()
     color(WHITE)
-    p("Das Tesla Menue beinhaltet einige Module:")
-	color(LGREEN)
-	p("amsPACK Log, Amiibos, Edizon, Overclocking, FTP, TriPlayer, Temperaturanzeige")
-	p("usw.")
+    p("Moechtest du [SysDVR] installieren?")
     p()
-    color(LBLUE)
-    p("Tesla FTP Modul:")
-	color(LGREEN)
-    p("Funktioniert bei den meisten microSD Karten, sollte die Switch beim Starten")
-	p("allerdings im Blackscreen enden, so muesst ihr das Tesla-FTP Modul")
-	p("deinstallieren.")
-	p()
-    color(LBLUE)
-    p("Tesla TriPlayer Modul:")
-	color(LGREEN)
-    p("ca 10% der Spiele funktionieren nicht in Verbindung mit dem TriPlayer Modul.")
-	p("Es gibt dann beim Spielen ein Systemcrash, da das Spiel bereits 2 Audiospuren")
-	p("benoetigt und dem TriPlayer keine Audiospur mehr zur Verfuegung steht.")
-    p("Die Module koennt ihr auch nachtraeglich noch ueber das Extra_Activator Script")
-	p("deinstallieren.")
-    p()
-	color(WHITE)
-    p("Wie moechtest du das Tesla Menue installieren:")
-	p()
-    menuOptionsTesla = ["[ALLES] Tesla Menue + alle Module", "[MANUELL] Tesla Menue + alle Module / (FTP + TriPlayer) (empfohlen)", "[NICHTS] Kein Tesla Menue + Module"]
-    resTE = menu(menuOptionsTesla, 1)
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+        p()
+		p()
+        p("Das Modul SysDVR wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", sd:/")
+   }
 	
     clear()
-    
-    if (resTE == 0) {
-        p()
-        p()
-        p()
-        p("Tesla Menue inkl. aller Module wird installiert...")
-        p()
-		color(WHITE)
-		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/atmosphere/extras/contents/420000000007E51A", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/contents/420000000000000E", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/contents/4200000000000FFF", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/contents/0100000000000352", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/contents/00FF0000636C6BFF", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/switch", "sd:/")
-        copydir("sd:/atmosphere/extras/tools", "sd:/")
-        copydir("sd:/atmosphere/extras/switch/.overlays", "sd:/switch")
-        copydir("sd:/atmosphere/extras/switch/TriPlayer", "sd:/switch")
-        copydir("sd:/atmosphere/extras/tools", "sd:/")
-
-        clear()
-
-    }
-    if (resTE == 1) {
-        p()
-        p()
-        p()
-        p("Das Tesla Menue inkl. aller Module ohne [FTP + TriPlayer] wird installiert...")
-		p()
-		color(WHITE)
-		p("Bereinige:")
-		color(DRED)
-        copydir("sd:/atmosphere/extras/contents/420000000007E51A", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/contents/0100000000000352", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/contents/00FF0000636C6BFF", "sd:/atmosphere/contents")
-        copydir("sd:/atmosphere/extras/switch", "sd:/")
-		color(DRED)	
-		deldir("sd:/switch/TriPlayer")
-		delfile("sd:/tools/TriPlayer-01f0d84a52f2e000.nsp")
-		delfile("sd:/switch/.overlays/5_ovl-TriPlayer.ovl")
-		deldir("sd:/atmosphere/contents/420000000000000E")
-		delfile("sd:/switch/.overlays/4_sys-ftpd-ovl.ovl")
-		
-        clear()
-     
-        p()
-        p()
-		p()
-		color(WHITE)
-        p("Tesla Modul [FTP] installieren?")
-		p()
-        menuOptionsYN = ["ja", "nein"]
-        resYN = menu(menuOptionsYN, 0)
-  
-        clear()
-      
-        if (resYN == 0) {
-            p()
-            p()
-            p()
-            p("Tesla Modul FTP wird installiert...")
-            p()
-            color(WHITE)
-            p("Dateien werden installiert:")
-            color(LGREEN)
-            copydir("sd:/atmosphere/extras/contents/420000000000000E", "sd:/atmosphere/contents")
-            copydir("sd:/atmosphere/extras/switch/.overlays", "sd:/switch")
-        }
-
-        clear()
-            
-        if (resYN == 1) {
-            p()
-            p()
-            p()
-            p("Tesla Modul FTP wird entfernt...")
-            p()
-            color(WHITE)
-            p("Loesche:")
-            color(DRED)
-            deldir("sd:/atmosphere/contents/420000000000000E")
-            delfile("sd:/switch/.overlays/4_sys-ftpd-ovl.ovl")
-        }
-        
-        clear()
-            
-        p()
-        p()
-        p()
-        color(WHITE)
-        p("Tesla Modul [TriPlayer] installieren?")
-        p()
-        menuOptionsYN = ["ja", "nein"]
-        resYN = menu(menuOptionsYN, 0)
-
-        clear()
-            
-        if (resYN == 0) {
-            p()
-            p()
-            p()
-            p("Tesla Modul TriPlayer wird installiert...")
-            p()
-            color(WHITE)
-            p("Dateien werden installiert:")
-            color(LGREEN)
-            copydir("sd:/atmosphere/extras/contents/4200000000000FFF", "sd:/atmosphere/contents")
-            copydir("sd:/atmosphere/extras/switch/TriPlayer", "sd:/switch")
-            copydir("sd:/atmosphere/extras/tools", "sd:/")
-            copyfile("sd:/atmosphere/extras/switch/.overlays/5_ovl-TriPlayer.ovl", "sd:/switch/.overlays/5_ovl-TriPlayer.ovl")
-        }
-            
-        clear()
-
-        if (resYN == 1) {
-            p()
-            p()
-            p()
-            p("Tesla Modul TriPlayer wird entfernt...")
-            p()
-            color(WHITE)
-            p("Loesche:")
-            color(DRED)
-            deldir("sd:/atmosphere/contents/4200000000000FFF")
-            deldir("sd:/switch/TriPlayer")
-            delfile("sd:/tools/TriPlayer-01f0d84a52f2e000.nsp")
-            delfile("sd:/switch/.overlays/5_ovl-TriPlayer.ovl")
-        }
-            
-        clear()
-
-        p()
-        p()
-		p()
-		color(LGREEN)
-        p("Du kannst festlegen ueber welche Tastencombo das Tesla Menue aufgerufen wird:")
-		p()
-		color(WHITE)
-        menuOptionsCombo = ["[L+R+PLUS] (empfohlen)", "[R2+R3]", "[MINUS+PLUS]" , "[L+R+Y]", "[L+R+X]"]
-        resCO = menu(menuOptionsCombo, 0)
-        
-        if (resCO == 0) {
-            copyfile("sd:/atmosphere/extras/teslamenue/0/config.ini", "sd:/config/tesla/config.ini")
-        }
-        if (resCO == 1) {
-            copyfile("sd:/atmosphere/extras/teslamenue/1/config.ini", "sd:/config/tesla/config.ini")
-        }
-        if (resCO == 2) {
-            copyfile("sd:/atmosphere/extras/teslamenue/2/config.ini", "sd:/config/tesla/config.ini")
-        }
-        if (resCO == 3) {
-            copyfile("sd:/atmosphere/extras/teslamenue/3/config.ini", "sd:/config/tesla/config.ini")
-        }
-        if (resCO == 4) {
-            copyfile("sd:/atmosphere/extras/teslamenue/4/config.ini", "sd:/config/tesla/config.ini")
-        }
-    }
-	if (resTE == 2) {
-        p()
-        p()
-        p()
-        p("Tesla + Module wird entfernt...")
-        p()
-        color(WHITE)
-        p("Loesche:")
-        color(DRED)
-        deldir("sd:/atmosphere/contents/420000000000000E")
-        deldir("sd:/atmosphere/contents/420000000007E51A")
-        deldir("sd:/atmosphere/contents/4200000000000FFF")
-        deldir("sd:/atmosphere/contents/0100000000000352")
-        deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
-        deldir("sd:/switch/.overlays")
-        deldir("sd:/switch/TriPlayer")	
-        delfile("sd:/tools/TriPlayer-01f0d84a52f2e000.nsp")
-        
-        clear()
-    }
 	
+	if (resYN == 1) {
+        p()
+        p()
+        p("Das Modul SysDVR wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+		deldir("sd:/config/sysdvr")
+		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+		deldir("sd:/switch/SysDVR-conf")
+   }
+}
+
     clear()
     
     p()
@@ -1304,11 +1601,9 @@ if (resMain == 1) {
     clear()
 
     if (resYN == 0) {
+        p()
+        p()
         color(WHITE)
-        p()
-        p()
-        p()
-        p()
         p("Loesche:")
         color(DRED)
         deldir("sd:/switch/linkalho")
@@ -1358,6 +1653,9 @@ delfile("sd:/atmosphere/fusee-secondary.bin.aio")
 delfile("sd:/sept/payload.bin.aio")
 delfile("sd:/payload.bin.aio")
 delfile("sd:/startup.te")
+delfile("sd:/SwitchBros.txt")
+delfile("sd:/SwitchBros_NERD-O-MAT.bat")
+delfile("sd:/SwitchBros_NOOB-O-MAT.bat")
 delfile("sd:/bootloader/ini/!switchbros_updater.ini")
 delfile("sd:/bootloader/ini/switchbros_updater.ini")
 delfile("sd:/bootloader/res/icon_SB_nobox.bmp")
