@@ -19,7 +19,7 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 color(YELLOW)
 p()
 p()
-p("               ***** SwitchBros. Updater *****")
+p("          ***** SwitchBros. Updater *****")
 p()
 p()
 p("Dieses Update Script, aktualisiert dein SwitchBros. Paket")
@@ -28,14 +28,14 @@ p()
 p()
 p("Switch Lite und Tablet Nutzer:")
 p()
-p("Vol + / -    : navigieren / abbrechen / beenden")
-p("Power Button : bestaetigen")
+p("  Vol +/-      : navigieren / abbrechen / beenden")
+p("  Power Button : bestaetigen")
 p()
 p()
-p("Druecke die A Taste, um das Update Skript zu starten,")
-p("damit dein SwitchBros. Paket aktualisiert wird.")
+p("Druecke die A Taste, um das SwitchBros. Paket zu aktualisieren!")
+p()
 color(ORANGE)
-p("SwitchBros. Version: 111")
+p("SwitchBros. Paket Version: 111")
 p()
 color(DRED)
 p("Druecke zum Beenden die B Taste.")
@@ -73,7 +73,6 @@ if (is_erista()){
 
 boot=fse("sd:/payload.bin")
 
-# 0. Backup von einigen Dateien
 if (fse("sd:/bootloader/hekate_ipl.ini")){
 copyfile("sd:/bootloader/hekate_ipl.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini")
 }
@@ -96,20 +95,18 @@ if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/SwitchBros_BasisPaket/switchbros/backup/")
 }
 
-# 1. Ordner und Dateien loeschen
 color(YELLOW)
 p()
 p()
-p("SwitchBros. Paket wird aktualisiert...")
+p("          SwitchBros. Paket wird aktualisiert...")
 p()
 p()
-color(ORANGE)
-p("Vorherige CFW bereinigen:")
+p("  Vorhandene CFW vorbereiten/bereinigen:")
 color(DRED)
 
-# Wenn es sich um ein Update handelt
-if (fse("sd:/SwitchBros_BasisPaket")){
-	deldir("sd:/atmosphere/exefs_patches")
+if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
+	deldir("sd:/atmosphere/exefs_patches/es_patches")
+	deldir("sd:/atmosphere/exefs_patches/nfim_ctest")
 	deldir("sd:/atmosphere/kip_patches")
 	deldir("sd:/atmosphere/erpt_reports")
 	deldir("sd:/atmosphere/fatal_errors")
@@ -120,37 +117,30 @@ if (fse("sd:/SwitchBros_BasisPaket")){
 	delfile("sd:/atmosphere/reboot_payload.bin")
 	delfile("sd:/atmosphere/package3")
 
-	deldir("sd:/atmosphere/contents/00FF0000000002AA")
-	deldir("sd:/atmosphere/contents/00FF0000A53BB665")
-	deldir("sd:/atmosphere/contents/00FF747765616BFF")
-	deldir("sd:/atmosphere/contents/010000000000bd00")
-	deldir("sd:/atmosphere/contents/0100000000000F12")
-    deldir("sd:/atmosphere/contents/420000000000000E")
-    deldir("sd:/atmosphere/contents/420000000007E51A")
-	deldir("sd:/atmosphere/contents/690000000000000D")
-
-	deldir("sd:/bootloader/res")
 	deldir("sd:/bootloader/sys")
 	delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
 	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.1.bin")
 	delfile("sd:/bootloader/payloads/fusee.bin")
 	delfile("sd:/bootloader/hekate_ipl.ini")
+	delfile("sd:/bootloader/nyx.ini")
 	delfile("sd:/bootloader/update.bin")
 	delfile("sd:/bootloader/patches.ini")
 
-	deldir("sd:/switch/switchbros-updater")
+	deldir("sd:/switchbros")
+
 	deldir("sd:/switch/fakenews-injector")
 	delfile("sd:/switch/daybreak.nro")
-	delfile("sd:/switch/dbi/dbi.nro")
-	delfile("sd:/switch/switchbros-updater/switchbros-updater.nro")
-	delfile("sd:/switch/switchbros-updater/switchbros-updater.bin")
 
 	delfile("sd:/hbmenu.nro")
-	delfile("sd:/boot.dat")
-	delfile("sd:/boot.ini")
-}
+	delfile("sd:/exosphere.ini")
+	delfile("sd:/SwitchBros.txt")
+	delfile("sd:/SwitchBros_Nerd-O-mat.bat")
+	delfile("sd:/SwitchBros_Noob-O-mat.bat")
 
+}.else(){
+
+color(DRED)
 deldir("sd:/atmosphere/exefs_patches")
 deldir("sd:/atmosphere/kip_patches")
 deldir("sd:/atmosphere/erpt_reports")
@@ -424,15 +414,15 @@ delfile("sd:/SwitchBros_SD-Werkzeug.bat")
 delfile("sd:/SwitchBros.txt")
 delfile("sd:/startup.te")
 delfile("sd:/hbmenu.nro")
+}
 
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
 
-# if update 
 if (fse("sd:/SwitchBros_BasisPaket")) {
-# 2. Switch Bros. Paket auf SD kopieren
 	clear()
+	color(YELLOW)
 	p()
 	p()
 	p("* Installiere SwitchBros. Paket auf SD-Karte")
@@ -445,7 +435,6 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	copydir("sd:/SwitchBros_BasisPaket/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/NSPs", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switch", "sd:/")
-#	copydir("sd:/SwitchBros_BasisPaket/switchbros", "sd:/")
     copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
 	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
@@ -506,10 +495,10 @@ resMain = menu(menuOptions, 0)
 clear()
 
 if (resMain == 0) {
+	color(YELLOW)
 	p()
 	p("Basis (Standard) wird installiert...")
 	p()
-	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/*", "sd:/")
@@ -521,10 +510,10 @@ if (resMain == 0) {
 clear()
 
 if (resMain == 1) {
+	color(YELLOW)
 	p()
 	p("Basis + Android wird installiert...")
 	p()
-	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/*", "sd:/")
@@ -536,10 +525,10 @@ if (resMain == 1) {
 clear()
 
 if (resMain == 2) {
+	color(YELLOW)
 	p()
 	p("Basis + Linux wird installiert...")
 	p()
-	color(WHITE)
 	p("Welche Linux Distro soll genutzt werden?")
 	p()
     menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
@@ -548,62 +537,72 @@ if (resMain == 2) {
     clear()
   
     if (resLIN == 0) {
-    p()
-    p("Linux Arch wird installiert...")
-    p()
-	color(WHITE)
-	p("Dateien werden installiert:")
-	color(LGREEN)
-    copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/*", "sd:/")
-    }
+		color(YELLOW)
+		p()
+		p("Linux Arch wird installiert...")
+		p()
+		p("Dateien werden installiert:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
+	}
 	
     clear()
   
     if (resLIN == 1) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Bionic wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
     clear()
   
     if (resLIN == 2) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Fedora wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
      if (resLIN == 3) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Ubuntu (focal) wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 }
 
 clear()
 
 if (resMain == 3) {
+	color(YELLOW)
     p()
 	p("Basis + LAKKA wird installiert...")
 	p()
-	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/*", "sd:/")
-	color(LGREEN)
-	p()
 	p()
 	p()
 	p("Fertig!");
@@ -612,11 +611,11 @@ if (resMain == 3) {
 clear()
 
 if (resMain == 4) {
+    color(YELLOW)
     p()
 	p("Basis + Android + Linux wird installiert...")
 	p()
-	color(WHITE)
-    p("Welche Linux Distro soll genutzt werden?")
+	p("Welche Linux Distro soll genutzt werden?")
 	p()
     menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
     resLIN = menu(menuOptionsLIN, 1)
@@ -624,64 +623,74 @@ if (resMain == 4) {
     clear()
   
     if (resLIN == 0) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Arch wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/*", "sd:/")
-    }
+		p()
+		p()
+		p("Fertig!");
+	}
 	
     clear()
   
     if (resLIN == 1) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Bionic wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/*", "sd:/")
-    }
+		p()
+		p()
+		p("Fertig!");
+	}
 	
     clear()
   
     if (resLIN == 2) {
-       p()
+		color(YELLOW)
+		p()
         p("Linux Fedora wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
 	clear()
 
 	if (resLIN == 3) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Ubuntu (focal) wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 }
 
 clear()
 
 if (resMain == 5) {
-    p()
+    color(YELLOW)
+	p()
 	p("Basis + Android + LAKKA wird installiert...")
 	p()
-	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/*", "sd:/")
-	color(LGREEN)
-	p()
 	p()
 	p()
 	p("Fertig!");
@@ -690,11 +699,11 @@ if (resMain == 5) {
 clear()
 
 if (resMain == 6) {
+    color(YELLOW)
     p()
 	p("Basis + Android + Linux + LAKKA wird installiert...")
 	p()
-	color(WHITE)
-    p("Welche Linux Distro soll genutzt werden?")
+	p("Welche Linux Distro soll genutzt werden?")
 	p()
     menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
     resLIN = menu(menuOptionsLIN, 1)
@@ -702,60 +711,72 @@ if (resMain == 6) {
     clear()
   
     if (resLIN == 0) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Arch wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
     clear()
   
     if (resLIN == 1) {
+        color(YELLOW)
         p()
         p("Linux Bionic wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
     clear()
   
     if (resLIN == 2) {
+        color(YELLOW)
         p()
         p("Linux Fedora wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
     clear()
 
 	if (resLIN == 3) {
+        color(YELLOW)
         p()
         p("Linux Ubuntu (focal) wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 }
 
 clear()
 
 if (resMain == 7) {
+    color(YELLOW)
 	p()
 	p("Basis + Linux + LAKKA wird installiert...")
 	p()
-	color(WHITE)
-    p("Welche Linux Distro soll genutzt werden?")
+	p("Welche Linux Distro soll genutzt werden?")
 	p()
     menuOptionsLIN = ["Arch", "Bionic", "Fedora", "Ubuntu"]
     resLIN = menu(menuOptionsLIN, 1)
@@ -763,59 +784,71 @@ if (resMain == 7) {
     clear()
   
     if (resLIN == 0) {
-        p()
+        color(YELLOW)
+		p()
         p("Linux Arch wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
     clear()
   
     if (resLIN == 1) {
+        color(YELLOW)
         p()
         p("Linux Bionic wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
     clear()
   
     if (resLIN == 2) {
+        color(YELLOW)
         p()
         p("Linux Fedora wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 	
 	clear()
 
 	if (resLIN == 3) {
+        color(YELLOW)
         p()
         p("Linux Ubuntu (focal) wird installiert...")
         p()
-		color(WHITE)
 		p("Dateien werden installiert:")
 		color(LGREEN)
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/*", "sd:/")
+		p()
+		p()
+		p("Fertig!");
     }
 }
 
 clear()
 
 if (resMain == 8) {
+	color(YELLOW)
 	p()
 	p("alte hekate_ipl.ini, nyx.ini werden installiert...")
 	p()
-	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
 	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
@@ -850,6 +883,7 @@ resMain = menu(menuOptions, 1)
 clear()
 
 if (resMain == 0) {
+	color(YELLOW)
     p()
 	p()
 	p("Tesla-Overlay Menue inkl. aller Module wird installiert...")
@@ -893,19 +927,19 @@ if (resMain == 0) {
 	p()
 	p()
 	p("Fertig!");
-	p()
 }
 
 clear()
 
 if (resMain == 2) {
-    p()
+	color(YELLOW)
 	p()
 	p()
 	p("Tesla-Overlay Menue inkl. aller Module wird deinstalliert......")
 	p()
+	p()
 	color(WHITE)
-	p("Loesche:")
+	p("Dateien werden deinstalliert:")
 	color(DRED)
 	deldir("sd:/atmosphere/contents/420000000007E51A")
 	deldir("sd:/config/Tesla")
@@ -963,12 +997,12 @@ if (resMain == 2) {
 	p()
 	p()
 	p("Fertig!");
-	p()
 }
 
 clear()
 
 if (resMain == 1) {
+	color(YELLOW)
     p()
 	p()
 	p("Tesla-Overlay Menue inkl. aller Module manuell installieren...")
@@ -984,9 +1018,9 @@ if (resMain == 1) {
 	
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - BootSoundNX")
 	p()
     p("Mit BootSoundNX kannst du eine mp3 Datei beim Start der Konsole")
@@ -1001,9 +1035,10 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
-        p("Das Modul BootSoundNX wird installiert...")
+		p("Das Modul BootSoundNX wird installiert...")
         p()
 		color(WHITE)
 		p("Installiere:")
@@ -1013,12 +1048,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul BootSoundNX wird entfernt...")
@@ -1031,14 +1066,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - EdiZon")
 	p()
     p("Mit EdiZon kannst du Cheats in Spielen aufrufen und nutzen.")
@@ -1053,6 +1087,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul EdiZon wird installiert...")
@@ -1065,12 +1100,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul EdiZon wird entfernt...")
@@ -1088,14 +1123,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - Emuiibo")
 	p()
     p("Mit Emuiibo kannst du Amiibos emulieren und im Spiel dann aufrufen.")
@@ -1110,6 +1144,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul Emuiibo wird installiert...")
@@ -1123,12 +1158,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul Emuiibo wird entfernt...")
@@ -1143,14 +1178,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - fastCFWswitch")
 	p()
     p("Mit fastCFWswitch kannst du die Systeme wechseln.")
@@ -1167,6 +1201,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul fastCFWswitch wird installiert...")
@@ -1179,12 +1214,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul fastCFWswitch wird entfernt...")
@@ -1198,14 +1233,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - Fizeau")
 	p()
     p("Mit Fizeau kannst du dein Display anpassen um fast OLED feeling zu bekommen.")
@@ -1220,6 +1254,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul Fizeau wird installiert...")
@@ -1233,12 +1268,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul Fizeau wird entfernt...")
@@ -1254,14 +1289,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - ldnmitm")
 	p()
     p("Mit ldnmitm hast du die Moeglichkeit mit anderen ueber den lokalen Modus")
@@ -1277,6 +1311,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul ldnmitm wird installiert...")
@@ -1289,12 +1324,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul ldnmitm wird entfernt...")
@@ -1309,14 +1344,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - MissionControl")
 	p()
     p("Mit MissionControl kannst du einen PS4/PS5 oder Xbox One S/X Controller mit")
@@ -1331,6 +1365,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul MissionControl wird installiert...")
@@ -1344,12 +1379,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
     }
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul MissionControl wird entfernt...")
@@ -1364,14 +1399,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-    }
+	}
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - ovlSysmodule")
 	p()
     p("Mit ovlSysmodule kannst du alle Tesla-Overlay Module im laufenden Betrieb")
@@ -1386,6 +1420,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul ovlSysmodule wird installiert...")
@@ -1397,12 +1432,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul ovlSysmodule wird entfernt...")
@@ -1415,14 +1450,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - Status-Monitor-Overlay")
 	p()
     p("Mit Status-Monitor-Overlay kannst du dir Infos deiner Konsole anzeigen lassen.")
@@ -1436,6 +1470,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul Status-Monitor-Overlay wird installiert...")
@@ -1447,12 +1482,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul Status-Monitor-Overlay wird entfernt...")
@@ -1465,14 +1500,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - sys-clk")
 	p()
     p("Mit sys-clk kannst du deine Konsole uebertakten oder auch untertakten.")
@@ -1489,6 +1523,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul sys-clk wird installiert...")
@@ -1502,12 +1537,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul sys-clk wird entfernt...")
@@ -1523,14 +1558,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - sys-clk-Editor")
 	p()
     p("Mit dem sys-clk-Editor kannst du die Einstellungen pro Titel vornehmen und diese.")
@@ -1545,6 +1579,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul sys-clk-Editor wird installiert...")
@@ -1556,12 +1591,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul sys-clk-Editor wird entfernt...")
@@ -1574,14 +1609,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - sys-con")
 	p()
     p("Mit sys-con kannst du Controller anderer Hersteller PS, XBOX etc. ueber.")
@@ -1596,6 +1630,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul sys-con wird installiert...")
@@ -1609,12 +1644,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul sys-con wird entfernt...")
@@ -1628,14 +1663,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- Modul - SysDVR")
 	p()
     p("Mit SysDVR kannst du das laufende Spiel an deinen PC uebetragen und aufnehmen.")
@@ -1649,6 +1683,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Das Modul SysDVR wird installiert...")
@@ -1662,12 +1697,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Das Modul SysDVR wird entfernt...")
@@ -1684,8 +1719,7 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 }
 
 clear()
@@ -1696,7 +1730,7 @@ p()
 p("          ***** Zusatz-Apps installieren/deinstallieren *****")
 p()
 p()
-p("     Was soll installiert werden:")
+p("Was soll installiert werden:")
 p()
 
 menuOptions = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)", "[BESTIMMTE] bestimmte Zusatz-Apps werden installiert"]
@@ -1705,6 +1739,7 @@ resMain = menu(menuOptions, 1)
 clear()
 
 if (resMain == 0) {
+	color(YELLOW)
     p()
 	p()
 	p("Alle Zusatz-Apps werden installiert...")
@@ -1734,10 +1769,10 @@ if (resMain == 0) {
 	p()
 	p()
 	p("Fertig!");
-	p()
 }
 
 if (resMain == 2) {
+	color(YELLOW)
     p()
 	p()
 	p("Bestimmte/Ausgesuchte Zusatz-Apps werden installiert...")
@@ -1759,20 +1794,21 @@ if (resMain == 2) {
 	p()
 	p()
 	p("Fertig!");
-	p()
 }
 
 if (resMain == 1) {
+	color(YELLOW)
     p()
 	p()
 	p("Bestimme selbst welche Zusatz-Apps installiert werden sollen...")
 	p()
 	p()
+
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - AmiiboGenerator")
 	p()
     p("Der AmiiboGenerator erstellt Amiibos fuer dich.")
@@ -1786,23 +1822,24 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App AmiiboGenerator wird installiert...")
         p()
 		color(WHITE)
-		p("Installiere:")
+        p("Installiere:")
 		color(LGREEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", sd:/")
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App AmiiboGenerator wird entfernt...")
@@ -1819,14 +1856,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
     clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - Amiigo")
 	p()
     p("Mit Amiigo waehlst du die Amiibos aus die dir in Spielen zur Verfuegung.")
@@ -1841,6 +1877,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App Amiigo wird installiert...")
@@ -1852,12 +1889,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App Amiigo wird entfernt...")
@@ -1874,14 +1911,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - Chiaki")
 	p()
     p("Mit Chiaki kannst du deine PlayStation auf die Switch streamen.")
@@ -1895,6 +1931,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App Chiaki wird installiert...")
@@ -1906,12 +1943,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App Chiaki wird entfernt...")
@@ -1928,14 +1965,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - fake08")
 	p()
     p("fake08 ist ein einfacher pico8 Emulator.")
@@ -1949,6 +1985,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App fake08 wird installiert...")
@@ -1960,12 +1997,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App fake08 wird entfernt...")
@@ -1982,14 +2019,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - GoldLeaf")
 	p()
     p("Mit GoldLeaf kannst du NSP Dateien installieren und mehr.")
@@ -2003,6 +2039,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App GoldLeaf wird installiert...")
@@ -2014,12 +2051,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App GoldLeaf wird entfernt...")
@@ -2036,14 +2073,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - Homebrew-Details")
 	p()
     p("Homebrew-Details zeigt dir alles zu deinen Homebrew Apps an.")
@@ -2057,6 +2093,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App Homebrew-Details wird installiert...")
@@ -2068,12 +2105,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App Homebrew-Details wird entfernt...")
@@ -2090,14 +2127,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - MelonDS")
 	p()
     p("MelonDS ist ein guter NintendoDS Emulator.")
@@ -2111,6 +2147,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App MelonDS wird installiert...")
@@ -2122,12 +2159,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App MelonDS wird entfernt...")
@@ -2144,14 +2181,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - MiiPort")
 	p()
     p("Mit MiiPort kannst du Miis importieren/exportieren.")
@@ -2165,6 +2201,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App MiiPort wird installiert...")
@@ -2176,12 +2213,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App MiiPort wird entfernt...")
@@ -2198,14 +2235,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - Moonlight-Switch")
 	p()
     p("Mit Moonlight-Switch kannst du das laufende Spiel an deinen PC uebetragen und aufnehmen.")
@@ -2219,6 +2255,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App Moonlight-Switch wird installiert...")
@@ -2230,12 +2267,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App Moonlight-Switch wird entfernt...")
@@ -2252,14 +2289,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - Neumann")
 	p()
     p("Mit Neumann kannst du die Speicherdaten deiner Spiele sichern.")
@@ -2273,6 +2309,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App Neumann wird installiert...")
@@ -2284,12 +2321,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App Neumann wird entfernt...")
@@ -2306,14 +2343,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - NX-Activity-Log")
 	p()
     p("NX-Activity-Log zeigt dir alle Statistiken zu deinen gespielten Spielen an.")
@@ -2327,6 +2363,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App NX-Activity-Log wird installiert...")
@@ -2338,12 +2375,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App NX-Activity-Log wird entfernt...")
@@ -2360,14 +2397,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - NXGallery")
 	p()
     p("Mit NXGallery kannst du Bilder aus dem Album an dein Handy schicken.")
@@ -2381,6 +2417,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App NXGallery wird installiert...")
@@ -2392,12 +2429,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App NXGallery wird entfernt...")
@@ -2414,14 +2451,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - nx-locale-switcher")
 	p()
     p("Mit nx-locale-switcher kannst du die Region von Spielen einstellen.")
@@ -2435,6 +2471,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App nx-locale-switcher wird installiert...")
@@ -2446,12 +2483,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App nx-locale-switcher wird entfernt...")
@@ -2468,14 +2505,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - NXMP")
 	p()
     p("NXMP ist das Multimedia Tool schlechthin. Spielt sehr viele Videoformate ab.")
@@ -2490,6 +2526,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App NXMP wird installiert...")
@@ -2501,12 +2538,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App NXMP wird entfernt...")
@@ -2523,14 +2560,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - NX-Shell")
 	p()
     p("NX-Shell ist ein sehr guter Datei-Explorer fuer die Switch.")
@@ -2544,6 +2580,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App NX-Shell wird installiert...")
@@ -2555,12 +2592,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App NX-Shell wird entfernt...")
@@ -2577,14 +2614,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - switch-remote-play")
 	p()
     p("Mit switch-remote-play kannst du deinen PC auf die Switch streamen.")
@@ -2598,6 +2634,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App switch-remote-play wird installiert...")
@@ -2609,12 +2646,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App switch-remote-play wird entfernt...")
@@ -2631,14 +2668,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - TencentSwitcherGui")
 	p()
     p("Mit TencentSwitcherGui kannst du eine chinesische Switch zumindest wieder.")
@@ -2653,6 +2689,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App TencentSwitcherGui wird installiert...")
@@ -2664,12 +2701,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App TencentSwitcherGui wird entfernt...")
@@ -2686,14 +2723,13 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 
    clear()
 
-    p()
-    p()
     color(YELLOW)
+    p()
+    p()
 	p("-- APP - vgedit")
 	p()
     p("vgedit ist ein sehr einfacher Explorer mit Hauptaugenmerk auf Dateien.")
@@ -2708,6 +2744,7 @@ if (resMain == 1) {
     clear()
   
     if (resYN == 0) {
+    	color(YELLOW)
         p()
 		p()
         p("Die App vgedit wird installiert...")
@@ -2719,12 +2756,12 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 	
     clear()
 	
 	if (resYN == 1) {
+    	color(YELLOW)
         p()
         p()
         p("Die App vgedit wird entfernt...")
@@ -2741,8 +2778,7 @@ if (resMain == 1) {
 		p()
 		p()
 		p("Fertig!");
-		p()
-   }
+	}
 }
 
 if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
@@ -2751,31 +2787,31 @@ copydir ("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo", "sd:/atmosphere
 
 clear()
 
-# Attribute reparieren und MacOS Kram loeschen
-clear()
 p("* Entferne MacOS bezogenen Muell")
 removemacfolders()
+color(LGREEN)
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
 
 clear()
+
 p("* Behebe Attribute")
 fixattrib()
+color(LGREEN)
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
 
-# 3. Hinter uns aufräumen und ordnen
 clear()
-p()
+
 p()
 p()
 color(LGREEN)
 p("SwitchBros. Paket installationsdaten werden jetzt entfernt...")
 p()
 color(WHITE)
-p("Bereinige:")
+p("Klar Schiff machen hier:")
 color(DRED)
 
 deldir("sd:/SwitchBros_BasisPaket")
@@ -2811,13 +2847,15 @@ if (maj != 4) {
 	
 p()
 
-# 5. Neustart in hekate 
 clear()
+color(YELLOW)
+p()
+p()
 p("Das neue SwitchBros. Paket wurde erfolgreich installiert!")
-color(WHITE)
 p()
 p()
-p("Fertig! Die Switch schaltet sich in 5 Sek. automatisch aus.")
+color(LGREEN)
+p("Fertig! Die Switch wird in 5 Sek. automatisch neu gestartet.")
 p()
 wait(tw = 5000)
 
