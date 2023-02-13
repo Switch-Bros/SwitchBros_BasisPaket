@@ -14,7 +14,7 @@ fse=fsexists
 pe={pause() exit()}
 boot=0
 maj=0
-wait={t=timer()while(timer()<(t+tw)){print()}}
+wait= {t=timer()while(timer()<(t+tw)){print()}}
 
 color(YELLOW)
 p()
@@ -420,12 +420,11 @@ p()
 p("Abgeschlossen")
 wait(tw = 1000)
 
-if (fse("sd:/SwitchBros_BasisPaket")) {
 	clear()
 	color(YELLOW)
 	p()
 	p()
-	p("* Installiere SwitchBros. Paket auf SD-Karte")
+	p("Installiere SwitchBros. Paket auf SD-Karte")
 	p()
 	p()
 	
@@ -465,7 +464,7 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
   p()
 	p("Abgeschlossen")
 	wait(tw = 1000)
-}
+
 clear()
 color(LGREEN)
 p()
@@ -490,11 +489,11 @@ p()
 p()
 
 menuOptions = ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + Android + Linux", "[5] Basis + Android + LAKKA", "[6] Basis + Android + Linux + LAKKA", "[7] Basis + Linux + LAKKA", "[8] alte Daten behalten (nicht empfohlen)"]
-resMain = menu(menuOptions, 0)
+resSystem = menu(menuOptions, 0)
 
 clear()
 
-if (resMain == 0) {
+if (resSystem == 0) {
 	color(YELLOW)
 	p()
 	p("Basis (Standard) wird installiert...")
@@ -509,7 +508,7 @@ if (resMain == 0) {
 
 clear()
 
-if (resMain == 1) {
+if (resSystem == 1) {
 	color(YELLOW)
 	p()
 	p("Basis + Android wird installiert...")
@@ -524,7 +523,7 @@ if (resMain == 1) {
 
 clear()
 
-if (resMain == 2) {
+if (resSystem == 2) {
 	color(YELLOW)
 	p()
 	p("Basis + Linux wird installiert...")
@@ -595,7 +594,7 @@ if (resMain == 2) {
 
 clear()
 
-if (resMain == 3) {
+if (resSystem == 3) {
 	color(YELLOW)
     p()
 	p("Basis + LAKKA wird installiert...")
@@ -610,7 +609,7 @@ if (resMain == 3) {
 
 clear()
 
-if (resMain == 4) {
+if (resSystem == 4) {
     color(YELLOW)
     p()
 	p("Basis + Android + Linux wird installiert...")
@@ -683,7 +682,7 @@ if (resMain == 4) {
 
 clear()
 
-if (resMain == 5) {
+if (resSystem == 5) {
     color(YELLOW)
 	p()
 	p("Basis + Android + LAKKA wird installiert...")
@@ -698,7 +697,7 @@ if (resMain == 5) {
 
 clear()
 
-if (resMain == 6) {
+if (resSystem == 6) {
     color(YELLOW)
     p()
 	p("Basis + Android + Linux + LAKKA wird installiert...")
@@ -771,7 +770,7 @@ if (resMain == 6) {
 
 clear()
 
-if (resMain == 7) {
+if (resSystem == 7) {
     color(YELLOW)
 	p()
 	p("Basis + Linux + LAKKA wird installiert...")
@@ -844,7 +843,7 @@ if (resMain == 7) {
 
 clear()
 
-if (resMain == 8) {
+if (resSystem == 8) {
 	color(YELLOW)
 	p()
 	p("alte hekate_ipl.ini, nyx.ini werden installiert...")
@@ -878,11 +877,11 @@ p("Was soll installiert werden:")
 p()
 
 menuOptions = ["[ALLES] Tesla-Overlay Menue inkl. aller System-Module", "[MANUELL] Tesla-Overlay Menue + Module einzeln (empfohlen)", "[NICHTS] kein Tesla-Overlay, keine Module"]
-resMain = menu(menuOptions, 1)
+resTesla = menu(menuOptions, 1)
 
 clear()
 
-if (resMain == 0) {
+if (resTesla == 0) {
 	color(YELLOW)
     p()
 	p()
@@ -892,38 +891,38 @@ if (resMain == 0) {
 	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -931,11 +930,11 @@ if (resMain == 0) {
 
 clear()
 
-if (resMain == 2) {
+if (resTesla == 2) {
 	color(YELLOW)
 	p()
 	p()
-	p("Tesla-Overlay Menue inkl. aller Module wird deinstalliert......")
+	p("Tesla-Overlay Menue inkl. aller Module wird deinstalliert...")
 	p()
 	p()
 	color(WHITE)
@@ -1001,8 +1000,14 @@ if (resMain == 2) {
 
 clear()
 
-if (resMain == 1) {
-	color(YELLOW)
+if (resTesla == 1) {
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+
+  clear()
+
+  color(YELLOW)
     p()
 	p()
 	p("Tesla-Overlay Menue inkl. aller Module manuell installieren...")
@@ -1012,9 +1017,6 @@ if (resMain == 1) {
 	p("Waehle nacheinander die Module die installiert/deinstalliert")
 	p("werden sollen aus und entscheide selbst")
     p()
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", sd:/")
 	
     clear()
 
@@ -1043,11 +1045,11 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 	
     clear()
@@ -1065,7 +1067,7 @@ if (resMain == 1) {
 		deldir("sd:/config/BootSoundNX")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 
     clear()
@@ -1095,11 +1097,11 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 	
     clear()
@@ -1122,7 +1124,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/EdiZon")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 
     clear()
@@ -1152,12 +1154,12 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 	
     clear()
@@ -1177,7 +1179,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/emuiibo")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 
     clear()
@@ -1209,11 +1211,11 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 	
     clear()
@@ -1232,7 +1234,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 
     clear()
@@ -1262,12 +1264,12 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 	
     clear()
@@ -1288,7 +1290,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/Fizeau")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 
     clear()
@@ -1319,11 +1321,11 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 	
     clear()
@@ -1343,7 +1345,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 
     clear()
@@ -1373,12 +1375,12 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
     }
 	
     clear()
@@ -1398,7 +1400,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/MissionControl")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
     clear()
@@ -1428,10 +1430,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1449,7 +1451,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
     clear()
@@ -1478,10 +1480,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1499,7 +1501,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
     clear()
@@ -1531,12 +1533,12 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1557,7 +1559,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
     clear()
@@ -1587,10 +1589,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1608,7 +1610,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
     clear()
@@ -1638,12 +1640,12 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1662,7 +1664,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sys-con")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
     clear()
@@ -1691,12 +1693,12 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1718,7 +1720,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 }
 
@@ -1734,11 +1736,11 @@ p("Was soll installiert werden:")
 p()
 
 menuOptions = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)", "[BESTIMMTE] bestimmte Zusatz-Apps werden installiert"]
-resMain = menu(menuOptions, 1)
+resHBApps = menu(menuOptions, 1)
 
 clear()
 
-if (resMain == 0) {
+if (resHBApps == 0) {
 	color(YELLOW)
     p()
 	p()
@@ -1748,30 +1750,30 @@ if (resMain == 0) {
 	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
 	p()
 	p()
 	p("Fertig!");
 }
 
-if (resMain == 2) {
+if (resHBApps == 2) {
 	color(YELLOW)
     p()
 	p()
@@ -1781,22 +1783,22 @@ if (resMain == 2) {
 	color(WHITE)
 	p("Dateien werden installiert:")
 	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
 	p()
 	p()
-	p("Fertig!");
+	p("Fertig!")
 }
 
-if (resMain == 1) {
+if (resHBApps == 1) {
 	color(YELLOW)
     p()
 	p()
@@ -1830,10 +1832,10 @@ if (resMain == 1) {
 		color(WHITE)
         p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1855,7 +1857,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
     clear()
@@ -1885,10 +1887,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1910,7 +1912,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -1939,10 +1941,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -1964,7 +1966,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -1993,10 +1995,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2018,7 +2020,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2047,10 +2049,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2072,7 +2074,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2101,10 +2103,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2126,7 +2128,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2155,10 +2157,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2180,7 +2182,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2209,10 +2211,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2234,7 +2236,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2263,10 +2265,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2288,7 +2290,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2317,10 +2319,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2342,7 +2344,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2371,10 +2373,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2396,7 +2398,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2425,10 +2427,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2450,7 +2452,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2479,10 +2481,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2504,7 +2506,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2534,10 +2536,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2559,7 +2561,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2588,10 +2590,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2613,7 +2615,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2642,10 +2644,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2667,8 +2669,110 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
+
+   clear()
+ 
+    color(YELLOW)
+    p()
+    p()
+	p("-- APP - Switch-FTP-Client")
+	p()
+    p("Mit dem Switch-FTP-Client kannst du eine FTP Verbindung")
+    p("zu deiner Switch aufbauen.")
+	p()
+    color(WHITE)
+    p("Moechtest du [Switch-FTP-Client] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+    	color(YELLOW)
+        p()
+		p()
+        p("Die App Switch-FTP-Client wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
+		p()
+		p()
+		p("Fertig!")
+	}
+	
+    clear()
+	
+	if (resYN == 1) {
+    	color(YELLOW)
+        p()
+        p()
+        p("Die App Switch-FTP-Client wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
+    deldir("sd:/switch/switch-ftp-client")
+		p()
+		p()
+		p("Fertig!")
+ 	}
+
+   clear()
+ 
+    color(YELLOW)
+    p()
+    p()
+	p("-- APP - Switch-SMB-Client")
+	p()
+    p("Mit dem Switch-SMB-Client kannst du eine SMB Verbindung")
+    p("zu deiner Switch aufbauen.")
+	p()
+    color(WHITE)
+    p("Moechtest du [Switch-SMB-Client] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+      
+    clear()
+  
+    if (resYN == 0) {
+    	color(YELLOW)
+        p()
+		p()
+        p("Die App Switch-SMB-Client wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
+		p()
+		p()
+		p("Fertig!")
+	}
+	
+    clear()
+	
+	if (resYN == 1) {
+    	color(YELLOW)
+        p()
+        p()
+        p("Die App Switch-SMB-Client wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/switch/appstore/.get/packages/switch-smb-client")
+    deldir("sd:/switch/switch-smb-client")
+		p()
+		p()
+		p("Fertig!")
+ 	}
 
    clear()
 
@@ -2697,10 +2801,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2722,7 +2826,7 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 
    clear()
@@ -2752,10 +2856,10 @@ if (resMain == 1) {
 		color(WHITE)
 		p("Installiere:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 	
     clear()
@@ -2777,17 +2881,17 @@ if (resMain == 1) {
 		deldir("sd:/switch/SysDVR-conf")
 		p()
 		p()
-		p("Fertig!");
+		p("Fertig!")
 	}
 }
 
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")) {
 copydir ("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo", "sd:/atmosphere/exefs_patches/")
 }
 
 clear()
 
-p("* Entferne MacOS bezogenen Muell")
+p("Entferne MacOS bezogenen Muell")
 removemacfolders()
 color(LGREEN)
 p()
@@ -2796,7 +2900,7 @@ wait(tw = 1000)
 
 clear()
 
-p("* Behebe Attribute")
+p("Behebe Attribute 'fix archive bit'.")
 fixattrib()
 color(LGREEN)
 p()
@@ -2808,7 +2912,7 @@ clear()
 p()
 p()
 color(LGREEN)
-p("SwitchBros. Paket installationsdaten werden jetzt entfernt...")
+p("SwitchBros. Paket Installationsdaten werden jetzt entfernt...")
 p()
 color(WHITE)
 p("Klar Schiff machen hier:")
@@ -2835,12 +2939,12 @@ deldir("sd:/switch/switchbrosupdater")
 delfile("sd:/tegraexplorer/scripts/update.te")
 
 if (maj != 4) {
-	if (fuse_patched()){
+	if (fuse_patched()) {
 		deldir("sd:/switch/fakenews-injector")
 		deldir("sd:/pegascape")
 		delfile("sd:/bootloader/payloads/Incognito_RCM.bin")
 	}
-}.else(){
+}.else() {
 	delfile("sd:/boot.dat")
 	delfile("sd:/boot.ini")
 }
@@ -2861,6 +2965,6 @@ wait(tw = 5000)
 
 if (is_erista()) {
 	payload("sd:/bootloader/update.bin")
-}.else(){
+}.else() {
 	reboot_ofw()
 }
