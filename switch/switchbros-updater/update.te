@@ -1746,6 +1746,88 @@ clear()
 color(YELLOW)
 p()
 p()
+p("          ***** Tinfoil installieren/deinstallieren *****")
+p()
+p("Tinfoil kann auf zwei Arten installiert werden:")
+p()
+color(GREEN)
+p("Entweder im HBMenu damit es vor den Kindern versteckt ist!")
+p()
+color(RED)
+p("Auf dem Homescreen wo es wie andere Titel jeder sehen kann")
+p()
+
+menuOptionsTinfoil = ["[HBMENU] Tinfoil im HBMenu (empfohlen)", "[HOMESCREEN] Tinfoil auf dem Homescreen", "[NICHTS] Tinfoil deinstallieren"]
+resTinfoil = menu(menuOptionsTinfoil, 0)
+
+clear()
+
+if (resTinfoil == 0) {
+	color(YELLOW)
+    p()
+	p()
+	p("Tinfoil wird im HBMenu installiert...")
+	p()
+	p()
+	color(WHITE)
+	p("Dateien werden installiert:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu", "sd:/")
+	p()
+	p()
+	p("Fertig!");
+}
+
+if (resTinfoil == 1) {
+	color(YELLOW)
+    p()
+	p()
+	p("Tinfoil wird auf dem Homescreen installiert...")
+	p()
+	p()
+	color(WHITE)
+	p("Dateien werden installiert:")
+	color(LGREEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
+	p()
+	p()
+	p("Fertig!");
+}
+
+if (resTinfoil == 2) {
+	color(YELLOW)
+    p()
+	p()
+	p("Tinfoil wird deinstalliert...")
+	p()
+	p()
+	color(WHITE)
+	p("Dateien werden deinstalliert:")
+	color(DRED)
+	deldir("sd:/switch/tinfoil")
+	delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][15.0][v0].nsp")
+	p()
+	p()
+	p("Fertig!");
+}
+
+p()
+p()
+color(LGREEN)
+p("Tinfoil wurde nach deiner Auswahl bereitgestellt!")
+p()
+p()
+p("Druecke eine beliebige Taste, um fortzufahren.")
+pause()
+
+clear()
+
+color(YELLOW)
+p()
+p()
 p("          ***** Zusatz-Apps installieren/deinstallieren *****")
 p()
 p()
@@ -2630,6 +2712,108 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
+		p()
+		p()
+		p("Fertig!");
+	}
+
+   clear()
+
+    color(YELLOW)
+    p()
+    p()
+	p("-- APP - SwitchFTPClient")
+	p()
+    p("Mit dem SwitchFTPClient kannst du eine FTP Verbindung zu deiner.")
+	p("Switch aufbauen!")
+	p()
+    color(WHITE)
+    p("Moechtest du [SwitchFTPClient] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+
+    clear()
+
+    if (resYN == 0) {
+    	color(YELLOW)
+        p()
+		p()
+        p("Die App SwitchFTPClient wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
+		p()
+		p()
+		p("Fertig!");
+	}
+
+    clear()
+
+	if (resYN == 1) {
+    	color(YELLOW)
+        p()
+        p()
+        p("Die App SwitchFTPClient wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
+		deldir("sd:/switch/switch-ftp-client")
+		p()
+		p()
+		p("Fertig!");
+	}
+
+   clear()
+
+    color(YELLOW)
+    p()
+    p()
+	p("-- APP - SwitchSMBClient")
+	p()
+    p("Mit dem SwitchSMBClient kannst du eine FTP Verbindung zu deiner.")
+	p("Switch aufbauen!")
+	p()
+    color(WHITE)
+    p("Moechtest du [SwitchSMBClient] installieren?")
+    p()
+    menuOptionsYN = ["ja", "nein"]
+    resYN = menu(menuOptionsYN, 0)
+
+    clear()
+
+    if (resYN == 0) {
+    	color(YELLOW)
+        p()
+		p()
+        p("Die App SwitchSMBClient wird installiert...")
+        p()
+		color(WHITE)
+		p("Installiere:")
+		color(LGREEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
+		p()
+		p()
+		p("Fertig!");
+	}
+
+    clear()
+
+	if (resYN == 1) {
+    	color(YELLOW)
+        p()
+        p()
+        p("Die App SwitchSMBClient wird entfernt...")
+        p()
+        color(WHITE)
+        p("Deinstalliere:")
+        color(DRED)
+		deldir("sd:/switch/appstore/.get/packages/switch-smb-client")
+		deldir("sd:/switch/switch-smb-client")
 		p()
 		p()
 		p("Fertig!");
