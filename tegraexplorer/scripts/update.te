@@ -26,10 +26,10 @@ p("Dieses Update Script, aktualisiert dein SwitchBros. Paket")
 p("auf die neuste SwitchBros-O-sphere CFW + SigPatches.")
 p()
 p()
-p("Switch Lite und Tablet Nutzer:")
+p("Alternative Navigation (ohne JoyCons):")
 p()
-p("  Vol +/-      : navigieren / abbrechen / beenden")
-p("  Power Button : bestaetigen")
+p("  - Vol +/-      : navigieren / abbrechen / beenden")
+p("  - Power Button : bestaetigen")
 p()
 p()
 p("Druecke die A Taste, um das SwitchBros. Paket zu aktualisieren!")
@@ -39,6 +39,7 @@ p("SwitchBros. Paket Version: 111")
 p()
 color(DROT)
 p("Druecke zum Beenden die B Taste.")
+p()
 
 if (!pause().a) {
     exit()
@@ -415,6 +416,7 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 }
 
 p()
+p()
 p("Abgeschlossen")
 wait(tw = 1000)
 
@@ -436,10 +438,12 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
-	p()
-	p()
-	p("Abgeschlossen")
-	wait(tw = 1000)
+}
+
+p()
+p()
+p("Abgeschlossen")
+wait(tw = 1000)
 
 clear()
 
@@ -466,9 +470,6 @@ if (resChip == 0) {
 	delfile("sd:/payload.bin")
 	delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
 	delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
-	p()
-	p()
-	p("Fertig!");
 }
 
 clear()
@@ -491,9 +492,6 @@ if (resChip == 1) {
 	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
 	delfile("sd:/switch/.overlays/5_Fizeau.ovl")
 	delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
-	p()
-	p()
-	p("Fertig!");
 }
 
 clear()
@@ -509,22 +507,12 @@ if (resChip == 1) {
 	copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
 	delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
 	delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
-	p()
-	p()
-	p("Fertig!");
 }
 
 p()
 p()
-p("Abgeschlossen")
-wait(tw = 2000)
-
-clear()
-
-p()
-p()
 color(GRUEN)
-p("SwitchBros. Paket wurde erfolgreich aktualisiert!")
+p("Deine Modchip-Auswahl wurde uebernommen!")
 p()
 p()
 p("Druecke eine beliebige Taste, um fortzufahren.")
@@ -539,7 +527,7 @@ p("Systeme auswaehlen um sie in hekate im 'launch' zu haben")
 p()
 p("Es wird dementsprechend die richtige hekate_ipl.ini eingerichtet")
 p()
-p("Welche Systemkombination wird spaeter genutzt?: ")
+p("Welche Systemkombination wird (spaeter) genutzt?: ")
 p()
 p()
 
@@ -556,10 +544,7 @@ if (resSystem == 0) {
 	p("Dateien werden installiert:")
 	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/config", "sd:/")
-	p()
-	p()
-	p("Fertig!");
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/config", "sd:/")
 }
 
 clear()
@@ -572,11 +557,8 @@ if (resSystem == 1) {
 	p("Dateien werden installiert:")
 	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/config", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	p()
-	p()
-	p("Fertig!");
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 }
 
 clear()
@@ -603,9 +585,6 @@ if (resSystem == 2) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/bootloader", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -620,10 +599,7 @@ if (resSystem == 2) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -637,10 +613,7 @@ if (resSystem == 2) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
      if (resLIN == 3) {
 		p()
@@ -652,10 +625,7 @@ if (resSystem == 2) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 }
 
 clear()
@@ -670,9 +640,6 @@ if (resSystem == 3) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	p()
-	p()
-	p("Fertig!");
 }
 
 clear()
@@ -700,9 +667,6 @@ if (resSystem == 4) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -718,9 +682,6 @@ if (resSystem == 4) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -736,10 +697,7 @@ if (resSystem == 4) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
 	clear()
 
@@ -754,10 +712,7 @@ if (resSystem == 4) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 }
 
 clear()
@@ -773,9 +728,6 @@ if (resSystem == 5) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	p()
-	p()
-	p("Fertig!");
 }
 
 clear()
@@ -804,10 +756,7 @@ if (resSystem == 6) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/") 
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -823,10 +772,7 @@ if (resSystem == 6) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -842,10 +788,7 @@ if (resSystem == 6) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -860,10 +803,7 @@ if (resSystem == 6) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 }
 
 clear()
@@ -891,10 +831,7 @@ if (resSystem == 7) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -909,10 +846,7 @@ if (resSystem == 7) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -927,10 +861,7 @@ if (resSystem == 7) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
 	clear()
 
@@ -945,10 +876,7 @@ if (resSystem == 7) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 }
 
 clear()
@@ -962,9 +890,6 @@ if (resSystem == 8) {
 	color(GRUEN)
 	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini", "sd:/bootloader/nyx.ini")
-	p()
-	p()
-	p("Fertig!");
 }
 
 p()
@@ -1073,9 +998,6 @@ if (resTesla == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
-	p()
-	p()
-	p("Fertig!");
 }
 
 clear()
@@ -1191,10 +1113,7 @@ if (resTesla == 1) {
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1209,10 +1128,7 @@ if (resTesla == 1) {
         color(DROT)
        	deldir("sd:/atmosphere/contents/00FF0000000002AA")
 		deldir("sd:/config/BootSoundNX")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1243,10 +1159,7 @@ if (resTesla == 1) {
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1266,10 +1179,7 @@ if (resTesla == 1) {
 		deldir("sd:/switch/breeze")
 		deldir("sd:/switch/EdiZon")
 		deldir("sd:/switch/appstore/.get/packages/EdiZon")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1301,10 +1211,7 @@ if (resTesla == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1321,10 +1228,7 @@ if (resTesla == 1) {
 		deldir("sd:/emuiibo")
 		delfile("sd:/switch/.overlays/2_emuiibo.ovl")
 		deldir("sd:/switch/appstore/.get/packages/emuiibo")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1357,10 +1261,7 @@ if (resTesla == 1) {
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1376,10 +1277,7 @@ if (resTesla == 1) {
 		deldir("sd:/config/fastCFWswitch")
 		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
 		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1411,10 +1309,7 @@ if (resTesla == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1432,10 +1327,7 @@ if (resTesla == 1) {
 		deldir("sd:/switch/Fizeau")
 		delfile("sd:/switch/.overlays/5_Fizeau.ovl")
 		deldir("sd:/switch/appstore/.get/packages/Fizeau")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1467,10 +1359,7 @@ if (resTesla == 1) {
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1487,10 +1376,7 @@ if (resTesla == 1) {
 		deldir("sd:/switch/ldnmitm_config")
 		delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
 		deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1522,10 +1408,7 @@ if (resTesla == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
-    }
+	}
 
     clear()
 
@@ -1542,9 +1425,6 @@ if (resTesla == 1) {
 		deldir("sd:/atmosphere/exefs_patches/BLAUtooth_patches")
 		deldir("sd:/config/MissionControl")
 		deldir("sd:/switch/appstore/.get/packages/MissionControl")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1575,9 +1455,6 @@ if (resTesla == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1593,9 +1470,6 @@ if (resTesla == 1) {
         color(DROT)
 		delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
 		deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1625,9 +1499,6 @@ if (resTesla == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1643,9 +1514,6 @@ if (resTesla == 1) {
         color(DROT)
 		delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
 		deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1680,9 +1548,6 @@ if (resTesla == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1701,9 +1566,6 @@ if (resTesla == 1) {
 		deldir("sd:/switch/sys-clk")
 		delfile("sd:/switch/.overlays/3_sys-clk-overlay.ovl")
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1734,9 +1596,6 @@ if (resTesla == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1752,9 +1611,6 @@ if (resTesla == 1) {
         color(DROT)
 		deldir("sd:/switch/sys-clk-Editor")
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1787,9 +1643,6 @@ if (resTesla == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1806,9 +1659,6 @@ if (resTesla == 1) {
 		deldir("sd:/atmosphere/contents/690000000000000D")
 		deldir("sd:/config/sys-con")
 		deldir("sd:/switch/appstore/.get/packages/sys-con")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1840,9 +1690,6 @@ if (resTesla == 1) {
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -1862,9 +1709,6 @@ if (resTesla == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 }
 
@@ -1910,10 +1754,9 @@ if (resTinfoil == 0) {
 	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu", "sd:/")
-	p()
-	p()
-	p("Fertig!");
 }
+
+clear()
 
 if (resTinfoil == 1) {
 	color(GELB)
@@ -1928,10 +1771,9 @@ if (resTinfoil == 1) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
-	p()
-	p()
-	p("Fertig!");
 }
+
+clear()
 
 if (resTinfoil == 2) {
 	color(GELB)
@@ -1945,9 +1787,6 @@ if (resTinfoil == 2) {
 	color(DROT)
 	deldir("sd:/switch/tinfoil")
 	delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][15.0][v0].nsp")
-	p()
-	p()
-	p("Fertig!");
 }
 
 p()
@@ -1972,8 +1811,6 @@ p()
 
 menuOptionsHBApps = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)", "[BESTIMMTE] bestimmte Zusatz-Apps werden installiert"]
 resHBApps = menu(menuOptionsHBApps, 1)
-
-clear()
 
 if (resHBApps == 0) {
 	color(GELB)
@@ -2003,9 +1840,6 @@ if (resHBApps == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
-	p()
-	p()
-	p("Fertig!");
 }
 
 if (resHBApps == 2) {
@@ -2028,10 +1862,9 @@ if (resHBApps == 2) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
-	p()
-	p()
-	p("Fertig!");
 }
+
+clear()
 
 if (resHBApps == 1) {
 	color(GELB)
@@ -2068,9 +1901,6 @@ if (resHBApps == 1) {
         p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2090,9 +1920,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2123,9 +1950,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2145,9 +1969,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2177,9 +1998,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2199,9 +2017,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2231,9 +2046,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2253,9 +2065,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2285,9 +2094,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2307,9 +2113,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2339,9 +2142,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2361,9 +2161,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2393,9 +2190,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2415,9 +2209,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2447,9 +2238,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2469,9 +2257,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2501,9 +2286,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2523,9 +2305,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2555,9 +2334,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2577,9 +2353,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2609,9 +2382,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2631,9 +2401,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2663,9 +2430,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2685,9 +2449,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2717,9 +2478,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2739,9 +2497,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2772,9 +2527,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2794,9 +2546,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2826,9 +2575,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2848,9 +2594,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2881,9 +2624,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2899,9 +2639,6 @@ if (resHBApps == 1) {
         color(DROT)
 		deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
 		deldir("sd:/switch/switch-ftp-client")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2932,9 +2669,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -2950,9 +2684,6 @@ if (resHBApps == 1) {
         color(DROT)
 		deldir("sd:/switch/appstore/.get/packages/switch-smb-client")
 		deldir("sd:/switch/switch-smb-client")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -2982,9 +2713,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -3004,9 +2732,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -3037,9 +2762,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -3059,9 +2781,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 
    clear()
@@ -3092,9 +2811,6 @@ if (resHBApps == 1) {
 		p("Installiere:")
 		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
-		p()
-		p()
-		p("Fertig!");
 	}
 
     clear()
@@ -3114,9 +2830,6 @@ if (resHBApps == 1) {
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 		delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 		deldir("sd:/switch/SysDVR-conf")
-		p()
-		p()
-		p("Fertig!");
 	}
 }
 
@@ -3173,7 +2886,7 @@ clear()
 p()
 p()
 color(GELB)
-p("SwitchBros. Paket installationsdaten werden jetzt entfernt...")
+p("SwitchBros. Paket Installationsdaten werden jetzt entfernt...")
 p()
 color(WEISS)
 p("Klar Schiff machen hier:")
@@ -3198,49 +2911,23 @@ delfile("sd:/switch/switchbrosupdater/startup.te")
 deldir("sd:/switch/switchbrosupdater")
 delfile("sd:/tegraexplorer/scripts/update.te")
 
-if (maj != 4) {
-	if (fuse_patched()){
-		deldir("sd:/switch/fakenews-injector")
-		deldir("sd:/pegascape")
-		delfile("sd:/bootloader/payloads/Incognito_RCM.bin")
-	}
-}.else(){
-	delfile("sd:/boot.dat")
-	delfile("sd:/boot.ini")
-}
-
-p()
-
 clear()
 
-color(GELB)
+color(GRUEN)
 p()
 p()
 p("Das neue SwitchBros. Paket wurde erfolgreich installiert!")
 p()
 p()
-color(GRUEN)
 p("Alle Schritte wurden abgeschlossen!")
 p("Deine Switch wird in 5 Sek. automatisch neu gestartet.")
 p()
 p()
-color(LILA)
-p("     5...")
+p()
+p()
+p()
+color(LILA) p("     5...") wait(tw = 1000) color(BLAU) p(" 4...") wait(tw = 1000) color(ROT) p(" 3...") wait(tw = 1000) color(ORANGE) p(" 2...") wait(tw = 1000) color(GELB) p(" 1...") wait(tw = 1000) color(WEISS) p(" 0...")
 wait(tw = 1000)
-color(BLAU)
-p("     4...")
-wait(tw = 1000)
-color(ROT)
-p("     3...")
-wait(tw = 1000)
-color(ORANGE)
-p("     2...")
-wait(tw = 1000)
-color(GELB)
-p("     1...")
-wait(tw = 1000)
-color(WEISS)
-p("     0...")
 
 if (is_erista()) {
 	payload("sd:/bootloader/update.bin")
