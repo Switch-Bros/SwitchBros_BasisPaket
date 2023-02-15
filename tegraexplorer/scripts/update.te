@@ -1,14 +1,13 @@
-
-BLUE = 0x0000FF
-LBLUE = 0x00DDFF
-YELLOW = 0xFDE100
-RED = 0xFF0000
-DRED = 0xE70000
-GREEN = 0x00FF00
-LGREEN = 0x40FF00
-WHITE = 0xFFFFFF
-ORANGE = 0xFFA500
-VIOLET = 0x8F00FF
+BLUE=0x0000FF
+LBLUE=0x00DDFF
+YELLOW=0xFDE100
+RED=0xFF0000
+DRED=0xE70000
+GREEN=0x00FF00
+LGREEN=0x40FF00
+WHITE=0xFFFFFF
+ORANGE=0xFFA500
+VIOLET=0x8F00FF
 
 p=println
 pe={pause() exit()}
@@ -505,7 +504,8 @@ if (resSystem == 0) {
 	p()
 	p("Dateien werden installiert:")
 	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/*", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/config", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -520,7 +520,9 @@ if (resSystem == 1) {
 	p()
 	p("Dateien werden installiert:")
 	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/*", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -547,7 +549,9 @@ if (resSystem == 2) {
 		p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/*", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -562,7 +566,9 @@ if (resSystem == 2) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -577,7 +583,9 @@ if (resSystem == 2) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -590,7 +598,9 @@ if (resSystem == 2) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -606,7 +616,9 @@ if (resSystem == 3) {
 	p()
 	p("Dateien werden installiert:")
 	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/*", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -633,7 +645,10 @@ if (resSystem == 4) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -648,7 +663,10 @@ if (resSystem == 4) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -663,7 +681,10 @@ if (resSystem == 4) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -678,7 +699,10 @@ if (resSystem == 4) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -694,7 +718,10 @@ if (resSystem == 5) {
 	p()
 	p("Dateien werden installiert:")
 	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/*", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -721,7 +748,11 @@ if (resSystem == 6) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/") 
 		p()
 		p()
 		p("Fertig!");
@@ -736,7 +767,11 @@ if (resSystem == 6) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -751,7 +786,11 @@ if (resSystem == 6) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -766,7 +805,10 @@ if (resSystem == 6) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -794,7 +836,10 @@ if (resSystem == 7) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -809,7 +854,10 @@ if (resSystem == 7) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -824,7 +872,10 @@ if (resSystem == 7) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -839,7 +890,10 @@ if (resSystem == 7) {
         p()
 		p("Dateien werden installiert:")
 		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/*", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -3003,7 +3057,7 @@ clear()
 
 p()
 p()
-color(Red)
+color(RED)
 p("*     Entferne MacOS bezogenen Muell")
 p()
 p()
