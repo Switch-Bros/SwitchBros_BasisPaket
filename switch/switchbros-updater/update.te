@@ -1,26 +1,24 @@
-
-BLUE = 0x0000FF
-LBLUE = 0x00DDFF
-YELLOW = 0xFDE100
-RED = 0xFF0000
-DRED = 0xE70000
-GREEN = 0x00FF00
-LGREEN = 0x40FF00
-WHITE = 0xFFFFFF
-ORANGE = 0xFFA500
-VIOLET = 0x8F00FF
+ROT=0xFF0000
+GRUEN=0x00CC00
+BLAU=0x3366FF
+GELB=0xFDE100
+DROT=0xE70000
+WEISS=0xFFFFFF
+ORANGE=0xFF9900
+LILA=0x9900FF
+BRAUN=0xCC9966
+PINK=0xFF0099
 
 p=println
 pe={pause() exit()}
 boot=0
-syscon=0
-missioncontrol=0
+fse=fsexists
 maj=0
 wait= {t=timer()while(timer()<(t+tw)){print()}}
 
 p()
 p()
-color(YELLOW)
+color(GELB)
 p("          ***** SwitchBros. Updater *****")
 p()
 p()
@@ -39,7 +37,7 @@ p()
 color(ORANGE)
 p("SwitchBros. Paket Version: 111")
 p()
-color(DRED)
+color(DROT)
 p("Druecke zum Beenden die B Taste.")
 
 if (!pause().a) {
@@ -47,7 +45,7 @@ if (!pause().a) {
 }
 
 if (is_erista()){
-	if (fsexists("sd:/switch/prod.keys")) 
+	if (fse("sd:/switch/prod.keys")) 
 	{
 		fwstr={fw=maj.str()+"."+min.str()+"."+pat.str()}
 		fv={a=readsave("bis:/save/8000000000000120")
@@ -65,7 +63,7 @@ if (is_erista()){
 		if(mountsys("SYSTEM")){maj=0}
 		fv()
 	}.else(){
-		if (fsexists("sd:/config/switchbros-helper/lockpick_sys.bin")){
+		if (fse("sd:/config/switchbros-helper/lockpick_sys.bin")){
 			payload("sd:/config/switchbros-helper/lockpick_sys.bin")
 		}.else(){
 		payload("sd:/SwitchBros_BasisPaket/config/switchbros-helper/lockpick_sys.bin")
@@ -73,40 +71,38 @@ if (is_erista()){
 	}
 }
 
-boot=fsexists("sd:/payload.bin")
-
-if (fsexists("sd:/bootloader/hekate_ipl.ini")){
+if (fse("sd:/bootloader/hekate_ipl.ini")){
 copyfile("sd:/bootloader/hekate_ipl.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini")
 }
-if (fsexists("sd:/bootloader/nyx.ini")){
+if (fse("sd:/bootloader/nyx.ini")){
 copyfile("sd:/bootloader/nyx.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini")
 }
-if (fsexists("sd:/config/fastCFWSwitch/config.ini")){
+if (fse("sd:/config/fastCFWSwitch/config.ini")){
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")
 }
-if (fsexists("sd:/config/Fizeau/config.ini")){
+if (fse("sd:/config/Fizeau/config.ini")){
 copyfile("sd:/config/Fizeau/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini")
 }
-if (fsexists("sd:/config/ftpd/ftpd.cfg")){
+if (fse("sd:/config/ftpd/ftpd.cfg")){
 copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg")
 }
-if (fsexists("sd:/switch/tinfoil/locations.conf")){
+if (fse("sd:/switch/tinfoil/locations.conf")){
 copyfile("sd:/switch/tinfoil/locations.conf", "sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")
 }
-if (fsexists("sd:/atmosphere/exefs_patches/bootlogo")){
+if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/SwitchBros_BasisPaket/switchbros/backup/")
 }
 
 p()
 p()
-color(YELLOW)
+color(GELB)
 p("          SwitchBros. Paket wird aktualisiert...")
 p()
 p()
 p("  Vorhandene CFW vorbereiten/bereinigen:")
-color(DRED)
+color(DROT)
 
-if (fsexists("sd:/switch/switchbros-updater/switchbros-updater.nro")){
+if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	deldir("sd:/atmosphere/exefs_patches/es_patches")
 	deldir("sd:/atmosphere/exefs_patches/nfim_ctest")
 	deldir("sd:/atmosphere/kip_patches")
@@ -142,7 +138,7 @@ if (fsexists("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 
 }.else() {
 
-	color(DRED)
+	color(DROT)
 	deldir("sd:/atmosphere/exefs_patches")
 	deldir("sd:/atmosphere/kip_patches")
 	deldir("sd:/atmosphere/erpt_reports")
@@ -352,7 +348,7 @@ if (fsexists("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	deldir("sd:/scripts")
 
 	deldir("sd:/config/MissionControl")
-	deldir("sd:/config/btred")
+	deldir("sd:/config/btROT")
 	deldir("sd:/config/N-Xplorer")
 	deldir("sd:/config/reinx-spoofer")
 	deldir("sd:/config/ShallowSea-Updater")
@@ -422,11 +418,11 @@ p()
 p("Abgeschlossen")
 wait(tw = 1000)
 
-if (fsexists("sd:/SwitchBros_BasisPaket")) {
+if (fse("sd:/SwitchBros_BasisPaket")) {
 	clear()
 	p()
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("Installiere SwitchBros. Paket auf SD-Karte")
 	p()
 	p()
@@ -440,40 +436,94 @@ if (fsexists("sd:/SwitchBros_BasisPaket")) {
 	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
-
-	if(boot) {
-		copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
-		copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
-		copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
-		copyfile("sd:/SwitchBros_BasisPaket/switchbros/hwfly/firmware.bin", "sd:/firmware.bin")
-		copyfile("sd:/SwitchBros_BasisPaket/switchbros/hwfly/sdloader.enc", "sd:/sdloader.enc")
-		deldir("sd:/config/fastCFWswitch")
-		deldir("sd:/config/Fizeau")
-		deldir("sd:/atmosphere/contents/0100000000000F12")
-		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
-		deldir("sd:/switch/appstore/.get/packages/Fizeau")
-		deldir("sd:/switch/Fizeau")
-		delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
-		delfile("sd:/switch/.overlays/5_Fizeau.ovl")
-		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
-	}.else(){
-		delfile("sd:/boot.dat")
-		delfile("sd:/boot.ini")
-		delfile("sd:/payload.bin")
-		delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
-	}
-
 	p()
-	color(LGREEN)
+	p()
 	p("Abgeschlossen")
 	wait(tw = 1000)
-}
 
 clear()
 
 p()
 p()
-color(LGREEN)
+color(GELB)
+p("Bitte gib an ob in deiner Konsole ein Modchip verbaut ist!")
+p()
+p()
+
+menuOptionsChip = ["[M0] Kein Modchip", "[M1] Modchip (v2, lite, OLED)", "[M2] Modchip trinketM0 (v1)"]
+resChip = menu(menuOptionsChip, 0)
+
+clear()
+
+if (resChip == 0) {
+	p()
+	color(GELB)
+	p("Modchip relevante Daten werden entfernt...")
+	p()
+	color(GRUEN)
+	delfile("sd:/boot.dat")
+	delfile("sd:/boot.ini")
+	delfile("sd:/payload.bin")
+	delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
+	delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+if (resChip == 1) {
+	p()
+	color(GELB)
+	p("Modchip relevante Daten werden hinzugefuegt/entfernt...")
+	p()
+	color(GRUEN)
+	copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
+	copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
+	copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
+	deldir("sd:/config/fastCFWswitch")
+	deldir("sd:/config/Fizeau")
+	deldir("sd:/atmosphere/contents/0100000000000F12")
+	deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
+	deldir("sd:/switch/appstore/.get/packages/Fizeau")
+	deldir("sd:/switch/Fizeau")
+	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
+	delfile("sd:/switch/.overlays/5_Fizeau.ovl")
+	delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
+	p()
+	p()
+	p("Fertig!");
+}
+
+clear()
+
+if (resChip == 1) {
+	p()
+	color(GELB)
+	p("Modchip relevante Daten werden hinzugefuegt...")
+	p()
+	color(GRUEN)
+	copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
+	copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
+	copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
+	delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
+	delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
+	p()
+	p()
+	p("Fertig!");
+}
+
+p()
+p()
+p("Abgeschlossen")
+wait(tw = 2000)
+
+clear()
+
+p()
+p()
+color(GRUEN)
 p("SwitchBros. Paket wurde erfolgreich aktualisiert!")
 p()
 p()
@@ -484,7 +534,7 @@ clear()
 
 p()
 p()
-color(YELLOW)
+color(GELB)
 p("Systeme auswaehlen um sie in hekate im 'launch' zu haben")
 p()
 p("Es wird dementsprechend die richtige hekate_ipl.ini eingerichtet")
@@ -500,12 +550,13 @@ clear()
 
 if (resSystem == 0) {
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("Basis (Standard) wird installiert...")
 	p()
 	p("Dateien werden installiert:")
-	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/*", "sd:/")
+	color(GRUEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/config", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -515,12 +566,14 @@ clear()
 
 if (resSystem == 1) {
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("Basis + Android wird installiert...")
 	p()
 	p("Dateien werden installiert:")
-	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/*", "sd:/")
+	color(GRUEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -530,7 +583,7 @@ clear()
 
 if (resSystem == 2) {
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("Basis + Linux wird installiert...")
 	p()
 	p("Welche Linux Distro soll genutzt werden?")
@@ -542,12 +595,14 @@ if (resSystem == 2) {
 
     if (resLIN == 0) {
 		p()
-		color(YELLOW)
+		color(GELB)
 		p("Linux Arch wird installiert...")
 		p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/*", "sd:/")
+		color(GRUEN)
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -557,12 +612,14 @@ if (resSystem == 2) {
 
     if (resLIN == 1) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Bionic wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -572,12 +629,14 @@ if (resSystem == 2) {
 
     if (resLIN == 2) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Fedora wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -585,12 +644,14 @@ if (resSystem == 2) {
 
      if (resLIN == 3) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Ubuntu (focal) wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -601,12 +662,14 @@ clear()
 
 if (resSystem == 3) {
     p()
-	color(YELLOW)
+	color(GELB)
 	p("Basis + LAKKA wird installiert...")
 	p()
 	p("Dateien werden installiert:")
-	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/*", "sd:/")
+	color(GRUEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -616,7 +679,7 @@ clear()
 
 if (resSystem == 4) {
     p()
-    color(YELLOW)
+    color(GELB)
 	p("Basis + Android + Linux wird installiert...")
 	p()
 	p("Welche Linux Distro soll genutzt werden?")
@@ -628,12 +691,15 @@ if (resSystem == 4) {
 
     if (resLIN == 0) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Arch wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -643,12 +709,15 @@ if (resSystem == 4) {
 
     if (resLIN == 1) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Bionic wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -658,12 +727,15 @@ if (resSystem == 4) {
 
     if (resLIN == 2) {
 		p()
-		color(YELLOW)
+		color(GELB)
         p("Linux Fedora wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -673,12 +745,15 @@ if (resSystem == 4) {
 
 	if (resLIN == 3) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Ubuntu (focal) wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -689,12 +764,15 @@ clear()
 
 if (resSystem == 5) {
 	p()
-    color(YELLOW)
+    color(GELB)
 	p("Basis + Android + LAKKA wird installiert...")
 	p()
 	p("Dateien werden installiert:")
-	color(LGREEN)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/*", "sd:/")
+	color(GRUEN)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	p()
 	p()
 	p("Fertig!");
@@ -704,7 +782,7 @@ clear()
 
 if (resSystem == 6) {
     p()
-    color(YELLOW)
+    color(GELB)
 	p("Basis + Android + Linux + LAKKA wird installiert...")
 	p()
 	p("Welche Linux Distro soll genutzt werden?")
@@ -716,12 +794,16 @@ if (resSystem == 6) {
 
     if (resLIN == 0) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Arch wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/") 
 		p()
 		p()
 		p("Fertig!");
@@ -731,12 +813,16 @@ if (resSystem == 6) {
 
     if (resLIN == 1) {
         p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Bionic wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -746,12 +832,16 @@ if (resSystem == 6) {
 
     if (resLIN == 2) {
         p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Fedora wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -761,12 +851,15 @@ if (resSystem == 6) {
 
 	if (resLIN == 3) {
         p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Ubuntu (focal) wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -777,7 +870,7 @@ clear()
 
 if (resSystem == 7) {
 	p()
-    color(YELLOW)
+    color(GELB)
 	p("Basis + Linux + LAKKA wird installiert...")
 	p()
 	p("Welche Linux Distro soll genutzt werden?")
@@ -789,12 +882,15 @@ if (resSystem == 7) {
 
     if (resLIN == 0) {
 		p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Arch wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -804,12 +900,15 @@ if (resSystem == 7) {
 
     if (resLIN == 1) {
         p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Bionic wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -819,12 +918,15 @@ if (resSystem == 7) {
 
     if (resLIN == 2) {
         p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Fedora wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -834,12 +936,15 @@ if (resSystem == 7) {
 
 	if (resLIN == 3) {
         p()
-        color(YELLOW)
+        color(GELB)
         p("Linux Ubuntu (focal) wird installiert...")
         p()
 		p("Dateien werden installiert:")
-		color(LGREEN)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/*", "sd:/")
+		color(GRUEN)
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/config", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+        copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 		p()
 		p()
 		p("Fertig!");
@@ -850,11 +955,11 @@ clear()
 
 if (resSystem == 8) {
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("alte hekate_ipl.ini, nyx.ini werden installiert...")
 	p()
 	p("Dateien werden installiert:")
-	color(LGREEN)
+	color(GRUEN)
 	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini", "sd:/bootloader/nyx.ini")
 	p()
@@ -864,8 +969,8 @@ if (resSystem == 8) {
 
 p()
 p()
-color(LGREEN)
-p("hekate_ipl.ini mit deinen Systemen wurde erstellt!")
+color(GRUEN)
+p("hekate_ipl.ini mit deinen angegebenen Systemen wurde erstellt!")
 p()
 p()
 p("Druecke eine beliebige Taste, um fortzufahren.")
@@ -875,7 +980,38 @@ clear()
 
 p()
 p()
-color(YELLOW)
+color(GELB)
+p("     ***** ThemeApps Paket wird installiert *****")
+p()
+p()
+p("Darin enthalten sind folgende Apps:")
+p()
+p("* NXThemeInstaller um Themes zu installieren")
+p("* ThemezerNX das ueber 1000 Themes bietet")
+p("* IconGrabber um die Icons deiner Titel zu aendern!")
+p("* systweak um andere Icons nutzen zu koennen!")
+p()
+p()
+
+copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/themes", "sd:/")
+copyfile("sd:/SwitchBros_BasisPaket/switchbros/theme/ThemeApps.txt", "sd:/")
+p()
+p()
+color(GRUEN)
+p("ThemeApps Paket wurde erfolgreich installiert!")
+p()
+p()
+p("Druecke eine beliebige Taste, um fortzufahren.")
+pause()
+
+clear()
+
+p()
+p()
+color(GELB)
 p("          ***** Tesla-Overlay Menue + System-Module *****")
 p()
 p()
@@ -898,13 +1034,13 @@ clear()
 if (resTesla == 0) {
     p()
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("Tesla-Overlay Menue inkl. aller Module wird installiert...")
 	p()
 	p()
-	color(WHITE)
+	color(WEISS)
 	p("Dateien werden installiert:")
-	color(LGREEN)
+	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
@@ -947,13 +1083,13 @@ clear()
 if (resTesla == 2) {
 	p()
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("Tesla-Overlay Menue inkl. aller Module wird deinstalliert......")
 	p()
 	p()
-	color(WHITE)
+	color(WEISS)
 	p("Dateien werden deinstalliert:")
-	color(DRED)
+	color(DROT)
 	deldir("sd:/atmosphere/contents/420000000007E51A")
 	deldir("sd:/config/Tesla")
 	delfile("sd:/switch/.overlays/ovlmenu.ovl")
@@ -984,7 +1120,7 @@ if (resTesla == 2) {
 	delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
 	deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
 	deldir("sd:/atmosphere/contents/010000000000bd00")
-	deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
+	deldir("sd:/atmosphere/exefs_patches/BLAUtooth_patches")
 	deldir("sd:/config/MissionControl")
 	deldir("sd:/switch/appstore/.get/packages/MissionControl")
 	delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
@@ -1014,7 +1150,7 @@ clear()
 if (resTesla == 1) {
     p()
 	p()
-	color(YELLOW)
+	color(GELB)
 	p("Tesla-Overlay Menue inkl. aller Module manuell installieren...")
 	p()
 	p()
@@ -1030,13 +1166,13 @@ if (resTesla == 1) {
 
     p()
     p()
-    color(YELLOW)
+    color(GELB)
 	p("-- Modul - BootSoundNX")
 	p()
     p("Mit BootSoundNX kannst du eine mp3 Datei beim Start der Konsole")
     p("abspielen lassen.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [BootSoundNX] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1047,12 +1183,12 @@ if (resTesla == 1) {
     if (resYN == 0) {
         p()
 		p()
-    	color(YELLOW)
+    	color(GELB)
 		p("Das Modul BootSoundNX wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
 		p()
@@ -1065,12 +1201,12 @@ if (resTesla == 1) {
 	if (resYN == 1) {
         p()
         p()
-    	color(YELLOW)
+    	color(GELB)
         p("Das Modul BootSoundNX wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
        	deldir("sd:/atmosphere/contents/00FF0000000002AA")
 		deldir("sd:/config/BootSoundNX")
 		p()
@@ -1080,7 +1216,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - EdiZon")
@@ -1088,7 +1224,7 @@ if (resTesla == 1) {
     p("Mit EdiZon kannst du Cheats in Spielen aufrufen und nutzen.")
 	p("Im Tesla-Overlay heisst das Modul = Zing.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [EdiZon] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1097,14 +1233,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul EdiZon wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
 		p()
@@ -1115,14 +1251,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul EdiZon wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/054e4f4558454000")
 		deldir("sd:/atmosphere/contents/010000000000000D")
 		deldir("sd:/atmosphere/contents/0100000000001013")
@@ -1137,7 +1273,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - Emuiibo")
@@ -1145,7 +1281,7 @@ if (resTesla == 1) {
     p("Mit Emuiibo kannst du Amiibos emulieren und im Spiel dann aufrufen.")
 	p("Die Amiibos werden mit der App Amiigo bereitgestellt.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Emuiibo] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1154,14 +1290,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul Emuiibo wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", "sd:/")
@@ -1173,14 +1309,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul Emuiibo wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/0100000000000352")
 		deldir("sd:/emuiibo")
 		delfile("sd:/switch/.overlays/2_emuiibo.ovl")
@@ -1192,7 +1328,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - fastCFWswitch")
@@ -1202,7 +1338,7 @@ if (resTesla == 1) {
 	p()
 	p("Achtung: Funktioniert nicht mit Modchip!")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [fastCFWswitch] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1211,14 +1347,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul fastCFWswitch wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
 		p()
@@ -1229,14 +1365,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul fastCFWswitch wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/config/fastCFWswitch")
 		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
 		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
@@ -1247,7 +1383,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - Fizeau")
@@ -1255,7 +1391,7 @@ if (resTesla == 1) {
     p("Mit Fizeau kannst du dein Display anpassen um fast OLED feeling zu bekommen.")
 	p("Dieses Modul lohnt sich daher nicht auf einer OLED Konsole.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Fizeau] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1264,14 +1400,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul Fizeau wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", "sd:/")
@@ -1283,14 +1419,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul Fizeau wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/0100000000000F12")
 		deldir("sd:/config/Fizeau")
 		deldir("sd:/switch/Fizeau")
@@ -1303,7 +1439,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - ldnmitm")
@@ -1312,7 +1448,7 @@ if (resTesla == 1) {
 	p("deines Spiels, zusammen zu spielen. Und zwar Online")
 	p("Der lokale Modus wird so gesehen online gemacht.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [ldnmitm] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1321,14 +1457,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul ldnmitm wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", "sd:/")
 		p()
@@ -1339,14 +1475,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul ldnmitm wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/4200000000000010")
 		deldir("sd:/switch/ldnmitm_config")
 		delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
@@ -1358,15 +1494,15 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - MissionControl")
 	p()
     p("Mit MissionControl kannst du einen PS4/PS5 oder Xbox One S/X Controller mit")
-    p("deiner Switch koppeln. Fast alle Controller die ECHTES Bluetooth besitzen.")
+    p("deiner Switch koppeln. Fast alle Controller die ECHTES BLAUtooth besitzen.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [MissionControl] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1375,14 +1511,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul MissionControl wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
@@ -1394,16 +1530,16 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul MissionControl wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/010000000000bd00")
-		deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
+		deldir("sd:/atmosphere/exefs_patches/BLAUtooth_patches")
 		deldir("sd:/config/MissionControl")
 		deldir("sd:/switch/appstore/.get/packages/MissionControl")
 		p()
@@ -1413,7 +1549,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - ovlSysmodule")
@@ -1421,7 +1557,7 @@ if (resTesla == 1) {
     p("Mit ovlSysmodule kannst du alle Tesla-Overlay Module im laufenden Betrieb")
     p("einschalten/ausschalten.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [ovlSysmodule] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1430,14 +1566,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul ovlSysmodule wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
 		p()
 		p()
@@ -1447,14 +1583,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul ovlSysmodule wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
 		deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
 		p()
@@ -1464,14 +1600,14 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - Status-Monitor-Overlay")
 	p()
     p("Mit Status-Monitor-Overlay kannst du dir Infos deiner Konsole anzeigen lassen.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Status-Monitor-Overlay] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1480,14 +1616,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul Status-Monitor-Overlay wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
 		p()
 		p()
@@ -1497,14 +1633,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul Status-Monitor-Overlay wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
 		deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
 		p()
@@ -1514,7 +1650,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - sys-clk")
@@ -1524,7 +1660,7 @@ if (resTesla == 1) {
 	p("Im config Ordner befindet sich eine Datei in der pro Titel die")
 	p("Einstellungen festgelegt werden koennen!")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [sys-clk] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1533,14 +1669,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul sys-clk wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
@@ -1552,14 +1688,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul sys-clk wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
 		deldir("sd:/config/sys-clk")
 		deldir("sd:/switch/sys-clk")
@@ -1572,7 +1708,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - sys-clk-Editor")
@@ -1580,7 +1716,7 @@ if (resTesla == 1) {
     p("Mit dem sys-clk-Editor kannst du die Einstellungen pro Titel vornehmen und diese.")
 	p("in die config von sys-clk eintragen lassen.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [sys-clk-Editor] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1589,14 +1725,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul sys-clk-Editor wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
 		p()
 		p()
@@ -1606,14 +1742,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul sys-clk-Editor wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/switch/sys-clk-Editor")
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
 		p()
@@ -1623,7 +1759,7 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - sys-con")
@@ -1631,7 +1767,7 @@ if (resTesla == 1) {
     p("Mit sys-con kannst du Controller anderer Hersteller PS, XBOX etc. ueber.")
 	p("USB mit der Konsole Verbinden.")
     p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [sys-con] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1640,14 +1776,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul sys-con wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
@@ -1659,14 +1795,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul sys-con wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/690000000000000D")
 		deldir("sd:/config/sys-con")
 		deldir("sd:/switch/appstore/.get/packages/sys-con")
@@ -1677,14 +1813,14 @@ if (resTesla == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- Modul - SysDVR")
 	p()
     p("Mit SysDVR kannst du das laufende Spiel an deinen PC uebetragen und aufnehmen.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [SysDVR] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1693,14 +1829,14 @@ if (resTesla == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Das Modul SysDVR wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
@@ -1712,14 +1848,14 @@ if (resTesla == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Das Modul SysDVR wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -1734,7 +1870,7 @@ if (resTesla == 1) {
 
 p()
 p()
-color(LGREEN)
+color(GRUEN)
 p("Tesla-Overlay wurde mit deiner Auswahl eingestellt!")
 p()
 p()
@@ -1743,17 +1879,17 @@ pause()
 
 clear()
 
-color(YELLOW)
+color(GELB)
 p()
 p()
 p("          ***** Tinfoil installieren/deinstallieren *****")
 p()
 p("Tinfoil kann auf zwei Arten installiert werden:")
 p()
-color(GREEN)
+color(GRUEN)
 p("Entweder im HBMenu damit es vor den Kindern versteckt ist!")
 p()
-color(RED)
+color(ROT)
 p("Auf dem Homescreen wo es wie andere Titel jeder sehen kann")
 p()
 
@@ -1763,15 +1899,15 @@ resTinfoil = menu(menuOptionsTinfoil, 0)
 clear()
 
 if (resTinfoil == 0) {
-	color(YELLOW)
+	color(GELB)
     p()
 	p()
 	p("Tinfoil wird im HBMenu installiert...")
 	p()
 	p()
-	color(WHITE)
+	color(WEISS)
 	p("Dateien werden installiert:")
-	color(LGREEN)
+	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu", "sd:/")
 	p()
@@ -1780,15 +1916,15 @@ if (resTinfoil == 0) {
 }
 
 if (resTinfoil == 1) {
-	color(YELLOW)
+	color(GELB)
     p()
 	p()
 	p("Tinfoil wird auf dem Homescreen installiert...")
 	p()
 	p()
-	color(WHITE)
+	color(WEISS)
 	p("Dateien werden installiert:")
-	color(LGREEN)
+	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
@@ -1798,15 +1934,15 @@ if (resTinfoil == 1) {
 }
 
 if (resTinfoil == 2) {
-	color(YELLOW)
+	color(GELB)
     p()
 	p()
 	p("Tinfoil wird deinstalliert...")
 	p()
 	p()
-	color(WHITE)
+	color(WEISS)
 	p("Dateien werden deinstalliert:")
-	color(DRED)
+	color(DROT)
 	deldir("sd:/switch/tinfoil")
 	delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][15.0][v0].nsp")
 	p()
@@ -1816,7 +1952,7 @@ if (resTinfoil == 2) {
 
 p()
 p()
-color(LGREEN)
+color(GRUEN)
 p("Tinfoil wurde nach deiner Auswahl bereitgestellt!")
 p()
 p()
@@ -1825,7 +1961,7 @@ pause()
 
 clear()
 
-color(YELLOW)
+color(GELB)
 p()
 p()
 p("          ***** Zusatz-Apps installieren/deinstallieren *****")
@@ -1840,15 +1976,15 @@ resHBApps = menu(menuOptionsHBApps, 1)
 clear()
 
 if (resHBApps == 0) {
-	color(YELLOW)
+	color(GELB)
     p()
 	p()
 	p("Alle Zusatz-Apps werden installiert...")
 	p()
 	p()
-	color(WHITE)
+	color(WEISS)
 	p("Dateien werden installiert:")
-	color(LGREEN)
+	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
@@ -1873,15 +2009,15 @@ if (resHBApps == 0) {
 }
 
 if (resHBApps == 2) {
-	color(YELLOW)
+	color(GELB)
     p()
 	p()
 	p("Bestimmte/Ausgesuchte Zusatz-Apps werden installiert...")
 	p()
 	p()
-	color(WHITE)
+	color(WEISS)
 	p("Dateien werden installiert:")
-	color(LGREEN)
+	color(GRUEN)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
@@ -1898,7 +2034,7 @@ if (resHBApps == 2) {
 }
 
 if (resHBApps == 1) {
-	color(YELLOW)
+	color(GELB)
     p()
 	p()
 	p("Bestimme selbst welche Zusatz-Apps installiert werden sollen...")
@@ -1907,14 +2043,14 @@ if (resHBApps == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - AmiiboGenerator")
 	p()
     p("Der AmiiboGenerator erstellt Amiibos fuer dich.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [AmiiboGenerator] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1923,14 +2059,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App AmiiboGenerator wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
         p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
 		p()
 		p()
@@ -1940,14 +2076,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App AmiiboGenerator wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -1961,7 +2097,7 @@ if (resHBApps == 1) {
 
     clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - Amiigo")
@@ -1969,7 +2105,7 @@ if (resHBApps == 1) {
     p("Mit Amiigo waehlst du die Amiibos aus die dir in Spielen zur Verfuegung.")
 	p("stehen sollen")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Amiigo] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -1978,14 +2114,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App Amiigo wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
 		p()
 		p()
@@ -1995,14 +2131,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App Amiigo wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2016,14 +2152,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - Chiaki")
 	p()
     p("Mit Chiaki kannst du deine PlayStation auf die Switch streamen.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Chiaki] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2032,14 +2168,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App Chiaki wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 		p()
 		p()
@@ -2049,14 +2185,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App Chiaki wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2070,14 +2206,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - fake08")
 	p()
     p("fake08 ist ein einfacher pico8 Emulator.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [fake08] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2086,14 +2222,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App fake08 wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 		p()
 		p()
@@ -2103,14 +2239,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App fake08 wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2124,14 +2260,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - GoldLeaf")
 	p()
     p("Mit GoldLeaf kannst du NSP Dateien installieren und mehr.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [GoldLeaf] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2140,14 +2276,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App GoldLeaf wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
 		p()
 		p()
@@ -2157,14 +2293,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App GoldLeaf wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2178,14 +2314,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - Homebrew-Details")
 	p()
     p("Homebrew-Details zeigt dir alles zu deinen Homebrew Apps an.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Homebrew-Details] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2194,14 +2330,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App Homebrew-Details wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
 		p()
 		p()
@@ -2211,14 +2347,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App Homebrew-Details wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2232,14 +2368,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - MelonDS")
 	p()
     p("MelonDS ist ein guter NintendoDS Emulator.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [MelonDS] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2248,14 +2384,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App MelonDS wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
 		p()
 		p()
@@ -2265,14 +2401,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App MelonDS wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2286,14 +2422,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - MiiPort")
 	p()
     p("Mit MiiPort kannst du Miis importieren/exportieren.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [MiiPort] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2302,14 +2438,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App MiiPort wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
 		p()
 		p()
@@ -2319,14 +2455,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App MiiPort wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2340,14 +2476,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - Moonlight-Switch")
 	p()
     p("Mit Moonlight-Switch kannst du das laufende Spiel an deinen PC uebetragen und aufnehmen.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Moonlight-Switch] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2356,14 +2492,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App Moonlight-Switch wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
 		p()
 		p()
@@ -2373,14 +2509,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App Moonlight-Switch wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2394,14 +2530,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - Neumann")
 	p()
     p("Mit Neumann kannst du die Speicherdaten deiner Spiele sichern.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [Neumann] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2410,14 +2546,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App Neumann wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
 		p()
 		p()
@@ -2427,14 +2563,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App Neumann wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2448,14 +2584,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - NX-Activity-Log")
 	p()
     p("NX-Activity-Log zeigt dir alle Statistiken zu deinen gespielten Spielen an.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [NX-Activity-Log] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2464,14 +2600,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App NX-Activity-Log wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
 		p()
 		p()
@@ -2481,14 +2617,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App NX-Activity-Log wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2502,14 +2638,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - NXGallery")
 	p()
     p("Mit NXGallery kannst du Bilder aus dem Album an dein Handy schicken.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [NXGallery] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2518,14 +2654,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App NXGallery wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
 		p()
 		p()
@@ -2535,14 +2671,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App NXGallery wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2556,14 +2692,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - nx-locale-switcher")
 	p()
     p("Mit nx-locale-switcher kannst du die Region von Spielen einstellen.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [nx-locale-switcher] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2572,14 +2708,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App nx-locale-switcher wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
 		p()
 		p()
@@ -2589,14 +2725,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App nx-locale-switcher wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2610,7 +2746,7 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - NXMP")
@@ -2618,7 +2754,7 @@ if (resHBApps == 1) {
     p("NXMP ist das Multimedia Tool schlechthin. Spielt sehr viele Videoformate ab.")
 	p("Kann sogar mit einem Server verbunden werden um von dort zu streamen")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [NXMP] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2627,14 +2763,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App NXMP wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
 		p()
 		p()
@@ -2644,14 +2780,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App NXMP wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2665,14 +2801,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - NX-Shell")
 	p()
     p("NX-Shell ist ein sehr guter Datei-Explorer fuer die Switch.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [NX-Shell] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2681,14 +2817,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App NX-Shell wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
 		p()
 		p()
@@ -2698,14 +2834,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App NX-Shell wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2719,7 +2855,7 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - SwitchFTPClient")
@@ -2727,7 +2863,7 @@ if (resHBApps == 1) {
     p("Mit dem SwitchFTPClient kannst du eine FTP Verbindung zu deiner.")
 	p("Switch aufbauen!")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [SwitchFTPClient] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2736,14 +2872,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App SwitchFTPClient wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
 		p()
 		p()
@@ -2753,14 +2889,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App SwitchFTPClient wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
 		deldir("sd:/switch/switch-ftp-client")
 		p()
@@ -2770,7 +2906,7 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - SwitchSMBClient")
@@ -2778,7 +2914,7 @@ if (resHBApps == 1) {
     p("Mit dem SwitchSMBClient kannst du eine FTP Verbindung zu deiner.")
 	p("Switch aufbauen!")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [SwitchSMBClient] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2787,14 +2923,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App SwitchSMBClient wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
 		p()
 		p()
@@ -2804,14 +2940,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App SwitchSMBClient wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/switch/appstore/.get/packages/switch-smb-client")
 		deldir("sd:/switch/switch-smb-client")
 		p()
@@ -2821,14 +2957,14 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - switch-remote-play")
 	p()
     p("Mit switch-remote-play kannst du deinen PC auf die Switch streamen.")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [switch-remote-play] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2837,14 +2973,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App switch-remote-play wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
 		p()
 		p()
@@ -2854,14 +2990,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App switch-remote-play wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2875,7 +3011,7 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - TencentSwitcherGui")
@@ -2883,7 +3019,7 @@ if (resHBApps == 1) {
     p("Mit TencentSwitcherGui kannst du eine chinesische Switch zumindest wieder.")
 	p("auf englisch stellen! Bei Tencent Switch gibt es NUR noch chinesisch")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [TencentSwitcherGui] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2892,14 +3028,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App TencentSwitcherGui wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
 		p()
 		p()
@@ -2909,14 +3045,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App TencentSwitcherGui wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2930,7 +3066,7 @@ if (resHBApps == 1) {
 
    clear()
 
-    color(YELLOW)
+    color(GELB)
     p()
     p()
 	p("-- APP - vgedit")
@@ -2938,7 +3074,7 @@ if (resHBApps == 1) {
     p("vgedit ist ein sehr einfacher Explorer mit Hauptaugenmerk auf Dateien.")
 	p("bearbeiten .ini, .json, .cfg, etc...")
 	p()
-    color(WHITE)
+    color(WEISS)
     p("Moechtest du [vgedit] installieren?")
     p()
     menuOptionsYN = ["ja", "nein"]
@@ -2947,14 +3083,14 @@ if (resHBApps == 1) {
     clear()
 
     if (resYN == 0) {
-    	color(YELLOW)
+    	color(GELB)
         p()
 		p()
         p("Die App vgedit wird installiert...")
         p()
-		color(WHITE)
+		color(WEISS)
 		p("Installiere:")
-		color(LGREEN)
+		color(GRUEN)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
 		p()
 		p()
@@ -2964,14 +3100,14 @@ if (resHBApps == 1) {
     clear()
 
 	if (resYN == 1) {
-    	color(YELLOW)
+    	color(GELB)
         p()
         p()
         p("Die App vgedit wird entfernt...")
         p()
-        color(WHITE)
+        color(WEISS)
         p("Deinstalliere:")
-        color(DRED)
+        color(DROT)
 		deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
@@ -2986,7 +3122,7 @@ if (resHBApps == 1) {
 
 p()
 p()
-color(LGREEN)
+color(GRUEN)
 p("Zusatz-Apps mit deiner Auswahl, sind Abgeschlossen!")
 p()
 p()
@@ -2995,7 +3131,7 @@ pause()
 
 clear()
 
-if (fsexists("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
 copydir ("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo", "sd:/atmosphere/exefs_patches/")
 }
 
@@ -3003,13 +3139,13 @@ clear()
 
 p()
 p()
-color(Red)
+color(ROT)
 p("*     Entferne MacOS bezogenen Muell")
 p()
 p()
 p("Bitte warten, dass dauert einen Moment...")
 removemacfolders()
-color(LGREEN)
+color(GRUEN)
 p()
 p("Abgeschlossen")
 wait(tw = 1000)
@@ -3018,13 +3154,13 @@ clear()
 
 p()
 p()
-color(RED)
+color(ROT)
 p("*     Behebe Attribute (fix archive bit)")
 p()
 p()
 p("Bitte warten, dass dauert einen Moment...")
 fixattrib()
-color(LGREEN)
+color(GRUEN)
 p()
 p("Abgeschlossen")
 p()
@@ -3036,12 +3172,12 @@ clear()
 
 p()
 p()
-color(YELLOW)
+color(GELB)
 p("SwitchBros. Paket installationsdaten werden jetzt entfernt...")
 p()
-color(WHITE)
+color(WEISS)
 p("Klar Schiff machen hier:")
-color(DRED)
+color(DROT)
 deldir("sd:/SwitchBros_BasisPaket")
 delfile("sd:/switch/switchbros-updater/startup.te")
 delfile("sd:/switch/switchbros-updater/update.te")
@@ -3076,33 +3212,34 @@ if (maj != 4) {
 p()
 
 clear()
-color(YELLOW)
+
+color(GELB)
 p()
 p()
 p("Das neue SwitchBros. Paket wurde erfolgreich installiert!")
 p()
 p()
-color(LGREEN)
+color(GRUEN)
 p("Alle Schritte wurden abgeschlossen!")
 p("Deine Switch wird in 5 Sek. automatisch neu gestartet.")
 p()
 p()
-color(VIOLET)
+color(LILA)
 p("     5...")
 wait(tw = 1000)
-color(BLUE)
+color(BLAU)
 p("     4...")
 wait(tw = 1000)
-color(RED)
+color(ROT)
 p("     3...")
 wait(tw = 1000)
 color(ORANGE)
 p("     2...")
 wait(tw = 1000)
-color(YELLOW)
+color(GELB)
 p("     1...")
 wait(tw = 1000)
-color(WHITE)
+color(WEISS)
 p("     0...")
 
 if (is_erista()) {
