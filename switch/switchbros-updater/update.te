@@ -57,6 +57,9 @@ p()
 color(DROT)
 p("  Druecke zum Beenden die B-Taste.")
 p()
+color(BRAUN)
+p("########## ########## ########## ##### # ##### ########## ########## ##########")
+p()
 p()
 
 if (!pause().a) {
