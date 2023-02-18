@@ -113,9 +113,6 @@ copyfile("sd:/switch/tinfoil/locations.conf", "sd:/SwitchBros_BasisPaket/switchb
 if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/SwitchBros_BasisPaket/switchbros/backup/")
 }
-if (fsexists("sd:/switch/DBI/dbi.config")) {
-    copyfile("sd:/switch/DBI/dbi.config", "sd:/switch/DBI/dbi.config_")
-}
 
 clear()
 
@@ -447,8 +444,8 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	delfile("sd:/boot.ini")
 	delfile("sd:/exosphere.ini")
 	delfile("sd:/payload.bin")
-	delfile("sd:/SwitchBros_NERD-O-MAT.bat")
-	delfile("sd:/SwitchBros_NOOB-O-MAT.bat")
+	delfile("sd:/SwitchBros_BasisPaket.zip")
+	delfile("sd:/SwitchBros_SD-Werkzeug.bat")
 	delfile("sd:/SwitchBros.txt")
 	delfile("sd:/startup.te")
 	delfile("sd:/hbmenu.nro")
@@ -968,10 +965,10 @@ p()
 color(GELB)
 p("                ***** Tesla-Overlay Menue + System-Module *****")
 p()
-p("       Das Tesla-Overlay Menue Tastenkombination:")
+p("  Das Tesla-Overlay Menue Tastenkombination:")
 p()
 color(BRAUN)
-p("                           >>>  ZL + ZR + PLUS  <<<")
+p("     >>>  ZL + ZR + PLUS  <<<")
 p()
 color(GELB)
 p("  Mit dem Tesla-Overlay Menue kannst du ueberall auf bestimmte Apps zugreifen,")
@@ -2623,6 +2620,7 @@ p()
 color(DROT)
 deldir("sd:/SwitchBros_BasisPaket")
 delfile("sd:/switch/switchbros-updater/update.te")
+delfile("sd:/tegraexplorer/scripts/Switch_Bros.te")
 delfile("sd:/atmosphere/stratosphere.romfs.aio")
 delfile("sd:/atmosphere/fusee-secondary.bin.aio")
 delfile("sd:/sept/payload.bin.aio")
