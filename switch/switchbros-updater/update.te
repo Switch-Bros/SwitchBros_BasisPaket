@@ -12,7 +12,6 @@ PINK=0xFF0099
 p=println
 pe={pause() exit()}
 fse=fsexists
-maj=0
 wait= {t=timer()while(timer()<(t+tw)){print()}}
 
 p()
@@ -134,9 +133,13 @@ color(BRAUN)
 p("########## ########## ########## ##### # ##### ########## ########## ##########")
 p()
 p()
+p()
+p()
+color(GRUEN)
+p("                 Druecke eine beliebige Taste um fortzufahren!")
+pause()
 
 color(DROT)
-
 if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	deldir("sd:/atmosphere/exefs_patches/es_patches")
 	deldir("sd:/atmosphere/exefs_patches/nfim_ctest")
@@ -448,6 +451,7 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	delfile("sd:/hbmenu.nro")
 }
 
+wait(tw = 2000)
 clear()
 
 if (fse("sd:/SwitchBros_BasisPaket")) {
@@ -475,6 +479,7 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
 }
 
+p()
 p()
 p()
 color(GRUEN)
@@ -557,6 +562,12 @@ if (resChip == 1) {
 	delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
 }
 
+clear()
+
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -570,12 +581,10 @@ p()
 color(BRAUN)
 p("########## ########## ########## ##### # ##### ########## ########## ##########")
 p()
-p()
 color(GELB)
 p(" Waehle die Systeme aus, die du spaeter in hekate im 'launch' haben moechtest!")
 p()
 p("  Welche Systemkombination wird (spaeter) genutzt?: ")
-p()
 p()
 color(BRAUN)
 p("########## ########## ########## ##### # ##### ########## ########## ##########")
@@ -727,9 +736,7 @@ if (resSystem == 4) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
         copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	}
-
-	clear()
+	 }
 
 	if (resLIN == 3) {
 		p()
@@ -895,6 +902,12 @@ if (resSystem == 8) {
 	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini", "sd:/bootloader/nyx.ini")
 }
 
+clear()
+
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -932,6 +945,10 @@ if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
 copydir ("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo", "sd:/atmosphere/exefs_patches/")
 }
 
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -1089,6 +1106,7 @@ if (resTesla == 1) {
 	p()
 	color(BRAUN)
 	p("########## ########## ########## ##### # ##### ########## ########## ##########")
+	p()
 
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
@@ -1115,6 +1133,8 @@ if (resTesla == 1) {
     menuOptionsYN = ["ja", "nein"]
     resYN = menu(menuOptionsYN, 0)
 
+    clear()
+
     if (resYN == 0) {
         color(GRUEN)
 		p()
@@ -1123,6 +1143,8 @@ if (resTesla == 1) {
         copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
 	}
+
+clear()
 
 	if (resYN == 1) {
         color(DROT)
@@ -1618,6 +1640,12 @@ if (resTesla == 1) {
 	}
 }
 
+clear()
+
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -1649,6 +1677,8 @@ p()
 menuOptionsTinfoil = ["[HBMENU] Tinfoil im HBMenu (empfohlen)", "[HOMESCREEN] Tinfoil auf dem Homescreen", "[NICHTS] Tinfoil deinstallieren"]
 resTinfoil = menu(menuOptionsTinfoil, 0)
 
+clear()
+
 if (resTinfoil == 0) {
 	color(GRUEN)
 	p()
@@ -1657,6 +1687,8 @@ if (resTinfoil == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu/switch", "sd:/")
 }
+
+clear()
 
 if (resTinfoil == 1) {
 	color(GRUEN)
@@ -1668,6 +1700,8 @@ if (resTinfoil == 1) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
 }
 
+clear()
+
 if (resTinfoil == 2) {
 	color(DROT)
 	p()
@@ -1677,6 +1711,12 @@ if (resTinfoil == 2) {
 	delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][15.0][v0].nsp")
 }
 
+clear()
+
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -1699,6 +1739,8 @@ p()
 
 menuOptionsHBApps = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)", "[BESTIMMTE] bestimmte Zusatz-Apps werden installiert"]
 resHBApps = menu(menuOptionsHBApps, 1)
+
+clear()
 
 if (resHBApps == 0) {
 	color(GRUEN)
@@ -1726,6 +1768,8 @@ if (resHBApps == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
 }
+
+clear()
 
 if (resHBApps == 2) {
 	color(GRUEN)
@@ -2491,6 +2535,12 @@ if (resHBApps == 1) {
 	}
 }
 
+clear()
+
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -2512,6 +2562,7 @@ p("                   Bitte warten, dass dauert einen Moment...")
 p()
 color(BRAUN)
 p("########## ########## ########## ##### # ##### ########## ########## ##########")
+p()
 removemacfolders()
 p()
 p()
@@ -2532,7 +2583,15 @@ p()
 p("                   Bitte warten, dass dauert einen Moment...")
 p()
 p("########## ########## ########## ##### # ##### ########## ########## ##########")
+
+wait(tw = 5000)
+clear()
+
 fixattrib()
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -2548,7 +2607,6 @@ p("########## ########## ########## ##### # ##### ########## ########## ########
 p()
 color(GELB)
 p("         SwitchBros. Paket Installationsdaten werden jetzt entfernt...")
-p()
 p()
 p()
 color(WEISS)
@@ -2580,6 +2638,11 @@ delfile("sd:/switch/switchbrosupdater/startup.te")
 deldir("sd:/switch/switchbrosupdater")
 delfile("sd:/tegraexplorer/scripts/update.te")
 delfile("sd:/config/switchbros-updater/ams.zip")
+copyfile("sd:/bootloader/update.bin", "sd:/payload.bin")
+p()
+p()
+p()
+p()
 p()
 p()
 color(GRUEN)
@@ -2616,6 +2679,7 @@ p("               Deine Switch wird in 5 Sek. automatisch neu gestartet.")
 p()
 p()
 p()
+wait(tw = 3000)
 color(LILA) print("                        5...") wait(tw = 1000) color(BLAU) print("  4...") wait(tw = 1000) color(ROT) print("  3...") wait(tw = 1000) color(ORANGE) print("  2...") wait(tw = 1000) color(GELB) print("  1...") wait(tw = 1000) color(WEISS) print("  0") wait(tw = 1000)
 
 if (is_erista()) {
