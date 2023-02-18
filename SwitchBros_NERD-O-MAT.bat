@@ -1801,9 +1801,11 @@ xcopy "%sd%:\switchbros\zusatzapps\NX-Shell\*" "%sd%:\" /H /Y /C /R /S /E /I >nu
 xcopy "%sd%:\switchbros\zusatzapps\NXGallery\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\nxmp\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\switch-remote-play\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\zusatzapps\SwitchSMBClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nu l
 xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+
 GOTO attributeundmac
 
 REM ============================================================
@@ -1910,24 +1912,26 @@ RD /s /q "%sd%:\switch\appstore\.get\packages\switch-remote-play"
 RD /s /q "%sd%:\switch\switch-remote-play"
 )
 
-Rem xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\TencentSwitcherGui" (
-RD /s /q "%sd%:\switch\TencentSwitcherGui"
-)
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\vgedit" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\vgedit"
-RD /s /q "%sd%:\switch\vgedit"
-)
-
 xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 REM if exist "%sd%:\switch\switch-ftp-client" (
 REM RD /s /q "%sd%:\switch\appstore\.get\packages\switch-ftp-client"
 REM RD /s /q "%sd%:\switch\switch-ftp-client"
-REM )
 
+xcopy "%sd%:\switchbros\zusatzapps\SwitchSMBClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+REM if exist "%sd%:\switch\switch-smb-client" (
+REM RD /s /q "%sd%:\switch\appstore\.get\packages\switch-smb-client"
+REM RD /s /q "%sd%:\switch\switch-smb-client"
 
+REM xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+if exist "%sd%:\switch\TencentSwitcherGui" (
+RD /s /q "%sd%:\switch\TencentSwitcherGui"
+)
+
+REM xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+if exist "%sd%:\switch\vgedit" (
+RD /s /q "%sd%:\switch\appstore\.get\packages\vgedit"
+RD /s /q "%sd%:\switch\vgedit"
+)
 
 GOTO attributeundmac
 
@@ -1958,8 +1962,10 @@ echo     13 = NX-Shell (Dateimanager)
 echo     14 = NX-Gallery (Switch Album am PC oder Handy ansehen)
 echo     15 = NXMP (Mediaplayer)
 echo     16 = Switch-Remote-Play (PC auf der Switch streamen)
-echo     17 = TencentSwitcherGui (Chinesisch auf englisch stellen)
-echo     18 = vgedit (Dateien auf der Switch bearbeiten)
+echo     17 = Switch-FTP-Client (Switch ueber FTP mit einem Geraet verbinden)
+echo     18 = Switch-SMB-Client (Switch ueber SMB mit einem Geraet verbinden)
+echo     19 = TencentSwitcherGui (Chinesisch auf englisch stellen)
+echo     20 = vgedit (Dateien auf der Switch bearbeiten)
 echo.
 echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1986,10 +1992,11 @@ set /p datenapps=     Waehle deine Zusatz-App(s):
 	if "%datenapps%"=="14" GOTO nxgallery
 	if "%datenapps%"=="15" GOTO nxmp
 	if "%datenapps%"=="16" GOTO switchremoteplay
-	if "%datenapps%"=="17" GOTO tencentswitcher
-	if "%datenapps%"=="18" GOTO vgedit
-  if "%datenapps%"=="18" GOTO ftpclient
-	if /i "%datenapps%"=="W" GOTO attributeundmac
+	if "%datenapps%"=="17" GOTO ftpclient
+	if "%datenapps%"=="18" GOTO smbclient
+	if "%datenapps%"=="19" GOTO tencentswitcher
+	if "%datenapps%"=="20" GOTO vgedit
+  if /i "%datenapps%"=="W" GOTO attributeundmac
 	if /i "%datenapps%"=="H" GOTO hauptmenue
 
 REM ============================================================
@@ -2471,6 +2478,66 @@ set /p switchremoteplay=     Bitte triff deine Auswahl:
 	if "%switchremoteplay%"=="3" GOTO zusatzapps
 
 REM ============================================================
+:ftpclient
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll Switch-FTP-Client installiert oder deinstalliert werden?
+echo.
+echo      1 = Switch-FTP-Client installieren
+echo      2 = Switch-FTP-Client deinstallieren
+echo.
+echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo      Enter = zur naechsten App springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "ftpclient="
+set /p ftpclient=     Bitte triff deine Auswahl: 
+	if "%ftpclient%"=="1" (
+	xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO zusatzapps
+	)
+	if "%ftpclient%"=="2" (
+	RD /s /q "%sd%:\switch\appstore\.get\packages\switch-ftp-client"
+	RD /s /q "%sd%:\switch\switch-ftp-client"
+	GOTO zusatzapps
+	)
+	if "%ftpclient%"=="3" GOTO zusatzapps
+
+REM ============================================================
+:smbclient
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll Switch-SMB-Client installiert oder deinstalliert werden?
+echo.
+echo      1 = Switch-SMB-Client installieren
+echo      2 = Switch-SMB-Client deinstallieren
+echo.
+echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo      Enter = zur naechsten App springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "smbclient="
+set /p smbclient=     Bitte triff deine Auswahl: 
+	if "%smbclient%"=="1" (
+	xcopy "%sd%:\switchbros\zusatzapps\SwitchSMBClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO zusatzapps
+	)
+	if "%smbclient%"=="2" (
+	RD /s /q "%sd%:\switch\appstore\.get\packages\switch-smb-client"
+	RD /s /q "%sd%:\switch\switch-smb-client"
+	GOTO zusatzapps
+	)
+	if "%smbclient%"=="3" GOTO zusatzapps
+ 
+REM ============================================================
 :tencentswitcher
 COLOR 0E
 cls
@@ -2528,37 +2595,7 @@ set /p vgedit=     Bitte triff deine Auswahl:
 	GOTO zusatzapps
 	)
 	if "%vgedit%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:ftpclient
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Switch-FTP-Client installiert oder deinstalliert werden?
-echo.
-echo      1 = Switch-FTP-Client installieren
-echo      2 = Switch-FTP-Client deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "ftpclient="
-set /p ftpclient=     Bitte triff deine Auswahl: 
-	if "%ftpclient%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%ftpclient%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\switch-ftp-client"
-	RD /s /q "%sd%:\switch\switch-ftp-client"
-	GOTO zusatzapps
-	)
-	if "%ftpclient%"=="3" GOTO zusatzapps
-	if "%ftpclient%"=="" GOTO zusatzapps
+  if "%vgedit%"=="" GOTO zusatzapps 
 
 REM ============================================================
 :attributeundmac

@@ -1,0 +1,11 @@
+{
+  "title": "Switch SMB Client",
+  "author": "cy33hc",
+  "category": "tool",
+  "version": "1.0.1",
+  "url": "https://github.com/cy33hc/switch-smb-client",
+  "license": "GPLv2",
+  "description": "Simple SMB client for the Switch. Allows you to transfer files between the Switch and your Windows Shares, Linux SMB Shares and NAS SMB shares",
+  "details": "Simple SMB client for the Switch. Allows you to transfer files between the Switch and your Windows Shares, Linux SMB Shares and NAS SMB shares",
+  "changelog": ""
+}

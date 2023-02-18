@@ -9,7 +9,7 @@ Lockpick_RCM 1.9.9 (Deutsch)
 
 90DNS Tester 1.0.4
 SwitchBros Updater 2.21.3-SB
-DBI 480
+DBI 490
 FTPD 3.1.0
 HB-AppStore 2.2
 JKSV 09/01/2021
@@ -53,6 +53,7 @@ NX-Shell 4.01
 NXGallery 2.0.0
 NXMP v0.6.3 Rev7
 Switch FTP Client 1.0.7
+Switch SMB Client 1.0.1
 Switch-Remote-Play 1.0.0
 TencentSwitcherGUI 0.1.2
 Vgedit 2.1
