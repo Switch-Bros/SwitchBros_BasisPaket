@@ -1691,8 +1691,7 @@ if (resTinfoil == 0) {
 
 	if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")){
 	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
-}
-
+	}
 }
 
 clear()
@@ -1706,8 +1705,9 @@ if (resTinfoil == 1) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
 
-	if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")){
+	if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")) {
 	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
+	}
 }
 
 clear()
