@@ -2782,6 +2782,8 @@ if exist "%sd%:\*.bak" (del "%sd%:\*.bak")
 if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%:\SwitchBros_BasisPaket.zip")
 if exist "%sd%:\SwitchBros.txt" (del "%sd%:\SwitchBros.txt")
 if exist "%sd%:\switch\switchbrosupdater" (RD /s /q "%sd%:\switch\switchbrosupdater")
+if exist "%sd%:\bootloader\ini\!switchbros-updater.ini" (del "%sd%:\bootloader\ini\!switchbros-updater.ini")
+if exist "%sd%:\bootloader\ini\!switchbros-updater.ini" (del "%sd%:\bootloader\ini\!switchbros-updater.ini")
 
 if %bootdat%==1 (
 	if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
