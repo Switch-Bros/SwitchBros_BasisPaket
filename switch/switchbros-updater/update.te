@@ -49,7 +49,7 @@ pl()
 pl()
 pl()
 color(GRUEN)
-pl("  Druecke die A Taste, um das SwitchBros. Paket zu aktualisieren!")
+pl("  Druecke die A-Taste, um das SwitchBros. Paket zu aktualisieren!")
 pl()
 pl()
 color(ORANGE)
@@ -516,7 +516,7 @@ pl()
 pl()
 pl()
 
-color(GELB)
+color(SILBER)
 menuOptionsChip = ["[M0] Kein Modchip", "[M1] Modchip (v2, lite, OLED)", "[M2] Modchip trinketM0 (v1)"]
 resChip = menu(menuOptionsChip, 0)
 
@@ -606,7 +606,7 @@ pl()
 pl()
 pl()
 
-color(GELB)
+color(SILBER)
 menuOptionsSystem = ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + Android + Linux", "[5] Basis + Android + LAKKA", "[6] Basis + Android + Linux + LAKKA", "[7] Basis + Linux + LAKKA", "[8] alte Daten behalten (nicht empfohlen)"]
 resSystem = menu(menuOptionsSystem, 0)
 
@@ -652,6 +652,7 @@ if (resSystem == 2) {
 	pl("      Welche Linux Distro soll genutzt werden?")
 	pl()
     pl()
+	color(SILBER)
     menuOptionsLIN = ["Arch", "Bionic (empfohlen)", "Fedora", "Ubuntu"]
     resLIN = menu(menuOptionsLIN, 1)
 
@@ -713,6 +714,7 @@ if (resSystem == 4) {
     pl("      Welche Linux Distro soll genutzt werden?")
 	pl()
     pl()
+	color(SILBER)
     menuOptionsLIN = ["Arch", "Bionic (empfohlen)", "Fedora", "Ubuntu"]
     resLIN = menu(menuOptionsLIN, 1)
 
@@ -779,6 +781,7 @@ if (resSystem == 6) {
 	pl("      Welche Linux Distro soll genutzt werden?")
 	pl()
 	pl()
+	color(SILBER)
     menuOptionsLIN = ["Arch", "Bionic (empfohlen)", "Fedora", "Ubuntu"]
     resLIN = menu(menuOptionsLIN, 1)
 
@@ -832,6 +835,7 @@ if (resSystem == 7) {
 	pl("      Welche Linux Distro soll genutzt werden?")
 	pl()
 	pl()
+	color(SILBER)
     menuOptionsLIN = ["Arch", "Bionic (empfohlen)", "Fedora", "Ubuntu"]
     resLIN = menu(menuOptionsLIN, 1)
 
@@ -903,10 +907,10 @@ pl()
 pl()
 pl("      Darin enthalten sind folgende Apps:")
 pl()
-color(SILBER)p("       * ")color(BECKY)p("NXThemeInstaller um Themes zu installieren")pl()
-color(SILBER)p("       * ")color(BECKY)p("ThemezerNX das ueber 1000 Themes bietet")pl()
-color(SILBER)p("       * ")color(BECKY)p("IconGrabber um die Icons deiner Titel zu aendern!")pl()
-color(SILBER)p("       * ")color(BECKY)p("systweak um andere Icons nutzen zu koennen!")pl()
+color(SILBER)p("        * ")color(BECKY)p("NXThemeInstaller um Themes zu installieren")pl()
+color(SILBER)p("        * ")color(BECKY)p("ThemezerNX das ueber 1000 Themes bietet")pl()
+color(SILBER)p("        * ")color(BECKY)p("IconGrabber um die Icons deiner Titel zu aendern!")pl()
+color(SILBER)p("        * ")color(BECKY)p("systweak um andere Icons nutzen zu koennen!")pl()
 pl()
 color(NAVAJO)pl("########### ########### ########## ### # ### ########## ########### ###########")
 color(SCHWARZ)
@@ -950,18 +954,18 @@ pl()
 pl()
 pl()
 
-color(GELB)
+color(SILBER)
 menuOptionsTesla = ["[ALLES] Tesla-Overlay Menue inkl. aller System-Module", "[MANUELL] Tesla-Overlay Menue + Module einzeln (empfohlen)", "[NICHTS] kein Tesla-Overlay, keine Module"]
 resTesla = menu(menuOptionsTesla, 1)
 
 clear()
 
 if (resTesla == 0) {
-    color(GRUEN)
+    pl()
 	pl()
 	pl()
-	pl()
-	pl("     Tesla-Overlay Menue inkl. aller Module wird installiert...")
+	color(GRUEN)
+	pl("          Tesla-Overlay Menue inkl. aller Module wird installiert...")
 	color(SCHWARZ)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
@@ -998,13 +1002,13 @@ if (resTesla == 0) {
 }
 
 clear()
-
+	
 if (resTesla == 2) {
+	pl()
+	pl()
+	pl()
 	color(ROT)
-	pl()
-	pl()
-	pl()
-	pl("    Tesla-Overlay Menue inkl. aller Module wird deinstalliert...")
+	pl("         Tesla-Overlay Menue inkl. aller Module wird deinstalliert...")
 	color(SCHWARZ)
 	deldir("sd:/atmosphere/contents/420000000007E51A")
 	deldir("sd:/config/Tesla")
@@ -1071,8 +1075,8 @@ if (resTesla == 1) {
 	pl("         Tesla-Overlay Menue und einzelne Module manuell installieren!")
 	pl()
 	pl()
-	pl("  Tesla-Overlay Menue wird automatisch installiert!")
-	pl("  Du musst nur noch entscheiden welche Module du dabei haben willst!")
+	pl("               Tesla-Overlay Menue wird automatisch installiert!")
+	pl("      Du musst nur noch entscheiden welche Module du dabei haben willst!")
 	pl()
 	color(NAVAJO)pl("########### ########### ########## ### # ### ########## ########### ###########")
 	color(SCHWARZ)
@@ -1093,7 +1097,7 @@ clear()
     pl()
     pl()
     color(GELB)
-	pl("-- Modul - BootSoundNX")
+	pl("                              Modul - BootSoundNX")
 	pl()
     pl("  BootSoundNX kann eine mp3 Datei beim Start der Konsole abspielen lassen.")
     pl()
@@ -1105,17 +1109,14 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
 	clear()
+	color(SCHWARZ)
 
 	if (resYN == 0) {
-		color(SCHWARZ)
-        copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
 	}
 
-	clear()
-
 	if (resYN == 1) {
-        color(SCHWARZ)
         deldir("sd:/atmosphere/contents/00FF0000000002AA")
 		deldir("sd:/config/BootSoundNX")
 	}
@@ -1126,7 +1127,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - EdiZon")
+    pl("                               Modul - EdiZon")
 	pl()
     pl("  Mit EdiZon kannst du Cheats in Spielen aufrufen und nutzen.")
 	pl("  Im Tesla-Overlay heisst das Modul = Zing.")
@@ -1139,18 +1140,15 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
 	clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
 	}
 
-	clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/atmosphere/contents/054e4f4558454000")
+    	deldir("sd:/atmosphere/contents/054e4f4558454000")
 		deldir("sd:/atmosphere/contents/010000000000000D")
 		deldir("sd:/atmosphere/contents/0100000000001013")
 		delfile("sd:/switch/.overlays/4_Breeze-Overlay.ovl")
@@ -1165,7 +1163,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - Emuiibo")
+    pl("                                Modul - Emuiibo")
 	pl()
     pl("  Mit Emuiibo kannst du Amiibos emulieren und im Spiel dann aufrufen.")
 	pl("  Die Amiibos werden mit der App Amiigo bereitgestellt.")
@@ -1178,19 +1176,16 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/atmosphere/contents/0100000000000352")
+    	deldir("sd:/atmosphere/contents/0100000000000352")
 		deldir("sd:/emuiibo")
 		delfile("sd:/switch/.overlays/2_emuiibo.ovl")
 		deldir("sd:/switch/appstore/.get/packages/emuiibo")
@@ -1202,7 +1197,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - fastCFWswitch")
+    pl("                             Modul - fastCFWswitch")
 	pl()
     pl("  Mit fastCFWswitch kannst du, aus der CFW, in die Systeme/Payloads wechseln.")
 	pl()
@@ -1216,18 +1211,15 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/config/fastCFWswitch")
+    	deldir("sd:/config/fastCFWswitch")
 		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
 		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
 	}
@@ -1238,7 +1230,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - Fizeau")
+    pl("                                Modul - Fizeau")
 	pl()
     pl("  Mit Fizeau kannst du dein Display anpassen um fast OLED feeling zu bekommen.")
 	pl("  Dieses Modul lohnt sich daher nicht auf einer OLED Konsole.")
@@ -1251,19 +1243,16 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/atmosphere/contents/0100000000000F12")
+    	deldir("sd:/atmosphere/contents/0100000000000F12")
 		deldir("sd:/config/Fizeau")
 		deldir("sd:/switch/Fizeau")
 		delfile("sd:/switch/.overlays/5_Fizeau.ovl")
@@ -1276,7 +1265,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - ldnmitm")
+    pl("                                Modul - ldnmitm")
 	pl()
     pl("  Mit ldnmitm hast du die Moeglichkeit mit anderen ueber den lokalen Modus")
 	pl("  deines Spiels, zusammen zu spielen. Und zwar Online")
@@ -1290,18 +1279,15 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/atmosphere/contents/4200000000000010")
+    	deldir("sd:/atmosphere/contents/4200000000000010")
 		deldir("sd:/switch/ldnmitm_config")
 		delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
 		deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
@@ -1313,7 +1299,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - MissionControl")
+    pl("                            Modul - MissionControl")
 	pl()
     pl("  Mit MissionControl kannst du einen PS4/PS5 oder Xbox One S/X Controller mit")
     pl("  deiner Switch koppeln. Fast alle Controller die ECHTES BLAUtooth besitzen.")
@@ -1326,19 +1312,16 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-		deldir("sd:/atmosphere/contents/010000000000bd00")
+    	deldir("sd:/atmosphere/contents/010000000000bd00")
 		deldir("sd:/atmosphere/exefs_patches/BLAUtooth_patches")
 		deldir("sd:/config/MissionControl")
 		deldir("sd:/switch/appstore/.get/packages/MissionControl")
@@ -1350,7 +1333,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - ovlSysmodule")
+    pl("                             Modul - ovlSysmodule")
 	pl()
     pl("  Mit ovlSysmodule kannst du alle Tesla-Overlay Module im laufenden Betrieb")
     pl("  einschalten/ausschalten.")
@@ -1363,17 +1346,14 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
+    	delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
 		deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
 	}
 
@@ -1383,7 +1363,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - Status-Monitor-Overlay")
+    pl("                        Modul - Status-Monitor-Overlay")
 	pl()
     pl("  Mit Status-Monitor-Overlay kannst du dir Infos deiner Konsole anzeigen")
     pl("  lassen.")
@@ -1395,17 +1375,14 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
+    	delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
 		deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
 	}
 
@@ -1415,7 +1392,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - sys-clk")
+    pl("                                Modul - sys-clk")
 	pl()
     pl("  Mit sys-clk kannst du deine Konsole uebertakten oder auch untertakten.")
 	pl("  Du kannst die Taktrate von CPU, GPU und RAM einstellen.")
@@ -1430,19 +1407,16 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
+    	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
 		deldir("sd:/config/sys-clk")
 		deldir("sd:/switch/sys-clk")
 		delfile("sd:/switch/.overlays/3_sys-clk-overlay.ovl")
@@ -1455,7 +1429,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - sys-clk-Editor")
+    pl("                            Modul - sys-clk-Editor")
 	pl()
     pl("  Mit dem sys-clk-Editor kannst du die Einstellungen pro Titel vornehmen und")
 	pl("  diese in die config von sys-clk eintragen lassen.")
@@ -1468,17 +1442,14 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/sys-clk-Editor")
+    	deldir("sd:/switch/sys-clk-Editor")
 		deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
 	}
 
@@ -1488,7 +1459,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - sys-con")
+    pl("                                Modul - sys-con")
 	pl()
     pl("  Mit sys-con kannst du Controller anderer Hersteller PS, XBOX etc. ueber.")
 	pl("  USB mit der Konsole Verbinden.")
@@ -1501,19 +1472,16 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/atmosphere/contents/690000000000000D")
+    	deldir("sd:/atmosphere/contents/690000000000000D")
 		deldir("sd:/config/sys-con")
 		deldir("sd:/switch/appstore/.get/packages/sys-con")
 	}
@@ -1524,7 +1492,7 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- Modul - SysDVR")
+    pl("                                Modul - SysDVR")
 	pl()
     pl("  Mit SysDVR kannst du ein Spiel an deinen PC uebetragen und aufnehmen.")
 	pl()
@@ -1536,19 +1504,16 @@ clear()
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+    	deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 		deldir("sd:/config/sysdvr")
 		deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
 		deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
@@ -1579,15 +1544,15 @@ pl()
 pl("                Tinfoil kann auf zwei Arten installiert werden:")
 pl()
 pl()
-color(SILBER)p("       * ")color(BECKY)p("Entweder im HBMenu damit es vor den Kindern versteckt ist!")pl()
+color(SILBER)p("      * ")color(BECKY)p("Entweder im HBMenu damit es vor den Kindern versteckt ist!")pl()
 pl()
-color(SILBER)p("       * ")color(BECKY)p("Auf dem Homescreen wo es wie andere Titel jeder sehen kann")pl()
+color(SILBER)p("      * ")color(BECKY)p("Auf dem Homescreen wo es wie andere Titel jeder sehen kann")pl()
 pl()
 color(NAVAJO)pl("########### ########### ########## ### # ### ########## ########### ###########")
 pl()
 pl()
 
-color(GELB)
+color(SILBER)
 menuOptionsTinfoil = ["[HBMENU] Tinfoil im HBMenu (empfohlen)", "[HOMESCREEN] Tinfoil auf dem Homescreen", "[NICHTS] Tinfoil deinstallieren"]
 resTinfoil = menu(menuOptionsTinfoil, 0)
 
@@ -1614,7 +1579,7 @@ if (resTinfoil == 1) {
 	pl()
 	pl()
 	pl()
-	color(GRUEN)
+	color(ROT)
 	pl("                 Tinfoil wird auf dem Homescreen installiert...")
 	color(SCHWARZ)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
@@ -1662,7 +1627,7 @@ color(NAVAJO)pl("########### ########### ########## ### # ### ########## #######
 pl()
 pl()
 
-color(GELB)
+color(SILBER)
 menuOptionsHBApps = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)", "[BESTIMMTE] bestimmte Zusatz-Apps werden installiert"]
 resHBApps = menu(menuOptionsHBApps, 1)
 
@@ -1734,6 +1699,7 @@ if (resHBApps == 1) {
 	color(NAVAJO)pl("########### ########### ########## ### # ### ########## ########### ###########")
 	pl()
 	pl()
+	pl()
 	color(GRUEN)
 	pl("                 Druecke eine beliebige Taste um fortzufahren!")
 	pause()
@@ -1761,8 +1727,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
 	}
-
-	clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -1795,8 +1759,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/Amiigo")
@@ -1827,8 +1789,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/chiaki")
@@ -1858,8 +1818,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/fake08")
@@ -1888,8 +1846,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
 	}
-
-    clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -1921,8 +1877,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/Homebrew-Details")
@@ -1953,8 +1907,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/melonDS")
@@ -1984,8 +1936,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
 	}
-
-    clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -2018,8 +1968,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/Moonlight-Switch")
@@ -2049,8 +1997,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
 	}
-
-    clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -2082,8 +2028,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
 	}
 
-	clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/NX-Activity-Log")
@@ -2113,8 +2057,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
 	}
-
-	clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -2146,8 +2088,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/NX-Shell")
@@ -2177,8 +2117,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
 	}
-
-    clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -2211,8 +2149,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/NXMP")
@@ -2242,8 +2178,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
 	}
-
-    clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -2276,8 +2210,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
@@ -2308,8 +2240,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
 	}
-
-    clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -2342,8 +2272,6 @@ clear()
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
 	}
 
-    clear()
-
 	if (resYN == 1) {
     	color(SCHWARZ)
         deldir("sd:/switch/TencentSwitcherGui")
@@ -2373,8 +2301,6 @@ clear()
     	color(SCHWARZ)
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
 	}
-
-    clear()
 
 	if (resYN == 1) {
     	color(SCHWARZ)
@@ -2457,7 +2383,7 @@ pl()
 color(WEISS)
 pl("    Klar Schiff machen! Sieht zwar schon gut aus, aber da ist noch n Fleck!")
 pl()
-pl("    Genau hier > o < - und das dauert einen Moment...")
+pl("               Genau hier > o < - ,und das dauert einen Moment...")
 pl()
 pl()
 color(NAVAJO)pl("########### ########### ########## ### # ### ########## ########### ###########")
