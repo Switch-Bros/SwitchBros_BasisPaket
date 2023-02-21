@@ -1105,7 +1105,7 @@ clear()
     pl("  Moechtest du [BootSoundNX] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
 	clear()
@@ -1136,7 +1136,7 @@ clear()
     pl("  Moechtest du [EdiZon] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
 	clear()
@@ -1172,7 +1172,7 @@ clear()
     pl("  Moechtest du [Emuiibo] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1207,7 +1207,7 @@ clear()
     pl("  Moechtest du [fastCFWswitch] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1239,7 +1239,7 @@ clear()
     pl("  Moechtest du [Fizeau] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1275,7 +1275,7 @@ clear()
     pl("  Moechtest du [ldnmitm] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1308,7 +1308,7 @@ clear()
     pl("  Moechtest du [MissionControl] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1342,7 +1342,7 @@ clear()
     pl("  Moechtest du [ovlSysmodule] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1371,7 +1371,7 @@ clear()
     pl("  Moechtest du [Status-Monitor-Overlay] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1403,7 +1403,7 @@ clear()
     pl("  Moechtest du [sys-clk] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1438,7 +1438,7 @@ clear()
     pl("  Moechtest du [sys-clk-Editor] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1468,7 +1468,7 @@ clear()
     pl("  Moechtest du [sys-con] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1500,7 +1500,7 @@ clear()
     pl("  Moechtest du [SysDVR] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
@@ -1710,27 +1710,26 @@ clear()
     pl()
 	pl()
     color(GELB)
-    pl("-- APP - AmiiboGenerator")
+	pl("                             APP - AmiiboGenerator")
 	pl()
     pl("  Der AmiiboGenerator erstellt Amiibos fuer dich.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [AmiiboGenerator] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/AmiiboGenerator")
+    	deldir("sd:/switch/appstore/.get/packages/AmiiboGenerator")
 		deldir("sd:/switch/AmiiboGenerator")
 	}
 
@@ -1740,28 +1739,27 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - Amiigo")
+    pl("                                 APP - Amiigo")
 	pl()
     pl("  Mit Amiigo waehlst du die Amiibos aus die dir in Spielen zur Verfuegung.")
 	pl("  stehen sollen")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [Amiigo] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/Amiigo")
+    	deldir("sd:/switch/appstore/.get/packages/Amiigo")
 		deldir("sd:/switch/Amiigo")
 	}
 
@@ -1771,27 +1769,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - Chiaki")
+    pl("                                 APP - Chiaki")
 	pl()
     pl("  Mit Chiaki kannst du deine PlayStation auf die Switch streamen.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [Chiaki] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/chiaki")
+    	deldir("sd:/switch/chiaki")
 	}
 
 clear()
@@ -1800,27 +1797,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - fake08")
+    pl("                                 APP - fake08")
 	pl()
     pl("  fake08 ist ein einfacher pico8 Emulator.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [fake08] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/fake08")
+    	deldir("sd:/switch/fake08")
 	}
 
 clear()
@@ -1829,27 +1825,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - GoldLeaf")
+    pl("                                APP - GoldLeaf")
 	pl()
     pl("  Mit GoldLeaf kannst du NSP Dateien installieren und mehr.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [GoldLeaf] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/Goldleaf")
+    	deldir("sd:/switch/appstore/.get/packages/Goldleaf")
 		deldir("sd:/switch/Goldleaf")
 	}
 
@@ -1859,27 +1854,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - Homebrew-Details")
+    pl("                            APP - Homebrew-Details")
 	pl()
     pl("  Homebrew-Details zeigt dir alles zu deinen Homebrew Apps an.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [Homebrew-Details] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/Homebrew-Details")
+    	deldir("sd:/switch/appstore/.get/packages/Homebrew-Details")
 		deldir("sd:/switch/Homebrew-Details")
 	}
 
@@ -1889,27 +1883,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - MelonDS")
+    pl("                                 APP - MelonDS")
 	pl()
     pl("  MelonDS ist ein guter NintendoDS Emulator.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [MelonDS] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/melonDS")
+    	deldir("sd:/switch/appstore/.get/packages/melonDS")
 		deldir("sd:/switch/melonDS")
 	}
 
@@ -1919,27 +1912,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - MiiPort")
+    pl("                                 APP - MiiPort")
 	pl()
     pl("  Mit MiiPort kannst du Miis importieren/exportieren.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [MiiPort] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/MiiPort")
+    	deldir("sd:/switch/appstore/.get/packages/MiiPort")
 		deldir("sd:/switch/MiiPort")
 	}
 
@@ -1949,28 +1941,27 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - Moonlight-Switch")
+    pl("                            APP - Moonlight-Switch")
 	pl()
     pl("  Mit Moonlight-Switch kannst du den Bildschirm der Switch (z.B. Spiel) an")
 	pl("  deinen PC uebetragen und aufnehmen.")
     pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [Moonlight-Switch] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/Moonlight-Switch")
+    	deldir("sd:/switch/appstore/.get/packages/Moonlight-Switch")
 		deldir("sd:/switch/Moonlight-Switch")
 	}
 
@@ -1980,27 +1971,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - Neumann")
+    pl("                                 APP - Neumann")
 	pl()
     pl("  Mit Neumann kannst du die Speicherdaten deiner Spiele sichern.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [Neumann] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/Neumann")
+    	deldir("sd:/switch/appstore/.get/packages/Neumann")
 		deldir("sd:/switch/Neumann")
 	}
 
@@ -2010,27 +2000,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - NX-Activity-Log")
+    pl("                             APP - NX-Activity-Log")
 	pl()
     pl("  NX-Activity-Log zeigt dir alle Statistiken zu deinen gespielten Spielen an.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [NX-Activity-Log] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/NX-Activity-Log")
+    	deldir("sd:/switch/appstore/.get/packages/NX-Activity-Log")
 		deldir("sd:/switch/NX-Activity-Log")
 	}
 
@@ -2040,27 +2029,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - nx-locale-switcher")
+    pl("                            APP - nx-locale-switcher")
 	pl()
     pl("  Mit nx-locale-switcher kannst du die Region von Spielen einstellen.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [nx-locale-switcher] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
 	clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/nx-locale-switcher")
+    	deldir("sd:/switch/appstore/.get/packages/nx-locale-switcher")
 		deldir("sd:/switch/nx-locale-switcher")
 	}
 
@@ -2070,27 +2058,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - NX-Shell")
+    pl("                                APP - NX-Shell")
 	pl()
     pl("  NX-Shell ist ein sehr guter Datei-Explorer fuer die Switch.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [NX-Shell] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/NX-Shell")
+    	deldir("sd:/switch/appstore/.get/packages/NX-Shell")
 		deldir("sd:/switch/NX-Shell")
 	}
 
@@ -2100,27 +2087,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - NXGallery")
+    pl("                                APP - NXGallery")
 	pl()
     pl("  Mit NXGallery kannst du Bilder aus dem Album an dein Handy schicken.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [NXGallery] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/NXGallery")
+    	deldir("sd:/switch/appstore/.get/packages/NXGallery")
 		deldir("sd:/switch/NXGallery")
 	}
 
@@ -2130,28 +2116,27 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - NXMP")
+    pl("                                  APP - NXMP")
 	pl()
     pl("  NXMP ist das Multimedia Tool schlechthin. Spielt sehr viele Videoformate ab.")
 	pl("  Kann sogar mit einem Server verbunden werden um von dort zu streamen")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [NXMP] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/NXMP")
+    	deldir("sd:/switch/appstore/.get/packages/NXMP")
 		deldir("sd:/switch/NXMP")
 	}
 
@@ -2161,27 +2146,26 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - switch-remote-play")
+    pl("                           APP - switch-remote-play")
 	pl()
     pl("  Mit switch-remote-play kannst du deinen PC auf die Switch streamen.")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [switch-remote-play] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/switch-remote-play")
+    	deldir("sd:/switch/appstore/.get/packages/switch-remote-play")
 		deldir("sd:/switch/switch-remote-play")
 	}
 
@@ -2191,28 +2175,27 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - SwitchFTPClient")
+    pl("                             APP - SwitchFTPClient")
 	pl()
     pl("  Mit dem SwitchFTPClient kannst du eine FTP Verbindung zu deiner.")
 	pl("  Switch aufbauen!")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [SwitchFTPClient] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
+    	deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
 		deldir("sd:/switch/switch-ftp-client")
 	}
 
@@ -2222,28 +2205,27 @@ clear()
     pl()
 	pl()
     color(GELB)
-    pl("-- APP - SwitchSMBClient")
+    pl("                             APP - SwitchSMBClient")
 	pl()
     pl("  Mit dem SwitchSMBClient kannst du eine FTP Verbindung zu deiner.")
 	pl("  Switch aufbauen!")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [SwitchSMBClient] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/switch-smb-client")
+    	deldir("sd:/switch/appstore/.get/packages/switch-smb-client")
 		deldir("sd:/switch/switch-smb-client")
 	}
 
@@ -2253,28 +2235,27 @@ clear()
     pl()
 	pl()
     color(GELB)
-    pl("-- APP - TencentSwitcherGui")
+    pl("                           APP - TencentSwitcherGui")
 	pl()
     pl("  Mit TencentSwitcherGui kannst du eine chinesische Switch zumindest wieder.")
 	pl("  auf englisch stellen! Bei Tencent Switch gibt es NUR noch chinesisch")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("  Moechtest du [TencentSwitcherGui] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/TencentSwitcherGui")
+    	deldir("sd:/switch/TencentSwitcherGui")
 	}
 
 clear()
@@ -2283,28 +2264,27 @@ clear()
     pl()
     pl()
 	color(GELB)
-    pl("-- APP - vgedit")
+    pl("                                 APP - vgedit")
 	pl()
     pl("vgedit ist ein sehr einfacher Explorer mit Hauptaugenmerk auf Dateien.")
 	pl("bearbeiten .ini, .json, .cfg, etc...")
 	pl()
-    color(WEISS)
+    color(SILBER)
     pl("Moechtest du [vgedit] installieren?")
     pl()
     pl()
-    menuOptionsYN = ["ja", "nein"]
+    menuOptionsYN = ["Ja", "Nein"]
     resYN = menu(menuOptionsYN, 0)
 
     clear()
+	color(SCHWARZ)
 
     if (resYN == 0) {
-    	color(SCHWARZ)
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
+    	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
 	}
 
 	if (resYN == 1) {
-    	color(SCHWARZ)
-        deldir("sd:/switch/appstore/.get/packages/vgedit")
+    	deldir("sd:/switch/appstore/.get/packages/vgedit")
 		deldir("sd:/switch/vgedit")
 	}
 }
