@@ -1,75 +1,80 @@
-BLUE = 0x0000FF
-YELLOW = 0xFDE100
-RED = 0xFF0000
-GREEN = 0x00FF00
-WHITE = 0xFFFFFF
+BLAU = 0x0000FF
+GELB = 0xFDE100
+ROT = 0xFF0000
+GRUEN = 0x00FF00
+WEISS = 0xFFFFFF
 ORANGE = 0xFFA500
-VIOLET = 0x8F00FF
+LILA = 0x8F00FF
 
 p=println
 pe={pause() exit()}
 
-color(YELLOW);
+color(GELB);
 p("TegraScript Syncfix.te von MezBar");
 p("Portiert zu TegraScript v3 von xHR")
 p("Deutsche Uebersetzung von BeckysFootSlave")
-p("");
-p("Dieses Script behebt Joycon Syncronisierungsprobleme");
-p("zwischen sysMMC und emuMMC");
-p("BEVOR du das Script benutzt,");
-p("syncronisiere alle Joycons und Controller im sysMMC");
-p("");
-color(RED);
-p("Wenn du 90DNS oder andere DNS Einstellungen zum Schutz benutzt");
-p("aktiviere den Flugmodus im sysMMC und emuMMC, ");
-p("weil dieses Script ebenfalls die WiFi-Einstellung");
-p("vom sysMMC zum emuMMC kopiert");
-p("");
-color(GREEN);
-p("Benutzt du incognito brauchst du nicht in den Flugmodus gehen");
+p();
+p("Dieses Script behebt JoyCon Syncronisierungsprobleme zwischen sysMMC und emuMMC");
+p();
+p("BEVOR du es ausfuehrst, syncronisiere alle Joycons und Controller im sysMMC");
+p();
+color(ROT);
+p("Wenn du 90DNS oder andere DNS Einstellungen zum Schutz benutzt aktiviere den");
+p("Flugmodus im sysMMC und emuMMC, weil dieses Script ebenfalls die");
+p("WiFi-Einstellung vom sysMMC zum emuMMC kopiert!");
+p();
+color(GRUEN);
+p("Benutzt du Incognito brauchst du nicht in den Flugmodus gehen");
 p("aber du musst deine Internet Einstellungen im emuMMC neu eintragen");
-p("");
-color(YELLOW);
-p("");
-p("Druecke X um die WiFi und Bluetooth Einstellungen vom sysMMC zum emuMMC zu kopieren");
-p("");
-p("Beliebige andere Taste zum verlassen");
-p("");
+p();
+color(WEISS);
 
-op=["Exit","Syncronisiere WiFi und Bluetooth Einstellungen vom sysMMC zum emuMMC"].copy()
+p();
+p("Druecke X um WiFi und BLAUtooth Einstellungen vom sysMMC zum emuMMC zu kopieren");
+p();
+color(ORANGE);
+p("Beliebige andere Taste zum verlassen");
+p();
+
+
+op=["Exit","Syncronisiere WiFi und BLAUtooth Einstellungen vom sysMMC zum emuMMC"].copy()
 if (emu()){op+"loesche emummc"}
 r=menu(op,0)clear()
 if(r==0){exit()}
 
-p("");
+p();
 if(r==1){if(!emu()){p("emuMMC nicht gefunden!")pe()}}
-
-p("Lade SYSMMC...");
-if(mountsys("SYSTEM")){p("Laden fehlgeschlagen!")pe()}
+color(WEISS);
+p("Einbinden vom SYSMMC...");
+if(mountsys("SYSTEM")){p("Einbinden fehlgeschlagen!")pe()}
 
 mkdir("sd:/tegraexplorer");
 mkdir("sd:/tegraexplorer/syncfix");
 mkdir("sd:/tegraexplorer/syncfix/backup");
-p("Speichere sysMMC 8000000000000050 Datei nach sd:/tegraexplorer/syncfix/backup");
+p("Sichere sysMMC Datei: 8000000000000050 nach sd:/tegraexplorer/syncfix/backup");
 copyfile("bis:/save/8000000000000050", "sd:/tegraexplorer/syncfix/backup/8000000000000050_sysmmc_backup");
 
-p("Lade emuMMC");
-if(mountemu("SYSTEM")){p("Laden fehlgeschlagen!")pe()}
-p("Erstelle Sicherung von emuMMC 8000000000000050 Datei in sd:/tegraexplorer/syncfix/backup");
-p("");
+
+color(LILA);
+p("Einbinden vom emuMMC");
+if(mountemu("SYSTEM")){p("Einbinden fehlgeschlagen!")pe()}
+p("Sichere emuMMC Datei: 8000000000000050 nach sd:/tegraexplorer/syncfix/backup");
+p();
 copyfile("bis:/save/8000000000000050", "sd:/tegraexplorer/syncfix/backup/8000000000000050_emummc_backup");
 
-p("Kopiere 8000000000000050 Datei von sysMMC nach emuMMC");
-p("");
+
+p("Kopiere Datei: 8000000000000050 vom sysMMC zum emuMMC");
+p();
 copyfile("sd:/tegraexplorer/syncfix/backup/8000000000000050_sysmmc_backup", "bis:/save/8000000000000050");
 
-color(GREEN);
-p("ABGESCHLOSSEN!");
-p("");
-p("Jetzt sollten deine Joycons zwischen sysMMC und emuMMC syncronisiert sein");
-p("");
 
-color(YELLOW);
+color(GRUEN);
+p("ABGESCHLOSSEN!");
+p();
+p("Jetzt sollten deine Joycons zwischen sysMMC und emuMMC syncronisiert sein");
+p();
+
+color(GELB);
 p("Beliebige Taste zum verlassen");
 
 pe();
