@@ -1,4 +1,4 @@
-U: bootloader/payloads/hekate_ctcaer_6.0.1.bin
+U: hekate_ctcaer_6.0.2.bin
 U: bootloader/update.bin
 U: bootloader/res/icon_payload.bmp
 U: bootloader/res/icon_switch.bmp
