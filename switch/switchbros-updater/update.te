@@ -668,7 +668,7 @@ pl()
 pl()
 
 col(SILBER)
-menuOptionsSystem = ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + Android + Linux", "[5] Basis + Android + LAKKA", "[6] Basis + Android + Linux + LAKKA", "[7] Basis + Linux + LAKKA", "[8] alte Daten behalten (nicht empfohlen)"]
+menuOptionsSystem = ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + Android + Linux", "[5] Basis + Android + LAKKA", "[6] Basis + Android + Linux + LAKKA", "[7] Basis + Linux + LAKKA", "[8] alte Daten behalten (NICHT EMPFOHLEN)"]
 resSystem = menu(menuOptionsSystem, 0)
 
 clear()
