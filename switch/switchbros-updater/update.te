@@ -138,30 +138,24 @@ delfile("sd:/bootloader/nyx.ini")
 }
 if (fse("sd:/config/fastCFWSwitch/config.ini")){
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")
-delfile("sd:/bootloader/config.ini")
 }
 if (fse("sd:/config/Fizeau/config.ini")){
 copyfile("sd:/config/Fizeau/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini")
-delfile("sd:/bootloader/config.ini")
 }
-if (fse("sd:/config/IconGrabber/config.json")){
-copyfile("sd:/config/IconGrabber/config.json", "sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")
-delfile("sd:/bootloader/config.json")
+if (fse("sd:/config/icongrabber/config.json")){
+copyfile("sd:/config/icongrabber/config.json", "sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")
 }
 if (fse("sd:/config/ftpd/ftpd.cfg")){
 copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg")
-delfile("sd:/bootloader/ftpd.cfg")
 }
 if (fse("sd:/switch/tinfoil/locations.conf")){
 copyfile("sd:/switch/tinfoil/locations.conf", "sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")
-delfile("sd:/bootloader/locations.conf")
 }
 if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/SwitchBros_BasisPaket/switchbros/backup/")
 }
 if (fse("sd:/switch/DBI/dbi.config")) {
     copyfile("sd:/switch/DBI/dbi.config", "sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config")
-    delfile("sd:/bootloader/dbi.config")
 }
 
 wait(tw = 1000)
@@ -451,7 +445,7 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	deldir("sd:/scripts")
 
 	deldir("sd:/config/MissionControl")
-	deldir("sd:/config/btROT")
+	deldir("sd:/config/btred")
 	deldir("sd:/config/N-Xplorer")
 	deldir("sd:/config/reinx-spoofer")
 	deldir("sd:/config/ShallowSea-Updater")
@@ -2767,7 +2761,7 @@ if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config")) {
 }
 
 if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")){
-copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json", "sd:/config/IconGrabber/config.json")
+copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
 }
 
 if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")) {
