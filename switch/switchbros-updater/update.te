@@ -2148,7 +2148,7 @@ clear()
     col(GELB)
     pl("                                 APP - MelonDS")
     pl()
-    col(NAVAJO
+    col(NAVAJO)
 	pl("########### ########### ########## ### # ### ########## ########### ###########")
     pl()
     pl("  MelonDS ist ein guter NintendoDS Emulator.")
