@@ -545,7 +545,7 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	pl()
 	pl()
 	col(GELB)
-	p(" Bis dahin") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 1000) p("     BITTE warten!")
+	p("                        Bis dahin") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 1000) p("      BITTE warten!")
 	col(SCHWARZ)
 	deldir("sd:/SwitchBros_BasisPaket/switch/switchbrosupdater/")
 	copydir("sd:/SwitchBros_BasisPaket/atmosphere", "sd:/")
