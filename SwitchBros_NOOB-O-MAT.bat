@@ -510,6 +510,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -519,13 +520,6 @@ xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
 RD /s /q "%sd%:\config\BootSoundNX"
-RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000"
-RD /s /q "%sd%:\atmosphere\contents\010000000000000D"
-RD /s /q "%sd%:\atmosphere\contents\0100000000001013"
-RD /s /q "%sd%:\switch\EdiZon"
-RD /s /q "%sd%:\switch\breeze"
-RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
-del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl"
 RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
 RD /s /q "%sd%:\emuiibo"
 RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
