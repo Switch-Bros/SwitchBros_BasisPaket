@@ -594,8 +594,8 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -745,7 +745,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 xcopy "%sd%:\switchbros\system\be\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\libre\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -2166,8 +2166,7 @@ echo.
 echo     Zusatz-Apps kannst du hier installieren / deinstallieren^^!
 echo.
 echo     1 = Alle Zusatz-Apps installieren (wenn CFW zum ersten Mal gemacht wird = empfohlen)^^!
-echo     2 = Bestimmte Zusatz-Apps installieren (wenn CFW schon besteht und eingerichtet ist)^^!
-echo     3 = Zusatz-Apps einzeln auswaehlen und entscheiden (so individuell wie du)^^!
+echo     2 = Zusatz-Apps einzeln auswaehlen und entscheiden (so individuell wie du)^^!
 echo.
 echo     W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -2178,8 +2177,7 @@ echo.
 
 set /p zusatzapps="     Waehle deine Zusatz-Apps Variante: "
 	if "%zusatzapps%"=="1" GOTO zusatzkomplett
-	if "%zusatzapps%"=="2" GOTO zusatzminimal
-	if "%zusatzapps%"=="3" GOTO zusatzeinzel
+	if "%zusatzapps%"=="2" GOTO zusatzeinzel
 	if /i "%zusatzapps%"=="W" GOTO attributeundmac
 	if /i "%zusatzapps%"=="H" GOTO hauptmenue
 
@@ -2197,153 +2195,9 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-xcopy "%sd%:\switchbros\zusatzapps\AmiiboGenerator\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Amiigo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Goldleaf\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Homebrew-Details\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\melonDS\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\MiiPort\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Moonlight\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Neumann\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\NX-Activity-Log\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\nx-locale-switcher\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\NX-Shell\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\NXGallery\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\nxmp\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\switch-remote-play\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\SwitchSMBClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nu l
 xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-
-GOTO attributeundmac
-
-REM ============================================================
-:zusatzminimal
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Bestimmte Zusatz-Apps werden jetzt installiert und nicht mehr gebrauchte deinstalliert^^!
-echo.
-echo      BITTE WARTEN...
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\zusatzapps\AmiiboGenerator\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\AmiiboGenerator" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\AmiiboGenerator"
-Rem RD /s /q "%sd%:\switch\AmiiboGenerator"
-Rem )
-
-xcopy "%sd%:\switchbros\zusatzapps\Amiigo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\Amiigo" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\Amiigo"
-Rem RD /s /q "%sd%:\switch\Amiigo"
-Rem )
-
-xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\chiaki" (RD /s /q "%sd%:\switch\chiaki")
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\fake08" (RD /s /q "%sd%:\switch\fake08")
-
-xcopy "%sd%:\switchbros\zusatzapps\Goldleaf\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\Goldleaf" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\Goldleaf"
-Rem RD /s /q "%sd%:\switch\Goldleaf"
-Rem )
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\Homebrew-Details\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\Homebrew-Details" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\Homebrew-Details"
-RD /s /q "%sd%:\switch\Homebrew-Details"
-)
-
-xcopy "%sd%:\switchbros\zusatzapps\melonDS\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\melonDS" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\melonDS"
-Rem RD /s /q "%sd%:\switch\melonDS"
-Rem )
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\MiiPort\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\MiiPort" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\MiiPort"
-RD /s /q "%sd%:\switch\MiiPort"
-)
-
-xcopy "%sd%:\switchbros\zusatzapps\Moonlight\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\Moonlight-Switch" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\Moonlight-Switch"
-Rem RD /s /q "%sd%:\switch\Moonlight-Switch"
-Rem )
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\Neumann\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\Neumann" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\Neumann"
-RD /s /q "%sd%:\switch\Neumann"
-)
-
-xcopy "%sd%:\switchbros\zusatzapps\NX-Activity-Log\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\NX-Activity-Log" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\NX-Activity-Log"
-Rem RD /s /q "%sd%:\switch\NX-Activity-Log"
-Rem )
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\nx-locale-switcher\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\nx-locale-switcher" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\nx-locale-switcher"
-RD /s /q "%sd%:\switch\nx-locale-switcher"
-)
-
-xcopy "%sd%:\switchbros\zusatzapps\NX-Shell\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\NX-Shell" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\NX-Shell"
-Rem RD /s /q "%sd%:\switch\NX-Shell"
-Rem )
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\NXGallery\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\NXGallery" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\NXGallery"
-RD /s /q "%sd%:\switch\NXGallery"
-)
-
-xcopy "%sd%:\switchbros\zusatzapps\nxmp\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-Rem if exist "%sd%:\switch\nxmp" (
-Rem RD /s /q "%sd%:\switch\appstore\.get\packages\nxmp"
-Rem RD /s /q "%sd%:\switch\nxmp"
-Rem )
-
-Rem xcopy "%sd%:\switchbros\zusatzapps\switch-remote-play\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\switch-remote-play" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\switch-remote-play"
-RD /s /q "%sd%:\switch\switch-remote-play"
-)
-
-xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-REM if exist "%sd%:\switch\switch-ftp-client" (
-REM RD /s /q "%sd%:\switch\appstore\.get\packages\switch-ftp-client"
-REM RD /s /q "%sd%:\switch\switch-ftp-client"
-
-xcopy "%sd%:\switchbros\zusatzapps\SwitchSMBClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-REM if exist "%sd%:\switch\switch-smb-client" (
-REM RD /s /q "%sd%:\switch\appstore\.get\packages\switch-smb-client"
-REM RD /s /q "%sd%:\switch\switch-smb-client"
-
-REM xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\TencentSwitcherGui" (
-RD /s /q "%sd%:\switch\TencentSwitcherGui"
-)
-
-REM xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switch\vgedit" (
-RD /s /q "%sd%:\switch\appstore\.get\packages\vgedit"
-RD /s /q "%sd%:\switch\vgedit"
-)
 
 GOTO attributeundmac
 
@@ -2358,26 +2212,9 @@ echo     Waehle hier ein paar Apps die zusaetzlich installiert / deinstalliert w
 echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^!
 echo.
-echo      1 = Amiibo Generator (Generiert Amiibos)
-echo      2 = Amiigo (Amiibos ueber emuiibo im Tesla-Overlay nutzen)
-echo      3 = chiaki (PS4/PS5 auf der Switch streamen)
-echo      4 = fake08 (Pico8 Emulator)
-echo      5 = Goldleaf (NSP installieren und andere Dinge)
-echo      6 = Homebrew-Details (App Details von hbmenu Apps)
-echo      7 = MelonDS (NintendoDS Emulator)
-echo      8 = MiiPort (Mii importieren/exportieren)
-echo      9 = Moonlight (PC auf der Switch streamen)
-echo     10 = Neumann (Spielstaende sichern/wiederherstellen)
-echo     11 = NX-Activity-Log (Aktivitaeten auf der Switch anzeigen lassen)
-echo     12 = NX-Locale-Switcher (Region aendern)
-echo     13 = NX-Shell (Dateimanager)
-echo     14 = NX-Gallery (Switch Album am PC oder Handy ansehen)
-echo     15 = NXMP (Mediaplayer)
-echo     16 = Switch-Remote-Play (PC auf der Switch streamen)
-echo     17 = Switch-FTP-Client (Switch ueber FTP mit einem Geraet verbinden)
-echo     18 = Switch-SMB-Client (Switch ueber SMB mit einem Geraet verbinden)
-echo     19 = TencentSwitcherGui (Chinesisch auf englisch stellen)
-echo     20 = vgedit (Dateien auf der Switch bearbeiten)
+echo      1 = chiaki (PS4/PS5 auf der Switch streamen)
+echo      2 = fake08 (Pico8 Emulator)
+echo      3 = TencentSwitcherGui (Chinesisch auf englisch stellen)
 echo.
 echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -2388,88 +2225,11 @@ echo.
 
 set "datenapps="
 set /p datenapps=     Waehle deine Zusatz-App(s):      
-	if "%datenapps%"=="1" GOTO amiibogenerator
-	if "%datenapps%"=="2" GOTO amiigo
-	if "%datenapps%"=="3" GOTO chiaki
-	if "%datenapps%"=="4" GOTO fake08
-	if "%datenapps%"=="5" GOTO goldleaf
-	if "%datenapps%"=="6" GOTO homebrewdetails
-	if "%datenapps%"=="7" GOTO melonds
-	if "%datenapps%"=="8" GOTO miiport
-	if "%datenapps%"=="9" GOTO moonlight
-	if "%datenapps%"=="10" GOTO neumann
-	if "%datenapps%"=="11" GOTO nxactivitylog
-	if "%datenapps%"=="12" GOTO nxlocaleswitcher
-	if "%datenapps%"=="13" GOTO nxshell
-	if "%datenapps%"=="14" GOTO nxgallery
-	if "%datenapps%"=="15" GOTO nxmp
-	if "%datenapps%"=="16" GOTO switchremoteplay
-	if "%datenapps%"=="17" GOTO ftpclient
-	if "%datenapps%"=="18" GOTO smbclient
-	if "%datenapps%"=="19" GOTO tencentswitcher
-	if "%datenapps%"=="20" GOTO vgedit
+	if "%datenapps%"=="1" GOTO chiaki
+	if "%datenapps%"=="2" GOTO fake08
+	if "%datenapps%"=="3" GOTO tencentswitcher
   if /i "%datenapps%"=="W" GOTO attributeundmac
 	if /i "%datenapps%"=="H" GOTO hauptmenue
-
-REM ============================================================
-:amiibogenerator
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Amiibo Generator installiert oder deinstalliert werden?
-echo.
-echo      1 = Amiibo Generator installieren
-echo      2 = Amiibo Generator deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "amiibogenerator="
-set /p amiibogenerator=     Bitte triff deine Auswahl: 
-	if "%amiibogenerator%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\AmiiboGenerator\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%amiibogenerator%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\AmiiboGenerator"
-	RD /s /q "%sd%:\switch\AmiiboGenerator"
-	GOTO zusatzapps
-	)
-	if "%amiibogenerator%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:amiigo
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Amiigo installiert oder deinstalliert werden?
-echo.
-echo      1 = Amiigo installieren
-echo      2 = Amiigo deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "amiigo="
-set /p amiigo=     Bitte triff deine Auswahl: 
-	if "%amiigo%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\Amiigo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%amiigo%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Amiigo"
-	RD /s /q "%sd%:\switch\Amiigo"
-	GOTO zusatzapps
-	)
-	if "%amiigo%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :chiaki
@@ -2530,426 +2290,6 @@ set /p fake08=     Bitte triff deine Auswahl:
 	if "%fake08%"=="3" GOTO zusatzapps
 
 REM ============================================================
-:goldleaf
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Goldleaf installiert oder deinstalliert werden?
-echo.
-echo      1 = Goldleaf installieren
-echo      2 = Goldleaf deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "goldleaf="
-set /p goldleaf=     Bitte triff deine Auswahl: 
-	if "%goldleaf%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\Goldleaf\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%goldleaf%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Goldleaf"
-	RD /s /q "%sd%:\switch\Goldleaf"
-	GOTO zusatzapps
-	)
-	if "%goldleaf%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:homebrewdetails
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Homebrew-Details installiert oder deinstalliert werden?
-echo.
-echo      1 = Homebrew-Details installieren
-echo      2 = Homebrew-Details deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "homebrewdetails="
-set /p homebrewdetails=     Bitte triff deine Auswahl: 
-	if "%homebrewdetails%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\Homebrew-Details\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%homebrewdetails%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Homebrew-Details"
-	RD /s /q "%sd%:\switch\Homebrew-Details"
-	GOTO zusatzapps
-	)
-	if "%homebrewdetails%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:melonds
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll MelonDS installiert oder deinstalliert werden?
-echo.
-echo      1 = MelonDS installieren
-echo      2 = MelonDS deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "melonds="
-set /p melonds=     Bitte triff deine Auswahl: 
-	if "%melonds%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\melonDS\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%melonds%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\melonDS"
-	RD /s /q "%sd%:\switch\melonDS"
-	GOTO zusatzapps
-	)
-	if "%melonds%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:miiport
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll MiiPort installiert oder deinstalliert werden?
-echo.
-echo      1 = MiiPort installieren
-echo      2 = MiiPort deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "miiport="
-set /p miiport=     Bitte triff deine Auswahl: 
-	if "%miiport%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\MiiPort\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%miiport%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\MiiPort"
-	RD /s /q "%sd%:\switch\MiiPort"
-	GOTO zusatzapps
-	)
-	if "%miiport%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:moonlight
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Moonlight installiert oder deinstalliert werden?
-echo.
-echo      1 = Moonlight installieren
-echo      2 = Moonlight deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "moonlight="
-set /p moonlight=     Bitte triff deine Auswahl: 
-	if "%moonlight%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\Moonlight\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%moonlight%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Moonlight-Switch"
-	RD /s /q "%sd%:\switch\Moonlight-Switch"
-	GOTO zusatzapps
-	)
-	if "%moonlight%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:neumann
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Neumann installiert oder deinstalliert werden?
-echo.
-echo      1 = Neumann installieren
-echo      2 = Neumann deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "neumann="
-set /p neumann=     Bitte triff deine Auswahl: 
-	if "%neumann%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\Neumann\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%neumann%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Neumann"
-	RD /s /q "%sd%:\switch\Neumann"
-	GOTO zusatzapps
-	)
-	if "%neumann%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:nxactivitylog
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll NX-Activity-Log installiert oder deinstalliert werden?
-echo.
-echo      1 = NX-Activity-Log installieren
-echo      2 = NX-Activity-Log deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "nxactivitylog="
-set /p nxactivitylog=     Bitte triff deine Auswahl: 
-	if "%nxactivitylog%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\NX-Activity-Log\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%nxactivitylog%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\NX-Activity-Log"
-	RD /s /q "%sd%:\switch\NX-Activity-Log"
-	GOTO zusatzapps
-	)
-	if "%nxactivitylog%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:nxlocaleswitcher
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll NX-Locale-Switcher installiert oder deinstalliert werden?
-echo.
-echo      1 = NX-Locale-Switcher installieren
-echo      2 = NX-Locale-Switcher deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "nxlocaleswitcher="
-set /p nxlocaleswitcher=     Bitte triff deine Auswahl: 
-	if "%nxlocaleswitcher%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\nx-locale-switcher\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%nxlocaleswitcher%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\nx-locale-switcher"
-	RD /s /q "%sd%:\switch\nx-locale-switcher"
-	GOTO zusatzapps
-	)
-	if "%nxlocaleswitcher%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:nxshell
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll NX-Shell installiert oder deinstalliert werden?
-echo.
-echo      1 = NX-Shell installieren
-echo      2 = NX-Shell deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "nxshell="
-set /p nxshell=     Bitte triff deine Auswahl: 
-	if "%nxshell%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\NX-Shell\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%nxshell%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\NX-Shell"
-	RD /s /q "%sd%:\switch\NX-Shell"
-	GOTO zusatzapps
-	)
-	if "%nxshell%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:nxgallery
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll NXGallery installiert oder deinstalliert werden?
-echo.
-echo      1 = NXGallery installieren
-echo      2 = NXGallery deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "nxgallery="
-set /p nxgallery=     Bitte triff deine Auswahl: 
-	if "%nxgallery%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\NXGallery\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%nxgallery%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\NXGallery"
-	RD /s /q "%sd%:\switch\NXGallery"
-	GOTO zusatzapps
-	)
-	if "%nxgallery%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:nxmp
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll NXMP installiert oder deinstalliert werden?
-echo.
-echo      1 = NXMP installieren
-echo      2 = NXMP deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "nxmp="
-set /p nxmp=     Bitte triff deine Auswahl: 
-	if "%nxmp%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\nxmp\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%nxmp%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\nxmp"
-	RD /s /q "%sd%:\switch\nxmp"
-	GOTO zusatzapps
-	)
-	if "%nxmp%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:switchremoteplay
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Switch-Remote-Play installiert oder deinstalliert werden?
-echo.
-echo      1 = Switch-Remote-Play installieren
-echo      2 = Switch-Remote-Play deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "switchremoteplay="
-set /p switchremoteplay=     Bitte triff deine Auswahl: 
-	if "%switchremoteplay%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\switch-remote-play\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%switchremoteplay%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\switch-remote-play"
-	RD /s /q "%sd%:\switch\switch-remote-play"
-	GOTO zusatzapps
-	)
-	if "%switchremoteplay%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:ftpclient
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Switch-FTP-Client installiert oder deinstalliert werden?
-echo.
-echo      1 = Switch-FTP-Client installieren
-echo      2 = Switch-FTP-Client deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "ftpclient="
-set /p ftpclient=     Bitte triff deine Auswahl: 
-	if "%ftpclient%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%ftpclient%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\switch-ftp-client"
-	RD /s /q "%sd%:\switch\switch-ftp-client"
-	GOTO zusatzapps
-	)
-	if "%ftpclient%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:smbclient
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Switch-SMB-Client installiert oder deinstalliert werden?
-echo.
-echo      1 = Switch-SMB-Client installieren
-echo      2 = Switch-SMB-Client deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "smbclient="
-set /p smbclient=     Bitte triff deine Auswahl: 
-	if "%smbclient%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\SwitchSMBClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%smbclient%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\switch-smb-client"
-	RD /s /q "%sd%:\switch\switch-smb-client"
-	GOTO zusatzapps
-	)
-	if "%smbclient%"=="3" GOTO zusatzapps
- 
-REM ============================================================
 :tencentswitcher
 COLOR 0E
 cls
@@ -2977,37 +2317,6 @@ set /p tencentswitcher=     Bitte triff deine Auswahl:
 	GOTO zusatzapps
 	)
 	if "%tencentswitcher%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:vgedit
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll vgedit installiert oder deinstalliert werden?
-echo.
-echo      1 = vgedit installieren
-echo      2 = vgedit deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "vgedit="
-set /p vgedit=     Bitte triff deine Auswahl: 
-	if "%vgedit%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
-	)
-	if "%vgedit%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\vgedit"
-	RD /s /q "%sd%:\switch\vgedit"
-	GOTO zusatzapps
-	)
-	if "%vgedit%"=="3" GOTO zusatzapps
-  if "%vgedit%"=="" GOTO zusatzapps 
 
 REM ============================================================
 :attributeundmac

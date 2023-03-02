@@ -554,24 +554,9 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-xcopy "%sd%:\switchbros\zusatzapps\AmiiboGenerator\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Amiigo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Goldleaf\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Homebrew-Details\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\melonDS\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\MiiPort\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Moonlight\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\Neumann\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\NX-Activity-Log\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\nx-locale-switcher\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\NX-Shell\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\NXGallery\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\nxmp\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\switch-remote-play\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\SwitchFTPClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\SwitchSMBClient\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\vgedit\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 
 REM ============================================================
 :fixattrib
