@@ -2,7 +2,7 @@ Basiert auf:
 
 Hekate 6.0.2 + Nyx 1.5.2
 SwitchBros-O-sphere 1.4.1 commit -6fae33b71 + hbl-2.4.3 + hbmenu-3.5.1
-TeslaExplorer 4.1.0 (Deutsch)
+TegraExplorer 4.1.0 (Deutsch)
 Lockpick_RCM 1.9.10 (Deutsch)
 
 === Basis Apps ====================
@@ -10,7 +10,7 @@ Lockpick_RCM 1.9.10 (Deutsch)
 90DNS Tester 1.0.4
 SwitchBros Updater 2.21.4-SB
 Daybreak 1.0.0_de (Deutsch)
-DBI 504
+DBI 506
 FTPD 3.1.0
 HB-AppStore 2.2
 JKSV 02/23/2023
@@ -40,10 +40,17 @@ Tesla-Menu 1.2
 
 === Mögliche Zusatz Apps ==========
 
-Amiibo Generator 1.4.0
-Amiigo 2.3.1
 Chiaki 2.1.1
 Fake-08 0.0.2.19
+TencentSwitcherGUI 0.1.2 
+
+Tinfoil 16.0
+
+
+=== Zusatz-Apps aus HB-Appstore ===
+
+Amiibo Generator 1.4.0
+Amiigo 2.3.1
 GoldLeaf 0.10
 Homebrew-Details 1.05
 MelonDS release6fix1
@@ -58,6 +65,4 @@ NXMP v0.6.3 Rev7
 Switch FTP Client 1.0.7
 Switch SMB Client 1.0.1
 Switch-Remote-Play 1.0.0
-TencentSwitcherGUI 0.1.2
-Tinfoil 16.0
 Vgedit 2.1
