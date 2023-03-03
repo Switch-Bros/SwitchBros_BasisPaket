@@ -194,7 +194,7 @@ pl()
 pl()
 pl()
 col(GRUEN)
-p("              Bitte warten...") wait(tw = 1000) p("   unnoetige Daten werden entfernt!")
+p("             Bitte warten...     ") wait(tw = 2000) p("es werden gezielt Daten entfernt!")
 pl()
 
 col(SCHWARZ)
