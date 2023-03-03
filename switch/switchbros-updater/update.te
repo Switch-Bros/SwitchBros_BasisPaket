@@ -80,7 +80,7 @@ pl("   ################################### # ###################################
 pl("  #                                                                         #  ")
 pl(" #                 DIESE SOFTWARE DARF NICHT VERKAUFT WERDEN,                # ")
 pl(" #                                                                           # ")
-pl(" #                  WEDER ALLEIN NOCH ALS TEIL EINES PAKETS.                 # ")
+pl(" #                  WEDER EINZELN NOCH ALS TEIL EINES PAKETS.                 # ")
 pl(" #                                                                           # ")
 pl(" #                                                                           # ")
 pl(" #        WENN DU FUER DIESE SOFTWARE BEZAHLT HAST, ODER SIE ALS TEIL        # ")
@@ -128,13 +128,11 @@ if (is_erista()){
 	}
 }
 
-if (fse("sd:/bootloader/hekate_ipl.ini")){
-copyfile("sd:/bootloader/hekate_ipl.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini")
-delfile("sd:/bootloader/hekate_ipl.ini")
+if (fse("sd:/bootloader/hekate_ipl_.ini")){
+copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini")
 }
-if (fse("sd:/bootloader/nyx.ini")){
-copyfile("sd:/bootloader/nyx.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini")
-delfile("sd:/bootloader/nyx.ini")
+if (fse("sd:/bootloader/nyx_.ini")){
+copyfile("sd:/bootloader/nyx_.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini")
 }
 if (fse("sd:/config/fastCFWSwitch/config.ini")){
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")
@@ -217,6 +215,8 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
 	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.1.bin")
+	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.0.bin")
+	delfile("sd:/bootloader/payloads/hekate_ctcaer_5.9.0.bin")
 	delfile("sd:/bootloader/payloads/fusee.bin")
 	delfile("sd:/bootloader/hekate_ipl.ini")
 	delfile("sd:/bootloader/nyx.ini")
@@ -664,19 +664,15 @@ pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 pl()
-pl()
-pl()
 
 col(SILBER)
-menuOptionsSystem = ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + Android + Linux", "[5] Basis + Android + LAKKA", "[6] Basis + Android + Linux + LAKKA", "[7] Basis + Linux + LAKKA", "[8] alte Daten behalten (NICHT EMPFOHLEN)"]
+menuOptionsSystem =
+ ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + LibreELEC", "[5] Basis + Android + Linux", "[6] Basis + Android + LAKKA", "[7] Basis + Android + LibreELEC", "[8] Basis + Android + Linux + LAKKA", "[9] Basis + Android + Linux + LibreELEC", "[10] Basis + Android + LAKKA + LibreELEC", "[11] Basis + Android + Linux + LAKKA + LibreELEC", "[12] Basis + Linux + LAKKA", "[13] Basis + Linux + LAKKA + LibreELEC", "[14] Basis + Linux + LibreELEC", "[15] Basis + LAKKA + LibreELEC", "[16] alte Daten behalten (NICHT EMPFOHLEN)"]
 resSystem = menu(menuOptionsSystem, 0)
 
 clear()
 
 if (resSystem == 0) {
-  pl()
-	pl()
-	pl()
 	pl()
 	pl()
 	col(GRUEN)
@@ -692,9 +688,6 @@ if (resSystem == 0) {
 clear()
 
 if (resSystem == 1) {
-  pl()
-	pl()
-	pl()
 	pl()
 	pl()
 	col(GRUEN)
@@ -711,11 +704,8 @@ if (resSystem == 1) {
 clear()
 
 if (resSystem == 2) {
-  pl()
 	pl()
 	pl()
-  pl()
-  pl()
 	col(GRUEN)
 	pl("                       Basis + Linux wird installiert...")
 	pl()
@@ -759,9 +749,6 @@ col(SCHWARZ)
 clear()
 
 if (resSystem == 3) {
-  pl()
-	pl()
-  pl()
 	pl()
 	pl()
 	col(GRUEN)
@@ -778,13 +765,26 @@ if (resSystem == 3) {
 clear()
 
 if (resSystem == 4) {
-  pl()
-  pl()
-  pl()
+	pl()
+	pl()
+	col(GRUEN)
+	pl("                     Basis + LibreELEC wird installiert...")
+	pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	col(SCHWARZ)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/be/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/be/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+clear()
+
+if (resSystem == 5) {
   pl()
   pl()
   col(GRUEN)
-	pl("                 Basis + Android + Linux wird installiert...")
+	pl("                Basis + Android + Linux wird installiert...")
 	pl()
   col(NAVAJO)
   pl("########### ########### ########## ### # ### ########## ########### ###########")
@@ -829,14 +829,11 @@ col(SCHWARZ)
 
 clear()
 
-if (resSystem == 5) {
-  pl()
-	pl()
-	pl()
+if (resSystem == 6) {
 	pl()
 	pl()
   col(GRUEN)
-	pl("                 Basis + Android + LAKKA wird installiert...")
+	pl("                  Basis + Android + LAKKA wird installiert...")
   pl()
 	col(NAVAJO)
 	pl("########### ########### ########## ### # ### ########## ########### ###########")
@@ -849,10 +846,24 @@ if (resSystem == 5) {
 
 clear()
 
-if (resSystem == 6) {
-  pl()
+if (resSystem == 7) {
 	pl()
+	pl()
+  col(GRUEN)
+	pl("                Basis + Android + LibreELEC wird installiert...")
   pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	col(SCHWARZ)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bae/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bae/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+clear()
+
+if (resSystem == 8) {
 	pl()
 	pl()
   col(GRUEN)
@@ -905,10 +916,135 @@ col(SCHWARZ)
 
 clear()
 
-if (resSystem == 7) {
+if (resSystem == 9) {
+	pl()
+	pl()
+  col(GRUEN)
+	pl("            Basis + Android + Linux + LibreELEC wird installiert...")
+	pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	pl()
+	pl()
+	pl("      Welche Linux Distro soll genutzt werden?")
+	pl()
+	pl()
+	col(SILBER)
+  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  resLIN = menu(menuOptionsLIN, 1)
+
+col(SCHWARZ)
+
+    if (resLIN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/arch/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 1) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 2) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 3) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+}
+
+clear()
+
+if (resSystem == 10) {
+	pl()
+	pl()
+  col(GRUEN)
+	pl("            Basis + Android + LAKKA + LibreELEC wird installiert...")
   pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	col(SCHWARZ)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bale/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bale/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+clear()
+
+if (resSystem == 11) {
 	pl()
 	pl()
+  col(GRUEN)
+	pl("                  Basis + Android + Linux + LAKKA + LibreELEC")
+	pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	pl()
+	pl()
+	pl("      Welche Linux Distro soll genutzt werden?")
+	pl()
+	pl()
+	col(SILBER)
+  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  resLIN = menu(menuOptionsLIN, 1)
+
+col(SCHWARZ)
+
+    if (resLIN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/arch/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 1) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 2) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 3) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+}
+
+clear()
+
+if (resSystem == 12) {
 	pl()
 	pl()
   col(GRUEN)
@@ -957,8 +1093,126 @@ col(SCHWARZ)
 
 clear()
 
-if (resSystem == 8) {
+if (resSystem == 13) {
 	pl()
+	pl()
+  col(GRUEN)
+	pl("             Basis + Linux + LAKKA + LibreELEC wird installiert...")
+	pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	pl()
+	pl("      Welche Linux Distro soll genutzt werden?")
+	pl()
+	pl()
+	col(SILBER)
+  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  resLIN = menu(menuOptionsLIN, 1)
+
+col(SCHWARZ)
+
+    if (resLIN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/arch/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 1) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 2) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+	if (resLIN == 3) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+}
+
+clear()
+
+if (resSystem == 14) {
+	pl()
+	pl()
+  col(GRUEN)
+	pl("                 Basis + Linux + LibreELEC wird installiert...")
+	pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	pl()
+	pl("      Welche Linux Distro soll genutzt werden?")
+	pl()
+	pl()
+	col(SILBER)
+  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  resLIN = menu(menuOptionsLIN, 1)
+
+col(SCHWARZ)
+
+    if (resLIN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/arch/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 1) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+    if (resLIN == 2) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+
+	if (resLIN == 3) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/config", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+    }
+}
+
+clear()
+
+if (resSystem == 15) {
+	pl()
+	pl()
+  col(GRUEN)
+	pl("                 Basis + LAKKA + LibreELEC wird installiert...")
+  pl()
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+	col(SCHWARZ)
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ble/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ble/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+clear()
+
+if (resSystem == 8) {
 	pl()
 	pl()
 	col(GRUEN)
@@ -1345,7 +1599,8 @@ clear()
     col(GELB)
     pl("  Mit fastCFWswitch kannst du, aus der CFW, in die Systeme/Payloads wechseln.")
     pl()
-    col(ROT)pl("  Achtung")col(GELB)p(": Funktioniert nicht mit Modchip!")
+    col(ROT)
+    p("  Achtung: ")col(GELB)p("Funktioniert nicht mit Modchip!")pl()
     pl()
     col(WEISS)
     pl("  Moechtest du [fastCFWswitch] installieren?")
@@ -1848,7 +2103,7 @@ pl()
 pl()
 
 col(SILBER)
-menuOptionsHBApps = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)", "[BESTIMMTE] bestimmte Zusatz-Apps werden installiert"]
+menuOptionsHBApps = ["[ALLES] Alle Zusatz-Apps installieren", "[MANUELL] Zusatz-Apps einzeln installieren (empfohlen)"]
 resHBApps = menu(menuOptionsHBApps, 1)
 
 clear()
@@ -1870,59 +2125,9 @@ if (resHBApps == 0) {
 	pl("     Mo - Fr von 5:30 - 5:31, wir freuen uns so auf deinen Anruf!")
 	pl("                              und sind immer fuer dich da!")
 	col(SCHWARZ)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
-}
-
-clear()
-
-if (resHBApps == 2) {
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("            Bestimmte/Ausgesuchte Zusatz-Apps werden installiert...")
-	pl()
-	pl()
-	pl()
-	col(BLAU)
-	pl("     Leider befinden sich immer noch alle unsere Mitarbeiter in Kundengespraechen.")
-	pl()
-	pl("     Du kannst uns gerne eine Nachricht hinterlassen oder uns eine Email schreiben,")
-	pl()
-	pl("     jedoch bezweifelt unser gesamtes Team, dass auch nur einer von uns auf so")
-	pl()
-	pl("     belangloses Zeug reagieren wird!")
-	col(SCHWARZ)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
 }
 
 clear()
@@ -1946,77 +2151,6 @@ if (resHBApps == 1) {
 	col(GRUEN)
 	pl("                 Druecke eine beliebige Taste um fortzufahren!")
 	pause()
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             APP - AmiiboGenerator")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Der AmiiboGenerator erstellt Amiibos fuer dich.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [AmiiboGenerator] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/AmiiboGenerator/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/AmiiboGenerator")
-      deldir("sd:/switch/AmiiboGenerator")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - Amiigo")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Amiigo waehlst du die Amiibos aus die dir in Spielen zur Verfuegung.")
-    pl("  stehen sollen")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [Amiigo] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Amiigo/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/Amiigo")
-      deldir("sd:/switch/Amiigo")
-    }
 
 clear()
 
@@ -2094,503 +2228,6 @@ clear()
     pl()
     pl()
     col(GELB)
-    pl("                                APP - GoldLeaf")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit GoldLeaf kannst du NSP Dateien installieren und mehr.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [GoldLeaf] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Goldleaf/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/Goldleaf")
-      deldir("sd:/switch/Goldleaf")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                            APP - Homebrew-Details")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Homebrew-Details zeigt dir alles zu deinen Homebrew Apps an.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [Homebrew-Details] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Homebrew-Details/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/Homebrew-Details")
-      deldir("sd:/switch/Homebrew-Details")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - MelonDS")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  MelonDS ist ein guter NintendoDS Emulator.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [MelonDS] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/melonDS/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/melonDS")
-      deldir("sd:/switch/melonDS")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - MiiPort")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit MiiPort kannst du Miis importieren/exportieren.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [MiiPort] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/MiiPort/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/MiiPort")
-      deldir("sd:/switch/MiiPort")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                            APP - Moonlight-Switch")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Moonlight-Switch kannst du den Bildschirm der Switch (z.B. Spiel) an")
-    pl("  deinen PC uebetragen und aufnehmen.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [Moonlight-Switch] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Moonlight-Switch/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/Moonlight-Switch")
-      deldir("sd:/switch/Moonlight-Switch")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - Neumann")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Neumann kannst du die Speicherdaten deiner Spiele sichern.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [Neumann] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/Neumann/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/Neumann")
-      deldir("sd:/switch/Neumann")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             APP - NX-Activity-Log")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  NX-Activity-Log zeigt dir alle Statistiken zu deinen gespielten Spielen an.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [NX-Activity-Log] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Activity-Log/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/NX-Activity-Log")
-      deldir("sd:/switch/NX-Activity-Log")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                            APP - nx-locale-switcher")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit nx-locale-switcher kannst du die Region von Spielen einstellen.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [nx-locale-switcher] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nx-locale-switcher/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/nx-locale-switcher")
-      deldir("sd:/switch/nx-locale-switcher")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                APP - NX-Shell")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  NX-Shell ist ein sehr guter Datei-Explorer fuer die Switch.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [NX-Shell] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NX-Shell/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/NX-Shell")
-      deldir("sd:/switch/NX-Shell")
-  }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                APP - NXGallery")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit NXGallery kannst du Bilder aus dem Album an dein Handy schicken.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [NXGallery] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/NXGallery/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/NXGallery")
-      deldir("sd:/switch/NXGallery")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                  APP - NXMP")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  NXMP ist das Multimedia Tool schlechthin. Spielt sehr viele Videoformate ab.")
-    pl("  Kann sogar mit einem Server verbunden werden um von dort zu streamen")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [NXMP] installieren")
-    pl()
-    col(ROT)
-    pl("                Installation dauert einen Moment, bitte Geduld!")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/nxmp/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-    	deldir("sd:/switch/appstore/.get/packages/NXMP")
-      deldir("sd:/switch/NXMP")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                           APP - switch-remote-play")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit switch-remote-play kannst du deinen PC auf die Switch streamen.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [switch-remote-play] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/switch-remote-play/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/switch-remote-play")
-      deldir("sd:/switch/switch-remote-play")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             APP - SwitchFTPClient")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit dem SwitchFTPClient kannst du eine FTP Verbindung zu deiner.")
-    pl("  Switch aufbauen!")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [SwitchFTPClient] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchFTPClient/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/switch-ftp-client")
-      deldir("sd:/switch/switch-ftp-client")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             APP - SwitchSMBClient")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit dem SwitchSMBClient kannst du eine FTP Verbindung zu deiner.")
-    pl("  Switch aufbauen!")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [SwitchSMBClient] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/SwitchSMBClient/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/switch-smb-client")
-      deldir("sd:/switch/switch-smb-client")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
     pl("                           APP - TencentSwitcherGui")
     pl()
     col(NAVAJO)
@@ -2617,42 +2254,6 @@ clear()
     if (resYN == 1) {
       deldir("sd:/switch/TencentSwitcherGui")
     }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - vgedit")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("vgedit ist ein sehr einfacher Explorer mit Hauptaugenmerk auf Dateien.")
-    pl("bearbeiten .ini, .json, .cfg, etc...")
-    pl()
-    col(SILBER)
-    pl("Moechtest du [vgedit] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/vgedit/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/appstore/.get/packages/vgedit")
-      deldir("sd:/switch/vgedit")
-    }
 }
 
 wait(tw = 3000)
@@ -2674,7 +2275,8 @@ pl()
 pl("     Zum Glueck nur einen Moment und keine 800 Stunden, die manch einer")
 pl("     wohl in sein Paket gesteckt hat!")
 pl()
-pl("     In unserem SwitchBros. Paket stecken unglaubliche 1001 Naechte:")
+pl("     Unglaubliche 1001 Naechte haben wir geschuftet wie die HAUSELFEN um euch")
+pl("     dieses SwitchBros. Paket praesentieren zu koennen")
 pl()
 pl("     Bissl fuers Paket und der Rest ist die Liebe zu unserer Community")
 pl()
