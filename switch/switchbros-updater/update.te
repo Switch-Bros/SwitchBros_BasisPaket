@@ -80,7 +80,7 @@ pl("   ################################### # ###################################
 pl("  #                                                                         #  ")
 pl(" #                 DIESE SOFTWARE DARF NICHT VERKAUFT WERDEN,                # ")
 pl(" #                                                                           # ")
-pl(" #                  WEDER EINZELN NOCH ALS TEIL EINES PAKETS.                 # ")
+pl(" #                  WEDER EINZELN NOCH ALS TEIL EINES PAKETS.                # ")
 pl(" #                                                                           # ")
 pl(" #                                                                           # ")
 pl(" #        WENN DU FUER DIESE SOFTWARE BEZAHLT HAST, ODER SIE ALS TEIL        # ")
@@ -1346,6 +1346,9 @@ if (resTesla == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/SaltySD", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
@@ -1357,6 +1360,8 @@ if (resTesla == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/switch", "sd:/")
 }
 
 clear()
@@ -1409,11 +1414,15 @@ if (resTesla == 2) {
 	delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
 	deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
 	deldir("sd:/atmosphere/contents/010000000000bd00")
-	deldir("sd:/atmosphere/exefs_patches/BLAUtooth_patches")
+	deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
+	deldir("sd:/atmosphere/exefs_patches/btm_patches")
 	deldir("sd:/config/MissionControl")
 	deldir("sd:/switch/appstore/.get/packages/MissionControl")
 	delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
 	deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
+	deldir("sd:/atmosphere/contents/0000000000534C56")
+	deldir("sd:/SaltySD")
+	deldir("sd:/switch/appstore/.get/packages/SaltyNX")
 	delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
 	deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
 	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
@@ -1432,6 +1441,9 @@ if (resTesla == 2) {
 	deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 	delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
 	deldir("sd:/switch/SysDVR-conf")
+	deldir("sd:/atmosphere/contents/4200000000000000")
+	deldir("sd:/switch/appstore/.get/packages/sys-tune")
+	delfile("sd:/switch/.overlays/sys-tune-overlay.ovl")
 }
 
 clear()
@@ -1742,7 +1754,7 @@ clear()
 
     if (resYN == 1) {
       deldir("sd:/atmosphere/contents/010000000000bd00")
-      deldir("sd:/atmosphere/exefs_patches/BLAUtooth_patches")
+      deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
       deldir("sd:/config/MissionControl")
       deldir("sd:/switch/appstore/.get/packages/MissionControl")
     }
@@ -1781,6 +1793,45 @@ clear()
     if (resYN == 1) {
       delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
       deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
+    }
+
+clear()
+
+    pl()
+    pl()
+    pl()
+    pl()
+    pl()
+    col(GELB)
+    pl("                             Modul - SaltyNX")
+    pl()
+    col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+    pl()
+    col(GELB)
+    pl("  Mit SaltyNX kannst du Plug-ins und mods nutzen!")
+    pl("  Ein FPS Plug-in das die FPS ueber Status-Monitor-Overlay zeigt, ist schon dabei")
+    pl()
+    col(WEISS)
+    pl("  Moechtest du [SaltyNX] installieren?")
+    pl()
+    pl()
+    menuOptionsYN = ["Ja", "Nein"]
+    resYN = menu(menuOptionsYN, 0)
+
+    clear()
+    col(SCHWARZ)
+
+    if (resYN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/atmosphere", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/SaltySD", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/switch", "sd:/")
+    }
+
+    if (resYN == 1) {
+      deldir("sd:/atmosphere/contents/0000000000534C56")
+      deldir("sd:/SaltySD")
+      deldir("sd:/switch/appstore/.get/packages/SaltyNX")
     }
 
 clear()
@@ -1975,6 +2026,48 @@ clear()
       deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
       delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
       deldir("sd:/switch/SysDVR-conf")
+    }
+
+clear()
+
+    pl()
+    pl()
+    pl()
+    pl()
+    pl()
+    col(GELB)
+    pl("                                Modul - Sys-Tune")
+    pl()
+    col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+    pl()
+    col(GELB)
+    pl("  Mit Sys- kannst du Audio (Musik) im Hintergrund abspielen! Der Player kann ueber")
+    pl("  Das Tesla-Overlay Menue aufgerufen werden.")
+    pl()
+    pl("  Achtung: Es kann passieren dass manche Spiele zum bluescreen führen wenn mehr")
+    pl("  als zwei Audiokanaele in Benutzung sind! ")
+    pl("  Deaktiviere dazu VORHER im Tesla-Overlay Menue Sys-Tune und starte dann das Spiel.")
+    pl()
+    col(WEISS)
+    pl("  Moechtest du [Sys-Tune] installieren?")
+    pl()
+    pl()
+    menuOptionsYN = ["Ja", "Nein"]
+    resYN = menu(menuOptionsYN, 1)
+
+    clear()
+    col(SCHWARZ)
+
+    if (resYN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/atmosphere", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/switch", "sd:/")
+    }
+
+    if (resYN == 1) {
+      deldir("sd:/atmosphere/contents/4200000000000000")
+      deldir("sd:/switch/appstore/.get/packages/sys-tune")
+      delfile("sd:/switch/.overlays/sys-tune-overlay.ovl")
     }
 }
 
