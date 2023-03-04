@@ -514,7 +514,6 @@ xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2
 xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -539,6 +538,8 @@ RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
 RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
 RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
 RD /s /q "%sd%:\switch\SysDVR-conf"
+RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
+del "%sd%:\switch\.overlays\8_Status-Monitor-Overlay.ovl"
 
 REM ============================================================
 :zusatzapps

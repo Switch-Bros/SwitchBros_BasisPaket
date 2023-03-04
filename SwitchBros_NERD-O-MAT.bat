@@ -1626,11 +1626,13 @@ echo.
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\SaltyNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\sys-tune\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 
 REM ============================================================
@@ -1645,41 +1647,13 @@ echo ---------------------------------------------------------------------------
 echo.
 
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA" >nul 2>nul
-RD /s /q "%sd%:\config\BootSoundNX" >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000" >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\010000000000000D" >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\0100000000001013" >nul 2>nul
-RD /s /q "%sd%:\switch\EdiZon" >nul 2>nul
-RD /s /q "%sd%:\switch\breeze" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon" >nul 2>nul
-del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl" >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\0100000000000352" >nul 2>nul
-RD /s /q "%sd%:\emuiibo" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo" >nul 2>nul
-del "%sd%:\switch\.overlays\2_emuiibo.ovl" >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\0100000000000F12" >nul 2>nul
-RD /s /q "%sd%:\config\Fizeau" >nul 2>nul
-RD /s /q "%sd%:\switch\Fizeau" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau" >nul 2>nul
-del "%sd%:\switch\.overlays\5_Fizeau.ovl" >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\4200000000000010" >nul 2>nul
-RD /s /q "%sd%:\switch\ldn_mitm_config" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config" >nul 2>nul
-del "%sd%:\switch\.overlays\1_ldnmitm_config" >nul 2>nul
-RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665" >nul 2>nul
-RD /s /q "%sd%:\config\sysdvr" >nul 2>nul
-RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay" >nul 2>nul
-RD /s /q "%sd%:\switch\SysDVR-conf" >nul 2>nul
 GOTO zusatzapps
 
 REM ============================================================
@@ -1709,11 +1683,13 @@ echo       5 = Fizeau (Bildschirmanzeige optimieren/verbessern)
 echo       6 = ldn_mitm (LAN-Play App)
 echo       7 = MissionControl (fremd Controller ueber Bluetooth)
 echo       8 = ovlSysmodule (Tesla-Overlay module aktivieren/deaktivieren)
-echo       9 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
-echo      10 = sys-clk (Switch Uebertakten/Untertakten)
-echo      11 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
-echo      12 = sys-con (fremd Controller ueber USB)
-echo      13 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
+echo       9 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
+echo      10 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
+echo      11 = sys-clk (Switch Uebertakten/Untertakten)
+echo      12 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
+echo      13 = sys-con (fremd Controller ueber USB)
+echo      14 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
+echo      15 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1732,11 +1708,13 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="6" GOTO ldnmitm
 	if "%teslamods%"=="7" GOTO missioncontrol
 	if "%teslamods%"=="8" GOTO ovlssysmodule
-	if "%teslamods%"=="9" GOTO statmon
-	if "%teslamods%"=="10" GOTO sysclk
-	if "%teslamods%"=="11" GOTO sysclkedit
-	if "%teslamods%"=="12" GOTO syscon
-	if "%teslamods%"=="13" GOTO sysdvr
+	if "%teslamods%"=="9" GOTO saltynx
+	if "%teslamods%"=="10" GOTO statmon
+	if "%teslamods%"=="11" GOTO sysclk
+	if "%teslamods%"=="12" GOTO sysclkedit
+	if "%teslamods%"=="13" GOTO syscon
+	if "%teslamods%"=="14" GOTO sysdvr
+	if "%teslamods%"=="15" GOTO sys-tune
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -1961,6 +1939,7 @@ set /p missioncontrol=     Bitte triff deine Auswahl:
 	if "%missioncontrol%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\010000000000bd00"
 	RD /s /q "%sd%:\atmosphere\contents\exefs_patches\bluetooth_patches"
+	RD /s /q "%sd%:\atmosphere\contents\exefs_patches\btm_patches"
 	RD /s /q "%sd%:\config\MissionControl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\missioncontrol"
 	GOTO teslamodular
@@ -1996,6 +1975,39 @@ set /p ovlssysmodule=     Bitte triff deine Auswahl:
 	GOTO teslamodular
 	)
 	if "%ovlssysmodule%"=="3" GOTO teslamodular
+
+REM ============================================================
+:saltynx
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll SaltyNX installiert oder deinstalliert werden?
+echo.
+echo      1 = SaltyNX installieren
+echo      2 = SaltyNX deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "saltynx="
+set /p saltynx=     Bitte triff deine Auswahl: 
+	if "%saltynx%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\SaltyNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamodular
+	)
+	if "%saltynx%"=="2" (
+	RD /s /q "%sd%:\atmosphere\contents\0000000000534C56"
+	RD /s /q "%sd%:\SaltySD"
+	RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX"
+	GOTO teslamodular
+	)
+	if "%saltynx%"=="3" GOTO teslamodular
+	if "%saltynx%"=="" GOTO teslamodular
 
 REM ============================================================
 :statmon
@@ -2138,13 +2150,13 @@ echo      Enter = zur naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set "syscon="
-set /p syscon=     Bitte triff deine Auswahl: 
-	if "%syscon%"=="1" (
+set "sysdvr="
+set /p sysdvr=     Bitte triff deine Auswahl: 
+	if "%sysdvr%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodular
 	)
-	if "%syscon%"=="2" (
+	if "%sysdvr%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
 	RD /s /q "%sd%:\config\sysdvr"
 	RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
@@ -2153,8 +2165,40 @@ set /p syscon=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\SysDVR-conf"
 	GOTO teslamodular
 	)
-	if "%syscon%"=="3" GOTO teslamodular
-	if "%syscon%"=="" GOTO teslamodular
+	if "%sysdvr%"=="3" GOTO teslamodular
+	if "%sysdvr%"=="" GOTO teslamodular
+
+REM ============================================================
+:systune
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll sys-tune installiert oder deinstalliert werden?
+echo.
+echo      1 = sys-tune installieren
+echo      2 = sys-tune deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "systune="
+set /p systune=     Bitte triff deine Auswahl: 
+	if "%systune%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\sys-tune\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamodular
+	)
+	if "%systune%"=="2" (
+	RD /s /q "%sd%:\atmosphere\contents\4200000000000000"
+	RD /s /q "%sd%:\switch\.overlays\sys-tune-overlay.ovl"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-tune"
+	GOTO teslamodular
+	)
+	if "%systune%"=="3" GOTO teslamodular
+	if "%systune%"=="" GOTO teslamodular
 
 REM ============================================================
 :zusatzapps
