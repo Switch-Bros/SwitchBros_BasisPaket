@@ -639,6 +639,7 @@ REM ============================================================
 :aufraeumen
 if exist "%sd%:\SwitchBros_BasisPaket" (RD /s /q "%sd%:\SwitchBros_BasisPaket")
 if exist "%sd%:\switchbros" (RD /s /q "%sd%:\switchbros")
+if exist "%sd%:\updatebak" (RD /s /q "%sd%:\updatebak")
 if exist "%sd%:\switch\switchbros-updater\update.te" (del "%sd%:\switch\switchbros-updater\update.te")
 if exist "%sd%:\System Volume Information" (RD /s /q "%sd%:\System Volume Information")
 if exist "%sd%:\*.bat" (del "%sd%:\*.bat")
