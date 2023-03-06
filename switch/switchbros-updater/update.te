@@ -128,12 +128,6 @@ if (is_erista()){
 	}
 }
 
-if (fse("sd:/bootloader/hekate_ipl_.ini")){
-copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini")
-}
-if (fse("sd:/bootloader/nyx_.ini")){
-copyfile("sd:/bootloader/nyx_.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini")
-}
 if (fse("sd:/config/fastCFWSwitch/config.ini")){
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")
 }
@@ -1221,8 +1215,8 @@ if (resSystem == 8) {
 	col(NAVAJO)
 	pl("########### ########### ########## ### # ### ########## ########### ###########")
 	col(SCHWARZ)
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/nyx.ini", "sd:/bootloader/nyx.ini")
+	copyfile("sd:/updatebak/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
+	copyfile("sd:/updatebak/nyx.ini", "sd:/bootloader/nyx.ini")
 }
 
 pl()
@@ -2443,10 +2437,12 @@ p("             Ene...")wait(tw = 500)col(GRUEN)p(" Mene... ")wait(tw = 500)col(
 col(SCHWARZ)
 delfile("sd:/startup.te")
 delfile("sd:/bootloader/hekate_ipl_.ini")
+delfile("sd:/bootloader/nyx_.ini")
 delfile("sd:/bootloader/ini/!switchbros_updater.ini")
 delfile("sd:/bootloader/ini/switchbros_updater.ini")
 delfile("sd:/bootloader/res/icon_SB_nobox.bmp")
 deldir("sd:/switch/switchbrosupdater")
+deldir("sd:/updatebak")
 delfile("sd:/SwitchBros.txt")
 delfile("sd:/SwitchBros_NERD-O-MAT.bat")
 delfile("sd:/SwitchBros_NOOB-O-MAT.bat")

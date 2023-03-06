@@ -1,2 +1,2 @@
-/bootloader/hekate_ipl.ini|/bootloader/hekate_ipl_.ini
-/bootloader/nyx.ini|/bootloader/nyx_.ini 
+/bootloader/hekate_ipl.ini|/updatebak/hekate_ipl.ini
+/bootloader/nyx.ini|/updatebak/nyx.ini 
