@@ -1195,8 +1195,8 @@ if (resSystem == 8) {
 	col(NAVAJO)
 	pl("########### ########### ########## ### # ### ########## ########### ###########")
 	col(SCHWARZ)
-	copyfile("sd:/updatebak/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
-	copyfile("sd:/updatebak/nyx.ini", "sd:/bootloader/nyx.ini")
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/nyx.ini", "sd:/bootloader/nyx.ini")
 }
 
 pl()
