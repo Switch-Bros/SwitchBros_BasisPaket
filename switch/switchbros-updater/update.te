@@ -235,6 +235,7 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	delfile("sd:/hekate_ctcaer_6.0.1.bin")
 	delfile("sd:/hekate_ctcaer_6.0.0.bin")
 	delfile("sd:/hekate_ctcaer_5.9.0.bin")
+	delfile("sd:/fusee.bin")
 
 }.else() {
 	
