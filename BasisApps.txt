@@ -10,7 +10,7 @@ Lockpick_RCM 1.9.10 (Deutsch)
 90DNS Tester 1.0.4
 SwitchBros Updater 2.21.4-SB
 Daybreak 1.0.0_de (Deutsch)
-DBI 506
+DBI 510
 FTPD 3.1.0
 HB-AppStore 2.2
 JKSV 02/23/2023
@@ -37,7 +37,7 @@ sys-con 0.6.4
 sys-tune 1.2.2
 SysDVR 5.4
 SysDVR Overlay 1.0.7
-Tesla-Menu 1.2
+Tesla-Menu 1.2.0
 
 
 === Mögliche Zusatz Apps ==========
