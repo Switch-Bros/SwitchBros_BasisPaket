@@ -60,7 +60,7 @@ pl("  Druecke die A-Taste, um das SwitchBros. Paket zu aktualisieren!")
 pl()
 pl()
 col(ORANGE)
-pl("                                                         SwitchBros. Paket v112")
+pl("                                                         SwitchBros. Paket v113")
 pl()
 pl()
 col(ROT)
@@ -235,7 +235,6 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	delfile("sd:/hekate_ctcaer_6.0.1.bin")
 	delfile("sd:/hekate_ctcaer_6.0.0.bin")
 	delfile("sd:/hekate_ctcaer_5.9.0.bin")
-	delfile("sd:/fusee.bin")
 
 }.else() {
 	
@@ -1023,7 +1022,7 @@ if (resSystem == 12) {
 	pl()
 	pl()
   col(GRUEN)
-	pl("                   Basis + Linux + LAKKA wird installiert...")
+	pl("                   Basis + Linux + LibreELEC wird installiert...")
 	pl()
 	col(NAVAJO)
 	pl("########### ########### ########## ### # ### ########## ########### ###########")
@@ -1041,28 +1040,28 @@ col(SCHWARZ)
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 
     if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 
     if (resLIN == 2) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 
 	if (resLIN == 3) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 }
 
@@ -1187,7 +1186,7 @@ if (resSystem == 15) {
 
 clear()
 
-if (resSystem == 8) {
+if (resSystem == 16) {
 	pl()
 	pl()
 	col(GRUEN)
@@ -1196,8 +1195,8 @@ if (resSystem == 8) {
 	col(NAVAJO)
 	pl("########### ########### ########## ### # ### ########## ########### ###########")
 	col(SCHWARZ)
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/nyx.ini", "sd:/bootloader/nyx.ini")
+	copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/bootloader/hekate_ipl.ini")
+	copyfile("sd:/bootloader/nyx_.ini", "sd:/bootloader/nyx.ini")
 }
 
 pl()

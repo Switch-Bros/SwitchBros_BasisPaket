@@ -10,7 +10,7 @@ Lockpick_RCM 1.9.10 (Deutsch)
 SwitchBros Updater 2.21.4-SB
 90DNS Tester 1.0.4
 Daybreak 1.0.0_de (Deutsch)
-DBI 510
+DBI 513
 FTPD 3.1.0
 HB-AppStore 2.2
 JKSV 02/23/2023

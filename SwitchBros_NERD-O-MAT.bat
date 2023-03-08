@@ -36,7 +36,7 @@ echo.
 echo      Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus gestartet hast, dann
 echo          SCHLIESSE es bitte SOFORT^^! NICHT von SD-Karte aus starten^^!
 echo.
-echo      Bitte starte die SD-Werkzeug.bat ^>NUR^< aus dem "BasisPaket" Ordner von deinem PC^^!
+echo      Bitte starte die NERD-O-MAT.bat ^>NUR^< aus dem "BasisPaket" Ordner von deinem PC^^!
 echo.
 echo =====================================================================================================
 echo.
@@ -473,11 +473,11 @@ if exist "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
 if exist "%sd%:\switch\tinfoil-store-updater" (RD /s /q "%sd%:\switch\tinfoil-store-updater")
 if exist "%sd%:\switch\tinfoil-store-premium" (RD /s /q "%sd%:\switch\tinfoil-store-premium")
 if exist "%sd%:\switch\.overlays" (RD /s /q "%sd%:\switch\.overlays")
-if exist "%sd%:\switch\*.nro" (del "%sd%:\switch\*.nro")
+REM if exist "%sd%:\switch\*.nro" (del "%sd%:\switch\*.nro")
+REM if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 if exist "%sd%:\switch\*.ini" (del "%sd%:\switch\*.ini")
 if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
-if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 
 REM ============================================================
 :sblegtlos
@@ -536,23 +536,23 @@ echo.
 echo     Android und die anderen Linux Distributionen z.Zt. NICHT^^!^^!^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     0 = alte hekate_ipl.ini behalten (nicht empfohlen)
-echo     1 = Basis (Standard)
-echo     2 = Basis + Android
-echo     3 = Basis + Linux
-echo     4 = Basis + LAKKA
-echo     5 = Basis + LibreELEC
-echo     6 = Basis + Android + Linux
-echo     7 = Basis + Android + LAKKA
-echo     8 = Basis + Android + LibreELEC
-echo     9 = Basis + Android + Linux + LAKKA
-echo     10 = Basis + Android + Linux + LibreELEC
-echo     11 = Basis + Android + LAKKA + LibreELEC
-echo     12 = Basis + Android + Linux + LAKKA + LibreELEC
-echo     13 = Basis + Linux + LAKKA
+echo      0 = Basis (Standard)
+echo      1 = Basis + Android
+echo      2 = Basis + Linux
+echo      3 = Basis + LAKKA
+echo      4 = Basis + LibreELEC
+echo      5 = Basis + Android + Linux
+echo      6 = Basis + Android + LAKKA
+echo      7 = Basis + Android + LibreELEC
+echo      8 = Basis + Android + Linux + LAKKA
+echo      9 = Basis + Android + Linux + LibreELEC
+echo     10 = Basis + Android + LAKKA + LibreELEC
+echo     11 = Basis + Android + Linux + LAKKA + LibreELEC
+echo     12 = Basis + Linux + LAKKA
+echo     13 = Basis + Linux + LAKKA + LibreELEC
 echo     14 = Basis + Linux + LibreELEC
-echo     15 = Basis + Linux + LAKKA + LibreELEC
-echo     16 = Basis + LAKKA + LibreELEC
+echo     15 = Basis + LAKKA + LibreELEC
+echo     16 = alte hekate_ipl.ini behalten (nicht empfohlen)
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo     W - Es geht erst weiter wenn du 'W' eingegeben hast^^!
@@ -563,44 +563,25 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p eingabe="     Waehle deine Systemkombination: "
-if "%eingabe%"=="0" GOTO altesystembehalten
-if "%eingabe%"=="1" GOTO nurbasissystem
-if "%eingabe%"=="2" GOTO androidpartition
-if "%eingabe%"=="3" GOTO linuxpartition
-if "%eingabe%"=="4" GOTO lakkapartition
-if "%eingabe%"=="5" GOTO librepartition
-if "%eingabe%"=="6" GOTO androidlinux
-if "%eingabe%"=="7" GOTO androidlakka
-if "%eingabe%"=="8" GOTO androidlibre
-if "%eingabe%"=="9" GOTO androidlinuxlakka
-if "%eingabe%"=="10" GOTO androidlinuxlibre
-if "%eingabe%"=="11" GOTO androidlakkalibre
-if "%eingabe%"=="12" GOTO androidlinuxlakkalibre
-if "%eingabe%"=="13" GOTO linuxlakka
+if "%eingabe%"=="0" GOTO nurbasissystem
+if "%eingabe%"=="1" GOTO androidpartition
+if "%eingabe%"=="2" GOTO linuxpartition
+if "%eingabe%"=="3" GOTO lakkapartition
+if "%eingabe%"=="4" GOTO librepartition
+if "%eingabe%"=="5" GOTO androidlinux
+if "%eingabe%"=="6" GOTO androidlakka
+if "%eingabe%"=="7" GOTO androidlibre
+if "%eingabe%"=="8" GOTO androidlinuxlakka
+if "%eingabe%"=="9" GOTO androidlinuxlibre
+if "%eingabe%"=="10" GOTO androidlakkalibre
+if "%eingabe%"=="11" GOTO androidlinuxlakkalibre
+if "%eingabe%"=="12" GOTO linuxlakka
+if "%eingabe%"=="13" GOTO linuxlakkalibre
 if "%eingabe%"=="14" GOTO linuxlibre
-if "%eingabe%"=="15" GOTO linuxlakkalibre
-if "%eingabe%"=="16" GOTO lakkalibre
+if "%eingabe%"=="15" GOTO lakkalibre
+if "%eingabe%"=="16" GOTO altesystembehalten 
 if /i "%eingabe%"=="W" GOTO kindgerecht
 if /i "%eingabe%"=="H" GOTO hauptmenue
-
-REM ============================================================
-:altesystembehalten
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
-GOTO systempartitionen
 
 REM ============================================================
 :nurbasissystem
@@ -745,7 +726,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 xcopy "%sd%:\switchbros\system\be\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\libre\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -1381,6 +1362,25 @@ echo.
 xcopy "%sd%:\switchbros\system\ble\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
+GOTO systempartitionen
+
+REM ============================================================
+:altesystembehalten
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+if exist "%sd%:\switchbros\backup\hekate_ipl.ini" (xcopy "%sd%:\switchbros\backup\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul

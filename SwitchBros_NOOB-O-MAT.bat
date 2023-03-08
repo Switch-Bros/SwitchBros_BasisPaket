@@ -36,7 +36,7 @@ echo.
 echo      Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus gestartet hast, dann
 echo          SCHLIESSE es bitte SOFORT^^! NICHT von SD-Karte aus starten^^!
 echo.
-echo      Bitte starte die SD-Werkzeug.bat ^>NUR^< aus dem "BasisPaket" Ordner von deinem PC^^!
+echo      Bitte starte die NOOB-O-MAT.bat ^>NUR^< aus dem "BasisPaket" Ordner von deinem PC^^!
 echo.
 echo =====================================================================================================
 echo.
@@ -405,11 +405,11 @@ if exist "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
 if exist "%sd%:\switch\tinfoil-store-updater" (RD /s /q "%sd%:\switch\tinfoil-store-updater")
 if exist "%sd%:\switch\tinfoil-store-premium" (RD /s /q "%sd%:\switch\tinfoil-store-premium")
 if exist "%sd%:\switch\.overlays" (RD /s /q "%sd%:\switch\.overlays")
-if exist "%sd%:\switch\*.nro" (del "%sd%:\switch\*.nro")
+REM if exist "%sd%:\switch\*.nro" (del "%sd%:\switch\*.nro")
+REM if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 if exist "%sd%:\switch\*.ini" (del "%sd%:\switch\*.ini")
 if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
-if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 
 REM ============================================================
 :sblegtlos
