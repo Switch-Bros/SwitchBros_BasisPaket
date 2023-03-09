@@ -4,7 +4,7 @@
 
 ROT=0xFF0000
 GRUEN=0x00CC00
-BLAU=0x3366FF
+BLAU=0x99CCFF
 GELB=0xFDE100
 WEISS=0xFFFFFF
 SCHWARZ=0x1B1B1B
@@ -193,6 +193,7 @@ pl()
 
 col(SCHWARZ)
 if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
+	deldir("sd:/atmosphere/contents/0100000000001000")
 	deldir("sd:/atmosphere/exefs_patches")
 	deldir("sd:/atmosphere/kip_patches")
 	deldir("sd:/atmosphere/erpt_reports")
