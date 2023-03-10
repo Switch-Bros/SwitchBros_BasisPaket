@@ -4,7 +4,7 @@
 
 ROT=0xFF0000
 GRUEN=0x00CC00
-BLAU=0x99CCFF
+BLAU=0x1034A6
 GELB=0xFDE100
 WEISS=0xFFFFFF
 SCHWARZ=0x1B1B1B
@@ -488,7 +488,6 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	pl()
 	pl()
 	pl()
-	col(BLAU)
 	pl(" Wir haben eben eine neue Version unserer Installations-Software entwickelt.") 
 	pl()
 	pl(" Es dauert etwas laenger, aber es ist ein Erlebnis fuer sich.")
@@ -628,7 +627,7 @@ pl()
 
 col(SILBER)
 menuOptionsSystem =
- ["[0] Basis (Standard)", "[1] Basis + Android", "[2] Basis + Linux", "[3] Basis + LAKKA", "[4] Basis + LibreELEC", "[5] Basis + Android + Linux", "[6] Basis + Android + LAKKA", "[7] Basis + Android + LibreELEC", "[8] Basis + Android + Linux + LAKKA", "[9] Basis + Android + Linux + LibreELEC", "[10] Basis + Android + LAKKA + LibreELEC", "[11] Basis + Android + Linux + LAKKA + LibreELEC", "[12] Basis + Linux + LAKKA", "[13] Basis + Linux + LAKKA + LibreELEC", "[14] Basis + Linux + LibreELEC", "[15] Basis + LAKKA + LibreELEC", "[16] alte Daten behalten (NICHT EMPFOHLEN)"]
+ ["[ 0] Basis (Standard)", "[ 1] Basis + Android", "[ 2] Basis + Linux", "[ 3] Basis + LAKKA", "[ 4] Basis + LibreELEC", "[ 5] Basis + Android + Linux", "[ 6] Basis + Android + LAKKA", "[ 7] Basis + Android + LibreELEC", "[ 8] Basis + Android + Linux + LAKKA", "[ 9] Basis + Android + Linux + LibreELEC", "[10] Basis + Android + LAKKA + LibreELEC", "[11] Basis + Android + Linux + LAKKA + LibreELEC", "[12] Basis + Linux + LAKKA", "[13] Basis + Linux + LAKKA + LibreELEC", "[14] Basis + Linux + LibreELEC", "[15] Basis + LAKKA + LibreELEC", "[16] alte Daten behalten (NICHT EMPFOHLEN)"]
 resSystem = menu(menuOptionsSystem, 0)
 
 clear()
@@ -1286,7 +1285,7 @@ if (resTesla == 0) {
 	pl()
 	pl()
 	pl()
-	col(BLAU)
+	col(GELB)
 	pl("   Wir haben ein Wettrennen gestartet, um zu sehen, wer zuerst einschlaeft")
 	pl()
 	pl("       - die Installation oder wir?")
@@ -1343,7 +1342,7 @@ if (resTesla == 2) {
 	pl()
 	pl()
 	pl()
-	col(BLAU)
+	col(GELB)
 	pl("  Derzeit befinden sich alle unsere Mitarbeiter im Gespraech.")
 	pl()
 	pl("  Dein Anliegen wurde soeben vermerkt und ein Mitarbeiter wird sich")
@@ -1464,7 +1463,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
+    resYN = menu(menuOptionsYN, 0)
 
     clear()
     col(SCHWARZ)
@@ -1623,7 +1622,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
+    resYN = menu(menuOptionsYN, 0)
 
     clear()
     col(SCHWARZ)
@@ -1747,7 +1746,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
+    resYN = menu(menuOptionsYN, 0)
 
     clear()
     col(SCHWARZ)
@@ -1783,7 +1782,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
+    resYN = menu(menuOptionsYN, 1)
 
     clear()
     col(SCHWARZ)
@@ -1821,7 +1820,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
+    resYN = menu(menuOptionsYN, 1)
 
     clear()
     col(SCHWARZ)
@@ -2020,7 +2019,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
+    resYN = menu(menuOptionsYN, 1)
 
     clear()
     col(SCHWARZ)
@@ -2079,7 +2078,7 @@ if (resTinfoil == 0) {
 	pl()
 	pl()
 	pl()
-	col(BLAU)
+	col(GELB)
 	pl("     Wir haben unser Bestes gegeben, aber die Konsole braucht eine Weile,")
 	pl()
 	pl("               um all diese wunderbaren Updates zu verarbeiten.")
@@ -2108,7 +2107,7 @@ if (resTinfoil == 1) {
 	pl()
 	pl()
 	pl()
-	col(BLAU)
+	col(GELB)
 	pl("     Wir haben eine Petition gestartet, um die Wartezeit fuer")
 	pl()
 	pl("     Installationen zu verkuerzen.")
@@ -2176,7 +2175,7 @@ if (resHBApps == 0) {
 	pl()
 	pl()
 	pl()
-	col(BLAU)
+	col(GELB)
 	pl("     Du meldest dich ausserhalb unserer CFW Zeiten!")
 	pl()
 	pl("     Bitte Kontaktiere uns kostenfrei, innerhalb unserer CFW Zeiten:")
@@ -2315,8 +2314,27 @@ clear()
     }
 }
 
-wait(tw = 3000)
-clear()
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config")) {
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config", "sd:/switch/DBI/dbi.config")
+}
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")){
+copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
+}
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")) {
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
+}
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini")) {
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
+}
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg")) {
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg", "sd:/config/ftpd/ftpd.cfg")
+}
+if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
+	copydir ("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo", "sd:/atmosphere/exefs_patches/")
+}
+
+wait(tw = 1000)
+clear( )
 
 pl()
 col(NAVAJO)
@@ -2328,14 +2346,18 @@ pl("                        Entferne MacOS bezogenen Muell!")
 pl()
 pl()
 pl()
-col(BLAU)
+col(GELB)
 pl("                   Bitte warten, dass dauert einen Moment...")
 pl()
 pl("     Zum Glueck nur einen Moment und keine 800 Stunden, die manch einer")
 pl("     wohl in sein Paket gesteckt hat!")
 pl()
-pl("     Unglaubliche 1001 Naechte haben wir geschuftet wie die HAUSELFEN um euch")
-pl("     dieses SwitchBros. Paket praesentieren zu koennen")
+pl("     800 Stunden, oho!? Ueber 800 Stunden, haha!?")
+pl("     Wadde da musch ja grad ma lache, muahahahaha!!!")
+pl()
+p()
+pl("     Unglaubliche 1001 Naechte haben WIR geschuftet wie die HAUSELFEN von")
+pl("     Hogwarts, um euch dieses SwitchBros. Paket praesentieren zu koennen")
 pl()
 pl("     Bissl fuers Paket und der Rest ist die Liebe zu unserer Community")
 pl()
@@ -2417,29 +2439,6 @@ deldir("sd:/switch/switchbrosupdater")
 delfile("sd:/SwitchBros.txt")
 delfile("sd:/SwitchBros_NERD-O-MAT.bat")
 delfile("sd:/SwitchBros_NOOB-O-MAT.bat")
-
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config", "sd:/switch/DBI/dbi.config")
-}
-
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")){
-copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
-}
-
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
-}
-
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
-}
-
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg", "sd:/config/ftpd/ftpd.cfg")
-}
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
-	copydir ("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo", "sd:/atmosphere/exefs_patches/")
-}
 
 deldir("sd:/SwitchBros_BasisPaket")
 delfile("sd:/switch/switchbros-updater/update.te")
