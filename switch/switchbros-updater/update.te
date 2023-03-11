@@ -50,13 +50,13 @@ pl()
 pl("     Alternative Navigation (ohne JoyCons):")
 pl()
 pl()
-col(SILBER)p("       * ")col(BECKY)p("Vol +/-      : navigieren / abbrechen / beenden")pl()
-col(SILBER)p("       * ")col(BECKY)p("Power Button : bestaetigen")pl()
+col(SILBER)p("       * ")col(BECKY)p("Vol +/-      : hoch/runter navigieren")pl()
+col(SILBER)p("       * ")col(BECKY)p("Power Button : Bestaetigen (A-Taste)")pl()
 pl()
 pl()
 pl()
 col(GRUEN)
-pl("  Druecke die A-Taste, um das SwitchBros. Paket zu aktualisieren!")
+pl("  Drueck die A-Taste/Power, um das SwitchBros. Paket zu aktualisieren!")
 pl()
 pl()
 col(ORANGE)
@@ -69,8 +69,10 @@ pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 col(SCHWARZ)
-if (!pause().a) {
-    exit()
+
+result = pause()
+if (!(result.a || result.power)) {
+  exit()
 }
 clear()
 
@@ -128,22 +130,22 @@ if (is_erista()){
 	}
 }
 
-if (fse("sd:/config/fastCFWSwitch/config.ini")){
+if (fse("sd:/config/fastCFWSwitch/config.ini")) {
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")
 }
-if (fse("sd:/config/Fizeau/config.ini")){
+if (fse("sd:/config/Fizeau/config.ini")) {
 copyfile("sd:/config/Fizeau/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini")
 }
-if (fse("sd:/config/icongrabber/config.json")){
+if (fse("sd:/config/icongrabber/config.json")) {
 copyfile("sd:/config/icongrabber/config.json", "sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")
 }
-if (fse("sd:/config/ftpd/ftpd.cfg")){
+if (fse("sd:/config/ftpd/ftpd.cfg")) {
 copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg")
 }
-if (fse("sd:/switch/tinfoil/locations.conf")){
+if (fse("sd:/switch/tinfoil/locations.conf")) {
 copyfile("sd:/switch/tinfoil/locations.conf", "sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")
 }
-if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
+if (fse("sd:/atmosphere/exefs_patches/bootlogo")) {
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/SwitchBros_BasisPaket/switchbros/backup/")
 }
 if (fse("sd:/switch/DBI/dbi.config")) {
@@ -217,6 +219,8 @@ if (fse("sd:/switch/switchbros-updater/switchbros-updater.nro")){
 	delfile("sd:/bootloader/nyx.ini")
 	delfile("sd:/bootloader/update.bin")
 	delfile("sd:/bootloader/patches.ini")
+
+	delfile("sd:/config/switchbros-updater/ams.zip")
 
 	deldir("sd:/switchbros")
 
@@ -488,9 +492,9 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	pl()
 	pl()
 	pl()
-	pl(" Wir haben eben eine neue Version unserer Installations-Software entwickelt.") 
+	pl(" Wir haben eben die neueste Version vom SB-Updater entwickelt.") 
 	pl()
-	pl(" Es dauert etwas laenger, aber es ist ein Erlebnis fuer sich.")
+	pl(" Es dauert laenger, aber es ist ein Erlebnis fuer sich.")
 	pl()
 	pl()
 	col(NAVAJO)
