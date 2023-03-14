@@ -60,7 +60,7 @@ pl("  Drueck die A-Taste/Power, um das SwitchBros. Paket zu aktualisieren!")
 pl()
 pl()
 col(ORANGE)
-pl("                                                         SwitchBros. Paket v113")
+pl("                                                         SwitchBros. Paket v114")
 pl()
 pl()
 col(ROT)
@@ -593,7 +593,7 @@ if (resChip == 1) {
 wait(tw = 1000)
 clear()
 
-if (resChip == 1) {
+if (resChip == 2) {
   pl()
 	pl()
 	pl()
