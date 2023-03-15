@@ -26,7 +26,7 @@ pause>nul 2>&1
 
 REM ============================================================
 :neuekarte
-COLOR 0D
+COLOR 0C
 cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -2552,6 +2552,7 @@ if exist "%sd%:\SwitchBros.txt" (del "%sd%:\SwitchBros.txt")
 if exist "%sd%:\switch\switchbrosupdater" (RD /s /q "%sd%:\switch\switchbrosupdater")
 
 if %bootdat%==1 (
+	if exist "%sd%:\bootloader\memloader" (RD /s /q "%sd%:\bootloader\memloader")
 	if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
 	if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau")
 	if exist "%sd%:\switch\.overlays\5_Fizeau.ovl" (del "%sd%:\switch\.overlays\*fizeau*.ovl")
@@ -2564,6 +2565,7 @@ if %bootdat%==2 (
 	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
 	)
 if %bootdat%==3 (
+	if exist "%sd%:\bootloader\memloader" (RD /s /q "%sd%:\bootloader\memloader")
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
 	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
