@@ -100,6 +100,7 @@ if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFW
 if exist "%sd%:\config\Fizeau\config.ini" (xcopy /y "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\*") >nul 2>nul
 if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrabber\config.json" "%sd%:\switchbros\backup\IconGrabber\*") >nul 2>nul
 if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
+if exist "%sd%:\config\sys-ftpd\config.ini" (xcopy /y "%sd%:\config\sys-ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
 if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\*") >nul 2>nul
 if exist "%sd%:\atmosphere\exefs_patches\bootlogo" (xcopy /y "%sd%:\atmosphere\exefs_patches\bootlogo" "%sd%:\switchbros\backup\*") >nul 2>nul
 
@@ -434,6 +435,7 @@ xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 2"
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\ftpd\config.ini" (xcopy "%sd%:\switchbros\backup\ftpd\config.ini" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 5"
 

@@ -86,6 +86,7 @@ if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFW
 if exist "%sd%:\config\Fizeau\config.ini" (xcopy /y "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\*") >nul 2>nul
 if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrabber\config.json" "%sd%:\switchbros\backup\IconGrabber\*") >nul 2>nul
 if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
+if exist "%sd%:\config\sys-ftpd\config.ini" (xcopy /y "%sd%:\config\sys-ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
 if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\*") >nul 2>nul
 if exist "%sd%:\atmosphere\exefs_patches\bootlogo" (xcopy /y "%sd%:\atmosphere\exefs_patches\bootlogo" "%sd%:\switchbros\backup\*") >nul 2>nul
 
@@ -1383,6 +1384,7 @@ if exist "%sd%:\switchbros\backup\nyx.ini" (xcopy "%sd%:\switchbros\backup\nyx.i
 if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%sd%:\switchbros\backup\ftpd\config.ini" (xcopy "%sd%:\switchbros\backup\ftpd\config.ini" "%sd%:\config\sys-ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
@@ -1619,8 +1621,8 @@ echo.
 
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\DNS-MITM_Manager\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1631,6 +1633,7 @@ echo.
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-tune\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1653,6 +1656,7 @@ xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO zusatzapps
 
@@ -1676,20 +1680,22 @@ echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
 echo       1 = BootSoundNX (Bootsound beim Systemstart)
-echo       2 = Edizon (Cheats nutzen)
-echo       3 = emuiibo (damit kann man virtuelle amiibos nutzen)
-echo       4 = fastCFWswitch (Launcher fuer Payloads (nicht fuer Modchip))
-echo       5 = Fizeau (Bildschirmanzeige optimieren/verbessern)
-echo       6 = ldn_mitm (LAN-Play App)
-echo       7 = MissionControl (fremd Controller ueber Bluetooth)
-echo       8 = ovlSysmodule (Tesla-Overlay module aktivieren/deaktivieren)
-echo       9 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
-echo      10 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
-echo      11 = sys-clk (Switch Uebertakten/Untertakten)
-echo      12 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
-echo      13 = sys-con (fremd Controller ueber USB)
-echo      14 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
-echo      15 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
+echo       2 = DNS-MITM Manager (Hosts Datei neu laden)
+echo       3 = Edizon (Cheats nutzen)
+echo       4 = emuiibo (damit kann man virtuelle amiibos nutzen)
+echo       5 = fastCFWswitch (Launcher fuer Payloads (nicht fuer Modchip))
+echo       6 = Fizeau (Bildschirmanzeige optimieren/verbessern)
+echo       7 = ldn_mitm (LAN-Play App)
+echo       8 = MissionControl (fremd Controller ueber Bluetooth)
+echo       9 = ovlSysmodule (Tesla-Overlay module aktivieren/deaktivieren)
+echo      10 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
+echo      11 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
+echo      12 = sys-clk (Switch Uebertakten/Untertakten)
+echo      13 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
+echo      14 = sys-con (fremd Controller ueber USB)
+echo      15 = sys-ftpd-light (FTP Verbindung im Hintergrund)
+echo      16 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
+echo      17 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1701,20 +1707,22 @@ echo.
 set "teslamods="
 set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="1" GOTO bootsoundnx
-	if "%teslamods%"=="2" GOTO edizon
-	if "%teslamods%"=="3" GOTO emuiibo
-	if "%teslamods%"=="4" GOTO fastcfwswitch
-	if "%teslamods%"=="5" GOTO fizeau
-	if "%teslamods%"=="6" GOTO ldnmitm
-	if "%teslamods%"=="7" GOTO missioncontrol
-	if "%teslamods%"=="8" GOTO ovlssysmodule
-	if "%teslamods%"=="9" GOTO saltynx
-	if "%teslamods%"=="10" GOTO statmon
-	if "%teslamods%"=="11" GOTO sysclk
-	if "%teslamods%"=="12" GOTO sysclkedit
-	if "%teslamods%"=="13" GOTO syscon
-	if "%teslamods%"=="14" GOTO sysdvr
-	if "%teslamods%"=="15" GOTO sys-tune
+	if "%teslamods%"=="2" GOTO dnsmitm
+	if "%teslamods%"=="3" GOTO edizon
+	if "%teslamods%"=="4" GOTO emuiibo
+	if "%teslamods%"=="5" GOTO fastcfwswitch
+	if "%teslamods%"=="6" GOTO fizeau
+	if "%teslamods%"=="7" GOTO ldnmitm
+	if "%teslamods%"=="8" GOTO missioncontrol
+	if "%teslamods%"=="9" GOTO ovlssysmodule
+	if "%teslamods%"=="10" GOTO saltynx
+	if "%teslamods%"=="11" GOTO statmon
+	if "%teslamods%"=="12" GOTO sysclk
+	if "%teslamods%"=="13" GOTO sysclkedit
+	if "%teslamods%"=="14" GOTO syscon
+	if "%teslamods%"=="15" GOTO sysftpd
+	if "%teslamods%"=="16" GOTO sys-tune
+	if "%teslamods%"=="17" GOTO sysdvr
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -1747,6 +1755,36 @@ set /p bootsoundnx="     Bitte triff deine Auswahl: "
 	GOTO teslamodular
 	)
 	if "%bootsoundnx%"=="3" GOTO teslamodular
+
+REM ============================================================
+:dnsmitm
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll DNS-MITM Manager installiert oder deinstalliert werden?
+echo.
+echo      1 = DNS-MITM Manager installieren
+echo      2 = DNS-MITM Manager deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "dnsmitm="
+set /p dnsmitm="     Bitte triff deine Auswahl: "
+	if "%dnsmitm%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\DNS-MITM_Manager\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamodular
+	)
+	if "%dnsmitm%"=="2" (
+	RD /s /q "%sd%:\switch\appstore\.get\packages\dns-mitm_Manager"
+	del "%sd%:\switch\.overlays\DNS-MITM_Manager.ovl"
+	GOTO teslamodular
+	)
+	if "%dnsmitm%"=="3" GOTO teslamodular
 
 REM ============================================================
 :edizon
@@ -2132,6 +2170,37 @@ set /p syscon=     Bitte triff deine Auswahl:
 	GOTO teslamodular
 	)
 	if "%syscon%"=="3" GOTO teslamodular
+
+REM ============================================================
+:sysftpd
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll sys-FTPD-light installiert oder deinstalliert werden?
+echo.
+echo      1 = sys-FTPD-light installieren
+echo      2 = sys-FTPD-light deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zur naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "sysftpd="
+set /p sysftpd=     Bitte triff deine Auswahl: 
+	if "%sysftpd%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamodular
+	)
+	if "%sysftpd%"=="2" (
+	RD /s /q "%sd%:\atmosphere\contents\420000000000000E"
+	RD /s /q "%sd%:\config\sys-ftpd"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light"
+	GOTO teslamodular
+	)
+	if "%sysftpd%"=="3" GOTO teslamodular
 
 REM ============================================================
 :sysdvr
