@@ -39,7 +39,7 @@ sys-con 0.6.4
 sys-tune 1.2.2
 SysDVR 5.4
 SysDVR Overlay 1.0.7
-Tesla-Menu 1.2.0_de
+Tesla-Menu 1.2.1
 
 
 === Mögliche Zusatz Apps ==========

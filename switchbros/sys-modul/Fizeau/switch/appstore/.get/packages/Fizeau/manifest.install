@@ -1,0 +1,6 @@
+U: switch/.overlays/Fizeau.ovl
+U: switch/Fizeau/Fizeau.nro
+U: config/Fizeau/config.ini
+U: atmosphere/contents/0100000000000F12/exefs.nsp
+U: atmosphere/contents/0100000000000F12/toolbox.json
+U: atmosphere/contents/0100000000000F12/flags/boot2.flag
