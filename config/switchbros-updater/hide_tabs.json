@@ -3,7 +3,7 @@
     "atmosphere": false,
     "atmosphereentries": false,
     "browser": false,
-    "cfw": true,
+    "cfw": false,
     "cheats": false,
     "cleanup": true,
     "downloadpayload": true,
