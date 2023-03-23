@@ -48,7 +48,7 @@ echo.
 
 for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
 echo.
-set /P sd="     Laufwerksbuchstabe der SD-Karte: "
+set /P /i sd="     Laufwerksbuchstabe der SD-Karte: "
 
 if not exist "%sd%:\" (
 	set word=     Es befindet sich keine SD-Karte im Laufwerk %sd%         
@@ -120,7 +120,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p neuistgut="     Bitte gib deine Auswahl ein: "
+set /p /i neuistgut="     Bitte gib deine Auswahl ein: "
 if "%neuistgut%"=="1" GOTO sbgibgas
 if "%neuistgut%"=="2" GOTO systempartitionen
 if "%neuistgut%"=="3" GOTO backupordner
@@ -164,7 +164,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "LW="
-set /p LW="     Bitte gib einen gueltigen Laufwerksbuchstaben ein: "
+set /p /i LW="     Bitte gib einen gueltigen Laufwerksbuchstaben ein: "
 
 if defined LW (
  (
@@ -563,7 +563,7 @@ echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p eingabe="     Waehle deine Systemkombination: "
+set /p /i eingabe="     Waehle deine Systemkombination: "
 if "%eingabe%"=="0" GOTO nurbasissystem
 if "%eingabe%"=="1" GOTO androidpartition
 if "%eingabe%"=="2" GOTO linuxpartition
@@ -1541,7 +1541,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p steamapi="     Bitte gib deine Steam API ein: "
+set /p /i steamapi="     Bitte gib deine Steam API ein: "
 set "config_path=%sd%:\config\icongrabber\config.json"
 if "%steamapi%"=="" (
     goto systemmodule
