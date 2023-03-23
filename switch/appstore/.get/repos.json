@@ -1,1 +1,9 @@
-{"repos":[{"name":"Default Repo","url":"https://switchbru.com/appstore","enabled":true}]}
+{
+  "repos": [
+    {
+      "name":"Default Repo",
+      "url":"https://switchbru.com/appstore",
+      "enabled":true
+    }
+  ]
+}

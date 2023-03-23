@@ -26,7 +26,7 @@ Reset parental control 1.2.0
 BootSoundNX 1.3.0
 DNS-MITM_Manager 0.2.0
 EdiZon 3.8.37
-emuiibo 0.6.4
+emuiibo 0.6.5
 fastCFWswitch 1.3.1_de
 Fizeau 2.4.1
 ldn-mitm 1.14.0

@@ -105,7 +105,7 @@ fileDel("sd:/bootloader/update.bin.sig");
 fileDel("sd:/bootloader/patches_template.ini");
 fileDel("sd:/bootloader/bootlogo.bmp");
 fileDel("sd:/bootloader/payloads/rajnx_ipl.bin");
-fileDel("sd:/bootloader/payloads/CommonProblemResolver.bin");
+fileDel("sd:/bootloader/payloads/AllgemeinerProblemLoeser.bin");
 
 fileDel("sd:/games/hbgShop_forwarder_classic.nsp");
 fileDel("sd:/games/hbgShop_forwarder_dark_v3.nsp");
