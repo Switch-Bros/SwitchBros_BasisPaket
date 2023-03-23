@@ -36,7 +36,7 @@
 	"region":"DE",
 	"language":"de",
 	"logLevel":"Warning",
-	"theme":"teknik_oled",
+	"theme":"SB_Theme_Side",
 	"windows":{"":{"display":0},
 	"APPWND":{"display":0},
 	"Console":{"display":1},
