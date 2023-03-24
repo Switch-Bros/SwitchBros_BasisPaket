@@ -209,7 +209,7 @@ if (fse("sd:/SB.ico")){
 
 	deldir("sd:/bootloader/sys")
 	delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
-	delfile("sd:/bootloader/payloads/AllgemeinerProblemLoeser.bin")
+	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.2.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.1.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.0.bin")
@@ -461,7 +461,6 @@ if (resChip == 0) {
 	col(GRUEN)
 	pl("                   Modchip relevante Daten werden entfernt...")
 	col(SCHWARZ)
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
 	deldir("sd:/bootloader/memloader")
 	delfile("sd:/boot.dat")
 	delfile("sd:/boot.ini")
@@ -484,7 +483,6 @@ if (resChip == 1) {
 	copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
 	copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
 	deldir("sd:/bootloader/memloader")
 	deldir("sd:/config/Fizeau")
 	deldir("sd:/atmosphere/contents/0100000000000F12")
@@ -504,7 +502,6 @@ if (resChip == 2) {
 	col(GRUEN)
 	pl("                 Modchip relevante Daten werden hinzugefuegt...")
 	col(SCHWARZ)
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
 	copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
@@ -746,7 +743,7 @@ if (resSystem == 8) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
   resLIN = menu(menuOptionsLIN, 1)
 
 col(SCHWARZ)
@@ -799,7 +796,7 @@ if (resSystem == 9) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
   resLIN = menu(menuOptionsLIN, 1)
 
 col(SCHWARZ)
@@ -870,7 +867,7 @@ if (resSystem == 11) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
   resLIN = menu(menuOptionsLIN, 1)
 
 col(SCHWARZ)
@@ -926,7 +923,7 @@ if (resSystem == 12) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
   resLIN = menu(menuOptionsLIN, 1)
 
 col(SCHWARZ)
@@ -975,7 +972,7 @@ if (resSystem == 13) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
   resLIN = menu(menuOptionsLIN, 1)
 
 col(SCHWARZ)
@@ -1028,7 +1025,7 @@ if (resSystem == 14) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["Arch", "Bionic (Modchip Support)", "Fedora (Modchip Support)", "Ubuntu"]
+  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
   resLIN = menu(menuOptionsLIN, 1)
 
 col(SCHWARZ)
@@ -1104,8 +1101,6 @@ pause()
 clear()
 
 pl()
-pl()
-pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 pl()
@@ -1174,7 +1169,7 @@ pl()
 pl()
 
 col(SILBER)
-menuOptionsTesla = ["[ALLES] Tesla-Overlay Menue inkl. einiger System-Module", "[MANUELL] Tesla-Overlay Menue + Module einzeln (empfohlen)", "[NICHTS] kein Tesla-Overlay, keine Module"]
+menuOptionsTesla = ["     [ALLES] Tesla-Overlay Menue inkl. einiger System-Module", "     [MANUELL] Tesla-Overlay Menue + Module einzeln (empfohlen)", "     [NICHTS] kein Tesla-Overlay, keine Module"]
 resTesla = menu(menuOptionsTesla, 1)
 
 clear()
@@ -1198,7 +1193,6 @@ if (resTesla == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
@@ -1504,8 +1498,10 @@ clear()
     col(ROT)
     p("  Achtung: ")col(GELB)p("Funktioniert nur eingeschraenkt mit Modchip!")pl()
     pl()
+    pl("  Das Modul wurde bereits bei der Systemauswahl installiert!")
+    pl()
     col(WEISS)
-    pl("  Moechtest du [fastCFWswitch] installieren?")
+    pl("  Moechtest du [fastCFWswitch] behalten?")
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
@@ -1515,12 +1511,11 @@ clear()
     col(SCHWARZ)
 
     if (resYN == 0) {
-    copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/config", "sd:/")
 		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
     }
 
     if (resYN == 1) {
-    deldir("sd:/config/fastCFWswitch")
+		deldir("sd:/config/fastCFWswitch")
 		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
 		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
     }
@@ -1538,8 +1533,9 @@ clear()
     pl()
     col(GELB)
     pl("  Mit Fizeau kannst du dein Display anpassen um fast OLED feeling zu bekommen.")
-    pl("  Dieses Modul lohnt sich daher nicht auf einer OLED Konsole.")
-    pl()
+    pl("  Dieses Modul lohnt sich daher nicht auf einer OLED Konsole, weshalb du es")
+    pl("  als Besitzer einer OLED Konsole ruhig deinstallieren kannst.")
+	pl()
     col(WEISS)
     pl("  Moechtest du [Fizeau] installieren?")
     pl()
@@ -1710,11 +1706,11 @@ clear()
     }
 
     if (resYN == 1) {
-		deldir("sd:/atmosphere/contents/0000000000534C56")
-		deldir("sd:/SaltySD")
-		delfile("sd:/switch/.overlays/FPSLocker.ovl")
-		deldir("sd:/switch/appstore/.get/packages/fpslocker")
-		deldir("sd:/switch/appstore/.get/packages/SaltyNX")
+      deldir("sd:/atmosphere/contents/0000000000534C56")
+      deldir("sd:/SaltySD")
+      delfile("sd:/switch/.overlays/FPSLocker.ovl")
+      deldir("sd:/switch/appstore/.get/packages/SaltyNX")
+      deldir("sd:/switch/appstore/.get/packages/fpslocker")
     }
 
 clear()
@@ -2124,6 +2120,7 @@ if (resHBApps == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
 }
 
 clear()
@@ -2210,6 +2207,39 @@ clear()
 
     if (resYN == 1) {
       deldir("sd:/switch/fake08")
+    }
+
+clear()
+
+    pl()
+    pl()
+    pl()
+    col(GELB)
+    pl("                                 APP - haku33")
+    pl()
+    col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+    pl()
+    col(GELB)
+    pl("  Mit haku33 kannst du deine Konsole so zuruecksetzen als kaeme sie gerade")
+    pl("  aus der Box = ALLES ist weg!!!")
+    pl()
+    col(SILBER)
+    pl("  Moechtest du [haku33] installieren?")
+    pl()
+    pl()
+    menuOptionsYN = ["Ja", "Nein"]
+    resYN = menu(menuOptionsYN, 1)
+
+    clear()
+    col(SCHWARZ)
+
+    if (resYN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
+    }
+
+    if (resYN == 1) {
+      deldir("sd:/switch/haku33")
     }
 
 clear()
