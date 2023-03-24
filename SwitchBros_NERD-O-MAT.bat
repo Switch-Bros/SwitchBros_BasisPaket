@@ -48,7 +48,7 @@ echo.
 
 for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
 echo.
-set /P /I sd="     Laufwerksbuchstabe der SD-Karte: "
+set /P sd="     Laufwerksbuchstabe der SD-Karte: "
 
 if not exist "%sd%:\" (
 	set word=     Es befindet sich keine SD-Karte im Laufwerk %sd%         
@@ -164,7 +164,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "LW="
-set /P /I LW="     Bitte gib einen gueltigen Laufwerksbuchstaben ein: "
+set /P ="     Bitte gib einen gueltigen Laufwerksbuchstaben ein: "
 
 if defined LW (
  (
