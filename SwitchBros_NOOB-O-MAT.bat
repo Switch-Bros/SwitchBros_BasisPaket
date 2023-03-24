@@ -48,7 +48,7 @@ echo.
 
 for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
 echo.
-set /P /i sd="     Laufwerksbuchstabe der SD-Karte: "
+set /P /I sd="     Laufwerksbuchstabe der SD-Karte: "
 
 if not exist "%sd%:\" (
 	set word=      Es befindet sich keine SD-Karte im Laufwerk %sd%         
@@ -513,35 +513,22 @@ echo.
 
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\switch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\SaltyNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sys-tune\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
 RD /s /q "%sd%:\config\BootSoundNX"
-RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
-RD /s /q "%sd%:\emuiibo"
-RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
-del "%sd%:\switch\.overlays\2_emuiibo.ovl"
-RD /s /q "%sd%:\atmosphere\contents\0100000000000F12"
-RD /s /q "%sd%:\config\Fizeau"
-RD /s /q "%sd%:\switch\Fizeau"
-RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau"
-del "%sd%:\switch\.overlays\5_Fizeau.ovl"
-RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
-RD /s /q "%sd%:\switch\ldn_mitm_config"
-RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
-del "%sd%:\switch\.overlays\1_ldnmitm_config"
-RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
-RD /s /q "%sd%:\config\sysdvr"
-RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
-RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
-RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
-RD /s /q "%sd%:\switch\SysDVR-conf"
-RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
-del "%sd%:\switch\.overlays\8_Status-Monitor-Overlay.ovl"
 
 REM ============================================================
 :zusatzapps
@@ -559,6 +546,7 @@ echo.
 
 xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\zusatzapps\haku33\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 
 REM ============================================================
@@ -669,7 +657,6 @@ if %bootdat%==1 (
 	if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau")
 	if exist "%sd%:\switch\.overlays\5_Fizeau.ovl" (del "%sd%:\switch\.overlays\*fizeau*.ovl")
 	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /s /q "%sd%:\atmosphere\contents\0100000000000F12")
-	if exist "%sd%:\bootloader\payloads\AllgemeinerProblemLoeser.bin" (del "%sd%:\bootloader\payloads\AllgemeinerProblemLoeser.bin")
 )
 if %bootdat%==2 (
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")

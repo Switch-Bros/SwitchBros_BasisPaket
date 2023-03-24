@@ -48,7 +48,7 @@ echo.
 
 for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
 echo.
-set /P /i sd="     Laufwerksbuchstabe der SD-Karte: "
+set /P /I sd="     Laufwerksbuchstabe der SD-Karte: "
 
 if not exist "%sd%:\" (
 	set word=     Es befindet sich keine SD-Karte im Laufwerk %sd%         
@@ -120,7 +120,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p /i neuistgut="     Bitte gib deine Auswahl ein: "
+set /p neuistgut="     Bitte gib deine Auswahl ein: "
 if "%neuistgut%"=="1" GOTO sbgibgas
 if "%neuistgut%"=="2" GOTO systempartitionen
 if "%neuistgut%"=="3" GOTO backupordner
@@ -164,7 +164,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "LW="
-set /p /i LW="     Bitte gib einen gueltigen Laufwerksbuchstaben ein: "
+set /P /I LW="     Bitte gib einen gueltigen Laufwerksbuchstaben ein: "
 
 if defined LW (
  (
@@ -563,7 +563,7 @@ echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p /i eingabe="     Waehle deine Systemkombination: "
+set /p eingabe="     Waehle deine Systemkombination: "
 if "%eingabe%"=="0" GOTO nurbasissystem
 if "%eingabe%"=="1" GOTO androidpartition
 if "%eingabe%"=="2" GOTO linuxpartition
@@ -1541,7 +1541,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p /i steamapi="     Bitte gib deine Steam API ein: "
+set /p steamapi="     Bitte gib deine Steam API ein: "
 set "config_path=%sd%:\config\icongrabber\config.json"
 if "%steamapi%"=="" (
     goto systemmodule
@@ -1623,6 +1623,7 @@ echo.
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\DNS-MITM_Manager\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1651,7 +1652,6 @@ echo.
 
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1764,6 +1764,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 echo      Soll DNS-MITM Manager installiert oder deinstalliert werden?
+echo      Bitte BEACHTEN: DNS-MITM Manager ist KEIN Spielzeug^^! NUR benutzen wenn du weisst wie^^!
 echo.
 echo      1 = DNS-MITM Manager installieren
 echo      2 = DNS-MITM Manager deinstallieren
@@ -1817,6 +1818,7 @@ set /p edizon="     Bitte triff deine Auswahl: "
 	RD /s /q "%sd%:\switch\breeze"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
 	del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl"
+	del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
 	GOTO teslamodular
 	)
 	if "%edizon%"=="3" GOTO teslamodular
@@ -2040,7 +2042,8 @@ set /p saltynx=     Bitte triff deine Auswahl:
 	if "%saltynx%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\0000000000534C56"
 	RD /s /q "%sd%:\SaltySD"
-	RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
+	del /s /q "%sd%:\switch\.overlays\FPSLocker.ovl"
+	del /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX"
 	GOTO teslamodular
 	)
@@ -2103,7 +2106,7 @@ set /p sysclk=     Bitte triff deine Auswahl:
 	if "%sysclk%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF"
 	RD /s /q "%sd%:\config\sys-clk"
-	RD /s /q "%sd%:\switch\.overlays\3_sys-clk-overlay"
+	del /s /q "%sd%:\switch\.overlays\3_sys-clk-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-manager"
 	RD /s /q "%sd%:\switch\sys-clk-manager"
 	GOTO teslamodular
@@ -2228,7 +2231,7 @@ set /p sysdvr=     Bitte triff deine Auswahl:
 	if "%sysdvr%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
 	RD /s /q "%sd%:\config\sysdvr"
-	RD /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
+	del /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
 	RD /s /q "%sd%:\switch\SysDVR-conf"
@@ -2262,7 +2265,7 @@ set /p systune=     Bitte triff deine Auswahl:
 	)
 	if "%systune%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\4200000000000000"
-	RD /s /q "%sd%:\switch\.overlays\sys-tune-overlay.ovl"
+	del /s /q "%sd%:\switch\.overlays\sys-tune-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-tune"
 	GOTO teslamodular
 	)
@@ -2327,7 +2330,8 @@ echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^!
 echo.
 echo      1 = chiaki (PS4/PS5 auf der Switch streamen)
 echo      2 = fake08 (Pico8 Emulator)
-echo      3 = TencentSwitcherGui (Chinesisch auf englisch stellen)
+echo      3 = haku33 (OutOfTheBox Reinigung)
+echo      4 = TencentSwitcherGui (Chinesisch auf englisch stellen)
 echo.
 echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -2340,8 +2344,9 @@ set "datenapps="
 set /p datenapps=     Waehle deine Zusatz-App(s):      
 	if "%datenapps%"=="1" GOTO chiaki
 	if "%datenapps%"=="2" GOTO fake08
-	if "%datenapps%"=="3" GOTO tencentswitcher
-  if /i "%datenapps%"=="W" GOTO attributeundmac
+	if "%datenapps%"=="3" GOTO haku33
+	if "%datenapps%"=="4" GOTO tencentswitcher
+	if /i "%datenapps%"=="W" GOTO attributeundmac
 	if /i "%datenapps%"=="H" GOTO hauptmenue
 
 REM ============================================================
@@ -2401,6 +2406,35 @@ set /p fake08=     Bitte triff deine Auswahl:
 	GOTO zusatzapps
 	)
 	if "%fake08%"=="3" GOTO zusatzapps
+
+REM ============================================================
+:haku33
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll haku33 installiert oder deinstalliert werden?
+echo.
+echo      1 = haku33 installieren
+echo      2 = haku33 deinstallieren
+echo.
+echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo      Enter = zur naechsten App springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "haku33="
+set /p haku33=     Bitte triff deine Auswahl: 
+	if "%haku33%"=="1" (
+	xcopy "%sd%:\switchbros\zusatzapps\haku33\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO zusatzapps
+	)
+	if "%haku33%"=="2" (
+	RD /s /q "%sd%:\switch\haku33"
+	GOTO zusatzapps
+	)
+	if "%haku33%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :tencentswitcher
@@ -2635,7 +2669,6 @@ if %bootdat%==1 (
 	if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau")
 	if exist "%sd%:\switch\.overlays\5_Fizeau.ovl" (del "%sd%:\switch\.overlays\*fizeau*.ovl")
 	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /s /q "%sd%:\atmosphere\contents\0100000000000F12")
-	if exist "%sd%:\bootloader\payloads\AllgemeinerProblemLoeser.bin" (del "%sd%:\bootloader\payloads\AllgemeinerProblemLoeser.bin")
 )
 if %bootdat%==2 (
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
