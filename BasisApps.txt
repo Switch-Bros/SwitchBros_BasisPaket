@@ -1,7 +1,7 @@
 Basiert auf:
 
 Hekate 6.0.2 + Nyx 1.5.2
-SwitchBros-O-sphere 1.5.1 commit -957c5954b + hbl-2.4.3 + hbmenu-3.5.1
+SwitchBros-O-sphere 1.5.1 commit -73b4e3f17 + hbl-2.4.3 + hbmenu-3.5.1
 TegraExplorer 4.1.0.112 (Deutsch)
 Lockpick_RCM 1.9.10 (Deutsch)
 
@@ -12,7 +12,7 @@ SwitchBros Updater 2.21.4-SB
 Daybreak 1.0.0_de (Deutsch)
 DBI 519
 FTPD 3.1.0
-HB-AppStore 2.2
+HB-AppStore 2.3.2
 JKSV 02/23/2023
 linkalho 2.0.1
 NX-Activity-Log 1.4.0
@@ -29,12 +29,11 @@ EdiZon 3.8.37
 emuiibo 0.6.5
 fastCFWswitch 1.3.1_de
 Fizeau 2.4.1
-ldn-mitm 1.14.0
+ldn-mitm 1.15.0
 Mission Control 0.9.0
 ovl-sysmodule 1.3.0
 SaltyNX 0.5.1
 Status-Monitor-Overlay 0.8.1
-switch-time 0.1.1
 sys-clk 1.0.2
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
@@ -50,7 +49,8 @@ Tesla-Menu 1.2.1
 
 Chiaki 2.1.1
 Fake-08 0.0.2.20
-TencentSwitcherGUI 0.1.2 
+haku33 5.3
+TencentSwitcherGUI 0.1.2
 
 Tinfoil 16.0
 

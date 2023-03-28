@@ -2,10 +2,10 @@
   "title": "ldn_mitm",
   "author": "spacemeowx2",
   "category": "tool",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "url": "https://github.com/spacemeowx2/ldn_mitm/releases",
   "license": "GPLv2",
   "description": "A mitm kip modified from fs_mitm",
-  "details": "Play local wireless supported games online.\\n\\nPackage also includes the config tool loaded via hbmenu.",
-  "changelog": "1.14.0\\n\\nMerge pull request #132 from TSRBerry/master\\n\\n[GHA] Update workflows to use offical dkp docker images\\n\\n1.13.0\\n\\nbuild: update actions\\n\\n1.12.0\\n\\nUpdated Atmosphere-libs\\nAdded tesla plugin and ovl_sysmodule file\\n\\n1.11.0\\n\\nudpate README\\n\\n1.10.0\\n\\nupdate Atmosphere-libs\\n\\n1.9.0\\n\\nupdate Atmosphere-libs\\n\\n1.8.0\\n\\nupdate README\\n\\n1.7.0\\n\\nUpdate release.yml\\n\\n1.6.0\\n\\nadd nightly\\n\\n1.5.0\\n\\n0.14 Atmosphere\\n\\n1.4.0\\n\\nOnly be compatiable with Atmosphere 0.13.0\\n\\nv1.3.4\\n\\nUpdated Atmosphere-libs\\n\\nv1.3.3\\n\\nupdate Atmosphere-libs to 0.10.3\\n\\nv1.3.2\\n\\nfix wrong version\\n\\nv1.3.1-alpha\\n\\nReduce heap size and size in socket config.\\n\\nv1.2.6\\n\\nupdate libstratosphere\\n\\nv1.2.5\\n\\nupdate libnx before make for FW9.0.0\\n\\nv1.2.4\\n\\nupdate Dockerfile\\n\\nv1.2.2\\n\\nupdate libstratosphere"
+  "details": "Notice: It has been reported that this tool may not work on the latest firmware and might need an update. Your mileage may vary.\\n\\nPlay local wireless supported games online.\\n\\nPackage also includes the config tool loaded via hbmenu.",
+  "changelog": "1.15.0\\n\\nsubmodule: bump libtesla from `b32acbc` to `0ad2838` (#148)\\n\\n1.14.0\\n\\nMerge pull request #132 from TSRBerry/master\\n\\n[GHA] Update workflows to use offical dkp docker images\\n\\n1.13.0\\n\\nbuild: update actions\\n\\n1.12.0\\n\\nUpdated Atmosphere-libs\\nAdded tesla plugin and ovl_sysmodule file\\n\\n1.11.0\\n\\nudpate README\\n\\n1.10.0\\n\\nupdate Atmosphere-libs\\n\\n1.9.0\\n\\nupdate Atmosphere-libs\\n\\n1.8.0\\n\\nupdate README\\n\\n1.7.0\\n\\nUpdate release.yml\\n\\n1.6.0\\n\\nadd nightly\\n\\n1.5.0\\n\\n0.14 Atmosphere\\n\\n1.4.0\\n\\nOnly be compatiable with Atmosphere 0.13.0\\n\\nv1.3.4\\n\\nUpdated Atmosphere-libs\\n\\nv1.3.3\\n\\nupdate Atmosphere-libs to 0.10.3\\n\\nv1.3.2\\n\\nfix wrong version\\n\\nv1.3.1-alpha\\n\\nReduce heap size and size in socket config.\\n\\nv1.2.6\\n\\nupdate libstratosphere\\n\\nv1.2.5\\n\\nupdate libnx before make for FW9.0.0\\n\\nv1.2.4\\n\\nupdate Dockerfile\\n\\nv1.2.2\\n\\nupdate libstratosphere"
 }
