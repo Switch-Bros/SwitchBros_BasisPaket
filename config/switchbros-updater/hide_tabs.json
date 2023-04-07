@@ -5,7 +5,7 @@
     "browser": false,
     "cfw": false,
     "cheats": false,
-    "cleanup": false,
+    "cleanup": true,
     "downloadpayload": true,
     "firmwares": false,
     "hidetabs": true,
