@@ -275,6 +275,7 @@ if (fse("sd:/SB.ico")){
 	deldir("sd:/tegraexplorer")
 
 	deldir("sd:/switch/daybreak")
+	deldir("sd:/switch/.overlays")
 	delfile("sd:/switch/switchbros-updater/cheats.zip")
 	delfile("sd:/switch/switchbros-updater/switchbros.zip")
 	delfile("sd:/switch/switchbros-updater/firmware.zip")
@@ -287,6 +288,7 @@ if (fse("sd:/SB.ico")){
 	delfile("sd:/SwitchBros.txt")
 	delfile("sd:/SwitchBros_Nerd-O-mat.bat")
 	delfile("sd:/SwitchBros_Noob-O-mat.bat")
+	delfile("sd:/hekate_ctcaer_6.0.3.bin")
 	delfile("sd:/hekate_ctcaer_6.0.2.bin")
 	delfile("sd:/hekate_ctcaer_6.0.1.bin")
 	delfile("sd:/hekate_ctcaer_6.0.0.bin")
@@ -421,6 +423,7 @@ col(SCHWARZ)
 	deldir("sd:/System Volume Information")
 	deldir("sd:/tegraexplorer")
 	deldir("sd:/tools")
+	delfile("sd:/hekate_ctcaer_6.0.3.bin")
 	delfile("sd:/hekate_ctcaer_6.0.2.bin")
 	delfile("sd:/hekate_ctcaer_6.0.1.bin")
 	delfile("sd:/hekate_ctcaer_6.0.0.bin")
@@ -1199,8 +1202,6 @@ p("                           >")col(ORANGE)p(">")col(GELB)p(">")col(WEISS)p("  
 pl()
 pl()
 pl()
-pl("            BITTE NICHT 'ALLES' AUSWAEHLEN WENN AUF FIRMWARE 16.0.0")
-pl()
 col(GELB)
 pl("  Mit dem Tesla-Overlay Menue kannst du ueberall auf bestimmte Apps zugreifen,")
 pl("  und ausfuehren um z.B. mitten im Spiel Cheats zu benutzen!")
@@ -1303,7 +1304,7 @@ if (resTesla == 2) {
 	deldir("sd:/switch/appstore/.get/packages/Fizeau")
 	deldir("sd:/atmosphere/contents/4200000000000010")
 	deldir("sd:/switch/ldnmitm_config")
-	deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
+	deldir("sd:/switch/appstore/.get/packages/ldn_mitm")
 	deldir("sd:/atmosphere/contents/010000000000bd00")
 	deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
 	deldir("sd:/atmosphere/exefs_patches/btm_patches")
@@ -1467,8 +1468,7 @@ clear()
       deldir("sd:/atmosphere/contents/054e4f4558454000")
       deldir("sd:/atmosphere/contents/010000000000000D")
       deldir("sd:/atmosphere/contents/0100000000001013")
-      delfile("sd:/switch/.overlays/4_Breeze-Overlay.ovl")
-      delfile("sd:/switch/.overlays/4_ovlEdiZon.ovl")
+      delfile("sd:/switch/.overlays/ovlEdiZon.ovl")
       deldir("sd:/switch/breeze")
       deldir("sd:/switch/EdiZon")
       deldir("sd:/switch/appstore/.get/packages/EdiZon")
@@ -1508,7 +1508,7 @@ clear()
   if (resYN == 1) {
     deldir("sd:/atmosphere/contents/0100000000000352")
 		deldir("sd:/emuiibo")
-		delfile("sd:/switch/.overlays/2_emuiibo.ovl")
+		delfile("sd:/switch/.overlays/emuiibo.ovl")
 		deldir("sd:/switch/appstore/.get/packages/emuiibo")
   }
 
@@ -1527,7 +1527,8 @@ clear()
     pl("  Mit fastCFWswitch kannst du, aus der CFW, in die Systeme/Payloads wechseln.")
     pl()
     col(ROT)
-    p("  Achtung: ")col(GELB)p("Funktioniert nur eingeschraenkt mit Modchip!")pl()
+    p("  Achtung: ")col(GELB)p("Funktioniert nur eingeschraenkt mit V2 (2019) / Lite / OLED!")pl()
+    pl()
     pl()
     pl("  Das Modul wurde bereits bei der Systemauswahl installiert!")
     pl()
@@ -1587,7 +1588,7 @@ clear()
       deldir("sd:/atmosphere/contents/0100000000000F12")
       deldir("sd:/config/Fizeau")
       deldir("sd:/switch/Fizeau")
-      delfile("sd:/switch/.overlays/5_Fizeau.ovl")
+      delfile("sd:/switch/.overlays/Fizeau.ovl")
       deldir("sd:/switch/appstore/.get/packages/Fizeau")
     }
 
@@ -1625,8 +1626,8 @@ clear()
     if (resYN == 1) {
       deldir("sd:/atmosphere/contents/4200000000000010")
       deldir("sd:/switch/ldnmitm_config")
-      delfile("sd:/switch/.overlays/1_ldnmitm_config.ovl")
-      deldir("sd:/switch/appstore/.get/packages/ldnmitm_config")
+      delfile("sd:/switch/.overlays/ldnmitm_config.ovl")
+      deldir("sd:/switch/appstore/.get/packages/ldn_mitm")
     }
 
 clear()
@@ -1700,7 +1701,7 @@ clear()
     }
 
     if (resYN == 1) {
-      delfile("sd:/switch/.overlays/7_ovlSysmodules.ovl")
+      delfile("sd:/switch/.overlays/ovlSysmodules.ovl")
       deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
     }
 
@@ -1773,7 +1774,7 @@ clear()
     }
 
     if (resYN == 1) {
-      delfile("sd:/switch/.overlays/8_Status-Monitor-Overlay.ovl")
+      delfile("sd:/switch/.overlays/Status-Monitor-Overlay.ovl")
       deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
     }
 
@@ -1814,7 +1815,7 @@ clear()
       deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
       deldir("sd:/config/sys-clk")
       deldir("sd:/switch/sys-clk")
-      delfile("sd:/switch/.overlays/3_sys-clk-overlay.ovl")
+      delfile("sd:/switch/.overlays/sys-clk-overlay.ovl")
       deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
     }
 
@@ -1924,7 +1925,7 @@ clear()
       deldir("sd:/config/sysdvr")
       deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
       deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
-      delfile("sd:/switch/.overlays/6_sysdvr-overlay.ovl")
+      delfile("sd:/switch/.overlays/sysdvr-overlay.ovl")
       deldir("sd:/switch/SysDVR-conf")
     }
 
@@ -2348,7 +2349,7 @@ pl()
 pl("     Zum Glueck nur einen Moment und keine 800 Stunden, die manch einer")
 pl("     wohl in sein Paket gesteckt hat!")
 pl()
-pl("     800 Stunden, oho!? Ueber 800 Stunden, haha!?")
+pl("     Denke da verwechselt jemand 800 Stunden mit bald 800GB (Muell)-Paket")
 pl("     Wadde da musch ja grad ma lache, muahahahaha!!!")
 pl()
 p()
