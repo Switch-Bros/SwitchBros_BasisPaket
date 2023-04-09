@@ -107,7 +107,7 @@ echo      2 = Systeme (Linux, LAKKA, Android)^^!         3 = Backup Ordner anleg
 echo.
 echo      4 = Kinder-Modus^^!
 echo.
-echo      5 = ThemeApps Paket^^!                        5a = SteamAPI eingeben^^! (Icongrabber)
+echo      5 = SteamAPI fuer IconGrabber App holen und eingeben^^!
 echo.
 echo      6 = Tesla-Overlay Menue^^!                     7 = Zusatz Apps^^!
 echo.
@@ -126,7 +126,6 @@ if "%neuistgut%"=="2" GOTO systempartitionen
 if "%neuistgut%"=="3" GOTO backupordner
 if "%neuistgut%"=="4" GOTO kindgerecht
 if "%neuistgut%"=="5" GOTO themepaket
-if /i "%neuistgut%"=="5a" GOTO steamapiangeben
 if "%neuistgut%"=="6" GOTO systemmodule
 if "%neuistgut%"=="7" GOTO zusatzapps
 if "%neuistgut%"=="8" GOTO attributeundmac
@@ -1465,41 +1464,6 @@ del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp" >nul 2>nul
 GOTO themepaket
 
 REM ============================================================
-:themepaket
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Hier kannst du unser SwitchBros_ThemeApps-Paket installieren lassen^^! 
-echo.
-echo      Das ThemeApps_Paket besteht aus folgenden Apps: 
-echo.
-echo      NX-ThemeInstaller = Theme-System einrichten und Themes installieren^^! 
-echo.
-echo      ThemezerNX = mehr als 1000 Themes suchen und downloaden^^! 
-echo      Icongrabber = Verbinde dich ueber die steamgriddb.com Seite und
-echo                    passe deine Spiele-Icons an (Steam API wird benoetigt (naechster Schritt))^^! 
-echo      sys-tweak = Wird fuer Vertikale und horzontale Icons benoetigt^^! 
-echo.
-echo      1 = ThemeApps_Paket installieren^^!
-echo.
-echo      2 = ThemeApps_Paket deinstallieren^^!
-echo.
-echo      W = Ueberspringen und im Skript weiter gehen^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo      H = Zurueck zum Hauptmenue
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set /p themepaket="     Soll ThemeApps Paket installiert werden: "
-	if "%themepaket%"=="1" GOTO themepaketinst
-	if "%themepaket%"=="2" GOTO themepaketdeinst
-	if /i "%themepaket%"=="W" GOTO systemmodule
-	if /i "%themepaket%"=="H" GOTO hauptmenue
-
-REM ============================================================
 :themepaketinst
 COLOR 0E
 echo.
@@ -1733,7 +1697,7 @@ echo      1 = BootSoundNX installieren
 echo      2 = BootSoundNX deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1741,12 +1705,12 @@ set "bootsoundnx="
 set /p bootsoundnx="     Bitte triff deine Auswahl: "
 	if "%bootsoundnx%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO bootsoundnx
 	)
 	if "%bootsoundnx%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
 	RD /s /q "%sd%:\config\BootSoundNX"
-	GOTO teslamodular
+	GOTO bootsoundnx
 	)
 	if "%bootsoundnx%"=="3" GOTO teslamodular
 
@@ -1764,7 +1728,7 @@ echo      1 = DNS-MITM Manager installieren
 echo      2 = DNS-MITM Manager deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1772,12 +1736,12 @@ set "dnsmitm="
 set /p dnsmitm="     Bitte triff deine Auswahl: "
 	if "%dnsmitm%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\DNS-MITM_Manager\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO dnsmitm
 	)
 	if "%dnsmitm%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\dns-mitm_Manager"
 	del "%sd%:\switch\.overlays\DNS-MITM_Manager.ovl"
-	GOTO teslamodular
+	GOTO dnsmitm
 	)
 	if "%dnsmitm%"=="3" GOTO teslamodular
 
@@ -1794,7 +1758,7 @@ echo      1 = EdiZon installieren
 echo      2 = EdiZon deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1802,7 +1766,7 @@ set "edizon="
 set /p edizon="     Bitte triff deine Auswahl: "
 	if "%edizon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO edizon
 	)
 	if "%edizon%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000"
@@ -1813,7 +1777,7 @@ set /p edizon="     Bitte triff deine Auswahl: "
 	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
 	del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl"
 	del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
-	GOTO teslamodular
+	GOTO edizon
 	)
 	if "%edizon%"=="3" GOTO teslamodular
 
@@ -1830,7 +1794,7 @@ echo      1 = emuiibo installieren
 echo      2 = emuiibo deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1838,14 +1802,14 @@ set "emuiibo="
 set /p emuiibo="     Bitte triff deine Auswahl: "
 	if "%emuiibo%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO emuiibo
 	)
 	if "%emuiibo%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
 	RD /s /q "%sd%:\emuiibo"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
 	del "%sd%:\switch\.overlays\2_emuiibo.ovl"
-	GOTO teslamodular
+	GOTO emuiibo
 	)
 	if "%emuiibo%"=="3" GOTO teslamodular
 
@@ -1862,7 +1826,7 @@ echo      1 = fastCFWSwitch installieren
 echo      2 = fastCFWSwitch deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1871,13 +1835,13 @@ set /p fastcfwswitch=     Bitte triff deine Auswahl:
 	if "%fastcfwswitch%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\fastCFWSwitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
-	GOTO teslamodular
+	GOTO fastcfwswitch
 	)
 	if "%fastcfwswitch%"=="2" (
 	RD /s /q "%sd%:\config\fastCFWSwitch"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\fastCFWSwitch"
 	del "%sd%:\switch\.overlays\0_fastCFWswitch.ovl"
-	GOTO teslamodular
+	GOTO fastcfwswitch
 	)
 	if "%fastcfwswitch%"=="3" GOTO teslamodular
 
@@ -1894,7 +1858,7 @@ echo      1 = Fizeau installieren
 echo      2 = Fizeau deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1903,7 +1867,7 @@ set /p fizeau=     Bitte triff deine Auswahl:
 	if "%fizeau%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\Fizeau\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\config.ini" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO fizeau
 	)
 	if "%fizeau%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\0100000000000F12"
@@ -1911,7 +1875,7 @@ set /p fizeau=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\Fizeau"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau"
 	del "%sd%:\switch\.overlays\5_Fizeau.ovl"
-	GOTO teslamodular
+	GOTO fizeau
 	)
 	if "%fizeau%"=="3" GOTO teslamodular
 
@@ -1928,7 +1892,7 @@ echo      1 = ldnmitm installieren
 echo      2 = ldnmitm deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1936,14 +1900,14 @@ set "ldnmitm="
 set /p ldnmitm=     Bitte triff deine Auswahl: 
 	if "%ldnmitm%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\ldnmitm\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO ldnmitm
 	)
 	if "%ldnmitm%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
 	RD /s /q "%sd%:\switch\ldn_mitm_config"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
 	del "%sd%:\switch\.overlays\1_ldnmitm_config"
-	GOTO teslamodular
+	GOTO ldnmitm
 	)
 	if "%ldnmitm%"=="3" GOTO teslamodular
 
@@ -1960,7 +1924,7 @@ echo      1 = MissionControl installieren
 echo      2 = MissionControl deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -1968,7 +1932,7 @@ set "missioncontrol="
 set /p missioncontrol=     Bitte triff deine Auswahl: 
 	if "%missioncontrol%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO missioncontrol
 	)
 	if "%missioncontrol%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\010000000000bd00"
@@ -1976,7 +1940,7 @@ set /p missioncontrol=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\atmosphere\contents\exefs_patches\btm_patches"
 	RD /s /q "%sd%:\config\MissionControl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\missioncontrol"
-	GOTO teslamodular
+	GOTO missioncontrol
 	)
 	if "%missioncontrol%"=="3" GOTO teslamodular
 
@@ -1993,7 +1957,7 @@ echo      1 = ovl-Sysmodul installieren
 echo      2 = ovl-Sysmodul deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2001,12 +1965,12 @@ set "ovlssysmodule="
 set /p ovlssysmodule=     Bitte triff deine Auswahl: 
 	if "%ovlssysmodule%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO ovlssysmodule
 	)
 	if "%ovlssysmodule%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\ovlssysmodule"
 	del "%sd%:\switch\.overlays\7_ovlSysmodules.ovl"
-	GOTO teslamodular
+	GOTO ovlssysmodule
 	)
 	if "%ovlssysmodule%"=="3" GOTO teslamodular
 
@@ -2023,7 +1987,7 @@ echo      1 = SaltyNX installieren
 echo      2 = SaltyNX deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2031,7 +1995,7 @@ set "saltynx="
 set /p saltynx=     Bitte triff deine Auswahl: 
 	if "%saltynx%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\SaltyNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO saltynx
 	)
 	if "%saltynx%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\0000000000534C56"
@@ -2039,7 +2003,7 @@ set /p saltynx=     Bitte triff deine Auswahl:
 	del /s /q "%sd%:\switch\.overlays\FPSLocker.ovl"
 	del /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX"
-	GOTO teslamodular
+	GOTO saltynx
 	)
 	if "%saltynx%"=="3" GOTO teslamodular
 	if "%saltynx%"=="" GOTO teslamodular
@@ -2057,7 +2021,7 @@ echo      1 = Status-Monitor-Overlay installieren
 echo      2 = Status-Monitor-Overlay deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2065,12 +2029,12 @@ set "statmon="
 set /p statmon=     Bitte triff deine Auswahl: 
 	if "%statmon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO statmon
 	)
 	if "%statmon%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
 	del "%sd%:\switch\.overlays\8_Status-Monitor-Overlay.ovl"
-	GOTO teslamodular
+	GOTO statmon
 	)
 	if "%statmon%"=="3" GOTO teslamodular
 
@@ -2087,7 +2051,7 @@ echo      1 = sys-clk installieren
 echo      2 = sys-clk deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2095,7 +2059,7 @@ set "sysclk="
 set /p sysclk=     Bitte triff deine Auswahl: 
 	if "%sysclk%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO sysclk
 	)
 	if "%sysclk%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF"
@@ -2103,7 +2067,7 @@ set /p sysclk=     Bitte triff deine Auswahl:
 	del /s /q "%sd%:\switch\.overlays\3_sys-clk-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-manager"
 	RD /s /q "%sd%:\switch\sys-clk-manager"
-	GOTO teslamodular
+	GOTO sysclk
 	)
 	if "%sysclk%"=="3" GOTO teslamodular
 
@@ -2120,7 +2084,7 @@ echo      1 = sys-clk-Editor installieren
 echo      2 = sys-clk-Editor deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2128,12 +2092,12 @@ set "sysclkedit="
 set /p sysclkedit=     Bitte triff deine Auswahl: 
 	if "%sysclkedit%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO sysclkedit
 	)
 	if "%sysclkedit%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-Editor"
 	RD /s /q "%sd%:\switch\sys-clk-Editor"
-	GOTO teslamodular
+	GOTO sysclkedit
 	)
 	if "%sysclkedit%"=="3" GOTO teslamodular
 
@@ -2150,7 +2114,7 @@ echo      1 = sys-con installieren
 echo      2 = sys-con deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2158,13 +2122,13 @@ set "syscon="
 set /p syscon=     Bitte triff deine Auswahl: 
 	if "%syscon%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO syscon
 	)
 	if "%syscon%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\690000000000000D"
 	RD /s /q "%sd%:\config\sys-con"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-con"
-	GOTO teslamodular
+	GOTO syscon
 	)
 	if "%syscon%"=="3" GOTO teslamodular
 
@@ -2181,7 +2145,7 @@ echo      1 = sys-FTPD-light installieren
 echo      2 = sys-FTPD-light deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2189,13 +2153,13 @@ set "sysftpd="
 set /p sysftpd=     Bitte triff deine Auswahl: 
 	if "%sysftpd%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO sysftpd
 	)
 	if "%sysftpd%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\420000000000000E"
 	RD /s /q "%sd%:\config\sys-ftpd"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light"
-	GOTO teslamodular
+	GOTO sysftpd
 	)
 	if "%sysftpd%"=="3" GOTO teslamodular
 
@@ -2212,7 +2176,7 @@ echo      1 = sysDVR installieren
 echo      2 = sysDVR deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2220,7 +2184,7 @@ set "sysdvr="
 set /p sysdvr=     Bitte triff deine Auswahl: 
 	if "%sysdvr%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sysdvr-overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO sysdvr
 	)
 	if "%sysdvr%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
@@ -2229,7 +2193,7 @@ set /p sysdvr=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
 	RD /s /q "%sd%:\switch\SysDVR-conf"
-	GOTO teslamodular
+	GOTO sysdvr
 	)
 	if "%sysdvr%"=="3" GOTO teslamodular
 	if "%sysdvr%"=="" GOTO teslamodular
@@ -2247,7 +2211,7 @@ echo      1 = sys-tune installieren
 echo      2 = sys-tune deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zur naechsten Modul springen^^!
+echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
@@ -2255,13 +2219,13 @@ set "systune="
 set /p systune=     Bitte triff deine Auswahl: 
 	if "%systune%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\sys-tune\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodular
+	GOTO systune
 	)
 	if "%systune%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\4200000000000000"
 	del /s /q "%sd%:\switch\.overlays\sys-tune-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-tune"
-	GOTO teslamodular
+	GOTO systune
 	)
 	if "%systune%"=="3" GOTO teslamodular
 	if "%systune%"=="" GOTO teslamodular
