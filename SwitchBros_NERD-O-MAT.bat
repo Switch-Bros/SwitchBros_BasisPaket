@@ -74,9 +74,9 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p modchip="     Ist ein Modchip verbaut: "
-if "%modchip%"=="0" SET bootdat=1
-if "%modchip%"=="1" SET bootdat=2
-if "%modchip%"=="2" SET bootdat=3
+if "%modchip%"=="0" SET bootdat=0
+if "%modchip%"=="1" SET bootdat=1
+if "%modchip%"=="2" SET bootdat=2
 
 REM ============================================================
 :datensichern

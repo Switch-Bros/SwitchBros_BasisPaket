@@ -76,9 +76,9 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p modchip="     Ist ein Modchip verbaut: "
+if "%modchip%"=="0" SET bootdat=0
 if "%modchip%"=="1" SET bootdat=1
-if "%modchip%"=="3" SET bootdat=2
-if "%modchip%"=="2" SET bootdat=3
+if "%modchip%"=="2" SET bootdat=2
 
 REM ============================================================
 :datensichern
@@ -512,8 +512,6 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
-RD /s /q "%sd%:\config\BootSoundNX"
 RD /s /q "%sd%:\switch\.overlays"
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
