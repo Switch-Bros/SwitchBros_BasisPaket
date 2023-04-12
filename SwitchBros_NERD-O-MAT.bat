@@ -103,16 +103,21 @@ echo          einem anderen Paket kommst, oder wenn es sich um eine neue SD-Kart
 echo.
 echo =====================================================================================================
 echo.
-echo      2 = Systeme (Linux, LAKKA, Android)^^!         3 = Backup Ordner anlegen^^!
+echo      2 = Systeme (Linux, LAKKA, Android)^^!
+echo.
+echo      3 = Backup Ordner anlegen^^!
 echo.
 echo      4 = Kinder-Modus^^!
 echo.
 echo      5 = SteamAPI fuer IconGrabber App holen und eingeben^^!
 echo.
-echo      6 = Tesla-Overlay Menue^^!                     7 = Zusatz Apps^^!
+echo      6 = Tesla-Overlay Menue^^!
 echo.
+echo      7 = Zusatz Apps^^!
 echo.
-echo      8 = fix ArchiveBit^^!                          9 = USB3 Speed eintragen^^!
+echo      8 = fix ArchiveBit^^!
+echo.
+echo      9 = USB3 Speed eintragen^^!
 echo.
 echo.
 echo      F = Unsicher, altes Paket behalten                             B = Dieses Skript Beenden
@@ -1429,7 +1434,7 @@ xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nu
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
-GOTO themepaket
+GOTO themepaketinst
 
 REM ============================================================
 :tinfoilb
@@ -1446,7 +1451,7 @@ xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nu
 xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
-GOTO themepaket
+GOTO themepaketinst
 
 REM ============================================================
 :tinfoilno
@@ -1461,7 +1466,7 @@ echo.
 
 RD /s /q "%sd%:\switch\tinfoil" >nul 2>nul
 del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp" >nul 2>nul
-GOTO themepaket
+GOTO themepaketinst
 
 REM ============================================================
 :themepaketinst
@@ -2006,7 +2011,6 @@ set /p saltynx=     Bitte triff deine Auswahl:
 	GOTO saltynx
 	)
 	if "%saltynx%"=="3" GOTO teslamodular
-	if "%saltynx%"=="" GOTO teslamodular
 
 REM ============================================================
 :statmon
@@ -2196,7 +2200,6 @@ set /p sysdvr=     Bitte triff deine Auswahl:
 	GOTO sysdvr
 	)
 	if "%sysdvr%"=="3" GOTO teslamodular
-	if "%sysdvr%"=="" GOTO teslamodular
 
 REM ============================================================
 :systune
@@ -2228,7 +2231,6 @@ set /p systune=     Bitte triff deine Auswahl:
 	GOTO systune
 	)
 	if "%systune%"=="3" GOTO teslamodular
-	if "%systune%"=="" GOTO teslamodular
 
 REM ============================================================
 :zusatzapps
@@ -2271,6 +2273,7 @@ echo.
 
 xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\zusatzapps\haku33\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 
 GOTO attributeundmac
@@ -2299,7 +2302,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "datenapps="
-set /p datenapps=     Waehle deine Zusatz-App(s):      
+set /p datenapps=     Waehle deine Zusatz-App(s): 
 	if "%datenapps%"=="1" GOTO chiaki
 	if "%datenapps%"=="2" GOTO fake08
 	if "%datenapps%"=="3" GOTO haku33
@@ -2328,11 +2331,11 @@ set "chiaki="
 set /p chiaki=     Bitte triff deine Auswahl: 
 	if "%chiaki%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
+	GOTO chiaki
 	)
 	if "%chiaki%"=="2" (
 	RD /s /q "%sd%:\switch\chiaki"
-	GOTO zusatzapps
+	GOTO chiaki
 	)
 	if "%chiaki%"=="3" GOTO zusatzapps
 
@@ -2357,11 +2360,11 @@ set "fake08="
 set /p fake08=     Bitte triff deine Auswahl: 
 	if "%fake08%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
+	GOTO fake08
 	)
 	if "%fake08%"=="2" (
 	RD /s /q "%sd%:\switch\fake08"
-	GOTO zusatzapps
+	GOTO fake08
 	)
 	if "%fake08%"=="3" GOTO zusatzapps
 
@@ -2386,11 +2389,11 @@ set "haku33="
 set /p haku33=     Bitte triff deine Auswahl: 
 	if "%haku33%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\haku33\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
+	GOTO haku33
 	)
 	if "%haku33%"=="2" (
 	RD /s /q "%sd%:\switch\haku33"
-	GOTO zusatzapps
+	GOTO haku33
 	)
 	if "%haku33%"=="3" GOTO zusatzapps
 
@@ -2415,11 +2418,11 @@ set "tencentswitcher="
 set /p tencentswitcher=     Bitte triff deine Auswahl: 
 	if "%tencentswitcher%"=="1" (
 	xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO zusatzapps
+	GOTO tencentswitcher
 	)
 	if "%tencentswitcher%"=="2" (
 	RD /s /q "%sd%:\switch\TencentSwitcherGui"
-	GOTO zusatzapps
+	GOTO tencentswitcher
 	)
 	if "%tencentswitcher%"=="3" GOTO zusatzapps
 
@@ -2597,6 +2600,20 @@ GOTO aufraeumen
 
 REM ============================================================
 :aufraeumen
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      So, machen wir mal klar Schiff hier und raeumen hinter uns auf^^!
+echo.
+echo      Das heisst Installationsordner loeschen und deine Modchip Einstellung uebernehmen^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo      Bitte Warten^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
 if exist "%sd%:\SwitchBros_BasisPaket" (RD /s /q "%sd%:\SwitchBros_BasisPaket")
 if exist "%sd%:\switchbros" (RD /s /q "%sd%:\switchbros")
 if exist "%sd%:\updatebak" (RD /s /q "%sd%:\updatebak")
