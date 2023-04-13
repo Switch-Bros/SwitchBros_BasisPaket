@@ -442,6 +442,8 @@ if exist "%sd%:\switch\gamecard_installer" (RD /s /q "%sd%:\switch\gamecard_inst
 if exist "%sd%:\switch\theme-updater" (RD /s /q "%sd%:\switch\theme-updater")
 if exist "%sd%:\switch\luigi-theme-updater" (RD /s /q "%sd%:\switch\luigi-theme-updater")
 if exist "%sd%:\switch\mario-theme-updater" (RD /s /q "%sd%:\switch\mario-theme-updater")
+if exist "%sd%:\switch\Switch_90DNS_tester" (RD /s /q "%sd%:\switch\Switch_90DNS_tester")
+if exist "%sd%:\switch\appstore" (RD /s /q "%sd%:\switch\appstore")
 
 if exist "%sd%:\switch\tinleaf" (RD /s /q "%sd%:\switch\tinleaf")
 if exist "%sd%:\switch\daybreak" (RD /s /q "%sd%:\switch\daybreak")
