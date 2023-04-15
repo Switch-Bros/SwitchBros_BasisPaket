@@ -1,9 +1,9 @@
 {
 	"color": "FFFFFFFF",
-	"logo": "sdmc:/switch/tinfoil/themes/SB_Theme Side/logo.png",
+	"logo": "sdmc:/switch/tinfoil/themes/SB_Theme_Side/logo.png",
 	"background": {
 		"color": "00000000",
-		"image": "sdmc:/switch/tinfoil/themes/SB_Theme Side/bg.jpg"
+		"image": "sdmc:/switch/tinfoil/themes/SB_Theme_Side/bg.jpg"
 	},
 
 	"selection": {
