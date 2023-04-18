@@ -632,40 +632,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux  (L4T fuer Modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\bu\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
 if /i "%Linux%"=="B" (
 xcopy "%sd%:\switchbros\system\bu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -680,7 +656,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 xcopy "%sd%:\switchbros\system\bu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
@@ -694,10 +670,6 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-if /i "%Linux%"=="D" (
-xcopy "%sd%:\switchbros\system\bu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -746,31 +718,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux  (L4T fuer Modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\bau\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-
 if /i "%Linux%"=="B" (
 COLOR 0E
 echo.
@@ -785,7 +742,7 @@ xcopy "%sd%:\switchbros\system\bau\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -799,20 +756,6 @@ xcopy "%sd%:\switchbros\system\bau\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="D" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\bau\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -863,31 +806,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux (L4T fuer Modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\balu\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-
 if /i "%Linux%"=="B" (
 COLOR 0E
 echo.
@@ -902,7 +830,7 @@ xcopy "%sd%:\switchbros\system\balu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -916,19 +844,6 @@ xcopy "%sd%:\switchbros\system\balu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="D" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\balu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -943,31 +858,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux (L4T fuer Modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\baue\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-
 if /i "%Linux%"=="B" (
 COLOR 0E
 echo.
@@ -982,7 +882,7 @@ xcopy "%sd%:\switchbros\system\baue\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -996,19 +896,6 @@ xcopy "%sd%:\switchbros\system\baue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="D" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\baue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -1043,31 +930,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux (L4T fuer Modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\balue\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-
 if /i "%Linux%"=="B" (
 COLOR 0E
 echo.
@@ -1082,7 +954,7 @@ xcopy "%sd%:\switchbros\system\balue\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nu
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1096,19 +968,6 @@ xcopy "%sd%:\switchbros\system\balue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nu
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="D" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\balue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1124,31 +983,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux (L4T fuer modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\blu\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-
 if /i "%Linux%"=="B" (
 COLOR 0E
 echo.
@@ -1163,7 +1007,7 @@ xcopy "%sd%:\switchbros\system\blu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1177,19 +1021,6 @@ xcopy "%sd%:\switchbros\system\blu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="D" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\blu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -1203,31 +1034,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux (L4T fuer modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\bue\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-
 if /i "%Linux%"=="B" (
 COLOR 0E
 echo.
@@ -1242,7 +1058,7 @@ xcopy "%sd%:\switchbros\system\bue\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1256,19 +1072,6 @@ xcopy "%sd%:\switchbros\system\bue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="D" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\bue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
@@ -1282,31 +1085,16 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Welche der vier Linux Distributionen wirst du spaeter nutzen?
+echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
-echo      A = Arch Linux
-echo      B = Ubuntu Bionic (empfohlen, wenn unsicher (L4T fuer modchip))
-echo      C = Fedora Linux (L4T fuer modchip)
-echo      D = Ubuntu
+echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
+echo      F = Fedora Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
-if /i "%Linux%"=="A" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\blue\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\arch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
-
 if /i "%Linux%"=="B" (
 COLOR 0E
 echo.
@@ -1321,7 +1109,7 @@ xcopy "%sd%:\switchbros\system\blue\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="C" (
+if /i "%Linux%"=="F" (
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1335,19 +1123,6 @@ xcopy "%sd%:\switchbros\system\blue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
-if /i "%Linux%"=="D" (
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\system\blue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-)
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I
 if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
