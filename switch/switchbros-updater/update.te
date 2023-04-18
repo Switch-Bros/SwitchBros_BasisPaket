@@ -637,33 +637,21 @@ if (resSystem == 2) {
 	pl()
   pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-    }
-
-    if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
     }
 }
 
@@ -714,36 +702,22 @@ if (resSystem == 5) {
 	pl()
   pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-    }
-
-    if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
     }
 }
@@ -798,20 +772,12 @@ if (resSystem == 8) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
@@ -819,17 +785,10 @@ col(SCHWARZ)
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-    }
-
-    if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
     }
@@ -851,20 +810,12 @@ if (resSystem == 9) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
@@ -872,17 +823,10 @@ col(SCHWARZ)
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
     }
@@ -922,21 +866,12 @@ if (resSystem == 11) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
@@ -945,18 +880,10 @@ col(SCHWARZ)
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
@@ -978,36 +905,22 @@ if (resSystem == 12) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-    }
-
-	if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 }
@@ -1027,20 +940,12 @@ if (resSystem == 13) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
@@ -1048,18 +953,10 @@ col(SCHWARZ)
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-	if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
     }
@@ -1080,36 +977,22 @@ if (resSystem == 14) {
 	pl()
 	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Arch", "     Bionic (Modchip Support)", "     Fedora (Modchip Support)", "     Ubuntu"]
-  resLIN = menu(menuOptionsLIN, 1)
+  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+  resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
     if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/arch/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/arch/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
     }
 
-    if (resLIN == 2) {
+    if (resLIN == 1) {
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/config", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-	if (resLIN == 3) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
       copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
     }
 }
