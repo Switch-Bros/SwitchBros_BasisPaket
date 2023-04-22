@@ -1,22 +1,23 @@
 Basiert auf:
 
 Hekate 6.0.3 + Nyx 1.5.3
-SwitchBros-O-sphere 1.5.1 commit -73b4e3f17 + hbl-2.4.3 + hbmenu-3.5.1
+SwitchBros-O-sphere 1.5.2 commit -99c20f876 + hbl-2.4.3 + hbmenu-3.5.1
 TegraExplorer 4.1.0.112 (Deutsch)
 Lockpick_RCM 1.9.10 (Deutsch)
-AllgemeinerProblemLoeser (CommonProblemResolver) 0.3.5 (Deutsch)
+AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
 
 === Basis Apps ====================
 
 SwitchBros Updater 2.21.4-SB
 DNS-Block Tester 1.0.4 (Deutsch) (90DNS Tester) 
 Daybreak 1.0.0_de (Deutsch)
-DBI 527
+DBI 551
 FTPD 3.1.0
+Haze (MTP/PTP Datei Austausch) 1.0.0 (Deutsch)
 HB-AppStore 2.3.2
-IconGrabber 1.0.0
+IconGrabber 1.0.0 (Deutsch) 
 JKSV 02/23/2023
-linkalho 2.0.1
+linkalho 2.1.0 (Deutsch) 
 NX-Activity-Log 1.4.0
 NXDumpTool 1.1.15
 NXThemeInstaller 2.7
@@ -36,10 +37,10 @@ fastCFWswitch 1.3.1_de
 Fizeau 2.4.1
 FPS-Locker 1.1.3
 ldn-mitm 1.15.0
-Mission Control 0.9.0
+Mission Control 0.9.1
 ovl-sysmodule 1.3.0
 SaltyNX 0.5.2
-Status-Monitor-Overlay 0.8.2
+Status-Monitor-Overlay 0.8.3
 sys-clk 1.0.2
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
@@ -48,7 +49,7 @@ sys-ftpd-light
 sys-tune 1.2.2
 sys-tweak 
 SysDVR 5.4
-SysDVR Overlay 1.0.7
+SysDVR Overlay 1.0.8
 Tesla-Menu 1.2.1
 
 
@@ -56,22 +57,22 @@ Tesla-Menu 1.2.1
 
 Chiaki 2.1.1
 Fake-08 0.0.2.20
-Haku33 5.4
+Haku33 5.5
 TencentSwitcherGUI 0.1.2
 
-Tinfoil 16.0
+Tinfoil 16.2
 
 
-=== Zusatz-Apps aus HB-Appstore ===
+=== Gute Zusatz-Apps aus HB-Appstore ===
 
 Amiibo Generator 1.4.0
 Amiigo 2.3.1
-GoldLeaf 0.10
+GoldLeaf 0.10.1
 Homebrew-Details 1.05
 MelonDS release6fix1
 MiiPort 0.1.1
 Moonlight-Switch 0.12.1
-Neumann 0.0.21
+Neumann 0.0.22
 NX-Locale-Switcher 1.1.2
 NX-Shell 4.01
 NXGallery 2.0.0
