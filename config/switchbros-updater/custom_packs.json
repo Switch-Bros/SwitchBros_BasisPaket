@@ -1,0 +1,9 @@
+{
+    "Paket": {
+        "Name vom Paket": "Adresse_zur_zip",
+        "Name vom anderen Paket": "Adresse_zur_zip"
+    },
+    "Sonstiges": {
+        "Name vom Download": "Link"
+    }
+}
