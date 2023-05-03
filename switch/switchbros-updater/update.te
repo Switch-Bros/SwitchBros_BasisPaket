@@ -277,6 +277,7 @@ if (fse("sd:/SB.ico")){
 
 	deldir("sd:/switchbros")
 	deldir("sd:/tegraexplorer")
+	deldir("sd:/firmware")
 
 	deldir("sd:/switch/daybreak")
 	deldir("sd:/switch/.overlays")
