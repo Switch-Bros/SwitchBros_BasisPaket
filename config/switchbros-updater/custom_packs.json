@@ -1,7 +1,6 @@
 {
     "Paket": {
-        "Name vom Paket": "Adresse_zur_zip",
-        "Name vom anderen Paket": "Adresse_zur_zip"
+        "SwitchBros. DEV Paket": "https://github.com/Switch-Bros/nx-links/releases/download/1/SwitchBros_BasisPaket.zip",
     },
     "Sonstiges": {
         "Name vom Download": "Link"

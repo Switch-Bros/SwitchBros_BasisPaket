@@ -3,7 +3,7 @@
     "atmosphere": false,
     "atmosphereentries": false,
     "browser": false,
-    "cfw": false,
+    "cfw": true,
     "cheats": false,
     "cleanup": true,
     "downloadpayload": true,
@@ -15,5 +15,5 @@
     "netsettings": true,
     "pccolor": true,
     "rebootpayload": true,
-    "custom": true
+    "custom": false
 }
