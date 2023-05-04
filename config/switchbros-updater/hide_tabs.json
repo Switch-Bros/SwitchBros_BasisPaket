@@ -15,5 +15,5 @@
     "netsettings": true,
     "pccolor": true,
     "rebootpayload": true,
-    "custom": false
+    "custom": true
 }
