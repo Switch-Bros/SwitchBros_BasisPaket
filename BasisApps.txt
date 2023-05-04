@@ -1,7 +1,7 @@
 Basiert auf:
 
 Hekate 6.0.3 + Nyx 1.5.3
-SwitchBros-O-sphere 1.5.2 commit -99c20f876 + hbl-2.4.3 + hbmenu-3.5.1
+SwitchBros-O-sphere 1.5.2 commit -a14caca4e + hbl-2.4.3 + hbmenu-3.5.1
 TegraExplorer 4.1.0.112 (Deutsch)
 Lockpick_RCM 1.9.10 (Deutsch)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
@@ -12,9 +12,9 @@ SwitchBros Updater 2.22.0-SB
 DNS-Block Tester 1.0.4 (Deutsch) (90DNS Tester) 
 Daybreak 1.0.0_de (Deutsch)
 DBI 551
-FTPD 3.2.0 (Deutsch))
+FTPD 3.2.0 (Deutsch)
 HB-AppStore 2.3.2
-IconGrabber 1.0.0 (Deutsch) 
+IconGrabber 1.0.1 (Deutsch) 
 JKSV 02/23/2023
 linkalho 2.1.0 (Deutsch) 
 NX-Activity-Log 1.4.0
@@ -47,8 +47,8 @@ sys-con 0.6.4
 sys-ftpd-light
 sys-tune 1.2.2
 sys-tweak 
-SysDVR 5.4
-SysDVR Overlay 1.0.8
+SysDVR 5.5.5
+SysDVR Overlay 1.0.9
 Tesla-Menu 1.2.1
 
 
