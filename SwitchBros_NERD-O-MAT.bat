@@ -1377,6 +1377,7 @@ echo.
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 
 REM ============================================================
@@ -1398,6 +1399,7 @@ xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO zusatzapps
 
 REM ============================================================
@@ -1428,14 +1430,15 @@ echo       6 = Fizeau (Bildschirmanzeige optimieren/verbessern)
 echo       7 = ldn_mitm (LAN-Play App)
 echo       8 = MissionControl (fremd Controller ueber Bluetooth)
 echo       9 = ovlSysmodule (Tesla-Overlay module aktivieren/deaktivieren)
-echo      10 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
-echo      11 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
-echo      12 = sys-clk (Switch Uebertakten/Untertakten)
-echo      13 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
-echo      14 = sys-con (fremd Controller ueber USB)
-echo      15 = sys-ftpd-light (FTP Verbindung im Hintergrund)
-echo      16 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
-echo      17 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
+echo      10 = QuickNTP (Datum und Zeit mit Zeit-Server synchronisieren)
+echo      11 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
+echo      12 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
+echo      13 = sys-clk (Switch Uebertakten/Untertakten)
+echo      14 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
+echo      15 = sys-con (fremd Controller ueber USB)
+echo      16 = sys-ftpd-light (FTP Verbindung im Hintergrund)
+echo      17 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
+echo      18 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1455,14 +1458,15 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="7" GOTO ldnmitm
 	if "%teslamods%"=="8" GOTO missioncontrol
 	if "%teslamods%"=="9" GOTO ovlssysmodule
-	if "%teslamods%"=="10" GOTO saltynx
-	if "%teslamods%"=="11" GOTO statmon
-	if "%teslamods%"=="12" GOTO sysclk
-	if "%teslamods%"=="13" GOTO sysclkedit
-	if "%teslamods%"=="14" GOTO syscon
-	if "%teslamods%"=="15" GOTO sysftpd
-	if "%teslamods%"=="16" GOTO sys-tune
-	if "%teslamods%"=="17" GOTO sysdvr
+	if "%teslamods%"=="10" GOTO quickntp
+	if "%teslamods%"=="11" GOTO saltynx
+	if "%teslamods%"=="12" GOTO statmon
+	if "%teslamods%"=="13" GOTO sysclk
+	if "%teslamods%"=="14" GOTO sysclkedit
+	if "%teslamods%"=="15" GOTO syscon
+	if "%teslamods%"=="16" GOTO sysftpd
+	if "%teslamods%"=="17" GOTO sys-tune
+	if "%teslamods%"=="18" GOTO sysdvr
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -1557,8 +1561,7 @@ set /p edizon="     Bitte triff deine Auswahl: "
 	RD /s /q "%sd%:\switch\EdiZon"
 	RD /s /q "%sd%:\switch\breeze"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
-	del "%sd%:\switch\.overlays\4_Breeze-Overlay.ovl"
-	del "%sd%:\switch\.overlays\4_ovlEdiZon.ovl"
+	del "%sd%:\switch\.overlays\ovlEdiZon.ovl"
 	GOTO edizon
 	)
 	if "%edizon%"=="3" GOTO teslamodular
@@ -1590,7 +1593,7 @@ set /p emuiibo="     Bitte triff deine Auswahl: "
 	RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
 	RD /s /q "%sd%:\emuiibo"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
-	del "%sd%:\switch\.overlays\2_emuiibo.ovl"
+	del "%sd%:\switch\.overlays\emuiibo.ovl"
 	GOTO emuiibo
 	)
 	if "%emuiibo%"=="3" GOTO teslamodular
@@ -1656,7 +1659,7 @@ set /p fizeau=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\config\Fizeau"
 	RD /s /q "%sd%:\switch\Fizeau"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau"
-	del "%sd%:\switch\.overlays\5_Fizeau.ovl"
+	del "%sd%:\switch\.overlays\Fizeau.ovl"
 	GOTO fizeau
 	)
 	if "%fizeau%"=="3" GOTO teslamodular
@@ -1688,7 +1691,7 @@ set /p ldnmitm=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
 	RD /s /q "%sd%:\switch\ldn_mitm_config"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
-	del "%sd%:\switch\.overlays\1_ldnmitm_config"
+	del "%sd%:\switch\.overlays\ldnmitm_config"
 	GOTO ldnmitm
 	)
 	if "%ldnmitm%"=="3" GOTO teslamodular
@@ -1751,10 +1754,40 @@ set /p ovlssysmodule=     Bitte triff deine Auswahl:
 	)
 	if "%ovlssysmodule%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\ovlssysmodule"
-	del "%sd%:\switch\.overlays\7_ovlSysmodules.ovl"
+	del "%sd%:\switch\.overlays\ovlSysmodules.ovl"
 	GOTO ovlssysmodule
 	)
 	if "%ovlssysmodule%"=="3" GOTO teslamodular
+
+REM ============================================================
+:quickntp
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll QuickNTP installiert oder deinstalliert werden?
+echo.
+echo      1 = QuickNTP installieren
+echo      2 = QuickNTP deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zum naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "quickntp="
+set /p quickntp="     Bitte triff deine Auswahl: "
+	if "%quickntp%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO quickntp
+	)
+	if "%quickntp%"=="2" (
+	del /s /q "%sd%:\switch\.overlays\QuickNTP.ovl"
+	RD /s /q "%sd%:\switch\appstore\.get\packages\QuickNTP"
+	GOTO quickntp
+	)
+	if "%quickntp%"=="3" GOTO teslamodular
 
 REM ============================================================
 :saltynx
@@ -1783,7 +1816,6 @@ set /p saltynx=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\atmosphere\contents\0000000000534C56"
 	RD /s /q "%sd%:\SaltySD"
 	del /s /q "%sd%:\switch\.overlays\FPSLocker.ovl"
-	del /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX"
 	GOTO saltynx
 	)
@@ -1814,7 +1846,7 @@ set /p statmon=     Bitte triff deine Auswahl:
 	)
 	if "%statmon%"=="2" (
 	RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
-	del "%sd%:\switch\.overlays\8_Status-Monitor-Overlay.ovl"
+	del "%sd%:\switch\.overlays\Status-Monitor-Overlay.ovl"
 	GOTO statmon
 	)
 	if "%statmon%"=="3" GOTO teslamodular
@@ -1845,7 +1877,7 @@ set /p sysclk=     Bitte triff deine Auswahl:
 	if "%sysclk%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF"
 	RD /s /q "%sd%:\config\sys-clk"
-	del /s /q "%sd%:\switch\.overlays\3_sys-clk-overlay.ovl"
+	del /s /q "%sd%:\switch\.overlays\sys-clk-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-manager"
 	RD /s /q "%sd%:\switch\sys-clk-manager"
 	GOTO sysclk
@@ -1970,7 +2002,7 @@ set /p sysdvr=     Bitte triff deine Auswahl:
 	if "%sysdvr%"=="2" (
 	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
 	RD /s /q "%sd%:\config\sysdvr"
-	del /s /q "%sd%:\switch\.overlays\6_sysdvr-overlay.ovl"
+	del /s /q "%sd%:\switch\.overlays\sysdvr-overlay.ovl"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
 	RD /s /q "%sd%:\switch\SysDVR-conf"

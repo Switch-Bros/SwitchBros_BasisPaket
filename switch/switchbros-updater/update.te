@@ -1149,6 +1149,7 @@ if (resTesla == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
 }
 
 clear()
@@ -1224,6 +1225,7 @@ if (resTesla == 2) {
 	deldir("sd:/switch/appstore/.get/packages/sys-ftpd-light")
 	deldir("sd:/atmosphere/contents/4200000000000000")
 	deldir("sd:/switch/appstore/.get/packages/sys-tune")
+	deldir("sd:/switch/appstore/.get/packages/QuickNTP")
 }
 
 clear()
@@ -1592,6 +1594,40 @@ clear()
     if (resYN == 1) {
       delfile("sd:/switch/.overlays/ovlSysmodules.ovl")
       deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
+    }
+
+clear()
+
+    pl()
+    pl()
+    pl()
+    col(GELB)
+    pl("                             Modul - QuickNTP")
+    pl()
+    col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
+    pl()
+    col(GELB)
+    pl("  Mit dem QuickNTP Overlay kannst du Datum und Zeit der Konsole mit einem")
+    pl("  Zeit-Server synchronisieren.")
+    pl()
+    col(WEISS)
+    pl("  Moechtest du [QuickNTP] installieren?")
+    pl()
+    pl()
+    menuOptionsYN = ["Ja", "Nein"]
+    resYN = menu(menuOptionsYN, 0)
+
+    clear()
+    col(SCHWARZ)
+
+    if (resYN == 0) {
+      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
+    }
+
+    if (resYN == 1) {
+      delfile("sd:/switch/.overlays/QuickNTP.ovl")
+      deldir("sd:/switch/appstore/.get/packages/QuickNTP")
     }
 
 clear()
