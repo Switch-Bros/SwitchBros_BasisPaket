@@ -1,7 +1,7 @@
 Basiert auf:
 
 Hekate 6.0.4 + Nyx 1.5.3
-SwitchBros-O-sphere 1.5.2 commit -a14caca4e + hbl-2.4.3 + hbmenu-3.5.1
+SwitchBros-O-sphere 1.5.3 commit -3c3858397 + hbl-2.4.3 + hbmenu-3.5.1
 TegraExplorer 4.1.0.112 (Deutsch)
 Enigma_RCM 1.10.0 (Deutsch)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
