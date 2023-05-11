@@ -2,10 +2,10 @@
   "title": "Tesla-Menu",
   "author": "WerWolv",
   "category": "advanced",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "url": "https://github.com/WerWolv/Tesla-Menu/releases",
   "license": "GPLv2",
   "description": "The Nintendo Switch overlay menu",
   "details": "The initial overlay menu to be loaded by nx-ovlloader. It's main purpose is to let the user select other overlays to be loaded. The default directory for overlays is /switch/.overlays where only .ovl files (Plain old .nro files renamed to .ovl to differentiate them from normal homebrew) get loaded.",
-  "changelog": "1.2.1\\n\\nUpdate libtesla (#57)\\n\\n1.2.0\\n\\nThis is just a small release to sort overlays according to their file name on disk.\\n\\nWith this you can now for example prefix overlay files you want to appear in the list first with 0_, 1_ and so on.\\n\\n1.1.4\\n\\nUpdate for latest Atmosphere + libnx hid changes\\n\\n1.1.3\\n\\nUpdate to libtesla 1.3.3 to fix crashes with too many sysmodules running\\n\\n1.1.1\\n\\nUpdated to libtesla v1.3.1\\nThis fixes an issue that caused touch input to not work at all in the Tesla Menu\\n\\n1.1.0\\n\\nUpdated Tesla to make use of latest libtesla features\\nDisplay version numbers of overlays\\nNew help message for if no overlays were found\\n\\n1.0.2\\n\\nUpdated code to latest libtesla\\n\\n1.0.1\\n\\nFixed a bug that rarely caused crashes when moving the focus around in a list\\nFixed inputs only be accepted from handheld mode"
+  "changelog": "1.2.2\\nProper 16.0.0+ Support\\n\\n1.2.1\\n\\nUpdate libtesla (#57)\\n\\n1.2.0\\n\\nThis is just a small release to sort overlays according to their file name on disk.\\n\\nWith this you can now for example prefix overlay files you want to appear in the list first with 0_, 1_ and so on.\\n\\n1.1.4\\n\\nUpdate for latest Atmosphere + libnx hid changes\\n\\n1.1.3\\n\\nUpdate to libtesla 1.3.3 to fix crashes with too many sysmodules running\\n\\n1.1.1\\n\\nUpdated to libtesla v1.3.1\\nThis fixes an issue that caused touch input to not work at all in the Tesla Menu\\n\\n1.1.0\\n\\nUpdated Tesla to make use of latest libtesla features\\nDisplay version numbers of overlays\\nNew help message for if no overlays were found\\n\\n1.0.2\\n\\nUpdated code to latest libtesla\\n\\n1.0.1\\n\\nFixed a bug that rarely caused crashes when moving the focus around in a list\\nFixed inputs only be accepted from handheld mode"
 }
