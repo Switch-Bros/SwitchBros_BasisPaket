@@ -157,10 +157,10 @@ writeSys = {
 	}
 	
 	color(0xFF0000)
-	print("Löschen von SYSTEM-Inhalt... ")
+	print("Loeschen von SYSTEM-Inhalt... ")
 	color(0xFFFFFF)
 	if (deldir("bis:/Contents/registered")){
-		fatal(fatalMsg = "Beim Löschen des SYSTEM Inhalts ist ein Fehler aufgetreten!")
+		fatal(fatalMsg = "Beim Loeschen des SYSTEM Inhalts ist ein Fehler aufgetreten!")
 	}
 	p()
 	
@@ -199,7 +199,7 @@ bootBisFound = !bisFileRes
 systemFolderFound = fsexists(combinepath(cwd(), "SYSTEM"))
 
 if ((!bootBisFound) && (!systemFolderFound)){
-	fatal(fatalMsg = "Nichts zum Wiederherstellen gefunden...\nFüge neben diesem Skript eine boot.bis und ein SYSTEM-Verzeichnis von emmchaccgen ein!")
+	fatal(fatalMsg = "Nichts zum Wiederherstellen gefunden...\nFuege neben diesem Skript eine boot.bis und ein SYSTEM-Verzeichnis von emmchaccgen ein!")
 }
 
 if (!bootBisFound){
