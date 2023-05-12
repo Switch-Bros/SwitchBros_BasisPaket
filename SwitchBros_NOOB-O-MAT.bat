@@ -102,6 +102,7 @@ if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrab
 if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
 if exist "%sd%:\config\sys-ftpd\config.ini" (xcopy /y "%sd%:\config\sys-ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
 if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\*") >nul 2>nul
+if exist "%sd%:\switch\tinfoil\options.json" (xcopy /y "%sd%:\switch\tinfoil\options.json" "%sd%:\switchbros\backup\tinfoil\*") >nul 2>nul
 if exist "%sd%:\atmosphere\exefs_patches\bootlogo" (xcopy /y "%sd%:\atmosphere\exefs_patches\bootlogo" "%sd%:\switchbros\backup\*") >nul 2>nul
 
 REM ============================================================
@@ -345,7 +346,6 @@ if exist "%sd%:\NSP" (RD /s /q "%sd%:\NSP")
 if exist "%sd%:\SaltySD" (RD /s /q "%sd%:\SaltySD")
 if exist "%sd%:\atmo" (RD /s /q "%sd%:\atmo")
 if exist "%sd%:\ams" (RD /s /q "%sd%:\ams")
-if exist "%sd%:\emuiibo" (RD /s /q "%sd%:\emuiibo")
 if exist "%sd%:\scripts" (RD /s /q "%sd%:\scripts")
 if exist "%sd%:\music" (RD /s /q "%sd%:\music")
 if exist "%sd%:\tools" (RD /s /q "%sd%:\tools")
@@ -479,6 +479,7 @@ xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nu
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\backup\Tinfoil\options.json" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
 
 REM ============================================================
 :themepaketinst

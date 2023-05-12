@@ -148,6 +148,9 @@ copyfile("sd:/config/sys-ftpd/config.ini", "sd:/SwitchBros_BasisPaket/switchbros
 if (fse("sd:/switch/tinfoil/locations.conf")) {
 copyfile("sd:/switch/tinfoil/locations.conf", "sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")
 }
+if (fse("sd:/switch/tinfoil/options.json")) {
+copyfile("sd:/switch/tinfoil/options.json", "sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json")
+}
 if (fse("sd:/atmosphere/exefs_patches/bootlogo")) {
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/SwitchBros_BasisPaket/switchbros/backup/")
 }
@@ -1184,7 +1187,6 @@ if (resTesla == 2) {
 	deldir("sd:/switch/EdiZon")
 	deldir("sd:/switch/appstore/.get/packages/EdiZon")
 	deldir("sd:/atmosphere/contents/0100000000000352")
-	deldir("sd:/emuiibo")
 	deldir("sd:/switch/appstore/.get/packages/emuiibo")
 	deldir("sd:/config/fastCFWswitch")
 	deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
@@ -1398,7 +1400,6 @@ clear()
 
   if (resYN == 1) {
     deldir("sd:/atmosphere/contents/0100000000000352")
-		deldir("sd:/emuiibo")
 		delfile("sd:/switch/.overlays/emuiibo.ovl")
 		deldir("sd:/switch/appstore/.get/packages/emuiibo")
   }
@@ -1987,6 +1988,9 @@ if (resTinfoil == 0) {
 	if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")){
 	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
 	}
+    if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json")){
+	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
+	}
 }
 
 wait(tw = 2000)
@@ -2013,6 +2017,9 @@ if (resTinfoil == 1) {
 
 	if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")) {
 	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
+	}
+    if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json")){
+	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
 	}
 }
 
