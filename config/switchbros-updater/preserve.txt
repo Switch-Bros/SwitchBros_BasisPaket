@@ -1,1 +1,1 @@
-/config/switchbros-updater/hide_tabs.json
+config/switchbros-updater/hide_tabs.json
