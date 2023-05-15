@@ -2293,12 +2293,15 @@ if exist "%sd%:\bootloader" (
 if exist "%sd%:\config" (
 	attrib -A -R /S /D %sd%:\config\*
 	attrib -A -R %sd%:\config)
-if exist "%sd%:\NSPs" (
-	attrib -A -R /S /D %sd%:\NSPs\*
-	attrib -A -R %sd%:\NSPs)
 if exist "%sd%:\emuiibo" (
 	attrib -A -R /S /D %sd%:\emuiibo\*
 	attrib -A -R %sd%:\emuiibo)
+if exist "%sd%:\NSPs" (
+	attrib -A -R /S /D %sd%:\NSPs\*
+	attrib -A -R %sd%:\NSPs)
+if exist "%sd%:\SaltySD" (
+	attrib -A -R /S /D %sd%:\SaltySD\*
+	attrib -A -R %sd%:\SaltySD)
 if exist "%sd%:\switch" (
 	attrib -A -R /S /D %sd%:\switch\*
 	attrib -A -R %sd%:\switch)
@@ -2311,11 +2314,13 @@ if exist "%sd%:\themes" (
 if exist "%sd%:\warmboot" (
 	attrib -A -R /S /D %sd%:\warmboot\*
 	attrib -A -R %sd%:\warmboot)
-if exist "%sd%:\hbmenu.nro" (attrib -A -R %sd%:\hbmenu.nro)
+if exist "%sd%:\BasisApps.txt" (attrib -A -R %sd%:\BasisApps.txt)
 if exist "%sd%:\boot.dat" (attrib -A -R %sd%:\boot.dat)
 if exist "%sd%:\boot.ini" (attrib -A -R %sd%:\boot.ini)
-if exist "%sd%:\payload.bin" (attrib -A -R %sd%:\payload.bin)
 if exist "%sd%:\exosphere.ini" (attrib -A -R %sd%:\exosphere.ini)
+if exist "%sd%:\hbmenu.nro" (attrib -A -R %sd%:\hbmenu.nro)
+if exist "%sd%:\payload.bin" (attrib -A -R %sd%:\payload.bin)
+if exist "%sd%:\SB.ico" (attrib -A -R %sd%:\SB.ico)
 rem Entfernen typischer MacOS Dateien (die sind ueberall die Bruedaz)
 if exist .DS_STORE del /s /q /f /a .DS_STORE
 if exist ._.* del /s /q /f /a ._.*
@@ -2352,12 +2357,15 @@ if exist "%sd%:\bootloader" (
 if exist "%sd%:\config" (
 	attrib -A -R /S /D %sd%:\config\*
 	attrib -A -R %sd%:\config)
-if exist "%sd%:\NSPs" (
-	attrib -A -R /S /D %sd%:\NSPs\*
-	attrib -A -R %sd%:\NSPs)
 if exist "%sd%:\emuiibo" (
 	attrib -A -R /S /D %sd%:\emuiibo\*
 	attrib -A -R %sd%:\emuiibo)
+if exist "%sd%:\NSPs" (
+	attrib -A -R /S /D %sd%:\NSPs\*
+	attrib -A -R %sd%:\NSPs)
+if exist "%sd%:\SaltySD" (
+	attrib -A -R /S /D %sd%:\SaltySD\*
+	attrib -A -R %sd%:\SaltySD)
 if exist "%sd%:\switch" (
 	attrib -A -R /S /D %sd%:\switch\*
 	attrib -A -R %sd%:\switch)
@@ -2370,11 +2378,13 @@ if exist "%sd%:\themes" (
 if exist "%sd%:\warmboot" (
 	attrib -A -R /S /D %sd%:\warmboot\*
 	attrib -A -R %sd%:\warmboot)
-if exist "%sd%:\hbmenu.nro" (attrib -A -R %sd%:\hbmenu.nro)
+if exist "%sd%:\BasisApps.txt" (attrib -A -R %sd%:\BasisApps.txt)
 if exist "%sd%:\boot.dat" (attrib -A -R %sd%:\boot.dat)
 if exist "%sd%:\boot.ini" (attrib -A -R %sd%:\boot.ini)
-if exist "%sd%:\payload.bin" (attrib -A -R %sd%:\payload.bin)
 if exist "%sd%:\exosphere.ini" (attrib -A -R %sd%:\exosphere.ini)
+if exist "%sd%:\hbmenu.nro" (attrib -A -R %sd%:\hbmenu.nro)
+if exist "%sd%:\payload.bin" (attrib -A -R %sd%:\payload.bin)
+if exist "%sd%:\SB.ico" (attrib -A -R %sd%:\SB.ico)
 rem Entfernen typischer MacOS Dateien (die sind ueberall die Bruedaz)
 if exist .DS_STORE del /s /q /f /a .DS_STORE
 if exist ._.* del /s /q /f /a ._.*
