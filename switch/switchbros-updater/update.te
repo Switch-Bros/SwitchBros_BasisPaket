@@ -60,7 +60,7 @@ pl("  Drueck die A-Taste/Power, um das SwitchBros. Paket zu aktualisieren!")
 pl()
 pl()
 col(ORANGE)
-pl("                                                         SwitchBros. Paket v117")
+pl("                                                         SwitchBros. Paket v118")
 pl()
 pl()
 col(ROT)
@@ -2016,19 +2016,7 @@ clear()
 
     if (resYN == 1) {
       col(SCHWARZ)
-      deldir("sd:/atmosphere/contents/0100BF500207C000")
-      deldir("sd:/atmosphere/contents/01009EE0111CC000")
-      deldir("sd:/atmosphere/contents/010092A0172E4000")
-      deldir("sd:/SaltySD/flags/ReverseNX")
-      delfile("sd:/SaltySD/plugins/ReverseNX-RT.elf")
-      delfile("sd:/SaltySD/ReverseNX-RT.hex")
-      delfile("sd:/SaltySD/FPSoffset.hex")
-      deldir("sd:/switch/MemTesterNX")
-      deldir("sd:/switch/ReverseNX-Tool")
       delfile("sd:/atmosphere/kips/loader.kip")
-      delfile("sd:/switch/.overlays/4IFIR.ovl")
-      delfile("sd:/switch/.overlays/InfoNX-ovl.ovl")
-      delfile("sd:/switch/.overlays/ReverseNX-RT-ovl.ovl")
     }
 }
 
