@@ -524,7 +524,6 @@ if (resChip == 0) {
 	deldir("sd:/bootloader/memloader")
 	delfile("sd:/boot.dat")
 	delfile("sd:/boot.ini")
-	delfile("sd:/payload.bin")
 	delfile("sd:/bootloader/payloads/hwfly_toolbox.bin")
 	delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
 }
