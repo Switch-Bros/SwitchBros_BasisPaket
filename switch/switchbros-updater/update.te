@@ -136,7 +136,6 @@ if(fse("sd:/backup")){
   mkdir("sd:/backup")
   mkdir("sd:/backup/SB")
 }
-}
 
 if (fse("sd:/config/fastCFWSwitch/config.ini")) {
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")
