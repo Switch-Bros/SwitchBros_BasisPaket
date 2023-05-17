@@ -122,12 +122,20 @@ if (is_erista()){
 		if(mountsys("SYSTEM")){maj=0}
 		fv()
 	}.else(){
-		if (fse("sd:/config/switchbros-helper/lockpick_sys.bin")){
-			payload("sd:/config/switchbros-helper/lockpick_sys.bin")
+		if (fse("sd:/config/switchbros-helper/enigma_sys.bin")){
+			payload("sd:/config/switchbros-helper/enigma_sys.bin")
 		}.else(){
-		payload("sd:/SwitchBros_BasisPaket/config/switchbros-helper/lockpick_sys.bin")
+		payload("sd:/SwitchBros_BasisPaket/config/switchbros-helper/enigma_sys.bin")
 		}
 	}
+}
+
+if(fse("sd:/backup")){
+  mkdir("sd:/backup/SB")
+}.else(){
+  mkdir("sd:/backup")
+  mkdir("sd:/backup/SB")
+}
 }
 
 if (fse("sd:/config/fastCFWSwitch/config.ini")) {
