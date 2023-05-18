@@ -6,7 +6,7 @@
     "firmwares": false,
     "downloadpayload": true,
     "rebootpayload": true,
-    "custom": true,
+    "custom": false,
     "browser": false,
     "cheats": false,
     "outdatedtitles": false,
