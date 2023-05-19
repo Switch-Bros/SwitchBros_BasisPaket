@@ -1,10 +1,10 @@
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
-chcp 1252 >nul 2>&1
+chcp 65001 >nul 2>&1
 title SwitchBros. NOOB-O-MAT
 REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
-REM Dieses Skript wurde um einiges erweitert, erg�nzt und verbessert!
+REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
 set wd=%temp%\sdfiles
@@ -94,6 +94,21 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
+set "BackupOrdner=%sd%:\Backup"
+set "UnterOrdner=SB"
+
+if not exist "%BackupOrdner%\%UnterOrdner%" (
+    mkdir "%BackupOrdner%\%UnterOrdner%"
+)
+
+set "folders=bootloader fastCFWSwitch Fizeau IconGrabber ftpd sys-ftpd tinfoil bootlogo"
+
+for %%i in (%folders%) do (
+    if not exist "%BackupOrdner%\%UnterOrdner%\%%i" (
+        mkdir "%BackupOrdner%\%UnterOrdner%\%%i"
+    )
+)
+
 if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup\*") >nul 2>nul
 if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\*") >nul 2>nul
 if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\*") >nul 2>nul
@@ -162,6 +177,7 @@ echo      BITTE WARTEN...
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)

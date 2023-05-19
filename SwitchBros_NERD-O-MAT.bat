@@ -1,6 +1,6 @@
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
-chcp 1252 >nul 2>&1
+chcp 65001 >nul 2>&1
 title SwitchBros. NERD-O-MAT
 REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
@@ -174,9 +174,9 @@ set /P ="     Bitte gib einen gueltigen Laufwerksbuchstaben ein: "
 if defined LW (
  (
     md "%LW%:\SwitchBackup\sysNAND"
-    md "%LW%:\SwitchBackup\Lockpick\Prodkeys-Devkeys"
-    md "%LW%:\SwitchBackup\Lockpick\Partial_AES_Keys"
-    md "%LW%:\SwitchBackup\Lockpick\Amiibo_Keys"
+    md "%LW%:\SwitchBackup\Enigma\Prodkeys-Devkeys"
+    md "%LW%:\SwitchBackup\Enigma\Partial_AES_Keys"
+    md "%LW%:\SwitchBackup\Enigma\Amiibo_Keys"
     md "%LW%:\SwitchBackup\SD-Karten_Backup"
   ) 2>nul
 	COLOR 0E
@@ -234,6 +234,7 @@ echo      BITTE WARTEN...
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
+
 
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
