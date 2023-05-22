@@ -95,17 +95,17 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "BackupOrdner=%sd%:\Backup"
-set "UnterOrdner=SB"
+set "SB-Backup=SB"
 
-if not exist "%BackupOrdner%\%UnterOrdner%" (
-    mkdir "%BackupOrdner%\%UnterOrdner%"
+if not exist "%BackupOrdner%\%SB-Backup%" (
+    mkdir "%BackupOrdner%\%SB-Backup%"
 )
 
 set "folders=bootloader fastCFWSwitch Fizeau IconGrabber ftpd sys-ftpd tinfoil bootlogo"
 
 for %%i in (%folders%) do (
-    if not exist "%BackupOrdner%\%UnterOrdner%\%%i" (
-        mkdir "%BackupOrdner%\%UnterOrdner%\%%i"
+    if not exist "%BackupOrdner%\%SB-Backup%\%%i" (
+        mkdir "%BackupOrdner%\%SB-Backup%\%%i"
     )
 )
 
@@ -178,10 +178,28 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
 if exist "%sd%:\atmosphere\content" (rename %sd%:\atmosphere\content contents)
+
+if exist "%sd%:\SB.ico" (
+	if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
+	if exist "%sd%:\atmosphere\erpt_reports" (RD /s /q "%sd%:\atmosphere\erpt_reports")
+	if exist "%sd%:\atmosphere\crash_reports" (RD /s /q "%sd%:\atmosphere\crash_reports")
+	if exist "%sd%:\atmosphere\exefs_patches" (RD /s /q "%sd%:\atmosphere\exefs_patches")
+	if exist "%sd%:\atmosphere\fatal_errors" (RD /s /q "%sd%:\atmosphere\fatal_errors")
+	if exist "%sd%:\atmosphere\fatal_reports" (RD /s /q "%sd%:\atmosphere\fatal_reports")
+	if exist "%sd%:\atmosphere\kips" (RD /s /q  "%sd%:\atmosphere\kips")
+	if exist "%sd%:\atmosphere\kip_patches" (RD /s /q "%sd%:\atmosphere\kip_patches")
+	if exist "%sd%:\atmosphere\package3" (del "%sd%:\atmosphere\package3")
+	if exist "%sd%:\atmosphere\*.bin" (del "%sd%:\atmosphere\*.bin")
+	if exist "%sd%:\atmosphere\*.nsp" (del "%sd%:\atmosphere\*.nsp")
+	if exist "%sd%:\atmosphere\*.romfs" (del "%sd%:\atmosphere\*.romfs")
+	if exist "%sd%:\atmosphere\*.sig" (del "%sd%:\atmosphere\*.sig")
+	if exist "%sd%:\atmosphere\*.json" (del "%sd%:\atmosphere\*.json")
+	if exist "%sd%:\atmosphere\*.ini" (del "%sd%:\atmosphere\*.ini")
+	
+) else (
 
 if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
 if exist "%sd%:\atmosphere\config_templates" (RD /s /q "%sd%:\atmosphere\config_templates")
@@ -430,6 +448,8 @@ REM if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
 if exist "%sd%:\switch\*.ini" (del "%sd%:\switch\*.ini")
 if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
+
+)
 
 REM ============================================================
 :sblegtlos
