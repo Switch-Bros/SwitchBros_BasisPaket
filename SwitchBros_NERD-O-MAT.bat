@@ -80,16 +80,33 @@ if "%modchip%"=="2" SET bootdat=2
 
 REM ============================================================
 :datensichern
-if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup\*") >nul 2>nul
-if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\*") >nul 2>nul
-if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\*") >nul 2>nul
-if exist "%sd%:\config\Fizeau\config.ini" (xcopy /y "%sd%:\config\Fizeau\config.ini" "%sd%:\switchbros\backup\Fizeau\*") >nul 2>nul
-if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrabber\config.json" "%sd%:\switchbros\backup\IconGrabber\*") >nul 2>nul
-if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
-if exist "%sd%:\config\sys-ftpd\config.ini" (xcopy /y "%sd%:\config\sys-ftpd\config.ini" "%sd%:\switchbros\backup\ftpd\*") >nul 2>nul
-if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%sd%:\switchbros\backup\tinfoil\*") >nul 2>nul
-if exist "%sd%:\switch\tinfoil\options.json" (xcopy /y "%sd%:\switch\tinfoil\options.json" "%sd%:\switchbros\backup\tinfoil\*") >nul 2>nul
-if exist "%sd%:\atmosphere\exefs_patches\bootlogo" (xcopy /y "%sd%:\atmosphere\exefs_patches\bootlogo" "%sd%:\switchbros\backup\*") >nul 2>nul
+
+set "BackupOrdner=%sd%:\Backup"
+set "SB-Backup=SB"
+
+if not exist "%BackupOrdner%\%SB-Backup%" (
+    mkdir "%BackupOrdner%\%SB-Backup%"
+)
+
+set "folders=bootloader fastCFWSwitch Fizeau IconGrabber ftpd sys-ftpd tinfoil bootlogo DBI"
+
+for %%i in (%folders%) do (
+    if not exist "%BackupOrdner%\%SB-Backup%\%%i" (
+        mkdir "%BackupOrdner%\%SB-Backup%\%%i"
+    )
+)
+
+if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ipl.ini" "%SB-Backup%\bootloader\hekate_ipl.ini") >nul 2>nul
+if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%SB-Backup%\bootloader\nyx.ini") >nul 2>nul
+if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFWSwitch\config.ini" "%SB-Backup%\fastCFWSwitch\*") >nul 2>nul
+if exist "%sd%:\config\Fizeau\config.ini" (xcopy /y "%sd%:\config\Fizeau\config.ini" "%SB-Backup%\Fizeau\*") >nul 2>nul
+if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrabber\config.json" "%SB-Backup%\IconGrabber\*") >nul 2>nul
+if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%SB-Backup%\ftpd\*") >nul 2>nul
+if exist "%sd%:\config\sys-ftpd\config.ini" (xcopy /y "%sd%:\config\sys-ftpd\config.ini" "%SB-Backup%\sys-ftpd\*") >nul 2>nul
+if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%SB-Backup%\tinfoil\*") >nul 2>nul
+if exist "%sd%:\switch\tinfoil\options.json" (xcopy /y "%sd%:\switch\tinfoil\options.json" "%SB-Backup%\tinfoil\*") >nul 2>nul
+if exist "%sd%:\atmosphere\exefs_patches\bootlogo" (xcopy /y "%sd%:\atmosphere\exefs_patches\bootlogo" "%SB-Backup%\bootlogo\*") >nul 2>nul
+if exist "%sd%:\switch\DBI\dbi.config" (xcopy /y "%sd%:\switch\DBI\dbi.config" "%SB-Backup%\DBI\*") >nul 2>nul
 
 REM ============================================================
 :hauptmenue
