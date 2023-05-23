@@ -1,10 +1,10 @@
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
-chcp 1252 >nul 2>&1
+chcp 65001 >nul 2>&1
 title SwitchBros. NOOB-O-MAT
 REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
-REM Dieses Skript wurde um einiges erweitert, erg�nzt und verbessert!
+REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
 set wd=%temp%\sdfiles
@@ -94,6 +94,21 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
+set "BackupOrdner=%sd%:\Backup"
+set "SB-Backup=SB"
+
+if not exist "%BackupOrdner%\%SB-Backup%" (
+    mkdir "%BackupOrdner%\%SB-Backup%"
+)
+
+set "folders=bootloader fastCFWSwitch Fizeau IconGrabber ftpd sys-ftpd tinfoil bootlogo"
+
+for %%i in (%folders%) do (
+    if not exist "%BackupOrdner%\%SB-Backup%\%%i" (
+        mkdir "%BackupOrdner%\%SB-Backup%\%%i"
+    )
+)
+
 if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ipl.ini" "%sd%:\switchbros\backup\*") >nul 2>nul
 if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%sd%:\switchbros\backup\*") >nul 2>nul
 if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFWSwitch\config.ini" "%sd%:\switchbros\backup\fastCFWSwitch\*") >nul 2>nul
@@ -166,6 +181,25 @@ echo.
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
 if exist "%sd%:\atmosphere\content" (rename %sd%:\atmosphere\content contents)
+
+if exist "%sd%:\SB.ico" (
+	if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
+	if exist "%sd%:\atmosphere\erpt_reports" (RD /s /q "%sd%:\atmosphere\erpt_reports")
+	if exist "%sd%:\atmosphere\crash_reports" (RD /s /q "%sd%:\atmosphere\crash_reports")
+	if exist "%sd%:\atmosphere\exefs_patches" (RD /s /q "%sd%:\atmosphere\exefs_patches")
+	if exist "%sd%:\atmosphere\fatal_errors" (RD /s /q "%sd%:\atmosphere\fatal_errors")
+	if exist "%sd%:\atmosphere\fatal_reports" (RD /s /q "%sd%:\atmosphere\fatal_reports")
+	if exist "%sd%:\atmosphere\kips" (RD /s /q  "%sd%:\atmosphere\kips")
+	if exist "%sd%:\atmosphere\kip_patches" (RD /s /q "%sd%:\atmosphere\kip_patches")
+	if exist "%sd%:\atmosphere\package3" (del "%sd%:\atmosphere\package3")
+	if exist "%sd%:\atmosphere\*.bin" (del "%sd%:\atmosphere\*.bin")
+	if exist "%sd%:\atmosphere\*.nsp" (del "%sd%:\atmosphere\*.nsp")
+	if exist "%sd%:\atmosphere\*.romfs" (del "%sd%:\atmosphere\*.romfs")
+	if exist "%sd%:\atmosphere\*.sig" (del "%sd%:\atmosphere\*.sig")
+	if exist "%sd%:\atmosphere\*.json" (del "%sd%:\atmosphere\*.json")
+	if exist "%sd%:\atmosphere\*.ini" (del "%sd%:\atmosphere\*.ini")
+	
+) else (
 
 if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
 if exist "%sd%:\atmosphere\config_templates" (RD /s /q "%sd%:\atmosphere\config_templates")
@@ -415,6 +449,8 @@ if exist "%sd%:\switch\*.ini" (del "%sd%:\switch\*.ini")
 if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
 if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
 
+)
+
 REM ============================================================
 :sblegtlos
 COLOR 0E
@@ -619,6 +655,8 @@ if exist "%sd%:\*.bat" (del "%sd%:\*.bat")
 if exist "%sd%:\*.te" (del "%sd%:\*.te")
 if exist "%sd%:\*.exe" (del "%sd%:\*.exe")
 if exist "%sd%:\*.bak" (del "%sd%:\*.bak")
+if exist "%sd%:\licence" (del "%sd%:\licence")
+if exist "%sd%:\*.md" (del "%sd%:\*.md")
 if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%:\SwitchBros_BasisPaket.zip")
 exist "%sd%:\bootloader/ini/!switchbros_updater.ini" (del "%sd%:\bootloader/ini/!switchbros_updater.ini")
 if exist "%sd%:\bootloader/ini/switchbros_updater.ini" (del "%sd%:\bootloader/ini/switchbros_updater.ini")
