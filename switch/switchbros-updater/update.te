@@ -135,6 +135,14 @@ if(fse("sd:/backup")){
   mkdir("sd:/backup")
   mkdir("sd:/backup/SB")
 }
+mkdir("sd:/backup/SB/fastCFWSwitch")
+mkdir("sd:/backup/SB/Fizeau")
+mkdir("sd:/backup/SB/IconGrabber")
+mkdir("sd:/backup/SB/ftpd")
+mkdir("sd:/backup/SB/sys-ftpd")
+mkdir("sd:/backup/SB/tinfoil")
+mkdir("sd:/backup/SB/bootlogo")
+mkdir("sd:/backup/SB/DBI")
 
 if (fse("sd:/config/fastCFWSwitch/config.ini")) {
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")

@@ -52,7 +52,7 @@ sys-tune 1.2.2
 sys-tweak 
 SysDVR 5.5.5
 SysDVR Overlay 1.0.9
-Tesla-Menu 1.2.2
+Tesla-Menu 1.2.3
 
 
 === Mögliche Zusatz Apps ==========
