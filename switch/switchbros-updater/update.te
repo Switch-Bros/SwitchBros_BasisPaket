@@ -47,7 +47,7 @@ pl()
 pl("     Aktualisiere dein SwitchBros. Paket nur ueber deine Switch, ohne PC!")
 pl()
 pl()
-pl("     Alternative Navigation (ohne JoyCons):")
+pl("     Alternative Navigation (ohne JoyCons / Switch Lite):")
 pl()
 pl()
 col(SILBER)p("       * ")col(BECKY)p("Vol +/-      : hoch/runter navigieren")pl()
@@ -137,31 +137,31 @@ if(fse("sd:/backup")){
 }
 
 if (fse("sd:/config/fastCFWSwitch/config.ini")) {
-copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")
+copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")
 }
 if (fse("sd:/config/Fizeau/config.ini")) {
-copyfile("sd:/config/Fizeau/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini")
+copyfile("sd:/config/Fizeau/config.ini", "sd:/backup/SB/Fizeau/config.ini")
 }
 if (fse("sd:/config/icongrabber/config.json")) {
-copyfile("sd:/config/icongrabber/config.json", "sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")
+copyfile("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
 }
 if (fse("sd:/config/ftpd/ftpd.cfg")) {
-copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg")
+copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/backup/SB/ftpd/ftpd.cfg")
 }
 if (fse("sd:/config/sys-ftpd/config.ini")) {
-copyfile("sd:/config/sys-ftpd/config.ini", "sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/config.ini")
+copyfile("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
 }
 if (fse("sd:/switch/tinfoil/locations.conf")) {
-copyfile("sd:/switch/tinfoil/locations.conf", "sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")
+copyfile("sd:/switch/tinfoil/locations.conf", "sd:/backup/SB/tinfoil/locations.conf")
 }
 if (fse("sd:/switch/tinfoil/options.json")) {
-copyfile("sd:/switch/tinfoil/options.json", "sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json")
+copyfile("sd:/switch/tinfoil/options.json", "sd:/backup/SB/tinfoil/options.json")
 }
 if (fse("sd:/atmosphere/exefs_patches/bootlogo")) {
-copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/SwitchBros_BasisPaket/switchbros/backup/")
+copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB/bootlogo/")
 }
 if (fse("sd:/switch/DBI/dbi.config")) {
-copyfile("sd:/switch/DBI/dbi.config", "sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config")
+copyfile("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
 }
 
 wait(tw = 1000)
@@ -2078,11 +2078,11 @@ if (resTinfoil == 0) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu/switch", "sd:/")
 
-	if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")){
-	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
+	if (fse("sd:/backup/SB/tinfoil/locations.conf")){
+	copyfile ("sd:/backup/SB/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
 	}
-    if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json")){
-	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
+    if (fse("sd:/backup/SB/tinfoil/options.json")){
+	copyfile ("sd:/backup/SB/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
 	}
 }
 
@@ -2108,11 +2108,11 @@ if (resTinfoil == 1) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
 
-	if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf")) {
-	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
+	if (fse("sd:/backup/SB/tinfoil/locations.conf")) {
+	copyfile ("sd:/backup/SB/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
 	}
-    if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json")){
-	copyfile ("sd:/SwitchBros_BasisPaket/switchbros/backup/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
+    if (fse("sd:/backup/SB/tinfoil/options.json")){
+	copyfile ("sd:/backup/SB/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
 	}
 }
 
@@ -2333,26 +2333,26 @@ clear()
     }
 }
 
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/dbi.config", "sd:/switch/DBI/dbi.config")
+if (fse("sd:/backup/SB/dbi.config")) {
+	copyfile("sd:/backup/SB/dbi.config", "sd:/switch/DBI/dbi.config")
 }
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json")){
-copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
+if (fse("sd:/backup/SB/IconGrabber/config.json")){
+copyfile("sd:/backup/SB/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
 }
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
+if (fse("sd:/backup/SB/fastCFWSwitch/config.ini")) {
+	copyfile("sd:/backup/SB/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
 }
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
+if (fse("sd:/backup/SB/Fizeau/config.ini")) {
+	copyfile("sd:/backup/SB/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
 }
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/ftpd.cfg", "sd:/config/ftpd/ftpd.cfg")
+if (fse("sd:/backup/SB/ftpd/ftpd.cfg")) {
+	copyfile("sd:/backup/SB/ftpd/ftpd.cfg", "sd:/config/ftpd/ftpd.cfg")
 }
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/config.ini")) {
-	copyfile("sd:/SwitchBros_BasisPaket/switchbros/backup/ftpd/config.ini", "sd:/config/sys-ftpd/config.ini")
+if (fse("sd:/backup/SB/sys-ftpd/config.ini")) {
+	copyfile("sd:/backup/SB/sys-ftpd/config.ini", "sd:/config/sys-ftpd/config.ini")
 }
-if (fse("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo")){
-	copydir ("sd:/SwitchBros_BasisPaket/switchbros/backup/bootlogo", "sd:/atmosphere/exefs_patches/")
+if (fse("sd:/backup/SB/bootlogo")){
+	copydir ("sd:/backup/SB/bootlogo", "sd:/atmosphere/exefs_patches/")
 }
 
 wait(tw = 1000)
