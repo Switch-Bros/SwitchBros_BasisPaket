@@ -1,4 +1,5 @@
 @ECHO OFF
+mode con: cols=106 lines=32
 SETLOCAL ENABLEDELAYEDEXPANSION
 chcp 1252 >nul 2>&1
 title SwitchBros. NERD-O-MAT
@@ -33,7 +34,7 @@ echo ---------------------------------------------------------------------------
 echo.
 echo                            _-== WARNUNG - WARNUNG - WARNUNG - WARNUNG ==-_
 echo.
-echo      Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus gestartet hast, dann
+echo      Wenn du dieses Skript (NERD-O-MAT.bat) von deiner SD-Karte aus gestartet hast, dann
 echo          SCHLIESSE es bitte SOFORT^^! NICHT von SD-Karte aus starten^^!
 echo.
 echo      Bitte starte die NERD-O-MAT.bat ^>NUR^< aus dem "BasisPaket" Ordner von deinem PC^^!
@@ -46,15 +47,21 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-for /f "tokens=3-6 delims=: " %%a in ('WMIC LOGICALDISK GET FreeSpace^,Name^,Size^,filesystem^,description ^|FINDSTR /I "Removable" ^|findstr /i "exFAT FAT32"') do (@echo wsh.echo "Laufwerksbuchstabe: %%c;" ^& " frei: " ^& FormatNumber^(cdbl^(%%b^)/1024/1024/1024, 2^)^& " GB;"^& " Groesse: " ^& FormatNumber^(cdbl^(%%d^)/1024/1024/1024, 2^)^& " GB;" ^& " Dateisystem: %%a" > %temp%\tmp.vbs & @if not "%%c"=="" @echo( & @cscript //nologo %temp%\tmp.vbs & del %temp%\tmp.vbs)
+for /f "usebackq delims=" %%a in (`powershell -command "$ErrorActionPreference='Stop'; $sd = Get-WmiObject -Class Win32_Volume | Where-Object {$_.DriveType -eq 2}; foreach ($s in $sd) { 'Laufwerksbuchstabe: {0}' -f $s.DriveLetter; 'Dateisystem: {0}' -f $s.FileSystem; $size = [math]::Round($s.Capacity / 1GB, 2); if ($size -ge 1) { 'Groesse: {0} GB' -f $size } else { 'Groesse: {0} MB' -f ($s.Capacity / 1MB) } }"`) do (
+    echo %%a
+)
+
 echo.
-set /P sd="     Laufwerksbuchstabe der SD-Karte: "
+
+set /p "sd=     Bitte gib den Laufwerksbuchstaben der SD-Karte an: "
 
 if not exist "%sd%:\" (
-	set word=     Es befindet sich keine SD-Karte im Laufwerk %sd%         
+	set word=      Es befindet sich keine SD-Karte im Laufwerk %sd%         
 	GOTO falschesdkarte
 ) else (
-	if not exist "%sd%:\*" (GOTO falschesdkarte)
+	if not exist "%sd%:\*" (
+	  GOTO falschesdkarte
+	  )
 )
 
 REM ============================================================
@@ -177,7 +184,7 @@ echo      Folgende (leere) Ordner werden im angegebenen Laufwerk, auf deinem PC,
 echo.             
 echo      - SwitchBackup
 echo        - sysNAND (fuer BOOT0, BOOT1 und RAW GPP)
-echo        - Lockpick
+echo        - Enigma
 echo          - Prodkeys-Devkeys (prod.keys und dev.keys)
 echo          - Partial_AES_Keys (partial_aes.keys (Mariko Chip))
 echo          - Amiibo_Keys
@@ -255,34 +262,36 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-
 if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
 if exist "%sd%:\atmosphere\content" (rename %sd%:\atmosphere\content contents)
 
-if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
-if exist "%sd%:\atmosphere\config_templates" (RD /s /q "%sd%:\atmosphere\config_templates")
-if exist "%sd%:\atmosphere\erpt_reports" (RD /s /q "%sd%:\atmosphere\erpt_reports")
-if exist "%sd%:\atmosphere\crash_reports" (RD /s /q "%sd%:\atmosphere\crash_reports")
-if exist "%sd%:\atmosphere\exefs_patches" (RD /s /q "%sd%:\atmosphere\exefs_patches")
-if exist "%sd%:\atmosphere\extras" (RD /s /q "%sd%:\atmosphere\extras")
-if exist "%sd%:\atmosphere\fatal_errors" (RD /s /q "%sd%:\atmosphere\fatal_errors")
-if exist "%sd%:\atmosphere\fatal_reports" (RD /s /q "%sd%:\atmosphere\fatal_reports")
-if exist "%sd%:\atmosphere\flags" (RD /s /q "%sd%:\atmosphere\flags")
-if exist "%sd%:\atmosphere\hosts" (RD /s /q  "%sd%:\atmosphere\hosts")
-if exist "%sd%:\atmosphere\kips" (RD /s /q  "%sd%:\atmosphere\kips")
-if exist "%sd%:\atmosphere\kip_patches" (RD /s /q "%sd%:\atmosphere\kip_patches")
-if exist "%sd%:\atmosphere\hekate_kips" (RD /s /q "%sd%:\atmosphere\hekate_kips")
-if exist "%sd%:\atmosphere\logs" (RD /s /q  "%sd%:\atmosphere\logs")
-if exist "%sd%:\atmosphere\update" (RD /s /q  "%sd%:\atmosphere\update")
-
-if exist "%sd%:\atmosphere\package3" (del "%sd%:\atmosphere\package3")
-if exist "%sd%:\atmosphere\*.bin" (del "%sd%:\atmosphere\*.bin")
-if exist "%sd%:\atmosphere\*.nsp" (del "%sd%:\atmosphere\*.nsp")
-if exist "%sd%:\atmosphere\*.romfs" (del "%sd%:\atmosphere\*.romfs")
-if exist "%sd%:\atmosphere\*.sig" (del "%sd%:\atmosphere\*.sig")
-if exist "%sd%:\atmosphere\*.json" (del "%sd%:\atmosphere\*.json")
-if exist "%sd%:\atmosphere\*.ini" (del "%sd%:\atmosphere\*.ini")
+IF EXIST "%sd%:\SB.ico" (
+    REM Hier kommt der Befehl zum Löschen der Dateien auf der SD-Karte, außer den angegebenen Ordnern.
+    FOR /D %%G IN ("%sd%:\*") DO (
+        IF /I NOT "%%~nG"=="EMUMMC" (
+            IF /I NOT "%%~nG"=="Nintendo" (
+                IF /I NOT "%%~nG"=="JKSV" (
+                    IF /I NOT "%%~nG"=="ROMS" (
+                        IF /I NOT "%%~nG"=="RetroArch" (
+                            IF /I NOT "%%~nG"=="Backup" (
+                                IF /I "%%~nG"=="atmosphere" (
+                                    REM Löscht den Inhalt des Ordners atmosphere, außer dem Ordner "contents"
+                                    FOR /F "delims=" %%H IN ('DIR /B /A:D "%%G\*" ^| FINDSTR /I /V /C:"contents"') DO (
+                                        RD /S /Q "%%G\%%H"
+                                    )
+                                    DEL /Q "%%G\*.*"
+                                ) ELSE (
+                                    RD /S /Q "%%G"
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
 
 REM ======= ATMOSPHERE CONTENTS ORDNER =========================
 if exist "%sd%:\atmosphere\contents\0100000000000008" (RD /s /q "%sd%:\atmosphere\contents\0100000000000008")
@@ -354,72 +363,10 @@ if exist "%sd%:\atmosphere\contents\4300000000000909" (RD /s /q "%sd%:\atmospher
 if exist "%sd%:\atmosphere\contents\5600000000000000" (RD /s /q "%sd%:\atmosphere\contents\5600000000000000")
 if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /s /q "%sd%:\atmosphere\contents\690000000000000D")
 
-REM ======= BOOTLOADER ORDNER ==================================
-if exist "%sd%:\bootloader\debug" (RD /s /q "%sd%:\bootloader\debug")
-if exist "%sd%:\bootloader\sys" (RD /s /q "%sd%:\bootloader\sys")
-if exist "%sd%:\bootloader\*.bmp" (del "%sd%:\bootloader\*.bmp")
-if exist "%sd%:\bootloader\*.ini" (del "%sd%:\bootloader\*.ini")
-if exist "%sd%:\bootloader\nyx.ini_" (del "%sd%:\bootloader\nyx.ini")
-if exist "%sd%:\bootloader\*.bin" (del "%sd%:\bootloader\*.bin")
-if exist "%sd%:\bootloader\*.sig" (del "%sd%:\bootloader\*.sig")
-
-if exist "%sd%:\bootloader\payloads\hekate_ctcaer_*.bin" (del "%sd%:\bootloader\payloads\hekate_ctcaer_*.bin")
-if exist "%sd%:\bootloader\payloads\Atmosphere.bin" (del "%sd%:\bootloader\payloads\Atmosphere.bin")
-if exist "%sd%:\bootloader\payloads\Incognito*.bin" (del "%sd%:\bootloader\payloads\Incognito*.bin")
-if exist "%sd%:\bootloader\payloads\fusee-primary-payload.bin" (del "%sd%:\bootloader\payloads\fusee-primary-payload.bin")
-if exist "%sd%:\bootloader\payloads\biskeydump.bin" (del "%sd%:\bootloader\payloads\biskeydump.bin")
-if exist "%sd%:\bootloader\payloads\fusee-payload.bin" (del "%sd%:\bootloader\payloads\fusee-payload.bin")
-if exist "%sd%:\bootloader\payloads\fusee-primary.bin" (del "%sd%:\bootloader\payloads\fusee-primary.bin")
-if exist "%sd%:\bootloader\payloads\sxos.bin" (del "%sd%:\bootloader\payloads\sxos.bin")
-if exist "%sd%:\bootloader\payloads\rajnx_ipl.bin" (del "%sd%:\bootloader\payloads\rajnx_ipl.bin")
-if exist "%sd%:\bootloader\payloads\prodinfo_gen.bin" (del "%sd%:\bootloader\payloads\prodinfo_gen.bin")
-if exist "%sd%:\bootloader\payloads\.bin" (del "%sd%:\bootloader\payloads\TegraExplorer306.bin")
-
-if exist "%sd%:\bootloader\ini\!kefir_updater.ini" (del "%sd%:\bootloader\ini\!kefir_updater.ini")
-if exist "%sd%:\bootloader\ini\kefir_updater.ini" (del "%sd%:\bootloader\ini\kefir_updater.ini")
-if exist "%sd%:\bootloader\ini\fullstock.ini" (del "%sd%:\bootloader\ini\fullstock.ini")
-if exist "%sd%:\bootloader\ini\Atmosphere.ini" (del "%sd%:\bootloader\ini\Atmosphere.ini")
-if exist "%sd%:\bootloader\ini\sxos.ini" (del "%sd%:\bootloader\ini\sxos.ini")
-if exist "%sd%:\bootloader\ini\hekate_keys.ini" (del "%sd%:\bootloader\ini\hekate_keys.ini")
-if exist "%sd%:\bootloader\ini\RajNX.ini" (del "%sd%:\bootloader\ini\RajNX.ini")
-
-if exist "%sd%:\bootloader\res\icon_payload.bmp" (del "%sd%:\bootloader\res\icon_payload.bmp")
-if exist "%sd%:\bootloader\res\icon_payload_nobox.bmp" (del "%sd%:\bootloader\res\icon_payload_nobox.bmp")
-if exist "%sd%:\bootloader\res\icon_switch.bmp" (del "%sd%:\bootloader\res\icon_switch.bmp")
-if exist "%sd%:\bootloader\res\icon_switch_nobox.bmp" (del "%sd%:\bootloader\res\icon_switch_nobox.bmp")
-if exist "%sd%:\bootloader\res\icon_ams_nobox.bmp" (del "%sd%:\bootloader\res\icon_ams_nobox.bmp")
-if exist "%sd%:\bootloader\res\icon_lockpick_nobox.bmp" (del "%sd%:\bootloader\res\icon_lockpick_nobox.bmp")
-if exist "%sd%:\bootloader\res\icon_lockpick.bmp" (del "%sd%:\bootloader\res\icon_lockpick.bmp")
-if exist "%sd%:\bootloader\res\l4t.bmp" (del "%sd%:\bootloader\res\l4t.bmp")
-if exist "%sd%:\bootloader\res\l4t_nobox.bmp" (del "%sd%:\bootloader\res\l4t_nobox.bmp")
-if exist "%sd%:\bootloader\res\Majoras_nobox.bmp" (del "%sd%:\bootloader\res\Majoras_nobox.bmp")
-if exist "%sd%:\bootloader\res\Majoras.bmp" (del "%sd%:\bootloader\res\Majoras.bmp")
-if exist "%sd%:\bootloader\res\Switchroot Android_nobox.bmp" (del "%sd%:\bootloader\res\Switchroot Android_nobox.bmp")
-if exist "%sd%:\bootloader\res\Switchroot Android 10.bmp" (del "%sd%:\bootloader\res\Switchroot Android 10.bmp")
-if exist "%sd%:\bootloader\res\Zahnrad_nobox.bmp" (del "%sd%:\bootloader\res\Zahnrad_nobox.bmp")
-if exist "%sd%:\bootloader\res\Zahnrad.bmp" (del "%sd%:\bootloader\res\Zahnrad.bmp")
-if exist "%sd%:\bootloader\res\icon_lockpick.bmp" (del "%sd%:\bootloader\res\icon_lockpick.bmp")
-if exist "%sd%:\bootloader\res\icon_tegraexplorer.bmp" (del "%sd%:\bootloader\res\icon_tegraexplorer.bmp")
-
-REM ======= CONFIG ORDNER ======================================
-if exist "%sd%:\config\fw-downloader" (RD /s /q "%sd%:\config\fw-downloader")
-if exist "%sd%:\config\luigi-theme-updater" (RD /s /q "%sd%:\config\luigi-theme-updater")
-if exist "%sd%:\config\mario-theme-updater" (RD /s /q "%sd%:\config\mario-theme-updater")
-if exist "%sd%:\config\sys-ftpd" (RD /s /q "%sd%:\config\sys-ftpd")
-if exist "%sd%:\config\aio-switch-updater" (RD /s /q "%sd%:\config\\aio-switch-updater")
-if exist "%sd%:\config\btred" (RD /s /q "%sd%:\config\btred")
-if exist "%sd%:\config\aio-switch-updater" (RD /s /q "%sd%:\config\aio-switch-updater")
-if exist "%sd%:\config\BootSoundNX" (RD /s /q "%sd%:\config\BootSoundNX")
-if exist "%sd%:\config\cheats-updater" (RD /s /q "%sd%:\config\cheats-updater")
-if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
-if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
-if exist "%sd%:\config\sys-clk" (RD /s /q "%sd%:\config\sys-clk")
-if exist "%sd%:\config\sys-con" (RD /s /q "%sd%:\config\sys-con")
-if exist "%sd%:\config\tesla" (RD /s /q "%sd%:\config\tesla")
-
-REM ======= THEMES ORDNER ======================================
-if exist "%sd%:\themes\systemData" (RD /s /q "%sd%:\themes\systemData")
-if exist "%sd%:\themes\Ryu Hayabusa" (RD /s /q "%sd%:\themes\Ryu Hayabusa")
+if exist "%sd%:\bootloader" (RD /s /q "%sd%:\bootloader")
+if exist "%sd%:\config" (RD /s /q "%sd%:\config")
+if exist "%sd%:\switch" (RD /s /q "%sd%:\switch")
+if exist "%sd%:\themes" (RD /s /q "%sd%:\themes")
 
 FOR /D /R "%sd%:\" %%X IN (amsPACK*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (kefir*) DO RD /S /Q "%%X"
@@ -429,83 +376,6 @@ FOR /D /R "%sd%:\" %%X IN (reinx*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (firmware*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (sxos*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (custom*) DO RD /S /Q "%%X"
-
-REM ======= SD-KARTEN ROOT =====================================
-if exist "%sd%:\tegraexplorer" (RD /s /q "%sd%:\tegraexplorer")
-if exist "%sd%:\modules" (RD /s /q "%sd%:\modules")
-if exist "%sd%:\NSPs" (RD /s /q "%sd%:\NSPs")
-if exist "%sd%:\NSP" (RD /s /q "%sd%:\NSP")
-if exist "%sd%:\SaltySD" (RD /s /q "%sd%:\SaltySD")
-if exist "%sd%:\atmo" (RD /s /q "%sd%:\atmo")
-if exist "%sd%:\ams" (RD /s /q "%sd%:\ams")
-if exist "%sd%:\scripts" (RD /s /q "%sd%:\scripts")
-if exist "%sd%:\music" (RD /s /q "%sd%:\music")
-if exist "%sd%:\tools" (RD /s /q "%sd%:\tools")
-if exist "%sd%:\games" (RD /s /q "%sd%:\games")
-if exist "%sd%:\pegascape" (RD /s /q "%sd%:\pegascape")
-if exist "%sd%:\TinGen" (RD /s /q "%sd%:\TinGen")
-if exist "%sd%:\sept" (RD /s /q  "%sd%:\sept")
-if exist "%sd%:\.git" (RD /s /q "%sd%:\.git")
-if exist "%sd%:\*.nro" (del "%sd%:\hbmenu.nro")
-if exist "%sd%:\*.te" (del "%sd%:\startup.te")
-if exist "%sd%:\*.ini" (del "%sd%:\*.ini")
-if exist "%sd%:\*.bin" (del "%sd%:\*.bin")
-if exist "%sd%:\*.txt" (del "%sd%:\*.txt")
-if exist "%sd%:\*.dat" (del "%sd%:\*.dat")
-if exist "%sd%:\*.log" (del "%sd%:\*.log")
-
-if exist "%sd%:\roms\*.txt" (del  "%sd%:\roms\*.txt")
-
-REM ======= SWITCH ORDNER ======================================
-if exist "%sd%:\switch\download-helper" (RD /s /q "%sd%:\switch\download*")
-if exist "%sd%:\switch\fw-downloader" (RD /s /q "%sd%:\switch\fw-downloader")
-if exist "%sd%:\switch\gamecard_installer" (RD /s /q "%sd%:\switch\gamecard_installer")
-if exist "%sd%:\switch\theme-updater" (RD /s /q "%sd%:\switch\theme-updater")
-if exist "%sd%:\switch\luigi-theme-updater" (RD /s /q "%sd%:\switch\luigi-theme-updater")
-if exist "%sd%:\switch\mario-theme-updater" (RD /s /q "%sd%:\switch\mario-theme-updater")
-if exist "%sd%:\switch\Switch_90DNS_tester" (RD /s /q "%sd%:\switch\Switch_90DNS_tester")
-if exist "%sd%:\switch\appstore" (RD /s /q "%sd%:\switch\appstore")
-
-if exist "%sd%:\switch\tinleaf" (RD /s /q "%sd%:\switch\tinleaf")
-if exist "%sd%:\switch\daybreak" (RD /s /q "%sd%:\switch\daybreak")
-if exist "%sd%:\switch\tinwoo" (RD /s /q "%sd%:\switch\tinwoo")
-if exist "%sd%:\switch\tinleaf" (RD /s /q "%sd%:\switch\tinleaf")
-if exist "%sd%:\switch\switch-cheats-updater" (RD /s /q "%sd%:\switch\switch-cheats-updater\")
-if exist "%sd%:\switch\btpair" (RD /s /q "%sd%:\switch\btpair")
-if exist "%sd%:\switch\incognito" (RD /s /q "%sd%:\switch\incognito")
-if exist "%sd%:\switch\Shutdown" (RD /s /q "%sd%:\switch\Shutdown")
-if exist "%sd%:\switch\Reboot" (RD /s /q "%sd%:\switch\Reboot")
-if exist "%sd%:\switch\Lockpick" (RD /s /q "%sd%:\switch\Lockpick")
-if exist "%sd%:\switch\ultimate_updater" (RD /s /q "%sd%:\switch\ultimate_updater")
-if exist "%sd%:\switch\gag-order" (RD /s /q "%sd%:\switch\gag-order")
-if exist "%sd%:\switch\switch-time" (RD /s /q "%sd%:\switch\switch-time")
-if exist "%sd%:\switch\nxmtp" (RD /s /q "%sd%:\switch\nxmtp")
-if exist "%sd%:\switch\NXMPforMe" (RD /s /q "%sd%:\switch\NXMPforMe")
-if exist "%sd%:\switch\lithium" (RD /s /q "%sd%:\switch\lithium")
-if exist "%sd%:\switch\LinkUser" (RD /s /q "%sd%:\switch\LinkUser")
-if exist "%sd%:\switch\TriPlayer" (RD /s /q "%sd%:\switch\TriPlayer")
-if exist "%sd%:\switch\KosmosToolbox" (RD /s /q "%sd%:\switch\KosmosToolbox")
-if exist "%sd%:\switch\KosmosUpdater" (RD /s /q "%sd%:\switch\KosmosUpdater")
-if exist "%sd%:\switch\games" (RD /s /q "%sd%:\switch\games")
-if exist "%sd%:\switch\mercury" (RD /s /q "%sd%:\switch\mercury")
-if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau\")
-if exist "%sd%:\switch\FreshHay" (RD /s /q "%sd%:\switch\FreshHay\")
-if exist "%sd%:\switch\nx-ntpc" (RD /s /q "%sd%:\switch\nx-ntpc\")
-if exist "%sd%:\switch\incognito" (RD /s /q "%sd%:\switch\incognito")
-if exist "%sd%:\switch\fakenews-injector" (RD /s /q "%sd%:\switch\fakenews-injector")
-if exist "%sd%:\switch\ChoiDujourNX" (RD /s /q "%sd%:\switch\ChoiDujourNX")
-if exist "%sd%:\switch\Reboot_to_Payload" (RD /s /q "%sd%:\switch\Reboot_to_Payload")
-if exist "%sd%:\switch\pplay" (RD /s /q "%sd%:\switch\pplay")
-if exist "%sd%:\switch\SX" (RD /s /q "%sd%:\switch\SX")
-if exist "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
-if exist "%sd%:\switch\tinfoil-store-updater" (RD /s /q "%sd%:\switch\tinfoil-store-updater")
-if exist "%sd%:\switch\tinfoil-store-premium" (RD /s /q "%sd%:\switch\tinfoil-store-premium")
-if exist "%sd%:\switch\.overlays" (RD /s /q "%sd%:\switch\.overlays")
-REM if exist "%sd%:\switch\*.nro" (del "%sd%:\switch\*.nro")
-REM if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
-if exist "%sd%:\switch\*.ini" (del "%sd%:\switch\*.ini")
-if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
-if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
 
 REM ============================================================
 :sblegtlos
@@ -1312,9 +1182,10 @@ echo     Das Tesla-Overlay Menue kannst du auf deiner Switch aufrufen ueber:
 echo.
 echo                          ZL + ZR + PLUS Taste 
 echo.
-echo     1 = Tesla-Overlay mit ausgesuchten Modulen (nicht empfohlen)^^!
-echo     2 = Tesla-Overlay mit Standard SwitchBros Modulen (empfohlen wenn unsicher)^^!
-echo     3 = Tesla-Overlay mit einzeln ausgewaehlten Modulen (empfohlen)^^!
+echo     0 = kein Tesla-Overlay, keine Module^^!
+echo     1 = Tesla-Overlay Menue + Standard System-Module^^!
+echo     2 = Tesla-Overlay Menue + 4IFIR Uebertaktungs-System^^!
+echo     3 = Tesla-Overlay Menue + Module einzeln + 4IFIR Uebertaktungs-System (empfohlen)^^!
 echo.
 echo     W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1324,14 +1195,86 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set /p sysmod="     Waehle deine Tesla-Overlay Version: "
-	if "%sysmod%"=="1" GOTO teslakomplett
-	if "%sysmod%"=="2" GOTO teslaminimal
+	if "%sysmod%"=="0" GOTO teslanull
+	if "%sysmod%"=="1" GOTO teslastandard
+	if "%sysmod%"=="2" GOTO tesla4ifir
 	if "%sysmod%"=="3" GOTO teslamodintro
 	if /i "%sysmod%"=="W" GOTO attributeundmac
 	if /i "%sysmod%"=="H" GOTO hauptmenue
+    
+REM ============================================================
+:teslanull
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+    RD /s /q "%sd%:\switch\.overlays" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\420000000007E51A" >nul 2>nul
+	RD /s /q "%sd%:\config\Tesla" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\Tesla-Menu" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\dns-mitm_manager" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA" >nul 2>nul
+	RD /s /q "%sd%:\config\BootSoundNX" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\010000000000000D" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\0100000000001013" >nul 2>nul
+	RD /s /q "%sd%:\switch\breeze" >nul 2>nul
+	RD /s /q "%sd%:\switch\EdiZon" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\0100000000000352" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo" >nul 2>nul
+	RD /s /q "%sd%:\config\fastCFWswitch" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\fastCFWswitch" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\0100000000000F12" >nul 2>nul
+	RD /s /q "%sd%:\config\Fizeau" >nul 2>nul
+	RD /s /q "%sd%:\switch\Fizeau" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\4200000000000010" >nul 2>nul
+	RD /s /q "%sd%:\switch\ldnmitm_config" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\010000000000bd00" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\exefs_patches\bluetooth_patches" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\exefs_patches\btm_patches" >nul 2>nul
+	RD /s /q "%sd%:\config\MissionControl" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\MissionControl" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\ovlsysmodule" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\0000000000534C56" >nul 2>nul
+	RD /s /q "%sd%:\SaltySD" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\fpslocker" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF" >nul 2>nul
+	RD /s /q "%sd%:\config\sys-clk" >nul 2>nul
+	RD /s /q "%sd%:\switch\sys-clk" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-manager" >nul 2>nul
+	RD /s /q "%sd%:\switch\sys-clk-Editor" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-Editor" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\690000000000000D" >nul 2>nul
+	RD /s /q "%sd%:\config\sys-con" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-con" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665" >nul 2>nul
+	RD /s /q "%sd%:\config\sysdvr" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay" >nul 2>nul
+	RD /s /q "%sd%:\switch\SysDVR-conf" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\420000000000000E" >nul 2>nul
+	RD /s /q "%sd%:\config\sys-ftpd" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\4200000000000000" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-tune" >nul 2>nul
+	RD /s /q "%sd%:\switch\appstore\.get\packages\QuickNTP" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\0100BF500207C000" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\01009EE0111CC000" >nul 2>nul
+	RD /s /q "%sd%:\atmosphere\contents\010092A0172E4000" >nul 2>nul
+	RD /s /q "%sd%:\switch\MemTesterNX" >nul 2>nul
+	RD /s /q "%sd%:\switch\ReverseNX-Tool" >nul 2>nul
 
 REM ============================================================
-:teslakomplett
+:teslastandard
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1343,12 +1286,9 @@ echo.
 
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\emuiibo\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\fastcfwswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\fastCFWswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\SaltyNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\Status-Monitor-Overlay\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1357,7 +1297,7 @@ echo.
 	GOTO zusatzapps
 
 REM ============================================================
-:teslaminimal
+:tesla4ifir
 COLOR 0E
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1369,9 +1309,10 @@ echo.
 
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\fastCFWswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1382,10 +1323,10 @@ REM ============================================================
 :teslamodintro
 COLOR 0E
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-GOTO teslamodular
+GOTO teslamanuell
 
 REM ============================================================
-:teslamodular
+:teslamanuell
 COLOR 0E
 cls
 echo.
@@ -1415,6 +1356,7 @@ echo      15 = sys-con (fremd Controller ueber USB)
 echo      16 = sys-ftpd-light (FTP Verbindung im Hintergrund)
 echo      17 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
 echo      18 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
+echo      19 = 4IFIR OC (Switch Uebertaktungs-System)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1443,6 +1385,7 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="16" GOTO sysftpd
 	if "%teslamods%"=="17" GOTO sys-tune
 	if "%teslamods%"=="18" GOTO sysdvr
+	if "%teslamods%"=="18" GOTO 4ifir
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -2017,6 +1960,35 @@ set /p systune=     Bitte triff deine Auswahl:
 	if "%systune%"=="3" GOTO teslamodular
 
 REM ============================================================
+:4ifir
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll 4IFIR OC installiert oder deinstalliert werden?
+echo.
+echo      1 = 4IFIR OC installieren
+echo      2 = 4IFIR OC deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zum naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "4ifir="
+set /p 4ifir=     Bitte triff deine Auswahl: 
+	if "%4ifir%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO 4ifir
+	)
+	if "%4ifir%"=="2" (
+	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
+	GOTO 4ifir
+	)
+	if "%4ifir%"=="3" GOTO teslamodular
+
+REM ============================================================
 :zusatzapps
 COLOR 0E
 cls
@@ -2469,8 +2441,7 @@ echo.
 echo      B.  Beenden
 echo.
 
-set st=
-set /p st=:
+set /p st=     Auswahl: 
 
 for %%A in ("J" "j" "1" "?" "?") do if "%st%"==%%A (GOTO hauptmenue)
 for %%A in ("N" "n" "2" "?" "?") do if "%st%"==%%A (GOTO neuekarte)
