@@ -1043,6 +1043,7 @@ set /p kindgerecht="     Waehle deine Tinfoil Version: "
 REM ============================================================
 :tinfoila
 COLOR 0E
+cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1061,6 +1062,7 @@ GOTO themepaketinst
 REM ============================================================
 :tinfoilb
 COLOR 0E
+cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1079,6 +1081,7 @@ GOTO themepaketinst
 REM ============================================================
 :tinfoilno
 COLOR 0E
+cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1094,6 +1097,7 @@ GOTO themepaketinst
 REM ============================================================
 :themepaketinst
 COLOR 0E
+cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1383,9 +1387,9 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="14" GOTO sysclkedit
 	if "%teslamods%"=="15" GOTO syscon
 	if "%teslamods%"=="16" GOTO sysftpd
-	if "%teslamods%"=="17" GOTO sys-tune
+	if "%teslamods%"=="17" GOTO systune
 	if "%teslamods%"=="18" GOTO sysdvr
-	if "%teslamods%"=="18" GOTO 4ifir
+	if "%teslamods%"=="19" GOTO fourifir
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -1960,7 +1964,7 @@ set /p systune=     Bitte triff deine Auswahl:
 	if "%systune%"=="3" GOTO teslamodular
 
 REM ============================================================
-:4ifir
+:fourifir
 COLOR 0E
 cls
 echo.
@@ -1976,17 +1980,17 @@ echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set "4ifir="
-set /p 4ifir=     Bitte triff deine Auswahl: 
-	if "%4ifir%"=="1" (
+set "fourifir="
+set /p fourifir=     Bitte triff deine Auswahl: 
+	if "%fourifir%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO 4ifir
+	GOTO fourifir
 	)
-	if "%4ifir%"=="2" (
+	if "%fourifir%"=="2" (
 	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
-	GOTO 4ifir
+	GOTO fourifir
 	)
-	if "%4ifir%"=="3" GOTO teslamodular
+	if "%fourifir%"=="3" GOTO teslamodular
 
 REM ============================================================
 :zusatzapps
@@ -2389,8 +2393,8 @@ if exist "%sd%:\*.bat" (del "%sd%:\*.bat")
 if exist "%sd%:\*.te" (del "%sd%:\*.te")
 if exist "%sd%:\*.exe" (del "%sd%:\*.exe")
 if exist "%sd%:\*.bak" (del "%sd%:\*.bak")
-if exist "%sd%:\licence" (del "%sd%:\licence")
 if exist "%sd%:\*.md" (del "%sd%:\*.md")
+if exist "%sd%:\licence" (del "%sd%:\licence")
 if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%:\SwitchBros_BasisPaket.zip")
 if exist "%sd%:\bootloader\ini\!switchbros_updater.ini" (del "%sd%:\bootloader\ini\!switchbros_updater.ini")
 if exist "%sd%:\bootloader\ini\switchbros_updater.ini" (del "%sd%:\bootloader\ini/switchbros_updater.ini")
