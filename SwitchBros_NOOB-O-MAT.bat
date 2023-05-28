@@ -1,6 +1,6 @@
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
-chcp 65001 >nul 2>&1
+chcp 1252 >nul 2>&1
 title SwitchBros. NOOB-O-MAT
 REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
@@ -33,7 +33,7 @@ echo ---------------------------------------------------------------------------
 echo.
 echo                            _-== WARNUNG - WARNUNG - WARNUNG - WARNUNG ==-_
 echo.
-echo      Wenn du dieses Skript (SD-Werkzeug.bat) von deiner SD-Karte aus gestartet hast, dann
+echo      Wenn du dieses Skript (NOOB-O-MAT.bat) von deiner SD-Karte aus gestartet hast, dann
 echo          SCHLIESSE es bitte SOFORT^^! NICHT von SD-Karte aus starten^^!
 echo.
 echo      Bitte starte die NOOB-O-MAT.bat ^>NUR^< aus dem "BasisPaket" Ordner von deinem PC^^!
@@ -94,32 +94,35 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set "BackupOrdner=%sd%:\Backup"
-set "SB-Backup=SB"
+@echo off
 
-if not exist "%BackupOrdner%\%SB-Backup%" (
-    mkdir "%BackupOrdner%\%SB-Backup%"
+set "BackupFolder=%sd%:\Backup"
+set "SBBAK=%BackupFolder%\SB"
+
+if not exist "%SBBAK%" (
+    mkdir "%SBBAK%" >nul 2>&1
 )
 
 set "folders=bootloader fastCFWSwitch Fizeau IconGrabber ftpd sys-ftpd tinfoil bootlogo DBI"
 
 for %%i in (%folders%) do (
-    if not exist "%BackupOrdner%\%SB-Backup%\%%i" (
-        mkdir "%BackupOrdner%\%SB-Backup%\%%i"
+    if not exist "%SBBAK%\%%i" (
+        mkdir "%SBBAK%\%%i" >nul 2>&1
     )
 )
 
-if exist "%sd%:\bootloader\hekate_ipl.ini" (xcopy /y "%sd%:\bootloader\hekate_ipl.ini" "%SB-Backup%\bootloader\hekate_ipl.ini") >nul 2>nul
-if exist "%sd%:\bootloader\nyx.ini" (xcopy /y "%sd%:\bootloader\nyx.ini" "%SB-Backup%\bootloader\nyx.ini") >nul 2>nul
-if exist "%sd%:\config\fastCFWSwitch\config.ini" (xcopy /y "%sd%:\config\fastCFWSwitch\config.ini" "%SB-Backup%\fastCFWSwitch\*") >nul 2>nul
-if exist "%sd%:\config\Fizeau\config.ini" (xcopy /y "%sd%:\config\Fizeau\config.ini" "%SB-Backup%\Fizeau\*") >nul 2>nul
-if exist "%sd%:\config\IconGrabber\config.json" (xcopy /y "%sd%:\config\IconGrabber\config.json" "%SB-Backup%\IconGrabber\*") >nul 2>nul
-if exist "%sd%:\config\ftpd\ftpd.cfg" (xcopy /y "%sd%:\config\ftpd\ftpd.cfg" "%SB-Backup%\ftpd\*") >nul 2>nul
-if exist "%sd%:\config\sys-ftpd\config.ini" (xcopy /y "%sd%:\config\sys-ftpd\config.ini" "%SB-Backup%\sys-ftpd\*") >nul 2>nul
-if exist "%sd%:\switch\tinfoil\locations.conf" (xcopy /y "%sd%:\switch\tinfoil\locations.conf" "%SB-Backup%\tinfoil\*") >nul 2>nul
-if exist "%sd%:\switch\tinfoil\options.json" (xcopy /y "%sd%:\switch\tinfoil\options.json" "%SB-Backup%\tinfoil\*") >nul 2>nul
-if exist "%sd%:\atmosphere\exefs_patches\bootlogo" (xcopy /y "%sd%:\atmosphere\exefs_patches\bootlogo" "%SB-Backup%\bootlogo\*") >nul 2>nul
-if exist "%sd%:\switch\DBI\dbi.config" (xcopy /y "%sd%:\switch\DBI\dbi.config" "%SB-Backup%\DBI\*") >nul 2>nul
+xcopy /I /Y "%sd%:\bootloader\hekate_ipl.ini" "%SBBAK%\bootloader\" >nul 2>&1
+xcopy /I /Y "%sd%:\bootloader\nyx.ini" "%SBBAK%\bootloader\" >nul 2>&1
+xcopy /I /Y "%sd%:\config\fastCFWSwitch\config.ini" "%SBBAK%\fastCFWSwitch\" >nul 2>&1
+xcopy /I /Y "%sd%:\config\Fizeau\config.ini" "%SBBAK%\Fizeau\" >nul 2>&1
+xcopy /I /Y "%sd%:\config\IconGrabber\config.json" "%SBBAK%\IconGrabber\" >nul 2>&1
+xcopy /I /Y "%sd%:\config\ftpd\ftpd.cfg" "%SBBAK%\ftpd\" >nul 2>&1
+xcopy /I /Y "%sd%:\config\sys-ftpd\config.ini" "%SBBAK%\sys-ftpd\" >nul 2>&1
+xcopy /I /Y "%sd%:\switch\tinfoil\locations.conf" "%SBBAK%\tinfoil\" >nul 2>&1
+xcopy /I /Y "%sd%:\switch\tinfoil\options.json" "%SBBAK%\tinfoil\" >nul 2>&1
+xcopy /I /Y "%sd%:\atmosphere\exefs_patches\bootlogo\*" "%SBBAK%\bootlogo\" >nul 2>&1
+xcopy /I /Y "%sd%:\switch\DBI\dbi.config" "%SBBAK%\DBI\" >nul 2>&1
+
 
 REM ============================================================
 :hauptmenue
@@ -183,30 +186,6 @@ if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
 if exist "%sd%:\atmosphere\content" (rename %sd%:\atmosphere\content contents)
 
-if exist "%sd%:\SB.ico" (
-	if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
-	if exist "%sd%:\atmosphere\erpt_reports" (RD /s /q "%sd%:\atmosphere\erpt_reports")
-	if exist "%sd%:\atmosphere\crash_reports" (RD /s /q "%sd%:\atmosphere\crash_reports")
-	if exist "%sd%:\atmosphere\exefs_patches" (RD /s /q "%sd%:\atmosphere\exefs_patches")
-	if exist "%sd%:\atmosphere\fatal_errors" (RD /s /q "%sd%:\atmosphere\fatal_errors")
-	if exist "%sd%:\atmosphere\fatal_reports" (RD /s /q "%sd%:\atmosphere\fatal_reports")
-	if exist "%sd%:\atmosphere\kips" (RD /s /q  "%sd%:\atmosphere\kips")
-	if exist "%sd%:\atmosphere\kip_patches" (RD /s /q "%sd%:\atmosphere\kip_patches")
-	if exist "%sd%:\atmosphere\package3" (del "%sd%:\atmosphere\package3")
-	if exist "%sd%:\atmosphere\*.bin" (del "%sd%:\atmosphere\*.bin")
-	if exist "%sd%:\atmosphere\*.nsp" (del "%sd%:\atmosphere\*.nsp")
-	if exist "%sd%:\atmosphere\*.romfs" (del "%sd%:\atmosphere\*.romfs")
-	if exist "%sd%:\atmosphere\*.sig" (del "%sd%:\atmosphere\*.sig")
-	if exist "%sd%:\atmosphere\*.json" (del "%sd%:\atmosphere\*.json")
-	if exist "%sd%:\atmosphere\*.ini" (del "%sd%:\atmosphere\*.ini")
-	if exist "%sd%:\atmosphere\contents\0100000000001000" (RD /s /q "%sd%:\atmosphere\contents\0100000000001000")
-	if exist "%sd%:\atmosphere\contents\0100000000001000" (RD /s /q "%sd%:\atmosphere\contents\0100000000001007")
-	if exist "%sd%:\atmosphere\contents\0100000000001013" (RD /s /q "%sd%:\atmosphere\contents\0100000000001013")
-
-	if exist "%sd%:\config\BootSoundNX" (RD /s /q "%sd%:\config\BootSoundNX")
-
-) else (
-
 if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
 if exist "%sd%:\atmosphere\config_templates" (RD /s /q "%sd%:\atmosphere\config_templates")
 if exist "%sd%:\atmosphere\erpt_reports" (RD /s /q "%sd%:\atmosphere\erpt_reports")
@@ -245,7 +224,6 @@ if exist "%sd%:\atmosphere\contents\0100000000000042" (RD /s /q "%sd%:\atmospher
 if exist "%sd%:\atmosphere\contents\010000000000100C" (RD /s /q "%sd%:\atmosphere\contents\010000000000100C")
 if exist "%sd%:\atmosphere\contents\010000000000100D" (RD /s /q "%sd%:\atmosphere\contents\010000000000100D")
 if exist "%sd%:\atmosphere\contents\0100000000001000" (RD /s /q "%sd%:\atmosphere\contents\0100000000001000")
-if exist "%sd%:\atmosphere\contents\0100000000001000" (RD /s /q "%sd%:\atmosphere\contents\0100000000001007")
 if exist "%sd%:\atmosphere\contents\0100000000001013" (RD /s /q "%sd%:\atmosphere\contents\0100000000001013")
 
 if exist "%sd%:\atmosphere\contents\0000000000534C56" (RD /s /q "%sd%:\atmosphere\contents\0000000000534C56")
@@ -302,11 +280,72 @@ if exist "%sd%:\atmosphere\contents\4300000000000909" (RD /s /q "%sd%:\atmospher
 if exist "%sd%:\atmosphere\contents\5600000000000000" (RD /s /q "%sd%:\atmosphere\contents\5600000000000000")
 if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /s /q "%sd%:\atmosphere\contents\690000000000000D")
 
-if exist "%sd%:\bootloader" (RD /s /q "%sd%:\bootloader")
+REM ======= BOOTLOADER ORDNER ==================================
+if exist "%sd%:\bootloader\debug" (RD /s /q "%sd%:\bootloader\debug")
+if exist "%sd%:\bootloader\sys" (RD /s /q "%sd%:\bootloader\sys")
+if exist "%sd%:\bootloader\*.bmp" (del "%sd%:\bootloader\*.bmp")
+if exist "%sd%:\bootloader\*.ini" (del "%sd%:\bootloader\*.ini")
+if exist "%sd%:\bootloader\nyx.ini_" (del "%sd%:\bootloader\nyx.ini")
+if exist "%sd%:\bootloader\*.bin" (del "%sd%:\bootloader\*.bin")
+if exist "%sd%:\bootloader\*.sig" (del "%sd%:\bootloader\*.sig")
 
-if exist "%sd%:\config" (RD /s /q "%sd%:\config")
+if exist "%sd%:\bootloader\payloads\hekate_ctcaer_*.bin" (del "%sd%:\bootloader\payloads\hekate_ctcaer_*.bin")
+if exist "%sd%:\bootloader\payloads\Atmosphere.bin" (del "%sd%:\bootloader\payloads\Atmosphere.bin")
+if exist "%sd%:\bootloader\payloads\Incognito*.bin" (del "%sd%:\bootloader\payloads\Incognito*.bin")
+if exist "%sd%:\bootloader\payloads\fusee-primary-payload.bin" (del "%sd%:\bootloader\payloads\fusee-primary-payload.bin")
+if exist "%sd%:\bootloader\payloads\biskeydump.bin" (del "%sd%:\bootloader\payloads\biskeydump.bin")
+if exist "%sd%:\bootloader\payloads\fusee-payload.bin" (del "%sd%:\bootloader\payloads\fusee-payload.bin")
+if exist "%sd%:\bootloader\payloads\fusee-primary.bin" (del "%sd%:\bootloader\payloads\fusee-primary.bin")
+if exist "%sd%:\bootloader\payloads\sxos.bin" (del "%sd%:\bootloader\payloads\sxos.bin")
+if exist "%sd%:\bootloader\payloads\rajnx_ipl.bin" (del "%sd%:\bootloader\payloads\rajnx_ipl.bin")
+if exist "%sd%:\bootloader\payloads\prodinfo_gen.bin" (del "%sd%:\bootloader\payloads\prodinfo_gen.bin")
+if exist "%sd%:\bootloader\payloads\.bin" (del "%sd%:\bootloader\payloads\TegraExplorer306.bin")
 
-if exist "%sd%:\themes" (RD /s /q "%sd%:\themes")
+if exist "%sd%:\bootloader\ini\!kefir_updater.ini" (del "%sd%:\bootloader\ini\!kefir_updater.ini")
+if exist "%sd%:\bootloader\ini\kefir_updater.ini" (del "%sd%:\bootloader\ini\kefir_updater.ini")
+if exist "%sd%:\bootloader\ini\fullstock.ini" (del "%sd%:\bootloader\ini\fullstock.ini")
+if exist "%sd%:\bootloader\ini\Atmosphere.ini" (del "%sd%:\bootloader\ini\Atmosphere.ini")
+if exist "%sd%:\bootloader\ini\sxos.ini" (del "%sd%:\bootloader\ini\sxos.ini")
+if exist "%sd%:\bootloader\ini\hekate_keys.ini" (del "%sd%:\bootloader\ini\hekate_keys.ini")
+if exist "%sd%:\bootloader\ini\RajNX.ini" (del "%sd%:\bootloader\ini\RajNX.ini")
+
+if exist "%sd%:\bootloader\res\icon_payload.bmp" (del "%sd%:\bootloader\res\icon_payload.bmp")
+if exist "%sd%:\bootloader\res\icon_payload_nobox.bmp" (del "%sd%:\bootloader\res\icon_payload_nobox.bmp")
+if exist "%sd%:\bootloader\res\icon_switch.bmp" (del "%sd%:\bootloader\res\icon_switch.bmp")
+if exist "%sd%:\bootloader\res\icon_switch_nobox.bmp" (del "%sd%:\bootloader\res\icon_switch_nobox.bmp")
+if exist "%sd%:\bootloader\res\icon_ams_nobox.bmp" (del "%sd%:\bootloader\res\icon_ams_nobox.bmp")
+if exist "%sd%:\bootloader\res\icon_lockpick_nobox.bmp" (del "%sd%:\bootloader\res\icon_lockpick_nobox.bmp")
+if exist "%sd%:\bootloader\res\icon_lockpick.bmp" (del "%sd%:\bootloader\res\icon_lockpick.bmp")
+if exist "%sd%:\bootloader\res\l4t.bmp" (del "%sd%:\bootloader\res\l4t.bmp")
+if exist "%sd%:\bootloader\res\l4t_nobox.bmp" (del "%sd%:\bootloader\res\l4t_nobox.bmp")
+if exist "%sd%:\bootloader\res\Majoras_nobox.bmp" (del "%sd%:\bootloader\res\Majoras_nobox.bmp")
+if exist "%sd%:\bootloader\res\Majoras.bmp" (del "%sd%:\bootloader\res\Majoras.bmp")
+if exist "%sd%:\bootloader\res\Switchroot Android_nobox.bmp" (del "%sd%:\bootloader\res\Switchroot Android_nobox.bmp")
+if exist "%sd%:\bootloader\res\Switchroot Android 10.bmp" (del "%sd%:\bootloader\res\Switchroot Android 10.bmp")
+if exist "%sd%:\bootloader\res\Zahnrad_nobox.bmp" (del "%sd%:\bootloader\res\Zahnrad_nobox.bmp")
+if exist "%sd%:\bootloader\res\Zahnrad.bmp" (del "%sd%:\bootloader\res\Zahnrad.bmp")
+if exist "%sd%:\bootloader\res\icon_lockpick.bmp" (del "%sd%:\bootloader\res\icon_lockpick.bmp")
+if exist "%sd%:\bootloader\res\icon_tegraexplorer.bmp" (del "%sd%:\bootloader\res\icon_tegraexplorer.bmp")
+
+REM ======= CONFIG ORDNER ======================================
+if exist "%sd%:\config\fw-downloader" (RD /s /q "%sd%:\config\fw-downloader")
+if exist "%sd%:\config\luigi-theme-updater" (RD /s /q "%sd%:\config\luigi-theme-updater")
+if exist "%sd%:\config\mario-theme-updater" (RD /s /q "%sd%:\config\mario-theme-updater")
+if exist "%sd%:\config\sys-ftpd" (RD /s /q "%sd%:\config\sys-ftpd")
+if exist "%sd%:\config\aio-switch-updater" (RD /s /q "%sd%:\config\\aio-switch-updater")
+if exist "%sd%:\config\btred" (RD /s /q "%sd%:\config\btred")
+if exist "%sd%:\config\aio-switch-updater" (RD /s /q "%sd%:\config\aio-switch-updater")
+if exist "%sd%:\config\BootSoundNX" (RD /s /q "%sd%:\config\BootSoundNX")
+if exist "%sd%:\config\cheats-updater" (RD /s /q "%sd%:\config\cheats-updater")
+if exist "%sd%:\config\fastCFWSwitch" (RD /s /q "%sd%:\config\fastCFWSwitch")
+if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
+if exist "%sd%:\config\sys-clk" (RD /s /q "%sd%:\config\sys-clk")
+if exist "%sd%:\config\sys-con" (RD /s /q "%sd%:\config\sys-con")
+if exist "%sd%:\config\tesla" (RD /s /q "%sd%:\config\tesla")
+
+REM ======= THEMES ORDNER ======================================
+if exist "%sd%:\themes\systemData" (RD /s /q "%sd%:\themes\systemData")
+if exist "%sd%:\themes\Ryu Hayabusa" (RD /s /q "%sd%:\themes\Ryu Hayabusa")
 
 FOR /D /R "%sd%:\" %%X IN (amsPACK*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (kefir*) DO RD /S /Q "%%X"
@@ -332,7 +371,6 @@ if exist "%sd%:\games" (RD /s /q "%sd%:\games")
 if exist "%sd%:\pegascape" (RD /s /q "%sd%:\pegascape")
 if exist "%sd%:\TinGen" (RD /s /q "%sd%:\TinGen")
 if exist "%sd%:\sept" (RD /s /q  "%sd%:\sept")
-if exist "%sd%:\roms\*.txt" (del  "%sd%:\roms\*.txt")
 if exist "%sd%:\.git" (RD /s /q "%sd%:\.git")
 if exist "%sd%:\*.nro" (del "%sd%:\hbmenu.nro")
 if exist "%sd%:\*.te" (del "%sd%:\startup.te")
@@ -342,8 +380,58 @@ if exist "%sd%:\*.txt" (del "%sd%:\*.txt")
 if exist "%sd%:\*.dat" (del "%sd%:\*.dat")
 if exist "%sd%:\*.log" (del "%sd%:\*.log")
 
-if exist "%sd%:\switch" (RD /s /q "%sd%:\switch")
-)
+if exist "%sd%:\roms\*.txt" (del  "%sd%:\roms\*.txt")
+
+REM ======= SWITCH ORDNER ======================================
+if exist "%sd%:\switch\download-helper" (RD /s /q "%sd%:\switch\download*")
+if exist "%sd%:\switch\fw-downloader" (RD /s /q "%sd%:\switch\fw-downloader")
+if exist "%sd%:\switch\gamecard_installer" (RD /s /q "%sd%:\switch\gamecard_installer")
+if exist "%sd%:\switch\theme-updater" (RD /s /q "%sd%:\switch\theme-updater")
+if exist "%sd%:\switch\luigi-theme-updater" (RD /s /q "%sd%:\switch\luigi-theme-updater")
+if exist "%sd%:\switch\mario-theme-updater" (RD /s /q "%sd%:\switch\mario-theme-updater")
+if exist "%sd%:\switch\Switch_90DNS_tester" (RD /s /q "%sd%:\switch\Switch_90DNS_tester")
+if exist "%sd%:\switch\appstore" (RD /s /q "%sd%:\switch\appstore")
+
+if exist "%sd%:\switch\tinleaf" (RD /s /q "%sd%:\switch\tinleaf")
+if exist "%sd%:\switch\daybreak" (RD /s /q "%sd%:\switch\daybreak")
+if exist "%sd%:\switch\tinwoo" (RD /s /q "%sd%:\switch\tinwoo")
+if exist "%sd%:\switch\tinleaf" (RD /s /q "%sd%:\switch\tinleaf")
+if exist "%sd%:\switch\switch-cheats-updater" (RD /s /q "%sd%:\switch\switch-cheats-updater\")
+if exist "%sd%:\switch\btpair" (RD /s /q "%sd%:\switch\btpair")
+if exist "%sd%:\switch\incognito" (RD /s /q "%sd%:\switch\incognito")
+if exist "%sd%:\switch\Shutdown" (RD /s /q "%sd%:\switch\Shutdown")
+if exist "%sd%:\switch\Reboot" (RD /s /q "%sd%:\switch\Reboot")
+if exist "%sd%:\switch\Lockpick" (RD /s /q "%sd%:\switch\Lockpick")
+if exist "%sd%:\switch\ultimate_updater" (RD /s /q "%sd%:\switch\ultimate_updater")
+if exist "%sd%:\switch\gag-order" (RD /s /q "%sd%:\switch\gag-order")
+if exist "%sd%:\switch\switch-time" (RD /s /q "%sd%:\switch\switch-time")
+if exist "%sd%:\switch\nxmtp" (RD /s /q "%sd%:\switch\nxmtp")
+if exist "%sd%:\switch\NXMPforMe" (RD /s /q "%sd%:\switch\NXMPforMe")
+if exist "%sd%:\switch\lithium" (RD /s /q "%sd%:\switch\lithium")
+if exist "%sd%:\switch\LinkUser" (RD /s /q "%sd%:\switch\LinkUser")
+if exist "%sd%:\switch\TriPlayer" (RD /s /q "%sd%:\switch\TriPlayer")
+if exist "%sd%:\switch\KosmosToolbox" (RD /s /q "%sd%:\switch\KosmosToolbox")
+if exist "%sd%:\switch\KosmosUpdater" (RD /s /q "%sd%:\switch\KosmosUpdater")
+if exist "%sd%:\switch\games" (RD /s /q "%sd%:\switch\games")
+if exist "%sd%:\switch\mercury" (RD /s /q "%sd%:\switch\mercury")
+if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau\")
+if exist "%sd%:\switch\FreshHay" (RD /s /q "%sd%:\switch\FreshHay\")
+if exist "%sd%:\switch\nx-ntpc" (RD /s /q "%sd%:\switch\nx-ntpc\")
+if exist "%sd%:\switch\incognito" (RD /s /q "%sd%:\switch\incognito")
+if exist "%sd%:\switch\fakenews-injector" (RD /s /q "%sd%:\switch\fakenews-injector")
+if exist "%sd%:\switch\ChoiDujourNX" (RD /s /q "%sd%:\switch\ChoiDujourNX")
+if exist "%sd%:\switch\Reboot_to_Payload" (RD /s /q "%sd%:\switch\Reboot_to_Payload")
+if exist "%sd%:\switch\pplay" (RD /s /q "%sd%:\switch\pplay")
+if exist "%sd%:\switch\SX" (RD /s /q "%sd%:\switch\SX")
+if exist "%sd%:\switch\tinfoil" (RD /s /q "%sd%:\switch\tinfoil")
+if exist "%sd%:\switch\tinfoil-store-updater" (RD /s /q "%sd%:\switch\tinfoil-store-updater")
+if exist "%sd%:\switch\tinfoil-store-premium" (RD /s /q "%sd%:\switch\tinfoil-store-premium")
+if exist "%sd%:\switch\.overlays" (RD /s /q "%sd%:\switch\.overlays")
+REM if exist "%sd%:\switch\*.nro" (del "%sd%:\switch\*.nro")
+REM if exist "%sd%:\switch\*.star" (del "%sd%:\switch\*.star")
+if exist "%sd%:\switch\*.ini" (del "%sd%:\switch\*.ini")
+if exist "%sd%:\switch\*.jar" (del "%sd%:\switch\*.jar")
+if exist "%sd%:\switch\*.zip" (del "%sd%:\switch\*.zip")
 
 REM ============================================================
 :sblegtlos
@@ -366,10 +454,10 @@ echo ---------------------------------------------------------------------------
 
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 2"
-if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\ftpd\config.ini" (xcopy "%sd%:\switchbros\backup\ftpd\config.ini" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%SBBAK%\Fizeau\config.ini" (xcopy "%SBBAK%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%SBBAK%\ftpd\ftpd.cfg" (xcopy "%SBBAK%\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%SBBAK%\sys-ftpd\config.ini" (xcopy "%SBBAK%\sys-ftpd\config.ini" "%sd%:\config\sys-ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
+if exist "%SBBAK%\icongrabber\config.json" (xcopy "%SBBAK%\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 5"
 
 REM ============================================================
@@ -387,9 +475,6 @@ echo ---------------------------------------------------------------------------
 echo.
 
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switchbros\backup\Fizeau\config.ini" (xcopy "%sd%:\switchbros\backup\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\ftpd\ftpd.cfg" (xcopy "%sd%:\switchbros\backup\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%sd%:\switchbros\backup\icongrabber\config.json" (xcopy "%sd%:\switchbros\backup\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 
 REM ============================================================
 :tinfoila
@@ -408,8 +493,8 @@ echo.
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\backup\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\backup\Tinfoil\options.json" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%SBBAK%\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%SBBAK%\Tinfoil\options.json" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
 
 REM ============================================================
 :themepaketinst
@@ -426,10 +511,10 @@ echo ---------------------------------------------------------------------------
 echo.
 
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-if exist "%sd%:\switchbros\backup\bootlogo" (
+if exist "%SBBAK%\bootlogo\bootlogo" (
 RD /s /q "%sd%:\atmosphere\exefs_patches\bootlogo" >nul 2>nul
-xcopy /y "%sd%:\switchbros\backup\bootlogo" "%sd%:\atmosphere\exefs_patches\bootlogo") >nul 2>nul
-if exist "%sd%:\backup\IconGrabber\config.json" (xcopy "%sd%:\backup\IconGrabber\config.json" "%sd%:\config\IconGrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
+xcopy /y "%SBBAK%\bootlogo\bootlogo" "%sd%:\atmosphere\exefs_patches\bootlogo") >nul 2>nul
+if exist "%SBBAK%\IconGrabber\config.json" (xcopy "%SBBAK%\IconGrabber\config.json" "%sd%:\config\IconGrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 
 REM ============================================================
 :teslaminimal
@@ -552,8 +637,8 @@ if exist "%sd%:\*.bak" (del "%sd%:\*.bak")
 if exist "%sd%:\licence" (del "%sd%:\licence")
 if exist "%sd%:\*.md" (del "%sd%:\*.md")
 if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%:\SwitchBros_BasisPaket.zip")
-exist "%sd%:\bootloader/ini/!switchbros_updater.ini" (del "%sd%:\bootloader/ini/!switchbros_updater.ini")
-if exist "%sd%:\bootloader/ini/switchbros_updater.ini" (del "%sd%:\bootloader/ini/switchbros_updater.ini")
+if exist "%sd%:\bootloader\ini\!switchbros_updater.ini" (del "%sd%:\bootloader\ini\!switchbros_updater.ini")
+if exist "%sd%:\bootloader\ini\switchbros_updater.ini" (del "%sd%:\bootloader\ini/switchbros_updater.ini")
 if exist "%sd%:\SwitchBros.txt" (del "%sd%:\SwitchBros.txt")
 if exist "%sd%:\switch\switchbrosupdater" (RD /s /q "%sd%:\switch\switchbrosupdater")
 

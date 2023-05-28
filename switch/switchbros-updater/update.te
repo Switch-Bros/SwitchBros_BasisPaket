@@ -135,15 +135,19 @@ if(fse("sd:/backup")){
   mkdir("sd:/backup")
   mkdir("sd:/backup/SB")
 }
+mkdir("sd:/backup/bootloader")
 mkdir("sd:/backup/SB/fastCFWSwitch")
 mkdir("sd:/backup/SB/Fizeau")
 mkdir("sd:/backup/SB/IconGrabber")
 mkdir("sd:/backup/SB/ftpd")
 mkdir("sd:/backup/SB/sys-ftpd")
 mkdir("sd:/backup/SB/tinfoil")
-mkdir("sd:/backup/SB/bootlogo")
 mkdir("sd:/backup/SB/DBI")
 
+if (fse("sd:/bootloader/hekate_ipl.ini")) {
+copyfile("sd:/bootloader/hekate_ipl.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
+copyfile("sd:/bootloader/nyx.ini", "sd:/backup/SB/bootloader/nyx.ini")
+}
 if (fse("sd:/config/fastCFWSwitch/config.ini")) {
 copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")
 }
@@ -166,7 +170,7 @@ if (fse("sd:/switch/tinfoil/options.json")) {
 copyfile("sd:/switch/tinfoil/options.json", "sd:/backup/SB/tinfoil/options.json")
 }
 if (fse("sd:/atmosphere/exefs_patches/bootlogo")) {
-copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB/bootlogo/")
+copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB")
 }
 if (fse("sd:/switch/DBI/dbi.config")) {
 copyfile("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
@@ -186,7 +190,8 @@ pl()
 pl("    Alter herrscht hier ein durcheinander, besonders wenn du von CL kommst!")
 pl()
 pl()
-pl("             Zuviel altes Zeug von dem er selbst keine Ahnung hat!")
+pl("             Zuviel altes Zeug von dem er selbst keine Ahnung hat,")
+pl("         und WOZU immer 4.5GB downloaden, bald sind es 8GB, oder was???")
 pl()
 pl()
 col(GRUEN)
@@ -1126,7 +1131,7 @@ pl()
 pl()
 
 col(SILBER)
-menuOptionsTesla = ["     [TO 0] kein Tesla-Overlay, keine Module", "     [TO 1] Tesla-Overlay Menue + Standard System-Module", "     [TO 2] Tesla-Overlay Menue + 4IFIR OverClockingSystem", "     [TO 3] Tesla-Overlay Menue + Module einzeln (empfohlen) + 4IFIR OC"]
+menuOptionsTesla = ["     [TO 0] kein Tesla-Overlay, keine Module", "     [TO 1] Tesla-Overlay Menue + Standard System-Module", "     [TO 2] Tesla-Overlay Menue + 4IFIR OverClockingSystem", "     [TO 3] Tesla-Overlay Menue + Module einzeln + 4IFIR OC (empfohlen)"]
 resTesla = menu(menuOptionsTesla, 3)
 
 clear()
@@ -1337,7 +1342,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
+    resYN = menu(menuOptionsYN, 1)
 
     clear()
     col(SCHWARZ)
@@ -1405,7 +1410,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
+    resYN = menu(menuOptionsYN, 0)
 
     clear()
     col(SCHWARZ)
@@ -1563,7 +1568,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
+    resYN = menu(menuOptionsYN, 1)
 
     clear()
     col(SCHWARZ)
@@ -1710,7 +1715,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
+    resYN = menu(menuOptionsYN, 0)
 
     clear()
     col(SCHWARZ)
@@ -1748,7 +1753,7 @@ clear()
     pl()
     pl()
     menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
+    resYN = menu(menuOptionsYN, 0)
 
     clear()
     col(SCHWARZ)
