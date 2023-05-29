@@ -1421,7 +1421,7 @@ set /p bootsoundnx="     Bitte triff deine Auswahl: "
 	RD /s /q "%sd%:\config\BootSoundNX"
 	GOTO bootsoundnx
 	)
-	if "%bootsoundnx%"=="3" GOTO teslamodular
+	if "%bootsoundnx%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :dnsmitm
@@ -1452,7 +1452,7 @@ set /p dnsmitm="     Bitte triff deine Auswahl: "
 	del "%sd%:\switch\.overlays\DNS-MITM_Manager.ovl"
 	GOTO dnsmitm
 	)
-	if "%dnsmitm%"=="3" GOTO teslamodular
+	if "%dnsmitm%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :edizon
@@ -1487,7 +1487,7 @@ set /p edizon="     Bitte triff deine Auswahl: "
 	del "%sd%:\switch\.overlays\ovlEdiZon.ovl"
 	GOTO edizon
 	)
-	if "%edizon%"=="3" GOTO teslamodular
+	if "%edizon%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :emuiibo
@@ -1518,7 +1518,7 @@ set /p emuiibo="     Bitte triff deine Auswahl: "
 	del "%sd%:\switch\.overlays\emuiibo.ovl"
 	GOTO emuiibo
 	)
-	if "%emuiibo%"=="3" GOTO teslamodular
+	if "%emuiibo%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :fastcfwswitch
@@ -1550,7 +1550,7 @@ set /p fastcfwswitch=     Bitte triff deine Auswahl:
 	del "%sd%:\switch\.overlays\0_fastCFWswitch.ovl"
 	GOTO fastcfwswitch
 	)
-	if "%fastcfwswitch%"=="3" GOTO teslamodular
+	if "%fastcfwswitch%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :fizeau
@@ -1584,7 +1584,7 @@ set /p fizeau=     Bitte triff deine Auswahl:
 	del "%sd%:\switch\.overlays\Fizeau.ovl"
 	GOTO fizeau
 	)
-	if "%fizeau%"=="3" GOTO teslamodular
+	if "%fizeau%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :ldnmitm
@@ -1616,7 +1616,7 @@ set /p ldnmitm=     Bitte triff deine Auswahl:
 	del "%sd%:\switch\.overlays\ldnmitm_config"
 	GOTO ldnmitm
 	)
-	if "%ldnmitm%"=="3" GOTO teslamodular
+	if "%ldnmitm%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :missioncontrol
@@ -1649,7 +1649,7 @@ set /p missioncontrol=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\appstore\.get\packages\missioncontrol"
 	GOTO missioncontrol
 	)
-	if "%missioncontrol%"=="3" GOTO teslamodular
+	if "%missioncontrol%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :ovlssysmodule
@@ -1679,7 +1679,7 @@ set /p ovlssysmodule=     Bitte triff deine Auswahl:
 	del "%sd%:\switch\.overlays\ovlSysmodules.ovl"
 	GOTO ovlssysmodule
 	)
-	if "%ovlssysmodule%"=="3" GOTO teslamodular
+	if "%ovlssysmodule%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :quickntp
@@ -1709,7 +1709,7 @@ set /p quickntp="     Bitte triff deine Auswahl: "
 	RD /s /q "%sd%:\switch\appstore\.get\packages\QuickNTP"
 	GOTO quickntp
 	)
-	if "%quickntp%"=="3" GOTO teslamodular
+	if "%quickntp%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :saltynx
@@ -1741,7 +1741,7 @@ set /p saltynx=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX"
 	GOTO saltynx
 	)
-	if "%saltynx%"=="3" GOTO teslamodular
+	if "%saltynx%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :statmon
@@ -1771,7 +1771,7 @@ set /p statmon=     Bitte triff deine Auswahl:
 	del "%sd%:\switch\.overlays\Status-Monitor-Overlay.ovl"
 	GOTO statmon
 	)
-	if "%statmon%"=="3" GOTO teslamodular
+	if "%statmon%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :sysclk
@@ -1804,7 +1804,7 @@ set /p sysclk=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\sys-clk-manager"
 	GOTO sysclk
 	)
-	if "%sysclk%"=="3" GOTO teslamodular
+	if "%sysclk%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :sysclkedit
@@ -1834,7 +1834,7 @@ set /p sysclkedit=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\sys-clk-Editor"
 	GOTO sysclkedit
 	)
-	if "%sysclkedit%"=="3" GOTO teslamodular
+	if "%sysclkedit%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :syscon
@@ -1865,7 +1865,7 @@ set /p syscon=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-con"
 	GOTO syscon
 	)
-	if "%syscon%"=="3" GOTO teslamodular
+	if "%syscon%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :sysftpd
@@ -1896,7 +1896,7 @@ set /p sysftpd=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light"
 	GOTO sysftpd
 	)
-	if "%sysftpd%"=="3" GOTO teslamodular
+	if "%sysftpd%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :sysdvr
@@ -1930,7 +1930,7 @@ set /p sysdvr=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\SysDVR-conf"
 	GOTO sysdvr
 	)
-	if "%sysdvr%"=="3" GOTO teslamodular
+	if "%sysdvr%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :systune
@@ -1961,7 +1961,7 @@ set /p systune=     Bitte triff deine Auswahl:
 	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-tune"
 	GOTO systune
 	)
-	if "%systune%"=="3" GOTO teslamodular
+	if "%systune%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :fourifir
@@ -1990,7 +1990,7 @@ set /p fourifir=     Bitte triff deine Auswahl:
 	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
 	GOTO fourifir
 	)
-	if "%fourifir%"=="3" GOTO teslamodular
+	if "%fourifir%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :zusatzapps
