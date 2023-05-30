@@ -274,7 +274,7 @@ if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
 if exist "%sd%:\atmosphere\content" (rename %sd%:\atmosphere\content contents)
 
--if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
+if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
 if exist "%sd%:\atmosphere\config_templates" (RD /s /q "%sd%:\atmosphere\config_templates")
 if exist "%sd%:\atmosphere\erpt_reports" (RD /s /q "%sd%:\atmosphere\erpt_reports")
 if exist "%sd%:\atmosphere\crash_reports" (RD /s /q "%sd%:\atmosphere\crash_reports")
@@ -368,7 +368,7 @@ if exist "%sd%:\atmosphere\contents\4300000000000909" (RD /s /q "%sd%:\atmospher
 if exist "%sd%:\atmosphere\contents\5600000000000000" (RD /s /q "%sd%:\atmosphere\contents\5600000000000000")
 if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /s /q "%sd%:\atmosphere\contents\690000000000000D")
 
--REM ======= BOOTLOADER ORDNER ==================================
+REM ======= BOOTLOADER ORDNER ==================================
 if exist "%sd%:\bootloader\debug" (RD /s /q "%sd%:\bootloader\debug")
 if exist "%sd%:\bootloader\sys" (RD /s /q "%sd%:\bootloader\sys")
 if exist "%sd%:\bootloader\*.bmp" (del "%sd%:\bootloader\*.bmp")
@@ -449,7 +449,7 @@ FOR /D /R "%sd%:\" %%X IN (firmware*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (sxos*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (custom*) DO RD /S /Q "%%X"
 
--REM ======= SD-KARTEN ROOT =====================================
+REM ======= SD-KARTEN ROOT =====================================
 if exist "%sd%:\tegraexplorer" (RD /s /q "%sd%:\tegraexplorer")
 if exist "%sd%:\modules" (RD /s /q "%sd%:\modules")
 if exist "%sd%:\NSPs" (RD /s /q "%sd%:\NSPs")
