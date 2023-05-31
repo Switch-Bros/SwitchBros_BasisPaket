@@ -19,6 +19,11 @@ In der App könnt ihr auch Firmware runterladen und installieren, Cheats herunte
 
 [Euer SwitchBros. Team](https://discord.com/invite/switchbros)
 
+# Bis auf ein paar Skripte und Übersetzungen ist NICHTS von uns!
+Alles im Paket kann sich JEDER von der jeweiligen Originalseite holen, zusammenstellen = funktionierende CFW!
+
+Den besten Guide findet ihr hier: https://rentry.co/CFWGuides
+
 
 
 
