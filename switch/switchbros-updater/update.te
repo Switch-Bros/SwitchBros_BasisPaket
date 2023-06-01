@@ -308,7 +308,8 @@ if (fse("sd:/SB.ico")){
 	delfile("sd:/bootloader/update.bin")
 	delfile("sd:/bootloader/patches.ini")
 
-	delfile("sd:/config/switchbros-updater/ams.zip")
+	delfile("sd:/config/switchbros-updater/cheats.zip")
+	delfile("sd:/config/switchbros-updater/custom.zip")
 
 	deldir("sd:/switchbros")
 	deldir("sd:/tegraexplorer")
@@ -516,10 +517,10 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
 
-	delfile("sd:/atmosphere/stratosphere.romfs.aio");
-	delfile("sd:/atmosphere/fusee-secondary.bin.aio");
-	delfile("sd:/sept/payload.bin.aio");
-	delfile("sd:/payload.bin.aio");
+	delfile("sd:/atmosphere/stratosphere.romfs.sbu");
+	delfile("sd:/atmosphere/fusee-secondary.bin.sbu");
+	delfile("sd:/sept/payload.bin.sbu");
+	delfile("sd:/payload.bin.sbu");
 }
 
 wait(tw = 2000)
