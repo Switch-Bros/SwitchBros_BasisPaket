@@ -6,7 +6,7 @@ SwitchBros. - The Switch Hacking, Modding and Themes Community!
 ![1675126718569](https://user-images.githubusercontent.com/13203024/215631767-8a2f5636-c273-4987-b61f-caa6b8b17cd4.png)
 
 Das SwitchBros_BasisPaket ist ein AIO CFW Paket für eure Switch!
-Es ist alles enthalten was ihr braucht!
+Es ist alles enthalten was ihr braucht und wird permanent optimiert so gut es möglich ist!
 
 Ihr könnt eure SD-Karte beim ersten mal ganz leicht und einfach mit einer der beiden BAT-Dateien aufsetzen/einrichten:
 
@@ -14,13 +14,15 @@ Ihr könnt eure SD-Karte beim ersten mal ganz leicht und einfach mit einer der b
 
   > NOOB-O-MAT.bat (beantwortet NUR zwei Fragen und eure SD-Karte wird komplett eingerichtet (Standard Einstellungen)
   
-Später könnt ihr mit unserer App SwitchBros-Updater das Paket OHNE PC updaten!
-In der App könnt ihr auch Firmware runterladen und installieren, Cheats herunterladen oder Grafische Verbesserungen für Spiele (60fps mod z.B.), den geheimen Browser aufrufen und Nutzen und mehr...
+Später könnt ihr mit unserer App [SwitchBros-Updater](https://github.com/Switch-Bros/switchbros-updater) das Paket OHNE PC updaten!
+In der App könnt ihr auch die aktuellste Firmware runterladen und installieren, Cheats herunterladen oder Grafische Verbesserungen für Spiele (60fps mod z.B.), den geheimen Browser aufrufen und Nutzen, die App DBI aktualisieren und mehr...
 
 [Euer SwitchBros. Team](https://discord.com/invite/switchbros)
 
-# Bis auf ein paar Skripte und Übersetzungen ist NICHTS von uns!
-Alles im Paket kann sich JEDER von der jeweiligen Originalseite holen, zusammenstellen = funktionierende CFW!
+# Keines der Programme/Apps ist von uns entwickelt worden!
+Wir Übsersetzen vieles und passen manche Apps an unser Paket an!
+
+Alles im Paket kann sich JEDER von der jeweiligen Originalseite holen und selber zusammenstellen = funktionierende CFW!
 
 Den besten Guide findet ihr hier: https://rentry.co/CFWGuides
 
