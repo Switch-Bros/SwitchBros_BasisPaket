@@ -145,46 +145,37 @@ mkdir("sd:/backup/SB/tinfoil")
 mkdir("sd:/backup/SB/DBI")
 
 if (fse("sd:/bootloader/hekate_ipl_.ini")) {
-copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
+    copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
 }
 if (fse("sd:/bootloader/nyx_.ini")) {
-copyfile("sd:/bootloader/nyx_.ini", "sd:/backup/SB/bootloader/nyx.ini")
+    copyfile("sd:/bootloader/nyx_.ini", "sd:/backup/SB/bootloader/nyx.ini")
 }
 if (fse("sd:/config/fastCFWSwitch/config.ini")) {
-copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")
+    copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")
 }
 if (fse("sd:/config/Fizeau/config.ini")) {
-copyfile("sd:/config/Fizeau/config.ini", "sd:/backup/SB/Fizeau/config.ini")
+    copyfile("sd:/config/Fizeau/config.ini", "sd:/backup/SB/Fizeau/config.ini")
 }
 if (fse("sd:/config/icongrabber/config.json")) {
-copyfile("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
+    copyfile("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
 }
 if (fse("sd:/config/ftpd/ftpd.cfg")) {
-copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/backup/SB/ftpd/ftpd.cfg")
+    copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/backup/SB/ftpd/ftpd.cfg")
 }
 if (fse("sd:/config/sys-ftpd/config.ini")) {
-copyfile("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
+    copyfile("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
 }
 if (fsexists("sd:/switch/tinfoil/locations.conf")) {
-	if (fsexists("sd:/backup/SB/tinfoil/locations.conf")) {
-		delfile("sd:/backup/SB/tinfoil/locations.conf")
-	}
-    copyfile("sd:/switch/tinfoil/locations.conf", "sd:/backup/SB/tinfoil/locations.conf")
+	copyfile("sd:/switch/tinfoil/locations.conf", "sd:/backup/SB/tinfoil/locations.conf")
 }
 if (fsexists("sd:/switch/tinfoil/options.json")) {
-	if (fsexists("sd:/backup/SB/tinfoil/options.json")) {
-		delfile("sd:/backup/SB/tinfoil/options.json")
-	}
-    copyfile("sd:/switch/tinfoil/options.json", "sd:/backup/SB/tinfoil/options.json")
+	copyfile("sd:/switch/tinfoil/options.json", "sd:/backup/SB/tinfoil/options.json")
 }
 if (fse("sd:/atmosphere/exefs_patches/bootlogo")) {
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB")
 }
 if (fsexists("sd:/switch/DBI/dbi.config")) {
-	if (fsexists("sd:/backup/SB/DBI/dbi.config")) {
-		delfile("sd:/backup/SB/DBI/dbi.config")
-	}
-    copyfile("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
+	copyfile("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
 }
 
 wait(tw = 1000)
@@ -1229,7 +1220,9 @@ if (resTesla == 0) {
 	deldir("sd:/atmosphere/contents/01009EE0111CC000")
 	deldir("sd:/atmosphere/contents/010092A0172E4000")
 	deldir("sd:/switch/MemTesterNX")
+	deldir("sd:/switch/MicroMemBench")
 	deldir("sd:/switch/ReverseNX-Tool")
+    delfile("sd:/atmosphere/kips/loader.kip")
 }
 
 clear()
