@@ -288,6 +288,7 @@ if (fse("sd:/SB.ico")){
 	deldir("sd:/bootloader/sys")
 	delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
 	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
+	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4-SB.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.3.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.2.bin")
@@ -300,6 +301,8 @@ if (fse("sd:/SB.ico")){
 	delfile("sd:/bootloader/update.bin")
 	delfile("sd:/bootloader/patches.ini")
 
+	deldir("sd:/config/switchbros-helper")
+	deldir("sd:/config/NSPs")
 	delfile("sd:/config/switchbros-updater/ams.zip")
 	delfile("sd:/config/switchbros-updater/cheats.zip")
 	delfile("sd:/config/switchbros-updater/custom.zip")
