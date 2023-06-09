@@ -165,16 +165,16 @@ if (fse("sd:/config/ftpd/ftpd.cfg")) {
 if (fse("sd:/config/sys-ftpd/config.ini")) {
     copyfile("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
 }
-if (fsexists("sd:/switch/tinfoil/locations.conf")) {
+if (fse("sd:/switch/tinfoil/locations.conf")) {
 	copyfile("sd:/switch/tinfoil/locations.conf", "sd:/backup/SB/tinfoil/locations.conf")
 }
-if (fsexists("sd:/switch/tinfoil/options.json")) {
+if (fse("sd:/switch/tinfoil/options.json")) {
 	copyfile("sd:/switch/tinfoil/options.json", "sd:/backup/SB/tinfoil/options.json")
 }
 if (fse("sd:/atmosphere/exefs_patches/bootlogo")) {
 copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB")
 }
-if (fsexists("sd:/switch/DBI/dbi.config")) {
+if (fse("sd:/switch/DBI/dbi.config")) {
 	copyfile("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
 }
 
@@ -222,56 +222,21 @@ if (fse("sd:/SB.ico")){
 	deldir("sd:/atmosphere/contents/0100000000001000")
 	deldir("sd:/atmosphere/contents/0100000000001007")
 	deldir("sd:/atmosphere/contents/0100000000001013")
+	deldir("sd:/atmosphere/contents/010000000000000D")
+	deldir("sd:/atmosphere/contents/0100000000000352")
 	deldir("sd:/atmosphere/contents/0000000000534C56")
 	deldir("sd:/atmosphere/contents/00FF0000000002AA")
-	deldir("sd:/atmosphere/contents/00FF0000636C6BF2")
-	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
-	deldir("sd:/atmosphere/contents/00FF00006D7470FF")
 	deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
 	deldir("sd:/atmosphere/contents/00FF747765616BFF")
-	deldir("sd:/atmosphere/contents/0100000000000052")
-	deldir("sd:/atmosphere/contents/0100000000000081")
-	deldir("sd:/atmosphere/contents/0100000000000352")
-	deldir("sd:/atmosphere/contents/0100000000000464")
-	deldir("sd:/atmosphere/contents/0100000000000523")
-	deldir("sd:/atmosphere/contents/0100000000000901")
-	deldir("sd:/atmosphere/contents/0100000000000BED")
-	deldir("sd:/atmosphere/contents/0100000000000BEF")
-	deldir("sd:/atmosphere/contents/0100000000000DAD")
 	deldir("sd:/atmosphere/contents/0100000000000F12")
-	deldir("sd:/atmosphere/contents/0100000000000FAF")
-	deldir("sd:/atmosphere/contents/0100000000006480")
-	deldir("sd:/atmosphere/contents/0100000000007200")
 	deldir("sd:/atmosphere/contents/010000000000bd00")
-	deldir("sd:/atmosphere/contents/010000000000C235")
-	deldir("sd:/atmosphere/contents/010000000000f00f")
-	deldir("sd:/atmosphere/contents/010000000000FFAB")
-	deldir("sd:/atmosphere/contents/01000000001ED1ED")
-	deldir("sd:/atmosphere/contents/0532232232232000")
 	deldir("sd:/atmosphere/contents/054e4f4558454000")
-	deldir("sd:/atmosphere/contents/2200000000000100")
-	deldir("sd:/atmosphere/contents/4100000000000324")
-	deldir("sd:/atmosphere/contents/4200000000000000")
-	deldir("sd:/atmosphere/contents/420000000000000E")
-	deldir("sd:/atmosphere/contents/420000000000000F")
-	deldir("sd:/atmosphere/contents/4200000000000811")
-	deldir("sd:/atmosphere/contents/4200000000000BA6")
-	deldir("sd:/atmosphere/contents/4200000000000BAC")
-	deldir("sd:/atmosphere/contents/4200000000000FFF")
 	deldir("sd:/atmosphere/contents/010000000007E51A")
 	deldir("sd:/atmosphere/contents/420000000007E51A")
-	deldir("sd:/atmosphere/contents/4200000000474442")
-	deldir("sd:/atmosphere/contents/4200000000696969")
-	deldir("sd:/atmosphere/contents/4200000AF1E8DA89")
-	deldir("sd:/atmosphere/contents/42000062616B6101")
-	deldir("sd:/atmosphere/contents/4200736372697074")
-	deldir("sd:/atmosphere/contents/4206900000000012")
-	deldir("sd:/atmosphere/contents/430000000000000A")
-	deldir("sd:/atmosphere/contents/430000000000000B")
-	deldir("sd:/atmosphere/contents/430000000000000C")
-	deldir("sd:/atmosphere/contents/43000000000000FF")
-	deldir("sd:/atmosphere/contents/4300000000000909")
-	deldir("sd:/atmosphere/contents/5600000000000000")
+	deldir("sd:/atmosphere/contents/4200000000000000")
+	deldir("sd:/atmosphere/contents/4200000000000010")
+	deldir("sd:/atmosphere/contents/420000000000000E")
 	deldir("sd:/atmosphere/contents/690000000000000D")
 	deldir("sd:/atmosphere/exefs_patches")
 	deldir("sd:/atmosphere/kip_patches")
@@ -341,8 +306,10 @@ col(GRUEN)
 pl()
 pl()
 pl()
-p("                 Bitte habe Geduld! Es dauert noch eine Weile!")
+p("           Bitte warten! Wird zeitgleich in der Zukunft installiert!")
+wait(tw = 3000)
 col(SCHWARZ)
+	deldir("sd:/backup/SB")
 	deldir("sd:/atmosphere/exefs_patches")
 	deldir("sd:/atmosphere/kip_patches")
 	deldir("sd:/atmosphere/erpt_reports")
@@ -370,7 +337,13 @@ col(SCHWARZ)
 	delfile("sd:/atmosphere/hbl.nsp")
 	delfile("sd:/atmosphere/reboot_payload.bin")
 	delfile("sd:/atmosphere/package3")
-
+col(GRUEN)
+pl()
+pl()
+pl()
+p("           Paket ist demnaechst auf einer illegalen DVD erhaeltlich!")
+wait(tw = 3000)
+col(SCHWARZ)
 	deldir("sd:/atmosphere/contents/0100000000000008")
 	deldir("sd:/atmosphere/contents/010000000000100B")
 	deldir("sd:/atmosphere/contents/010000000000000D")
@@ -440,13 +413,16 @@ col(SCHWARZ)
 	deldir("sd:/atmosphere/contents/5600000000000000")
 	deldir("sd:/atmosphere/contents/690000000000000D")
 
+col(GRUEN)
+pl()
+pl()
+pl()
+p("            Installation besteht zu 100% aus Fleischnebenprodukten!")
+wait(tw = 1000)
+col(SCHWARZ)
 	deldir("sd:/bootloader")
-
-	deldir("sd:/switch/.overlays")
 	deldir("sd:/switch")
-
 	deldir("sd:/config")
-
 	deldir("sd:/firmware")
 	deldir("sd:/atmo")
 	deldir("sd:/btpair")
@@ -1063,8 +1039,10 @@ if (resSystem == 16) {
 	col(NAVAJO)
 	pl("########### ########### ########## ### # ### ########## ########### ###########")
 	col(SCHWARZ)
-	copyfile("sd:/backup/SB/bootloader/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
-	copyfile("sd:/backup/SB/bootloader/nyx.ini", "sd:/bootloader/nyx.ini")
+	if(fse("sd:/backup/SB/bootloader")){
+		copyfile("sd:/backup/SB/bootloader/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
+		copyfile("sd:/backup/SB/bootloader/nyx.ini", "sd:/bootloader/nyx.ini")
+	}
 }
 
 pl()
@@ -1254,16 +1232,9 @@ if (resTesla == 1) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
 }
 
@@ -2106,13 +2077,6 @@ if (resTinfoil == 0) {
 	col(SCHWARZ)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu/switch", "sd:/")
-
-	if (fse("sd:/backup/SB/tinfoil/locations.conf")){
-	copyfile ("sd:/backup/SB/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
-	}
-    if (fse("sd:/backup/SB/tinfoil/options.json")){
-	copyfile ("sd:/backup/SB/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
-	}
 }
 
 wait(tw = 2000)
@@ -2136,15 +2100,16 @@ if (resTinfoil == 1) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
-
-	if (fse("sd:/backup/SB/tinfoil/locations.conf")) {
-	copyfile ("sd:/backup/SB/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
-	}
-    if (fse("sd:/backup/SB/tinfoil/options.json")){
-	copyfile ("sd:/backup/SB/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
-	}
 }
 
+if (fse("sd:/backup/SB/tinfoil/locations.conf")) {
+	copyfile ("sd:/backup/SB/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
+}
+if (fse("sd:/backup/SB/tinfoil/options.json")){
+	copyfile ("sd:/backup/SB/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
+}
+
+wait(tw = 2000)
 clear()
 
 if (resTinfoil == 2) {
@@ -2366,7 +2331,7 @@ if (fse("sd:/backup/SB/dbi.config")) {
 	copyfile("sd:/backup/SB/dbi.config", "sd:/switch/DBI/dbi.config")
 }
 if (fse("sd:/backup/SB/IconGrabber/config.json")){
-copyfile("sd:/backup/SB/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
+	copyfile("sd:/backup/SB/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
 }
 if (fse("sd:/backup/SB/fastCFWSwitch/config.ini")) {
 	copyfile("sd:/backup/SB/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
@@ -2476,13 +2441,12 @@ pl()
 pl()
 pl()
 col(PINK)
-p("            Ene... ")wait(tw = 500)col(GRUEN)p(" Mene... ")wait(tw = 500)col(BECKY)p(" Meck... ")wait(tw = 1000)col(SILBER)p("    und der Fleck ist schon Weg!")
+p("                               Tatort-Reiniger am Werk!")
 col(SCHWARZ)
 delfile("sd:/startup.te")
-delfile("sd:/bootloader/hekate_ipl_.ini")
-delfile("sd:/bootloader/nyx_.ini")
 delfile("sd:/bootloader/ini/!switchbros_updater.ini")
 delfile("sd:/bootloader/ini/switchbros_updater.ini")
+delfile("sd:/bootloader/boot/SB-Update.bmp")
 delfile("sd:/bootloader/res/icon_SB_nobox.bmp")
 deldir("sd:/switch/switchbrosupdater")
 deldir("sd:/System Volume Information")
