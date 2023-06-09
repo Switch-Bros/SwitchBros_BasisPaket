@@ -19,7 +19,6 @@ IconGrabber 1.0.1 (Deutsch)
 JKSV 02/23/2023
 linkalho 2.1.0 (Deutsch) 
 NX-Activity-Log 1.4.0
-NXDumpTool 1.1.15
 NXThemeInstaller 2.7
 N-Xplorer 0.7.1
 Reset parental control 1.2.0 (Deutsch)
