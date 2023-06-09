@@ -155,7 +155,7 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      1 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln^^!
+echo      1 = SD-Karte vorbereiten und zum SwitchBros. Paket wechseln^^!
 echo          Das GANZE Skript komplett durchgehen wenn du die CFW zum ersten Mal aufsetzt, wenn du von
 echo          einem anderen Paket kommst, oder wenn es sich um eine neue SD-Karte handelt^^! DANKE^^!
 echo.
@@ -165,7 +165,7 @@ echo      2 = Systeme (Linux, LAKKA, Android)^^!
 echo.
 echo      3 = Backup Ordner anlegen^^!
 echo.
-echo      4 = Kinder-Modus^^!
+echo      4 = Kinder-Modus^^! (Forwarder nicht auf Homescreen)
 echo.
 echo      5 = SteamAPI fuer IconGrabber App holen und eingeben^^!
 echo.
@@ -272,7 +272,7 @@ echo      Das Programm schliesst sich von selbst, falls du zu bloed bist die Ein
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-if exist "%wd%" (RD /s /q "%wd%\*")
+if exist "%wd%" (RD /S /Q "%wd%\*")
 pause>nul 2>&1
 exit
 
@@ -283,7 +283,7 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo           Deine SD-Karte wird jetzt vorbereitet und alle dafuer Notwendigen Daten geloescht^^!
+echo      Deine SD-Karte wird jetzt vorbereitet und alle dafuer Notwendigen Daten geloescht^^!
 echo.
 echo.
 echo.
@@ -296,104 +296,177 @@ if exist "%sd%:\atmosphere\titles" (rename %sd%:\atmosphere\titles contents)
 if exist "%sd%:\atmosphere\title" (rename %sd%:\atmosphere\title contents)
 if exist "%sd%:\atmosphere\content" (rename %sd%:\atmosphere\content contents)
 
-if exist "%sd%:\atmosphere\config" (RD /s /q "%sd%:\atmosphere\config")
-if exist "%sd%:\atmosphere\config_templates" (RD /s /q "%sd%:\atmosphere\config_templates")
-if exist "%sd%:\atmosphere\erpt_reports" (RD /s /q "%sd%:\atmosphere\erpt_reports")
-if exist "%sd%:\atmosphere\crash_reports" (RD /s /q "%sd%:\atmosphere\crash_reports")
-if exist "%sd%:\atmosphere\exefs_patches" (RD /s /q "%sd%:\atmosphere\exefs_patches")
-if exist "%sd%:\atmosphere\extras" (RD /s /q "%sd%:\atmosphere\extras")
-if exist "%sd%:\atmosphere\fatal_errors" (RD /s /q "%sd%:\atmosphere\fatal_errors")
-if exist "%sd%:\atmosphere\fatal_reports" (RD /s /q "%sd%:\atmosphere\fatal_reports")
-if exist "%sd%:\atmosphere\flags" (RD /s /q "%sd%:\atmosphere\flags")
-if exist "%sd%:\atmosphere\hosts" (RD /s /q  "%sd%:\atmosphere\hosts")
-if exist "%sd%:\atmosphere\kips" (RD /s /q  "%sd%:\atmosphere\kips")
-if exist "%sd%:\atmosphere\kip_patches" (RD /s /q "%sd%:\atmosphere\kip_patches")
-if exist "%sd%:\atmosphere\hekate_kips" (RD /s /q "%sd%:\atmosphere\hekate_kips")
-if exist "%sd%:\atmosphere\logs" (RD /s /q  "%sd%:\atmosphere\logs")
-if exist "%sd%:\atmosphere\update" (RD /s /q  "%sd%:\atmosphere\update")
+if exist "%sd%:/SB.ico" (
+	if exist "%sd%:\atmosphere\config" (RD /S /Q "%sd%:\atmosphere\config")
+	if exist "%sd%:\atmosphere\config_templates" (RD /S /Q "%sd%:\atmosphere\config_templates")
+	if exist "%sd%:\atmosphere\erpt_reports" (RD /S /Q "%sd%:\atmosphere\erpt_reports")
+	if exist "%sd%:\atmosphere\crash_reports" (RD /S /Q "%sd%:\atmosphere\crash_reports")
+	if exist "%sd%:\atmosphere\exefs_patches" (RD /S /Q "%sd%:\atmosphere\exefs_patches")
+	if exist "%sd%:\atmosphere\extras" (RD /S /Q "%sd%:\atmosphere\extras")
+	if exist "%sd%:\atmosphere\fatal_errors" (RD /S /Q "%sd%:\atmosphere\fatal_errors")
+	if exist "%sd%:\atmosphere\fatal_reports" (RD /S /Q "%sd%:\atmosphere\fatal_reports")
+	if exist "%sd%:\atmosphere\flags" (RD /S /Q "%sd%:\atmosphere\flags")
+	if exist "%sd%:\atmosphere\hosts" (RD /S /Q  "%sd%:\atmosphere\hosts")
+	if exist "%sd%:\atmosphere\kips" (RD /S /Q  "%sd%:\atmosphere\kips")
+	if exist "%sd%:\atmosphere\kip_patches" (RD /S /Q "%sd%:\atmosphere\kip_patches")
+	if exist "%sd%:\atmosphere\hekate_kips" (RD /S /Q "%sd%:\atmosphere\hekate_kips")
+	if exist "%sd%:\atmosphere\logs" (RD /S /Q  "%sd%:\atmosphere\logs")
+	if exist "%sd%:\atmosphere\update" (RD /S /Q  "%sd%:\atmosphere\update")
 
-if exist "%sd%:\atmosphere\package3" (del "%sd%:\atmosphere\package3")
-if exist "%sd%:\atmosphere\*.bin" (del "%sd%:\atmosphere\*.bin")
-if exist "%sd%:\atmosphere\*.nsp" (del "%sd%:\atmosphere\*.nsp")
-if exist "%sd%:\atmosphere\*.romfs" (del "%sd%:\atmosphere\*.romfs")
-if exist "%sd%:\atmosphere\*.sig" (del "%sd%:\atmosphere\*.sig")
-if exist "%sd%:\atmosphere\*.json" (del "%sd%:\atmosphere\*.json")
-if exist "%sd%:\atmosphere\*.ini" (del "%sd%:\atmosphere\*.ini")
+	if exist "%sd%:\atmosphere\package3" (DEL /F "%sd%:\atmosphere\package3")
+	if exist "%sd%:\atmosphere\*.bin" (DEL /F "%sd%:\atmosphere\*.bin")
+	if exist "%sd%:\atmosphere\*.nsp" (DEL /F "%sd%:\atmosphere\*.nsp")
+	if exist "%sd%:\atmosphere\*.romfs" (DEL /F "%sd%:\atmosphere\*.romfs")
+	if exist "%sd%:\atmosphere\*.sig" (DEL /F "%sd%:\atmosphere\*.sig")
+	if exist "%sd%:\atmosphere\*.json" (DEL /F "%sd%:\atmosphere\*.json")
+	if exist "%sd%:\atmosphere\*.ini" (DEL /F "%sd%:\atmosphere\*.ini")
+	
+	if exist "%sd%:\atmosphere\contents\0100000000001000" (RD /S /Q "%sd%:\atmosphere\contents\0100000000001000")
+	if exist "%sd%:\atmosphere\contents\0100000000001007" (RD /S /Q "%sd%:\atmosphere\contents\0100000000001007")
+	if exist "%sd%:\atmosphere\contents\0100000000001013" (RD /S /Q "%sd%:\atmosphere\contents\0100000000001013")
+	if exist "%sd%:\atmosphere\contents\010000000000000D" (RD /S /Q "%sd%:\atmosphere\contents\010000000000000D")
+	if exist "%sd%:\atmosphere\contents\0100000000000352" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000352")
+	if exist "%sd%:\atmosphere\contents\0000000000534C56" (RD /S /Q "%sd%:\atmosphere\contents\0000000000534C56")
+	if exist "%sd%:\atmosphere\contents\00FF0000000002AA" (RD /S /Q "%sd%:\atmosphere\contents\00FF0000000002AA")
+	if exist "%sd%:\atmosphere\contents\00FF0000A53BB665" (RD /S /Q "%sd%:\atmosphere\contents\00FF0000A53BB665")
+	if exist "%sd%:\atmosphere\contents\00FF0000636C6BFF" (RD /S /Q "%sd%:\atmosphere\contents\00FF0000636C6BFF")
+	if exist "%sd%:\atmosphere\contents\00FF747765616BFF" (RD /S /Q "%sd%:\atmosphere\contents\00FF747765616BFF")
+	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000F12")
+	if exist "%sd%:\atmosphere\contents\010000000000bd00" (RD /S /Q "%sd%:\atmosphere\contents\010000000000bd00")
+	if exist "%sd%:\atmosphere\contents\054e4f4558454000" (RD /S /Q "%sd%:\atmosphere\contents\054e4f4558454000")
+	if exist "%sd%:\atmosphere\contents\010000000007E51A" (RD /S /Q "%sd%:\atmosphere\contents\010000000007E51A")
+	if exist "%sd%:\atmosphere\contents\420000000007E51A" (RD /S /Q "%sd%:\atmosphere\contents\420000000007E51A")
+	if exist "%sd%:\atmosphere\contents\4200000000000000" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000000")
+	if exist "%sd%:\atmosphere\contents\4200000000000010" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000010")
+	if exist "%sd%:\atmosphere\contents\420000000000000E" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000E")
+	if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /S /Q "%sd%:\atmosphere\contents\690000000000000D")
+
+	if exist "%sd%:\bootloader\sys" (RD /S /Q "%sd%:\bootloader\sys")
+	if exist "%sd%:\bootloader\payloads" (RD /S /Q "%sd%:\bootloader\payloads")
+	if exist "%sd%:\bootloader\*.ini" (DEL /F "%sd%:\bootloader\*.ini)
+	if exist "%sd%:\bootloader\*.bin" (DEL /F "%sd%:\bootloader\*.bin")
+	if exist "%sd%:\bootloader\*.bmp" (DEL /F "%sd%:\bootloader\*.bmp")
+
+	if exist "%sd%:\config" (RD /S /Q "%sd%:\config")
+
+	if exist "%sd%:\switchbros" (RD /S /Q "%sd%:\switchbros")
+	if exist "%sd%:\tegraexplorer" (RD /S /Q "%sd%:\tegraexplorer")
+	if exist "%sd%:\firmware" (RD /S /Q "%sd%:\firmware")
+
+	if exist "%sd%:\switch\daybreak" (RD /S /Q "%sd%:\switch\daybreak")
+	if exist "%sd%:\switch\.overlays" (RD /S /Q "%sd%:\switch\.overlays")
+	if exist "%sd%:\switch\switchbros-updater\*.zip" (DEL /F "%sd%:\switch\switchbros-updater\*.zip")
+	if exist "%sd%:\switch\switchbros-updater\switchbros-updater.nro" (DEL /F "%sd%:\switch\switchbros-updater\switchbros-updater.nro")
+	if exist "%sd%:\switch\switchbros-updater\switchbros-updater.bin" (DEL /F "%sd%:\switch\switchbros-updater\switchbros-updater.bin")
+	if exist "%sd%:\switch\daybreak.nro" (DEL /F "%sd%:\switch\daybreak.nro")
+
+	if exist "%sd%:\*.nro" (DEL /F "%sd%:\*.nro")
+	if exist "%sd%:\*.ini" (DEL /F "%sd%:\*.ini")
+	if exist "%sd%:\*.txt" (DEL /F "%sd%:\*.txt")
+	if exist "%sd%:\*.bat" (DEL /F "%sd%:\*.bat")
+	if exist "%sd%:\*.bin" (DEL /F "%sd%:\*.bin")
+
+) else (
+	
+if exist "%sd%:\backup\SB" (RD /S /Q "%sd%:\backup\SB")
+if exist "%sd%:\atmosphere\config" (RD /S /Q "%sd%:\atmosphere\config")
+if exist "%sd%:\atmosphere\config_templates" (RD /S /Q "%sd%:\atmosphere\config_templates")
+if exist "%sd%:\atmosphere\erpt_reports" (RD /S /Q "%sd%:\atmosphere\erpt_reports")
+if exist "%sd%:\atmosphere\crash_reports" (RD /S /Q "%sd%:\atmosphere\crash_reports")
+if exist "%sd%:\atmosphere\exefs_patches" (RD /S /Q "%sd%:\atmosphere\exefs_patches")
+if exist "%sd%:\atmosphere\extras" (RD /S /Q "%sd%:\atmosphere\extras")
+if exist "%sd%:\atmosphere\fatal_errors" (RD /S /Q "%sd%:\atmosphere\fatal_errors")
+if exist "%sd%:\atmosphere\fatal_reports" (RD /S /Q "%sd%:\atmosphere\fatal_reports")
+if exist "%sd%:\atmosphere\flags" (RD /S /Q "%sd%:\atmosphere\flags")
+if exist "%sd%:\atmosphere\hosts" (RD /S /Q  "%sd%:\atmosphere\hosts")
+if exist "%sd%:\atmosphere\kips" (RD /S /Q  "%sd%:\atmosphere\kips")
+if exist "%sd%:\atmosphere\kip_patches" (RD /S /Q "%sd%:\atmosphere\kip_patches")
+if exist "%sd%:\atmosphere\hekate_kips" (RD /S /Q "%sd%:\atmosphere\hekate_kips")
+if exist "%sd%:\atmosphere\logs" (RD /S /Q  "%sd%:\atmosphere\logs")
+if exist "%sd%:\atmosphere\update" (RD /S /Q  "%sd%:\atmosphere\update")
+
+if exist "%sd%:\atmosphere\package3" (DEL /F "%sd%:\atmosphere\package3")
+if exist "%sd%:\atmosphere\*.bin" (DEL /F "%sd%:\atmosphere\*.bin")
+if exist "%sd%:\atmosphere\*.nsp" (DEL /F "%sd%:\atmosphere\*.nsp")
+if exist "%sd%:\atmosphere\*.romfs" (DEL /F "%sd%:\atmosphere\*.romfs")
+if exist "%sd%:\atmosphere\*.sig" (DEL /F "%sd%:\atmosphere\*.sig")
+if exist "%sd%:\atmosphere\*.json" (DEL /F "%sd%:\atmosphere\*.json")
+if exist "%sd%:\atmosphere\*.ini" (DEL /F "%sd%:\atmosphere\*.ini")
 
 REM ======= ATMOSPHERE CONTENTS ORDNER =========================
-if exist "%sd%:\atmosphere\contents\0100000000000008" (RD /s /q "%sd%:\atmosphere\contents\0100000000000008")
-if exist "%sd%:\atmosphere\contents\010000000000100B" (RD /s /q "%sd%:\atmosphere\contents\010000000000100B")
-if exist "%sd%:\atmosphere\contents\010000000000000D" (RD /s /q "%sd%:\atmosphere\contents\010000000000000D")
-if exist "%sd%:\atmosphere\contents\010000000000002b" (RD /s /q "%sd%:\atmosphere\contents\010000000000002b")
-if exist "%sd%:\atmosphere\contents\0100000000000032" (RD /s /q "%sd%:\atmosphere\contents\0100000000000032")
-if exist "%sd%:\atmosphere\contents\0100000000000034" (RD /s /q "%sd%:\atmosphere\contents\0100000000000034")
-if exist "%sd%:\atmosphere\contents\0100000000000036" (RD /s /q "%sd%:\atmosphere\contents\0100000000000036")
-if exist "%sd%:\atmosphere\contents\0100000000000037" (RD /s /q "%sd%:\atmosphere\contents\0100000000000037")
-if exist "%sd%:\atmosphere\contents\010000000000003C" (RD /s /q "%sd%:\atmosphere\contents\010000000000003C")
-if exist "%sd%:\atmosphere\contents\0100000000000042" (RD /s /q "%sd%:\atmosphere\contents\0100000000000042")
-if exist "%sd%:\atmosphere\contents\010000000000100C" (RD /s /q "%sd%:\atmosphere\contents\010000000000100C")
-if exist "%sd%:\atmosphere\contents\010000000000100D" (RD /s /q "%sd%:\atmosphere\contents\010000000000100D")
-if exist "%sd%:\atmosphere\contents\0100000000001000" (RD /s /q "%sd%:\atmosphere\contents\0100000000001000")
-if exist "%sd%:\atmosphere\contents\0100000000001013" (RD /s /q "%sd%:\atmosphere\contents\0100000000001013")
+if exist "%sd%:\atmosphere\contents\0100000000000008" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000008")
+if exist "%sd%:\atmosphere\contents\010000000000100B" (RD /S /Q "%sd%:\atmosphere\contents\010000000000100B")
+if exist "%sd%:\atmosphere\contents\010000000000000D" (RD /S /Q "%sd%:\atmosphere\contents\010000000000000D")
+if exist "%sd%:\atmosphere\contents\010000000000002b" (RD /S /Q "%sd%:\atmosphere\contents\010000000000002b")
+if exist "%sd%:\atmosphere\contents\0100000000000032" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000032")
+if exist "%sd%:\atmosphere\contents\0100000000000034" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000034")
+if exist "%sd%:\atmosphere\contents\0100000000000036" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000036")
+if exist "%sd%:\atmosphere\contents\0100000000000037" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000037")
+if exist "%sd%:\atmosphere\contents\010000000000003C" (RD /S /Q "%sd%:\atmosphere\contents\010000000000003C")
+if exist "%sd%:\atmosphere\contents\0100000000000042" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000042")
+if exist "%sd%:\atmosphere\contents\010000000000100C" (RD /S /Q "%sd%:\atmosphere\contents\010000000000100C")
+if exist "%sd%:\atmosphere\contents\010000000000100D" (RD /S /Q "%sd%:\atmosphere\contents\010000000000100D")
+if exist "%sd%:\atmosphere\contents\0100000000001000" (RD /S /Q "%sd%:\atmosphere\contents\0100000000001000")
+if exist "%sd%:\atmosphere\contents\0100000000001013" (RD /S /Q "%sd%:\atmosphere\contents\0100000000001013")
 
-if exist "%sd%:\atmosphere\contents\0000000000534C56" (RD /s /q "%sd%:\atmosphere\contents\0000000000534C56")
-if exist "%sd%:\atmosphere\contents\00FF0000000002AA" (RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA")
-if exist "%sd%:\atmosphere\contents\00FF0000636C6BF2" (RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BF2")
-if exist "%sd%:\atmosphere\contents\00FF0000636C6BFF" (RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF")
-if exist "%sd%:\atmosphere\contents\00FF00006D7470FF" (RD /s /q "%sd%:\atmosphere\contents\00FF00006D7470FF")
-if exist "%sd%:\atmosphere\contents\00FF0000A53BB665" (RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665")
-if exist "%sd%:\atmosphere\contents\00FF0012656180FF" (RD /s /q "%sd%:\atmosphere\contents\00FF0012656180FF")
-if exist "%sd%:\atmosphere\contents\01FF415446660000" (RD /s /q "%sd%:\atmosphere\contents\01FF415446660000")
-if exist "%sd%:\atmosphere\contents\00FF747765616BFF" (RD /s /q "%sd%:\atmosphere\contents\00FF747765616BFF")
-if exist "%sd%:\atmosphere\contents\0100000000000052" (RD /s /q "%sd%:\atmosphere\contents\0100000000000052")
-if exist "%sd%:\atmosphere\contents\0100000000000081" (RD /s /q "%sd%:\atmosphere\contents\0100000000000081")
-if exist "%sd%:\atmosphere\contents\0100000000000352" (RD /s /q "%sd%:\atmosphere\contents\0100000000000352")
-if exist "%sd%:\atmosphere\contents\0100000000000464" (RD /s /q "%sd%:\atmosphere\contents\0100000000000464")
-if exist "%sd%:\atmosphere\contents\0100000000000523" (RD /s /q "%sd%:\atmosphere\contents\0100000000000523")
-if exist "%sd%:\atmosphere\contents\0100000000000901" (RD /s /q "%sd%:\atmosphere\contents\0100000000000901")
-if exist "%sd%:\atmosphere\contents\0100000000000BED" (RD /s /q "%sd%:\atmosphere\contents\0100000000000BED")
-if exist "%sd%:\atmosphere\contents\0100000000000BEF" (RD /s /q "%sd%:\atmosphere\contents\0100000000000BEF")
-if exist "%sd%:\atmosphere\contents\0100000000000DAD" (RD /s /q "%sd%:\atmosphere\contents\0100000000000DAD")
-if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /s /q "%sd%:\atmosphere\contents\0100000000000F12")
-if exist "%sd%:\atmosphere\contents\0100000000000FAF" (RD /s /q "%sd%:\atmosphere\contents\0100000000000FAF")
-if exist "%sd%:\atmosphere\contents\0100000000006480" (RD /s /q "%sd%:\atmosphere\contents\0100000000006480")
-if exist "%sd%:\atmosphere\contents\0100000000007200" (RD /s /q "%sd%:\atmosphere\contents\0100000000007200")
-if exist "%sd%:\atmosphere\contents\010000000000bd00" (RD /s /q "%sd%:\atmosphere\contents\010000000000bd00")
-if exist "%sd%:\atmosphere\contents\010000000000C235" (RD /s /q "%sd%:\atmosphere\contents\010000000000C235")
-if exist "%sd%:\atmosphere\contents\010000000000f00f" (RD /s /q "%sd%:\atmosphere\contents\010000000000f00f")
-if exist "%sd%:\atmosphere\contents\010000000000FFAB" (RD /s /q "%sd%:\atmosphere\contents\010000000000FFAB")
-if exist "%sd%:\atmosphere\contents\01000000001ED1ED" (RD /s /q "%sd%:\atmosphere\contents\01000000001ED1ED")
-if exist "%sd%:\atmosphere\contents\0532232232232000" (RD /s /q "%sd%:\atmosphere\contents\0532232232232000")
-if exist "%sd%:\atmosphere\contents\054e4f4558454000" (RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000")
-if exist "%sd%:\atmosphere\contents\2200000000000100" (RD /s /q "%sd%:\atmosphere\contents\2200000000000100")
-if exist "%sd%:\atmosphere\contents\4100000000000324" (RD /s /q "%sd%:\atmosphere\contents\4100000000000324")
-if exist "%sd%:\atmosphere\contents\4200000000000000" (RD /s /q "%sd%:\atmosphere\contents\4200000000000000")
-if exist "%sd%:\atmosphere\contents\420000000000000E" (RD /s /q "%sd%:\atmosphere\contents\420000000000000E")
-if exist "%sd%:\atmosphere\contents\420000000000000F" (RD /s /q "%sd%:\atmosphere\contents\420000000000000F")
-if exist "%sd%:\atmosphere\contents\4200000000000010" (RD /s /q "%sd%:\atmosphere\contents\4200000000000010")
-if exist "%sd%:\atmosphere\contents\4200000000000811" (RD /s /q "%sd%:\atmosphere\contents\4200000000000811")
-if exist "%sd%:\atmosphere\contents\4200000000000BA6" (RD /s /q "%sd%:\atmosphere\contents\4200000000000BA6")
-if exist "%sd%:\atmosphere\contents\4200000000000FFF" (RD /s /q "%sd%:\atmosphere\contents\4200000000000FFF")
-if exist "%sd%:\atmosphere\contents\010000000007E51A" (RD /s /q "%sd%:\atmosphere\contents\010000000007E51A")
-if exist "%sd%:\atmosphere\contents\420000000007E51A" (RD /s /q "%sd%:\atmosphere\contents\420000000007E51A")
-if exist "%sd%:\atmosphere\contents\4200000000474442" (RD /s /q "%sd%:\atmosphere\contents\4200000000474442")
-if exist "%sd%:\atmosphere\contents\4200000000696969" (RD /s /q "%sd%:\atmosphere\contents\4200000000696969")
-if exist "%sd%:\atmosphere\contents\4200000AF1E8DA89" (RD /s /q "%sd%:\atmosphere\contents\4200000AF1E8DA89")
-if exist "%sd%:\atmosphere\contents\42000062616B6101" (RD /s /q "%sd%:\atmosphere\contents\42000062616B6101")
-if exist "%sd%:\atmosphere\contents\4200736372697074" (RD /s /q "%sd%:\atmosphere\contents\4200736372697074")
-if exist "%sd%:\atmosphere\contents\4206900000000012" (RD /s /q "%sd%:\atmosphere\contents\4206900000000012")
-if exist "%sd%:\atmosphere\contents\430000000000000A" (RD /s /q "%sd%:\atmosphere\contents\430000000000000A")
-if exist "%sd%:\atmosphere\contents\430000000000000B" (RD /s /q "%sd%:\atmosphere\contents\430000000000000B")
-if exist "%sd%:\atmosphere\contents\430000000000000C" (RD /s /q "%sd%:\atmosphere\contents\430000000000000C")
-if exist "%sd%:\atmosphere\contents\43000000000000FF" (RD /s /q "%sd%:\atmosphere\contents\43000000000000FF")
-if exist "%sd%:\atmosphere\contents\4300000000000909" (RD /s /q "%sd%:\atmosphere\contents\4300000000000909")
-if exist "%sd%:\atmosphere\contents\5600000000000000" (RD /s /q "%sd%:\atmosphere\contents\5600000000000000")
-if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /s /q "%sd%:\atmosphere\contents\690000000000000D")
+if exist "%sd%:\atmosphere\contents\0000000000534C56" (RD /S /Q "%sd%:\atmosphere\contents\0000000000534C56")
+if exist "%sd%:\atmosphere\contents\00FF0000000002AA" (RD /S /Q "%sd%:\atmosphere\contents\00FF0000000002AA")
+if exist "%sd%:\atmosphere\contents\00FF0000636C6BF2" (RD /S /Q "%sd%:\atmosphere\contents\00FF0000636C6BF2")
+if exist "%sd%:\atmosphere\contents\00FF0000636C6BFF" (RD /S /Q "%sd%:\atmosphere\contents\00FF0000636C6BFF")
+if exist "%sd%:\atmosphere\contents\00FF00006D7470FF" (RD /S /Q "%sd%:\atmosphere\contents\00FF00006D7470FF")
+if exist "%sd%:\atmosphere\contents\00FF0000A53BB665" (RD /S /Q "%sd%:\atmosphere\contents\00FF0000A53BB665")
+if exist "%sd%:\atmosphere\contents\00FF0012656180FF" (RD /S /Q "%sd%:\atmosphere\contents\00FF0012656180FF")
+if exist "%sd%:\atmosphere\contents\01FF415446660000" (RD /S /Q "%sd%:\atmosphere\contents\01FF415446660000")
+if exist "%sd%:\atmosphere\contents\00FF747765616BFF" (RD /S /Q "%sd%:\atmosphere\contents\00FF747765616BFF")
+if exist "%sd%:\atmosphere\contents\0100000000000052" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000052")
+if exist "%sd%:\atmosphere\contents\0100000000000081" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000081")
+if exist "%sd%:\atmosphere\contents\0100000000000352" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000352")
+if exist "%sd%:\atmosphere\contents\0100000000000464" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000464")
+if exist "%sd%:\atmosphere\contents\0100000000000523" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000523")
+if exist "%sd%:\atmosphere\contents\0100000000000901" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000901")
+if exist "%sd%:\atmosphere\contents\0100000000000BED" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000BED")
+if exist "%sd%:\atmosphere\contents\0100000000000BEF" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000BEF")
+if exist "%sd%:\atmosphere\contents\0100000000000DAD" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000DAD")
+if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000F12")
+if exist "%sd%:\atmosphere\contents\0100000000000FAF" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000FAF")
+if exist "%sd%:\atmosphere\contents\0100000000006480" (RD /S /Q "%sd%:\atmosphere\contents\0100000000006480")
+if exist "%sd%:\atmosphere\contents\0100000000007200" (RD /S /Q "%sd%:\atmosphere\contents\0100000000007200")
+if exist "%sd%:\atmosphere\contents\010000000000bd00" (RD /S /Q "%sd%:\atmosphere\contents\010000000000bd00")
+if exist "%sd%:\atmosphere\contents\010000000000C235" (RD /S /Q "%sd%:\atmosphere\contents\010000000000C235")
+if exist "%sd%:\atmosphere\contents\010000000000f00f" (RD /S /Q "%sd%:\atmosphere\contents\010000000000f00f")
+if exist "%sd%:\atmosphere\contents\010000000000FFAB" (RD /S /Q "%sd%:\atmosphere\contents\010000000000FFAB")
+if exist "%sd%:\atmosphere\contents\01000000001ED1ED" (RD /S /Q "%sd%:\atmosphere\contents\01000000001ED1ED")
+if exist "%sd%:\atmosphere\contents\0532232232232000" (RD /S /Q "%sd%:\atmosphere\contents\0532232232232000")
+if exist "%sd%:\atmosphere\contents\054e4f4558454000" (RD /S /Q "%sd%:\atmosphere\contents\054e4f4558454000")
+if exist "%sd%:\atmosphere\contents\2200000000000100" (RD /S /Q "%sd%:\atmosphere\contents\2200000000000100")
+if exist "%sd%:\atmosphere\contents\4100000000000324" (RD /S /Q "%sd%:\atmosphere\contents\4100000000000324")
+if exist "%sd%:\atmosphere\contents\4200000000000000" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000000")
+if exist "%sd%:\atmosphere\contents\420000000000000E" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000E")
+if exist "%sd%:\atmosphere\contents\420000000000000F" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000F")
+if exist "%sd%:\atmosphere\contents\4200000000000010" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000010")
+if exist "%sd%:\atmosphere\contents\4200000000000811" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000811")
+if exist "%sd%:\atmosphere\contents\4200000000000BA6" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000BA6")
+if exist "%sd%:\atmosphere\contents\4200000000000FFF" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000FFF")
+if exist "%sd%:\atmosphere\contents\010000000007E51A" (RD /S /Q "%sd%:\atmosphere\contents\010000000007E51A")
+if exist "%sd%:\atmosphere\contents\420000000007E51A" (RD /S /Q "%sd%:\atmosphere\contents\420000000007E51A")
+if exist "%sd%:\atmosphere\contents\4200000000474442" (RD /S /Q "%sd%:\atmosphere\contents\4200000000474442")
+if exist "%sd%:\atmosphere\contents\4200000000696969" (RD /S /Q "%sd%:\atmosphere\contents\4200000000696969")
+if exist "%sd%:\atmosphere\contents\4200000AF1E8DA89" (RD /S /Q "%sd%:\atmosphere\contents\4200000AF1E8DA89")
+if exist "%sd%:\atmosphere\contents\42000062616B6101" (RD /S /Q "%sd%:\atmosphere\contents\42000062616B6101")
+if exist "%sd%:\atmosphere\contents\4200736372697074" (RD /S /Q "%sd%:\atmosphere\contents\4200736372697074")
+if exist "%sd%:\atmosphere\contents\4206900000000012" (RD /S /Q "%sd%:\atmosphere\contents\4206900000000012")
+if exist "%sd%:\atmosphere\contents\430000000000000A" (RD /S /Q "%sd%:\atmosphere\contents\430000000000000A")
+if exist "%sd%:\atmosphere\contents\430000000000000B" (RD /S /Q "%sd%:\atmosphere\contents\430000000000000B")
+if exist "%sd%:\atmosphere\contents\430000000000000C" (RD /S /Q "%sd%:\atmosphere\contents\430000000000000C")
+if exist "%sd%:\atmosphere\contents\43000000000000FF" (RD /S /Q "%sd%:\atmosphere\contents\43000000000000FF")
+if exist "%sd%:\atmosphere\contents\4300000000000909" (RD /S /Q "%sd%:\atmosphere\contents\4300000000000909")
+if exist "%sd%:\atmosphere\contents\5600000000000000" (RD /S /Q "%sd%:\atmosphere\contents\5600000000000000")
+if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /S /Q "%sd%:\atmosphere\contents\690000000000000D")
 
-if exist "%sd%:\bootloader" (RD /s /q "%sd%:\bootloader")
-if exist "%sd%:\config" (RD /s /q "%sd%:\config")
-if exist "%sd%:\switch" (RD /s /q "%sd%:\switch")
-if exist "%sd%:\themes" (RD /s /q "%sd%:\themes")
+if exist "%sd%:\bootloader" (RD /S /Q "%sd%:\bootloader")
+if exist "%sd%:\config" (RD /S /Q "%sd%:\config")
+if exist "%sd%:\switch" (RD /S /Q "%sd%:\switch")
+if exist "%sd%:\themes" (RD /S /Q "%sd%:\themes")
 
 FOR /D /R "%sd%:\" %%X IN (amsPACK*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (kefir*) DO RD /S /Q "%%X"
@@ -405,30 +478,31 @@ FOR /D /R "%sd%:\" %%X IN (sxos*) DO RD /S /Q "%%X"
 FOR /D /R "%sd%:\" %%X IN (custom*) DO RD /S /Q "%%X"
 
 REM ======= SD-KARTEN ROOT =====================================
-if exist "%sd%:\tegraexplorer" (RD /s /q "%sd%:\tegraexplorer")
-if exist "%sd%:\modules" (RD /s /q "%sd%:\modules")
-if exist "%sd%:\NSPs" (RD /s /q "%sd%:\NSPs")
-if exist "%sd%:\NSP" (RD /s /q "%sd%:\NSP")
-if exist "%sd%:\SaltySD" (RD /s /q "%sd%:\SaltySD")
-if exist "%sd%:\atmo" (RD /s /q "%sd%:\atmo")
-if exist "%sd%:\ams" (RD /s /q "%sd%:\ams")
-if exist "%sd%:\scripts" (RD /s /q "%sd%:\scripts")
-if exist "%sd%:\music" (RD /s /q "%sd%:\music")
-if exist "%sd%:\tools" (RD /s /q "%sd%:\tools")
-if exist "%sd%:\games" (RD /s /q "%sd%:\games")
-if exist "%sd%:\pegascape" (RD /s /q "%sd%:\pegascape")
-if exist "%sd%:\TinGen" (RD /s /q "%sd%:\TinGen")
-if exist "%sd%:\sept" (RD /s /q  "%sd%:\sept")
-if exist "%sd%:\.git" (RD /s /q "%sd%:\.git")
-if exist "%sd%:\*.nro" (del "%sd%:\hbmenu.nro")
-if exist "%sd%:\*.te" (del "%sd%:\startup.te")
-if exist "%sd%:\*.ini" (del "%sd%:\*.ini")
-if exist "%sd%:\*.bin" (del "%sd%:\*.bin")
-if exist "%sd%:\*.txt" (del "%sd%:\*.txt")
-if exist "%sd%:\*.dat" (del "%sd%:\*.dat")
-if exist "%sd%:\*.log" (del "%sd%:\*.log")
+if exist "%sd%:\tegraexplorer" (RD /S /Q "%sd%:\tegraexplorer")
+if exist "%sd%:\modules" (RD /S /Q "%sd%:\modules")
+if exist "%sd%:\NSPs" (RD /S /Q "%sd%:\NSPs")
+if exist "%sd%:\NSP" (RD /S /Q "%sd%:\NSP")
+if exist "%sd%:\SaltySD" (RD /S /Q "%sd%:\SaltySD")
+if exist "%sd%:\atmo" (RD /S /Q "%sd%:\atmo")
+if exist "%sd%:\ams" (RD /S /Q "%sd%:\ams")
+if exist "%sd%:\scripts" (RD /S /Q "%sd%:\scripts")
+if exist "%sd%:\music" (RD /S /Q "%sd%:\music")
+if exist "%sd%:\tools" (RD /S /Q "%sd%:\tools")
+if exist "%sd%:\games" (RD /S /Q "%sd%:\games")
+if exist "%sd%:\pegascape" (RD /S /Q "%sd%:\pegascape")
+if exist "%sd%:\TinGen" (RD /S /Q "%sd%:\TinGen")
+if exist "%sd%:\sept" (RD /S /Q  "%sd%:\sept")
+if exist "%sd%:\.git" (RD /S /Q "%sd%:\.git")
+if exist "%sd%:\*.nro" (DEL /F "%sd%:\hbmenu.nro")
+if exist "%sd%:\*.te" (DEL /F "%sd%:\startup.te")
+if exist "%sd%:\*.ini" (DEL /F "%sd%:\*.ini")
+if exist "%sd%:\*.bin" (DEL /F "%sd%:\*.bin")
+if exist "%sd%:\*.txt" (DEL /F "%sd%:\*.txt")
+if exist "%sd%:\*.dat" (DEL /F "%sd%:\*.dat")
+if exist "%sd%:\*.log" (DEL /F "%sd%:\*.log")
 
-if exist "%sd%:\roms\*.txt" (del  "%sd%:\roms\*.txt")
+if exist "%sd%:\roms\*.txt" (DEL /F  "%sd%:\roms\*.txt")
+)
 
 REM ============================================================
 :sblegtlos
@@ -1143,7 +1217,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-RD /s /q "%sd%:\switch\tinfoil" >nul 2>nul
+RD /S /Q "%sd%:\switch\tinfoil" >nul 2>nul
 del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp" >nul 2>nul
 GOTO themepaketinst
 
@@ -1161,7 +1235,7 @@ echo.
 
 xcopy "%sd%:\switchbros\theme\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 if exist "%SB-Backup%\bootlogo\bootlogo" (
-RD /s /q "%sd%:\atmosphere\exefs_patches\bootlogo" >nul 2>nul
+RD /S /Q "%sd%:\atmosphere\exefs_patches\bootlogo" >nul 2>nul
 xcopy /y "%SB-Backup%\bootlogo\bootlogo" "%sd%:\atmosphere\exefs_patches\bootlogo") >nul 2>nul
 if exist "%SB-Backup%\IconGrabber\config.json" (xcopy "%SB-Backup%\IconGrabber\config.json" "%sd%:\config\IconGrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO steamapiangeben
@@ -1218,13 +1292,13 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-RD /s /q "%sd%:\atmosphere\contents\00FF747765616BFF" >nul 2>nul
-RD /s /q "%sd%:\config\icongrabber" >nul 2>nul
-RD /s /q "%sd%:\switch\icongrabber" >nul 2>nul
-RD /s /q "%sd%:\switch\Switch_themes_Installer" >nul 2>nul
-RD /s /q "%sd%:\switch\ThemezerNX" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\NXthemes_Installer" >nul 2>nul
-RD /s /q "%sd%:\switch\appstore\.get\packages\ThemezerNX" >nul 2>nul
+RD /S /Q "%sd%:\atmosphere\contents\00FF747765616BFF" >nul 2>nul
+RD /S /Q "%sd%:\config\icongrabber" >nul 2>nul
+RD /S /Q "%sd%:\switch\icongrabber" >nul 2>nul
+RD /S /Q "%sd%:\switch\Switch_themes_Installer" >nul 2>nul
+RD /S /Q "%sd%:\switch\ThemezerNX" >nul 2>nul
+RD /S /Q "%sd%:\switch\appstore\.get\packages\NXthemes_Installer" >nul 2>nul
+RD /S /Q "%sd%:\switch\appstore\.get\packages\ThemezerNX" >nul 2>nul
 del "%sd%:\ThemeApps.txt" >nul 2>nul
 GOTO systemmodule
 
@@ -1269,67 +1343,67 @@ echo      BITTE WARTEN...^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-    RD /s /q "%sd%:\switch\.overlays" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\420000000007E51A" >nul 2>nul
-	RD /s /q "%sd%:\config\Tesla" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Tesla-Menu" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\dns-mitm_manager" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA" >nul 2>nul
-	RD /s /q "%sd%:\config\BootSoundNX" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\010000000000000D" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\0100000000001013" >nul 2>nul
-	RD /s /q "%sd%:\switch\breeze" >nul 2>nul
-	RD /s /q "%sd%:\switch\EdiZon" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\0100000000000352" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo" >nul 2>nul
-	RD /s /q "%sd%:\config\fastCFWswitch" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\fastCFWswitch" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\0100000000000F12" >nul 2>nul
-	RD /s /q "%sd%:\config\Fizeau" >nul 2>nul
-	RD /s /q "%sd%:\switch\Fizeau" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\4200000000000010" >nul 2>nul
-	RD /s /q "%sd%:\switch\ldnmitm_config" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\010000000000bd00" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\exefs_patches\bluetooth_patches" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\exefs_patches\btm_patches" >nul 2>nul
-	RD /s /q "%sd%:\config\MissionControl" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\MissionControl" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\ovlsysmodule" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\0000000000534C56" >nul 2>nul
-	RD /s /q "%sd%:\SaltySD" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\fpslocker" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF" >nul 2>nul
-	RD /s /q "%sd%:\config\sys-clk" >nul 2>nul
-	RD /s /q "%sd%:\switch\sys-clk" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-manager" >nul 2>nul
-	RD /s /q "%sd%:\switch\sys-clk-Editor" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-Editor" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\690000000000000D" >nul 2>nul
-	RD /s /q "%sd%:\config\sys-con" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-con" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665" >nul 2>nul
-	RD /s /q "%sd%:\config\sysdvr" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay" >nul 2>nul
-	RD /s /q "%sd%:\switch\SysDVR-conf" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\420000000000000E" >nul 2>nul
-	RD /s /q "%sd%:\config\sys-ftpd" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\4200000000000000" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-tune" >nul 2>nul
-	RD /s /q "%sd%:\switch\appstore\.get\packages\QuickNTP" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\0100BF500207C000" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\01009EE0111CC000" >nul 2>nul
-	RD /s /q "%sd%:\atmosphere\contents\010092A0172E4000" >nul 2>nul
-	RD /s /q "%sd%:\switch\MemTesterNX" >nul 2>nul
-	RD /s /q "%sd%:\switch\MicroMemBench" >nul 2>nul
-	RD /s /q "%sd%:\switch\ReverseNX-Tool" >nul 2>nul
+    RD /S /Q "%sd%:\switch\.overlays" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\420000000007E51A" >nul 2>nul
+	RD /S /Q "%sd%:\config\Tesla" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\Tesla-Menu" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\dns-mitm_manager" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\00FF0000000002AA" >nul 2>nul
+	RD /S /Q "%sd%:\config\BootSoundNX" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\054e4f4558454000" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\010000000000000D" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\0100000000001013" >nul 2>nul
+	RD /S /Q "%sd%:\switch\breeze" >nul 2>nul
+	RD /S /Q "%sd%:\switch\EdiZon" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\EdiZon" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\0100000000000352" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\emuiibo" >nul 2>nul
+	RD /S /Q "%sd%:\config\fastCFWswitch" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\fastCFWswitch" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\0100000000000F12" >nul 2>nul
+	RD /S /Q "%sd%:\config\Fizeau" >nul 2>nul
+	RD /S /Q "%sd%:\switch\Fizeau" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\Fizeau" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\4200000000000010" >nul 2>nul
+	RD /S /Q "%sd%:\switch\ldnmitm_config" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\ldn_mitm" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\010000000000bd00" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\exefs_patches\bluetooth_patches" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\exefs_patches\btm_patches" >nul 2>nul
+	RD /S /Q "%sd%:\config\MissionControl" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\MissionControl" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\ovlsysmodule" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\0000000000534C56" >nul 2>nul
+	RD /S /Q "%sd%:\SaltySD" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\SaltyNX" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\fpslocker" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\00FF0000636C6BFF" >nul 2>nul
+	RD /S /Q "%sd%:\config\sys-clk" >nul 2>nul
+	RD /S /Q "%sd%:\switch\sys-clk" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-clk-manager" >nul 2>nul
+	RD /S /Q "%sd%:\switch\sys-clk-Editor" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-clk-Editor" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\690000000000000D" >nul 2>nul
+	RD /S /Q "%sd%:\config\sys-con" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-con" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\00FF0000A53BB665" >nul 2>nul
+	RD /S /Q "%sd%:\config\sysdvr" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\SysDVR-conf" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay" >nul 2>nul
+	RD /S /Q "%sd%:\switch\SysDVR-conf" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\420000000000000E" >nul 2>nul
+	RD /S /Q "%sd%:\config\sys-ftpd" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\4200000000000000" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-tune" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\QuickNTP" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\0100BF500207C000" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\01009EE0111CC000" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\010092A0172E4000" >nul 2>nul
+	RD /S /Q "%sd%:\switch\MemTesterNX" >nul 2>nul
+	RD /S /Q "%sd%:\switch\MicroMemBench" >nul 2>nul
+	RD /S /Q "%sd%:\switch\ReverseNX-Tool" >nul 2>nul
     del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
 
 REM ============================================================
@@ -1472,8 +1546,8 @@ set /p bootsoundnx="     Bitte triff deine Auswahl: "
 	GOTO bootsoundnx
 	)
 	if "%bootsoundnx%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000000002AA"
-	RD /s /q "%sd%:\config\BootSoundNX"
+	RD /S /Q "%sd%:\atmosphere\contents\00FF0000000002AA"
+	RD /S /Q "%sd%:\config\BootSoundNX"
 	GOTO bootsoundnx
 	)
 	if "%bootsoundnx%"=="3" GOTO teslamanuell
@@ -1503,7 +1577,7 @@ set /p dnsmitm="     Bitte triff deine Auswahl: "
 	GOTO dnsmitm
 	)
 	if "%dnsmitm%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\dns-mitm_Manager"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\dns-mitm_Manager"
 	del "%sd%:\switch\.overlays\DNS-MITM_Manager.ovl"
 	GOTO dnsmitm
 	)
@@ -1533,12 +1607,12 @@ set /p edizon="     Bitte triff deine Auswahl: "
 	GOTO edizon
 	)
 	if "%edizon%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\054e4f4558454000"
-	RD /s /q "%sd%:\atmosphere\contents\010000000000000D"
-	RD /s /q "%sd%:\atmosphere\contents\0100000000001013"
-	RD /s /q "%sd%:\switch\EdiZon"
-	RD /s /q "%sd%:\switch\breeze"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\EdiZon"
+	RD /S /Q "%sd%:\atmosphere\contents\054e4f4558454000"
+	RD /S /Q "%sd%:\atmosphere\contents\010000000000000D"
+	RD /S /Q "%sd%:\atmosphere\contents\0100000000001013"
+	RD /S /Q "%sd%:\switch\EdiZon"
+	RD /S /Q "%sd%:\switch\breeze"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\EdiZon"
 	del "%sd%:\switch\.overlays\ovlEdiZon.ovl"
 	GOTO edizon
 	)
@@ -1568,8 +1642,8 @@ set /p emuiibo="     Bitte triff deine Auswahl: "
 	GOTO emuiibo
 	)
 	if "%emuiibo%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\0100000000000352"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\emuiibo"
+	RD /S /Q "%sd%:\atmosphere\contents\0100000000000352"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\emuiibo"
 	del "%sd%:\switch\.overlays\emuiibo.ovl"
 	GOTO emuiibo
 	)
@@ -1600,8 +1674,8 @@ set /p fastcfwswitch=     Bitte triff deine Auswahl:
 	GOTO fastcfwswitch
 	)
 	if "%fastcfwswitch%"=="2" (
-	RD /s /q "%sd%:\config\fastCFWSwitch"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\fastCFWSwitch"
+	RD /S /Q "%sd%:\config\fastCFWSwitch"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\fastCFWSwitch"
 	del "%sd%:\switch\.overlays\0_fastCFWswitch.ovl"
 	GOTO fastcfwswitch
 	)
@@ -1632,10 +1706,10 @@ set /p fizeau=     Bitte triff deine Auswahl:
 	GOTO fizeau
 	)
 	if "%fizeau%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\0100000000000F12"
-	RD /s /q "%sd%:\config\Fizeau"
-	RD /s /q "%sd%:\switch\Fizeau"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Fizeau"
+	RD /S /Q "%sd%:\atmosphere\contents\0100000000000F12"
+	RD /S /Q "%sd%:\config\Fizeau"
+	RD /S /Q "%sd%:\switch\Fizeau"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\Fizeau"
 	del "%sd%:\switch\.overlays\Fizeau.ovl"
 	GOTO fizeau
 	)
@@ -1665,9 +1739,9 @@ set /p ldnmitm=     Bitte triff deine Auswahl:
 	GOTO ldnmitm
 	)
 	if "%ldnmitm%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\4200000000000010"
-	RD /s /q "%sd%:\switch\ldn_mitm_config"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
+	RD /S /Q "%sd%:\atmosphere\contents\4200000000000010"
+	RD /S /Q "%sd%:\switch\ldn_mitm_config"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\ldn_mitm_config"
 	del "%sd%:\switch\.overlays\ldnmitm_config"
 	GOTO ldnmitm
 	)
@@ -1697,11 +1771,11 @@ set /p missioncontrol=     Bitte triff deine Auswahl:
 	GOTO missioncontrol
 	)
 	if "%missioncontrol%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\010000000000bd00"
-	RD /s /q "%sd%:\atmosphere\contents\exefs_patches\bluetooth_patches"
-	RD /s /q "%sd%:\atmosphere\contents\exefs_patches\btm_patches"
-	RD /s /q "%sd%:\config\MissionControl"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\missioncontrol"
+	RD /S /Q "%sd%:\atmosphere\contents\010000000000bd00"
+	RD /S /Q "%sd%:\atmosphere\contents\exefs_patches\bluetooth_patches"
+	RD /S /Q "%sd%:\atmosphere\contents\exefs_patches\btm_patches"
+	RD /S /Q "%sd%:\config\MissionControl"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\missioncontrol"
 	GOTO missioncontrol
 	)
 	if "%missioncontrol%"=="3" GOTO teslamanuell
@@ -1730,7 +1804,7 @@ set /p ovlssysmodule=     Bitte triff deine Auswahl:
 	GOTO ovlssysmodule
 	)
 	if "%ovlssysmodule%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\ovlssysmodule"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\ovlssysmodule"
 	del "%sd%:\switch\.overlays\ovlSysmodules.ovl"
 	GOTO ovlssysmodule
 	)
@@ -1761,7 +1835,7 @@ set /p quickntp="     Bitte triff deine Auswahl: "
 	)
 	if "%quickntp%"=="2" (
 	del /s /q "%sd%:\switch\.overlays\QuickNTP.ovl"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\QuickNTP"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\QuickNTP"
 	GOTO quickntp
 	)
 	if "%quickntp%"=="3" GOTO teslamanuell
@@ -1790,10 +1864,10 @@ set /p saltynx=     Bitte triff deine Auswahl:
 	GOTO saltynx
 	)
 	if "%saltynx%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\0000000000534C56"
-	RD /s /q "%sd%:\SaltySD"
+	RD /S /Q "%sd%:\atmosphere\contents\0000000000534C56"
+	RD /S /Q "%sd%:\SaltySD"
 	del /s /q "%sd%:\switch\.overlays\FPSLocker.ovl"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\SaltyNX"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\SaltyNX"
 	GOTO saltynx
 	)
 	if "%saltynx%"=="3" GOTO teslamanuell
@@ -1822,7 +1896,7 @@ set /p statmon=     Bitte triff deine Auswahl:
 	GOTO statmon
 	)
 	if "%statmon%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
 	del "%sd%:\switch\.overlays\Status-Monitor-Overlay.ovl"
 	GOTO statmon
 	)
@@ -1852,11 +1926,11 @@ set /p sysclk=     Bitte triff deine Auswahl:
 	GOTO sysclk
 	)
 	if "%sysclk%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000636C6BFF"
-	RD /s /q "%sd%:\config\sys-clk"
+	RD /S /Q "%sd%:\atmosphere\contents\00FF0000636C6BFF"
+	RD /S /Q "%sd%:\config\sys-clk"
 	del /s /q "%sd%:\switch\.overlays\sys-clk-overlay.ovl"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-manager"
-	RD /s /q "%sd%:\switch\sys-clk-manager"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-clk-manager"
+	RD /S /Q "%sd%:\switch\sys-clk-manager"
 	GOTO sysclk
 	)
 	if "%sysclk%"=="3" GOTO teslamanuell
@@ -1885,8 +1959,8 @@ set /p sysclkedit=     Bitte triff deine Auswahl:
 	GOTO sysclkedit
 	)
 	if "%sysclkedit%"=="2" (
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-clk-Editor"
-	RD /s /q "%sd%:\switch\sys-clk-Editor"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-clk-Editor"
+	RD /S /Q "%sd%:\switch\sys-clk-Editor"
 	GOTO sysclkedit
 	)
 	if "%sysclkedit%"=="3" GOTO teslamanuell
@@ -1915,9 +1989,9 @@ set /p syscon=     Bitte triff deine Auswahl:
 	GOTO syscon
 	)
 	if "%syscon%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\690000000000000D"
-	RD /s /q "%sd%:\config\sys-con"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-con"
+	RD /S /Q "%sd%:\atmosphere\contents\690000000000000D"
+	RD /S /Q "%sd%:\config\sys-con"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-con"
 	GOTO syscon
 	)
 	if "%syscon%"=="3" GOTO teslamanuell
@@ -1946,9 +2020,9 @@ set /p sysftpd=     Bitte triff deine Auswahl:
 	GOTO sysftpd
 	)
 	if "%sysftpd%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\420000000000000E"
-	RD /s /q "%sd%:\config\sys-ftpd"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light"
+	RD /S /Q "%sd%:\atmosphere\contents\420000000000000E"
+	RD /S /Q "%sd%:\config\sys-ftpd"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light"
 	GOTO sysftpd
 	)
 	if "%sysftpd%"=="3" GOTO teslamanuell
@@ -1977,12 +2051,12 @@ set /p sysdvr=     Bitte triff deine Auswahl:
 	GOTO sysdvr
 	)
 	if "%sysdvr%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\00FF0000A53BB665"
-	RD /s /q "%sd%:\config\sysdvr"
+	RD /S /Q "%sd%:\atmosphere\contents\00FF0000A53BB665"
+	RD /S /Q "%sd%:\config\sysdvr"
 	del /s /q "%sd%:\switch\.overlays\sysdvr-overlay.ovl"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
-	RD /s /q "%sd%:\switch\SysDVR-conf"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\SysDVR-conf"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sysdvr-overlay"
+	RD /S /Q "%sd%:\switch\SysDVR-conf"
 	GOTO sysdvr
 	)
 	if "%sysdvr%"=="3" GOTO teslamanuell
@@ -2011,9 +2085,9 @@ set /p systune=     Bitte triff deine Auswahl:
 	GOTO systune
 	)
 	if "%systune%"=="2" (
-	RD /s /q "%sd%:\atmosphere\contents\4200000000000000"
+	RD /S /Q "%sd%:\atmosphere\contents\4200000000000000"
 	del /s /q "%sd%:\switch\.overlays\sys-tune-overlay.ovl"
-	RD /s /q "%sd%:\switch\appstore\.get\packages\sys-tune"
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-tune"
 	GOTO systune
 	)
 	if "%systune%"=="3" GOTO teslamanuell
@@ -2149,7 +2223,7 @@ set /p chiaki=     Bitte triff deine Auswahl:
 	GOTO chiaki
 	)
 	if "%chiaki%"=="2" (
-	RD /s /q "%sd%:\switch\chiaki"
+	RD /S /Q "%sd%:\switch\chiaki"
 	GOTO chiaki
 	)
 	if "%chiaki%"=="3" GOTO zusatzapps
@@ -2178,7 +2252,7 @@ set /p fake08=     Bitte triff deine Auswahl:
 	GOTO fake08
 	)
 	if "%fake08%"=="2" (
-	RD /s /q "%sd%:\switch\fake08"
+	RD /S /Q "%sd%:\switch\fake08"
 	GOTO fake08
 	)
 	if "%fake08%"=="3" GOTO zusatzapps
@@ -2207,7 +2281,7 @@ set /p haku33=     Bitte triff deine Auswahl:
 	GOTO haku33
 	)
 	if "%haku33%"=="2" (
-	RD /s /q "%sd%:\switch\haku33"
+	RD /S /Q "%sd%:\switch\haku33"
 	GOTO haku33
 	)
 	if "%haku33%"=="3" GOTO zusatzapps
@@ -2236,7 +2310,7 @@ set /p tencentswitcher=     Bitte triff deine Auswahl:
 	GOTO tencentswitcher
 	)
 	if "%tencentswitcher%"=="2" (
-	RD /s /q "%sd%:\switch\TencentSwitcherGui"
+	RD /S /Q "%sd%:\switch\TencentSwitcherGui"
 	GOTO tencentswitcher
 	)
 	if "%tencentswitcher%"=="3" GOTO zusatzapps
@@ -2439,43 +2513,43 @@ echo      Bitte Warten^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-if exist "%sd%:\SwitchBros_BasisPaket" (RD /s /q "%sd%:\SwitchBros_BasisPaket")
-if exist "%sd%:\switchbros" (RD /s /q "%sd%:\switchbros")
-if exist "%sd%:\updatebak" (RD /s /q "%sd%:\updatebak")
-if exist "%sd%:\switch\switchbros-updater\update.te" (del "%sd%:\switch\switchbros-updater\update.te")
-if exist "%sd%:\System Volume Information" (RD /s /q "%sd%:\System Volume Information")
-if exist "%sd%:\*.bat" (del "%sd%:\*.bat")
-if exist "%sd%:\*.te" (del "%sd%:\*.te")
-if exist "%sd%:\*.exe" (del "%sd%:\*.exe")
-if exist "%sd%:\*.bak" (del "%sd%:\*.bak")
-if exist "%sd%:\*.md" (del "%sd%:\*.md")
-if exist "%sd%:\licence" (del "%sd%:\licence")
-if exist "%sd%:\SwitchBros_BasisPaket.zip" (del "%sd%:\SwitchBros_BasisPaket.zip")
-if exist "%sd%:\bootloader\ini\!switchbros_updater.ini" (del "%sd%:\bootloader\ini\!switchbros_updater.ini")
-if exist "%sd%:\bootloader\ini\switchbros_updater.ini" (del "%sd%:\bootloader\ini/switchbros_updater.ini")
-if exist "%sd%:\SwitchBros.txt" (del "%sd%:\SwitchBros.txt")
-if exist "%sd%:\switch\switchbrosupdater" (RD /s /q "%sd%:\switch\switchbrosupdater")
+if exist "%sd%:\SwitchBros_BasisPaket" (RD /S /Q "%sd%:\SwitchBros_BasisPaket")
+if exist "%sd%:\switchbros" (RD /S /Q "%sd%:\switchbros")
+if exist "%sd%:\updatebak" (RD /S /Q "%sd%:\updatebak")
+if exist "%sd%:\switch\switchbros-updater\update.te" (DEL /F "%sd%:\switch\switchbros-updater\update.te")
+if exist "%sd%:\System Volume Information" (RD /S /Q "%sd%:\System Volume Information")
+if exist "%sd%:\*.bat" (DEL /F "%sd%:\*.bat")
+if exist "%sd%:\*.te" (DEL /F "%sd%:\*.te")
+if exist "%sd%:\*.exe" (DEL /F "%sd%:\*.exe")
+if exist "%sd%:\*.bak" (DEL /F "%sd%:\*.bak")
+if exist "%sd%:\*.md" (DEL /F "%sd%:\*.md")
+if exist "%sd%:\licence" (DEL /F "%sd%:\licence")
+if exist "%sd%:\SwitchBros_BasisPaket.zip" (DEL /F "%sd%:\SwitchBros_BasisPaket.zip")
+if exist "%sd%:\bootloader\ini\!switchbros_updater.ini" (DEL /F "%sd%:\bootloader\ini\!switchbros_updater.ini")
+if exist "%sd%:\bootloader\ini\switchbros_updater.ini" (DEL /F "%sd%:\bootloader\ini/switchbros_updater.ini")
+if exist "%sd%:\SwitchBros.txt" (DEL /F "%sd%:\SwitchBros.txt")
+if exist "%sd%:\switch\switchbrosupdater" (RD /S /Q "%sd%:\switch\switchbrosupdater")
 
 if %bootdat%==0 (
-	if exist "%sd%:\bootloader\memloader" (RD /s /q "%sd%:\bootloader\memloader")
-	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
-	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
-	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
-	if exist "%sd%:\boot.dat" (del "%sd%:\boot.dat")
-	if exist "%sd%:\boot.ini" (del "%sd%:\boot.ini") 
-	if exist "%sd%:\payload.bin" (del "%sd%:\payload.bin")
+	if exist "%sd%:\bootloader\memloader" (RD /S /Q "%sd%:\bootloader\memloader")
+	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
+	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (DEL /F "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
+	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (DEL /F "%sd%:\bootloader\ini\hwfly_toolbox.ini")
+	if exist "%sd%:\boot.dat" (DEL /F "%sd%:\boot.dat")
+	if exist "%sd%:\boot.ini" (DEL /F "%sd%:\boot.ini") 
+	if exist "%sd%:\payload.bin" (DEL /F "%sd%:\payload.bin")
 	)
 if %bootdat%==1 (
-	if exist "%sd%:\bootloader\memloader" (RD /s /q "%sd%:\bootloader\memloader")
-	if exist "%sd%:\config\Fizeau" (RD /s /q "%sd%:\config\Fizeau")
-	if exist "%sd%:\switch\Fizeau" (RD /s /q "%sd%:\switch\Fizeau")
-	if exist "%sd%:\switch\.overlays\5_Fizeau.ovl" (del "%sd%:\switch\.overlays\*fizeau*.ovl")
-	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /s /q "%sd%:\atmosphere\contents\0100000000000F12")
+	if exist "%sd%:\bootloader\memloader" (RD /S /Q "%sd%:\bootloader\memloader")
+	if exist "%sd%:\config\Fizeau" (RD /S /Q "%sd%:\config\Fizeau")
+	if exist "%sd%:\switch\Fizeau" (RD /S /Q "%sd%:\switch\Fizeau")
+	if exist "%sd%:\switch\.overlays\5_Fizeau.ovl" (DEL /F "%sd%:\switch\.overlays\*fizeau*.ovl")
+	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000F12")
 )
 if %bootdat%==2 (
-	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (del "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
-	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (del "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
-	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (del "%sd%:\bootloader\ini\hwfly_toolbox.ini")
+	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
+	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (DEL /F "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
+	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (DEL /F "%sd%:\bootloader\ini\hwfly_toolbox.ini")
 	)
 
 cd %sd%:\
