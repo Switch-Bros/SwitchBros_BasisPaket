@@ -20,8 +20,6 @@ JKSV 02/23/2023
 linkalho 2.1.0 (Deutsch) 
 NX-Activity-Log 1.4.0
 NXThemeInstaller 2.7
-N-Xplorer 0.7.1
-Reset parental control 1.2.0 (Deutsch)
 Themezer 2.0.0
 
 
