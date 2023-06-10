@@ -2102,6 +2102,8 @@ if (resTinfoil == 1) {
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
 }
 
+wait(tw = 2000)
+col(SCHWARZ)
 if (fse("sd:/backup/SB/tinfoil/locations.conf")) {
 	copyfile ("sd:/backup/SB/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
 }
@@ -2109,7 +2111,6 @@ if (fse("sd:/backup/SB/tinfoil/options.json")){
 	copyfile ("sd:/backup/SB/tinfoil/options.json", "sd:/switch/tinfoil/options.json")
 }
 
-wait(tw = 2000)
 clear()
 
 if (resTinfoil == 2) {
@@ -2127,7 +2128,6 @@ if (resTinfoil == 2) {
 	delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][16.0][v0].nsp")
 }
 
-wait(tw = 3000)
 clear()
 
 pl()
@@ -2441,7 +2441,7 @@ pl()
 pl()
 pl()
 col(PINK)
-p("                               Tatort-Reiniger am Werk!")
+p("                            Tatort-Reiniger am Werk!")
 col(SCHWARZ)
 delfile("sd:/startup.te")
 delfile("sd:/bootloader/ini/!switchbros_updater.ini")
