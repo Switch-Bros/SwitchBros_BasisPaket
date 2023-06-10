@@ -253,13 +253,10 @@ if (fse("sd:/SB.ico")){
 	deldir("sd:/bootloader/sys")
 	delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
 	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
+	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5-SB.bin")
+	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4-SB.bin")
 	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.3.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.2.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.1.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.0.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_5.9.0.bin")
 	delfile("sd:/bootloader/payloads/fusee.bin")
 	delfile("sd:/bootloader/hekate_ipl.ini")
 	delfile("sd:/bootloader/nyx.ini")
@@ -292,14 +289,11 @@ if (fse("sd:/SB.ico")){
 	delfile("sd:/SwitchBros.txt")
 	delfile("sd:/SwitchBros_Nerd-O-mat.bat")
 	delfile("sd:/SwitchBros_Noob-O-mat.bat")
+	delfile("sd:/hekate_ctcaer_6.0.5-SB.bin")
+	delfile("sd:/hekate_ctcaer_6.0.5.bin")
 	delfile("sd:/hekate_ctcaer_6.0.4-SB.bin")
 	delfile("sd:/hekate_ctcaer_6.0.4.bin")
-	delfile("sd:/hekate_ctcaer_6.0.3.bin")
-	delfile("sd:/hekate_ctcaer_6.0.2.bin")
-	delfile("sd:/hekate_ctcaer_6.0.1.bin")
-	delfile("sd:/hekate_ctcaer_6.0.0.bin")
-	delfile("sd:/hekate_ctcaer_5.9.0.bin")
-
+	
 }.else() {
 	
 col(GRUEN)
