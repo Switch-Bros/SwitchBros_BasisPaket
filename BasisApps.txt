@@ -1,6 +1,6 @@
 Basiert auf:
 
-Hekate 6.0.4 + Nyx 1.5.3 (Deutsch)
+Hekate 6.0.5 + Nyx 1.5.4 (Deutsch)
 SwitchBros-O-sphere 1.5.4 (pre) commit -1f05854bb + hbl-2.4.3 + hbmenu-3.5.1
 4IFIR 1.6 inside (OC Suite) 03.06.2023
 TegraExplorer 4.1.0.112 (Deutsch)
