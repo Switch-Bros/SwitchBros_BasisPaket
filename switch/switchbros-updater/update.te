@@ -70,8 +70,8 @@ col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 col(SCHWARZ)
 
-if (pause().b) {
-    exit()
+if (pause().b){
+	exit()
 }
 clear()
 
@@ -103,7 +103,7 @@ pause()
 
 col(SCHWARZ)
 if (is_erista()){
-	if (fse("sd:/switch/prod.keys")) 
+	if (fse("sd:/switch/prod.keys"))
 	{
 		fwstr={fw=maj.str()+"."+min.str()+"."+pat.str()}
 		fv={a=readsave("bis:/save/8000000000000120")
@@ -130,10 +130,10 @@ if (is_erista()){
 }
 
 if(fse("sd:/backup")){
-  mkdir("sd:/backup/SB")
+	mkdir("sd:/backup/SB")
 }.else(){
-  mkdir("sd:/backup")
-  mkdir("sd:/backup/SB")
+	mkdir("sd:/backup")
+	mkdir("sd:/backup/SB")
 }
 mkdir("sd:/backup/SB/bootloader")
 mkdir("sd:/backup/SB/fastCFWSwitch")
@@ -144,37 +144,37 @@ mkdir("sd:/backup/SB/sys-ftpd")
 mkdir("sd:/backup/SB/tinfoil")
 mkdir("sd:/backup/SB/DBI")
 
-if (fse("sd:/bootloader/hekate_ipl_.ini")) {
-    copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
+if (fse("sd:/bootloader/hekate_ipl_.ini")){
+	copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
 }
-if (fse("sd:/bootloader/nyx_.ini")) {
-    copyfile("sd:/bootloader/nyx_.ini", "sd:/backup/SB/bootloader/nyx.ini")
+if (fse("sd:/bootloader/nyx_.ini")){
+	copyfile("sd:/bootloader/nyx_.ini", "sd:/backup/SB/bootloader/nyx.ini")
 }
-if (fse("sd:/config/fastCFWSwitch/config.ini")) {
-    copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")
+if (fse("sd:/config/fastCFWSwitch/config.ini")){
+	copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")
 }
-if (fse("sd:/config/Fizeau/config.ini")) {
-    copyfile("sd:/config/Fizeau/config.ini", "sd:/backup/SB/Fizeau/config.ini")
+if (fse("sd:/config/Fizeau/config.ini")){
+	copyfile("sd:/config/Fizeau/config.ini", "sd:/backup/SB/Fizeau/config.ini")
 }
-if (fse("sd:/config/icongrabber/config.json")) {
-    copyfile("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
+if (fse("sd:/config/icongrabber/config.json")){
+	copyfile("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
 }
-if (fse("sd:/config/ftpd/ftpd.cfg")) {
-    copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/backup/SB/ftpd/ftpd.cfg")
+if (fse("sd:/config/ftpd/ftpd.cfg")){
+	copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/backup/SB/ftpd/ftpd.cfg")
 }
-if (fse("sd:/config/sys-ftpd/config.ini")) {
-    copyfile("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
+if (fse("sd:/config/sys-ftpd/config.ini")){
+	copyfile("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
 }
-if (fse("sd:/switch/tinfoil/locations.conf")) {
+if (fse("sd:/switch/tinfoil/locations.conf")){
 	copyfile("sd:/switch/tinfoil/locations.conf", "sd:/backup/SB/tinfoil/locations.conf")
 }
-if (fse("sd:/switch/tinfoil/options.json")) {
+if (fse("sd:/switch/tinfoil/options.json")){
 	copyfile("sd:/switch/tinfoil/options.json", "sd:/backup/SB/tinfoil/options.json")
 }
-if (fse("sd:/atmosphere/exefs_patches/bootlogo")) {
-copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB")
+if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
+	copydir ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB")
 }
-if (fse("sd:/switch/DBI/dbi.config")) {
+if (fse("sd:/switch/DBI/dbi.config")){
 	copyfile("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
 }
 
@@ -289,13 +289,9 @@ if (fse("sd:/SB.ico")){
 	delfile("sd:/SwitchBros.txt")
 	delfile("sd:/SwitchBros_Nerd-O-mat.bat")
 	delfile("sd:/SwitchBros_Noob-O-mat.bat")
-	delfile("sd:/hekate_ctcaer_6.0.5_SB.bin")
-	delfile("sd:/hekate_ctcaer_6.0.5.bin")
-	delfile("sd:/hekate_ctcaer_6.0.4_SB.bin")
-	delfile("sd:/hekate_ctcaer_6.0.4.bin")
-	
+
 }.else() {
-	
+
 col(GRUEN)
 pl()
 pl()
@@ -411,7 +407,7 @@ col(GRUEN)
 pl()
 pl()
 pl()
-p("            Installation besteht zu 100% aus Fleischnebenprodukten!")
+p("               Paket besteht zu 100% aus Fleischnebenprodukten!")
 wait(tw = 1000)
 col(SCHWARZ)
 	deldir("sd:/bootloader")
@@ -434,13 +430,14 @@ col(SCHWARZ)
 	deldir("sd:/System Volume Information")
 	deldir("sd:/tegraexplorer")
 	deldir("sd:/tools")
-	delfile("sd:/hekate_ctcaer_6.0.4-SB.bin")
+	delfile("sd:/hekate_ctcaer_6.0.5_SB.bin")
+	delfile("sd:/hekate_ctcaer_6.0.5.bin")
+	delfile("sd:/hekate_ctcaer_6.0.4_SB.bin")
 	delfile("sd:/hekate_ctcaer_6.0.4.bin")
 	delfile("sd:/hekate_ctcaer_6.0.3.bin")
 	delfile("sd:/hekate_ctcaer_6.0.2.bin")
 	delfile("sd:/hekate_ctcaer_6.0.1.bin")
 	delfile("sd:/hekate_ctcaer_6.0.0.bin")
-	delfile("sd:/hekate_ctcaer_5.9.0.bin")
 	delfile("sd:/fusee.bin")
 	delfile("sd:/boot.dat")
 	delfile("sd:/boot.ini")
@@ -464,7 +461,7 @@ if (fse("sd:/SwitchBros_BasisPaket")) {
 	pl()
 	pl()
 	pl()
-	pl("     Wir haben eben die neueste Version vom SB-Updater entwickelt.") 
+	pl("     Wir haben eben die neueste Version vom SB-Updater entwickelt.")
 	pl()
 	pl("     Es dauert zwar viel laenger, aber es ist ein Erlebnis fuer sich.")
 	pl()
@@ -643,23 +640,23 @@ if (resSystem == 2) {
 	pl()
 	pl("      Welche Linux Distro soll genutzt werden?")
 	pl()
-  pl()
+	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
+	menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+	resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	if (resLIN == 0) {
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
     }
 
     if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
     }
 }
 
@@ -698,36 +695,36 @@ if (resSystem == 4) {
 clear()
 
 if (resSystem == 5) {
-  pl()
-  pl()
-  col(GRUEN)
+	pl()
+	pl()
+	col(GRUEN)
 	pl("                Basis + Android + Linux wird installiert...")
 	pl()
-  col(NAVAJO)
-  pl("########### ########### ########## ### # ### ########## ########### ###########")
+	col(NAVAJO)
+	pl("########### ########### ########## ### # ### ########## ########### ###########")
 	pl()
-  pl("      Welche Linux Distro soll genutzt werden?")
+	pl("      Welche Linux Distro soll genutzt werden?")
 	pl()
-  pl()
+	pl()
 	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
+	menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+	resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-    }
+	if (resLIN == 0) {
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	}
 
-    if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-    }
+	if (resLIN == 1) {
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	}
 }
 
 clear()
@@ -1119,7 +1116,7 @@ menuOptionsTesla = ["     [TO 0] kein Tesla-Overlay, keine Module", "     [TO 1]
 resTesla = menu(menuOptionsTesla, 3)
 
 clear()
-	
+
 if (resTesla == 0) {
 	pl()
 	pl()
@@ -1244,9 +1241,9 @@ if (resTesla == 2) {
 	pl()
 	pl()
 	col(GELB)
-	pl("   Wir haben ein Wettrennen gestartet, um zu sehen, wer zuerst einschlaeft")
+	pl("   Die Installation haelt uns in einer Zeitschleife gefangen")
 	pl()
-	pl("       - die Installation oder wir?")
+	pl("       - BITTE rette uns!")
 	col(SCHWARZ)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
@@ -1989,8 +1986,8 @@ clear()
     pl("  Das 4IFIR OC ist ein sehr durchdachtes Uebertaktungs System von Cooler3D")
     pl("  Es besteht aus implementiertem Code im Source von atmosphere und einigen")
     pl("  Modulen/Patches/Plugins im Tesla-Overlay, SaltyNX, etc.")
-    pl("")
-    pl("  Frisst gut Akku also ist Docked die beste Option.")
+    pl()
+    pl("  Frisst gut Akku also ist Docked/Ladekabel die beste Option.")
     pl()
     col(WEISS)
     pl("  Moechtest du [4IFIR] installieren?")
@@ -2365,7 +2362,7 @@ pl()
 pl("     Denke da verwechselt jemand 800 Stunden mit bald 800GB (Muell)-Paket")
 pl("     Wadde da musch ja grad ma lache, muahahahaha!!!")
 pl()
-p()
+pl()
 pl("     Unglaubliche 1001 Naechte haben WIR geschuftet wie die HAUSELFEN von")
 pl("     Hogwarts, um euch dieses SwitchBros. Paket praesentieren zu koennen")
 pl()
