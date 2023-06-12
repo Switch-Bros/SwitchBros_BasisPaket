@@ -219,78 +219,78 @@ pl()
 
 col(SCHWARZ)
 if (fse("sd:/SB.ico")){
-	deldir("sd:/atmosphere/contents/0100000000001000")
-	deldir("sd:/atmosphere/contents/0100000000001007")
-	deldir("sd:/atmosphere/contents/0100000000001013")
-	deldir("sd:/atmosphere/contents/010000000000000D")
-	deldir("sd:/atmosphere/contents/0100000000000352")
-	deldir("sd:/atmosphere/contents/0000000000534C56")
-	deldir("sd:/atmosphere/contents/00FF0000000002AA")
-	deldir("sd:/atmosphere/contents/00FF0000A53BB665")
-	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
-	deldir("sd:/atmosphere/contents/00FF747765616BFF")
-	deldir("sd:/atmosphere/contents/0100000000000F12")
-	deldir("sd:/atmosphere/contents/010000000000bd00")
-	deldir("sd:/atmosphere/contents/054e4f4558454000")
-	deldir("sd:/atmosphere/contents/010000000007E51A")
-	deldir("sd:/atmosphere/contents/420000000007E51A")
-	deldir("sd:/atmosphere/contents/4200000000000000")
-	deldir("sd:/atmosphere/contents/4200000000000010")
-	deldir("sd:/atmosphere/contents/420000000000000E")
-	deldir("sd:/atmosphere/contents/690000000000000D")
-	deldir("sd:/atmosphere/exefs_patches")
-	deldir("sd:/atmosphere/kip_patches")
-	deldir("sd:/atmosphere/erpt_reports")
-	deldir("sd:/atmosphere/fatal_errors")
-	deldir("sd:/atmosphere/fatal_reports")
-	deldir("sd:/atmosphere/crash_errors")
-	deldir("sd:/atmosphere/crash_reports")
-	delfile("sd:/atmosphere/stratosphere.romfs")
-	delfile("sd:/atmosphere/hbl.nsp")
-	delfile("sd:/atmosphere/reboot_payload.bin")
-	delfile("sd:/atmosphere/package3")
+deldir("sd:/atmosphere/contents/0100000000001000")
+deldir("sd:/atmosphere/contents/0100000000001007")
+deldir("sd:/atmosphere/contents/0100000000001013")
+deldir("sd:/atmosphere/contents/010000000000000D")
+deldir("sd:/atmosphere/contents/0100000000000352")
+deldir("sd:/atmosphere/contents/0000000000534C56")
+deldir("sd:/atmosphere/contents/00FF0000000002AA")
+deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
+deldir("sd:/atmosphere/contents/00FF747765616BFF")
+deldir("sd:/atmosphere/contents/0100000000000F12")
+deldir("sd:/atmosphere/contents/010000000000bd00")
+deldir("sd:/atmosphere/contents/054e4f4558454000")
+deldir("sd:/atmosphere/contents/010000000007E51A")
+deldir("sd:/atmosphere/contents/420000000007E51A")
+deldir("sd:/atmosphere/contents/4200000000000000")
+deldir("sd:/atmosphere/contents/4200000000000010")
+deldir("sd:/atmosphere/contents/420000000000000E")
+deldir("sd:/atmosphere/contents/690000000000000D")
+deldir("sd:/atmosphere/exefs_patches")
+deldir("sd:/atmosphere/kip_patches")
+deldir("sd:/atmosphere/erpt_reports")
+deldir("sd:/atmosphere/fatal_errors")
+deldir("sd:/atmosphere/fatal_reports")
+deldir("sd:/atmosphere/crash_errors")
+deldir("sd:/atmosphere/crash_reports")
+delfile("sd:/atmosphere/stratosphere.romfs")
+delfile("sd:/atmosphere/hbl.nsp")
+delfile("sd:/atmosphere/reboot_payload.bin")
+delfile("sd:/atmosphere/package3")
 
-	deldir("sd:/bootloader/sys")
-	delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
-	delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5_SB.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4_SB.bin")
-	delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4.bin")
-	delfile("sd:/bootloader/payloads/fusee.bin")
-	delfile("sd:/bootloader/hekate_ipl.ini")
-	delfile("sd:/bootloader/nyx.ini")
-	delfile("sd:/bootloader/update.bin")
-	delfile("sd:/bootloader/patches.ini")
+deldir("sd:/bootloader/sys")
+delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
+delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
+delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5_SB.bin")
+delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5.bin")
+delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4_SB.bin")
+delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4.bin")
+delfile("sd:/bootloader/payloads/fusee.bin")
+delfile("sd:/bootloader/hekate_ipl.ini")
+delfile("sd:/bootloader/nyx.ini")
+delfile("sd:/bootloader/update.bin")
+delfile("sd:/bootloader/patches.ini")
 
-	deldir("sd:/config/switchbros-helper")
-	deldir("sd:/config/NSPs")
-	delfile("sd:/config/switchbros-updater/ams.zip")
-	delfile("sd:/config/switchbros-updater/cheats.zip")
-	delfile("sd:/config/switchbros-updater/custom.zip")
+deldir("sd:/config/switchbros-helper")
+deldir("sd:/config/NSPs")
+delfile("sd:/config/switchbros-updater/ams.zip")
+delfile("sd:/config/switchbros-updater/cheats.zip")
+delfile("sd:/config/switchbros-updater/custom.zip")
 
-	deldir("sd:/switchbros")
-	deldir("sd:/tegraexplorer")
-	deldir("sd:/firmware")
+deldir("sd:/switchbros")
+deldir("sd:/tegraexplorer")
+deldir("sd:/firmware")
 
-	deldir("sd:/switch/daybreak")
-	deldir("sd:/switch/.overlays")
-	deldir("sd:/switch/Switch_90DNS_tester")
-	deldir("sd:/switch/appstore/.get/packages/Switch_90DNS_tester")
-	delfile("sd:/switch/switchbros-updater/cheats.zip")
-	delfile("sd:/switch/switchbros-updater/switchbros.zip")
-	delfile("sd:/switch/switchbros-updater/firmware.zip")
-	delfile("sd:/switch/switchbros-updater/switchbros-updater.nro")
-	delfile("sd:/switch/switchbros-updater/switchbros-updater.bin")
-	delfile("sd:/switch/daybreak.nro")
+deldir("sd:/switch/daybreak")
+deldir("sd:/switch/.overlays")
+deldir("sd:/switch/Switch_90DNS_tester")
+deldir("sd:/switch/appstore/.get/packages/Switch_90DNS_tester")
+delfile("sd:/switch/switchbros-updater/cheats.zip")
+delfile("sd:/switch/switchbros-updater/switchbros.zip")
+delfile("sd:/switch/switchbros-updater/firmware.zip")
+delfile("sd:/switch/switchbros-updater/switchbros-updater.nro")
+delfile("sd:/switch/switchbros-updater/switchbros-updater.bin")
+delfile("sd:/switch/daybreak.nro")
 
-	delfile("sd:/hbmenu.nro")
-	delfile("sd:/exosphere.ini")
-	delfile("sd:/SwitchBros.txt")
-	delfile("sd:/SwitchBros_Nerd-O-mat.bat")
-	delfile("sd:/SwitchBros_Noob-O-mat.bat")
+delfile("sd:/hbmenu.nro")
+delfile("sd:/exosphere.ini")
+delfile("sd:/SwitchBros.txt")
+delfile("sd:/SwitchBros_Nerd-O-mat.bat")
+delfile("sd:/SwitchBros_Noob-O-mat.bat")
 
-}.else() {
+}.else(){
 
 col(GRUEN)
 pl()
@@ -299,34 +299,36 @@ pl()
 p("           Bitte warten! Wird zeitgleich in der Zukunft installiert!")
 wait(tw = 3000)
 col(SCHWARZ)
-	deldir("sd:/backup/SB")
-	deldir("sd:/atmosphere/exefs_patches")
-	deldir("sd:/atmosphere/kip_patches")
-	deldir("sd:/atmosphere/erpt_reports")
-	deldir("sd:/atmosphere/fatal_errors")
-	deldir("sd:/atmosphere/fatal_reports")
-	deldir("sd:/atmosphere/crash_reports")
-	deldir("sd:/atmosphere/crash_errors")
-	deldir("sd:/atmosphere/hekate_kips")
-	deldir("sd:/atmosphere/kips")
-	deldir("sd:/atmosphere/hosts")
-	deldir("sd:/atmosphere/extras")
-	delfile("sd:/atmosphere/BCT.ini")
-	delfile("sd:/atmosphere/config/BCT.ini")
-	delfile("sd:/atmosphere/fusee-secondary.bin")
-	delfile("sd:/atmosphere/fusee-secondary_atmo.bin")
-	delfile("sd:/atmosphere/hbl_atmo.nsp")
-	delfile("sd:/atmosphere/fusee-secondary.bin.sig")
-	delfile("sd:/atmosphere/hbl.nsp.sig")
-	delfile("sd:/atmosphere/hbl.json")
-	delfile("sd:/atmosphere/system_settings.ini")
-	delfile("sd:/atmosphere/flags/hbl_cal_read.flag")
-	delfile("sd:/atmosphere/exosphere.bin")
-	delfile("sd:/atmosphere/loader.ini")
-	delfile("sd:/atmosphere/stratosphere.romfs")
-	delfile("sd:/atmosphere/hbl.nsp")
-	delfile("sd:/atmosphere/reboot_payload.bin")
-	delfile("sd:/atmosphere/package3")
+
+deldir("sd:/backup/SB")
+deldir("sd:/atmosphere/exefs_patches")
+deldir("sd:/atmosphere/kip_patches")
+deldir("sd:/atmosphere/erpt_reports")
+deldir("sd:/atmosphere/fatal_errors")
+deldir("sd:/atmosphere/fatal_reports")
+deldir("sd:/atmosphere/crash_reports")
+deldir("sd:/atmosphere/crash_errors")
+deldir("sd:/atmosphere/hekate_kips")
+deldir("sd:/atmosphere/kips")
+deldir("sd:/atmosphere/hosts")
+deldir("sd:/atmosphere/extras")
+delfile("sd:/atmosphere/BCT.ini")
+delfile("sd:/atmosphere/config/BCT.ini")
+delfile("sd:/atmosphere/fusee-secondary.bin")
+delfile("sd:/atmosphere/fusee-secondary_atmo.bin")
+delfile("sd:/atmosphere/hbl_atmo.nsp")
+delfile("sd:/atmosphere/fusee-secondary.bin.sig")
+delfile("sd:/atmosphere/hbl.nsp.sig")
+delfile("sd:/atmosphere/hbl.json")
+delfile("sd:/atmosphere/system_settings.ini")
+delfile("sd:/atmosphere/flags/hbl_cal_read.flag")
+delfile("sd:/atmosphere/exosphere.bin")
+delfile("sd:/atmosphere/loader.ini")
+delfile("sd:/atmosphere/stratosphere.romfs")
+delfile("sd:/atmosphere/hbl.nsp")
+delfile("sd:/atmosphere/reboot_payload.bin")
+delfile("sd:/atmosphere/package3")
+
 col(GRUEN)
 pl()
 pl()
@@ -334,74 +336,75 @@ pl()
 p("           Paket ist demnaechst auf einer illegalen DVD erhaeltlich!")
 wait(tw = 3000)
 col(SCHWARZ)
-	deldir("sd:/atmosphere/contents/0100000000000008")
-	deldir("sd:/atmosphere/contents/010000000000100B")
-	deldir("sd:/atmosphere/contents/010000000000000D")
-	deldir("sd:/atmosphere/contents/010000000000002b")
-	deldir("sd:/atmosphere/contents/0100000000000032")
-	deldir("sd:/atmosphere/contents/0100000000000034")
-	deldir("sd:/atmosphere/contents/0100000000000036")
-	deldir("sd:/atmosphere/contents/0100000000000037")
-	deldir("sd:/atmosphere/contents/010000000000003C")
-	deldir("sd:/atmosphere/contents/0100000000000042")
-	deldir("sd:/atmosphere/contents/010000000000100C")
-	deldir("sd:/atmosphere/contents/010000000000100D")
-	deldir("sd:/atmosphere/contents/0100000000001000")
-	deldir("sd:/atmosphere/contents/0100000000001005")
-	deldir("sd:/atmosphere/contents/0100000000001007")
-	deldir("sd:/atmosphere/contents/0100000000001013")
-	deldir("sd:/atmosphere/contents/0000000000534C56")
-	deldir("sd:/atmosphere/contents/00FF0000000002AA")
-	deldir("sd:/atmosphere/contents/00FF0000636C6BF2")
-	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
-	deldir("sd:/atmosphere/contents/00FF00006D7470FF")
-	deldir("sd:/atmosphere/contents/00FF0000A53BB665")
-	deldir("sd:/atmosphere/contents/00FF0012656180FF")
-	deldir("sd:/atmosphere/contents/01FF415446660000")
-	deldir("sd:/atmosphere/contents/00FF747765616BFF")
-	deldir("sd:/atmosphere/contents/0100000000000052")
-	deldir("sd:/atmosphere/contents/0100000000000081")
-	deldir("sd:/atmosphere/contents/0100000000000352")
-	deldir("sd:/atmosphere/contents/0100000000000464")
-	deldir("sd:/atmosphere/contents/0100000000000523")
-	deldir("sd:/atmosphere/contents/0100000000000901")
-	deldir("sd:/atmosphere/contents/0100000000000BED")
-	deldir("sd:/atmosphere/contents/0100000000000BEF")
-	deldir("sd:/atmosphere/contents/0100000000000DAD")
-	deldir("sd:/atmosphere/contents/0100000000000F12")
-	deldir("sd:/atmosphere/contents/0100000000000FAF")
-	deldir("sd:/atmosphere/contents/0100000000006480")
-	deldir("sd:/atmosphere/contents/0100000000007200")
-	deldir("sd:/atmosphere/contents/010000000000bd00")
-	deldir("sd:/atmosphere/contents/010000000000C235")
-	deldir("sd:/atmosphere/contents/010000000000f00f")
-	deldir("sd:/atmosphere/contents/010000000000FFAB")
-	deldir("sd:/atmosphere/contents/01000000001ED1ED")
-	deldir("sd:/atmosphere/contents/0532232232232000")
-	deldir("sd:/atmosphere/contents/054e4f4558454000")
-	deldir("sd:/atmosphere/contents/2200000000000100")
-	deldir("sd:/atmosphere/contents/4100000000000324")
-	deldir("sd:/atmosphere/contents/4200000000000000")
-	deldir("sd:/atmosphere/contents/420000000000000E")
-	deldir("sd:/atmosphere/contents/420000000000000F")
-	deldir("sd:/atmosphere/contents/4200000000000811")
-	deldir("sd:/atmosphere/contents/4200000000000BA6")
-	deldir("sd:/atmosphere/contents/4200000000000FFF")
-	deldir("sd:/atmosphere/contents/010000000007E51A")
-	deldir("sd:/atmosphere/contents/420000000007E51A")
-	deldir("sd:/atmosphere/contents/4200000000474442")
-	deldir("sd:/atmosphere/contents/4200000000696969")
-	deldir("sd:/atmosphere/contents/4200000AF1E8DA89")
-	deldir("sd:/atmosphere/contents/42000062616B6101")
-	deldir("sd:/atmosphere/contents/4200736372697074")
-	deldir("sd:/atmosphere/contents/4206900000000012")
-	deldir("sd:/atmosphere/contents/430000000000000A")
-	deldir("sd:/atmosphere/contents/430000000000000B")
-	deldir("sd:/atmosphere/contents/430000000000000C")
-	deldir("sd:/atmosphere/contents/43000000000000FF")
-	deldir("sd:/atmosphere/contents/4300000000000909")
-	deldir("sd:/atmosphere/contents/5600000000000000")
-	deldir("sd:/atmosphere/contents/690000000000000D")
+
+deldir("sd:/atmosphere/contents/0100000000000008")
+deldir("sd:/atmosphere/contents/010000000000100B")
+deldir("sd:/atmosphere/contents/010000000000000D")
+deldir("sd:/atmosphere/contents/010000000000002b")
+deldir("sd:/atmosphere/contents/0100000000000032")
+deldir("sd:/atmosphere/contents/0100000000000034")
+deldir("sd:/atmosphere/contents/0100000000000036")
+deldir("sd:/atmosphere/contents/0100000000000037")
+deldir("sd:/atmosphere/contents/010000000000003C")
+deldir("sd:/atmosphere/contents/0100000000000042")
+deldir("sd:/atmosphere/contents/010000000000100C")
+deldir("sd:/atmosphere/contents/010000000000100D")
+deldir("sd:/atmosphere/contents/0100000000001000")
+deldir("sd:/atmosphere/contents/0100000000001005")
+deldir("sd:/atmosphere/contents/0100000000001007")
+deldir("sd:/atmosphere/contents/0100000000001013")
+deldir("sd:/atmosphere/contents/0000000000534C56")
+deldir("sd:/atmosphere/contents/00FF0000000002AA")
+deldir("sd:/atmosphere/contents/00FF0000636C6BF2")
+deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
+deldir("sd:/atmosphere/contents/00FF00006D7470FF")
+deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+deldir("sd:/atmosphere/contents/00FF0012656180FF")
+deldir("sd:/atmosphere/contents/01FF415446660000")
+deldir("sd:/atmosphere/contents/00FF747765616BFF")
+deldir("sd:/atmosphere/contents/0100000000000052")
+deldir("sd:/atmosphere/contents/0100000000000081")
+deldir("sd:/atmosphere/contents/0100000000000352")
+deldir("sd:/atmosphere/contents/0100000000000464")
+deldir("sd:/atmosphere/contents/0100000000000523")
+deldir("sd:/atmosphere/contents/0100000000000901")
+deldir("sd:/atmosphere/contents/0100000000000BED")
+deldir("sd:/atmosphere/contents/0100000000000BEF")
+deldir("sd:/atmosphere/contents/0100000000000DAD")
+deldir("sd:/atmosphere/contents/0100000000000F12")
+deldir("sd:/atmosphere/contents/0100000000000FAF")
+deldir("sd:/atmosphere/contents/0100000000006480")
+deldir("sd:/atmosphere/contents/0100000000007200")
+deldir("sd:/atmosphere/contents/010000000000bd00")
+deldir("sd:/atmosphere/contents/010000000000C235")
+deldir("sd:/atmosphere/contents/010000000000f00f")
+deldir("sd:/atmosphere/contents/010000000000FFAB")
+deldir("sd:/atmosphere/contents/01000000001ED1ED")
+deldir("sd:/atmosphere/contents/0532232232232000")
+deldir("sd:/atmosphere/contents/054e4f4558454000")
+deldir("sd:/atmosphere/contents/2200000000000100")
+deldir("sd:/atmosphere/contents/4100000000000324")
+deldir("sd:/atmosphere/contents/4200000000000000")
+deldir("sd:/atmosphere/contents/420000000000000E")
+deldir("sd:/atmosphere/contents/420000000000000F")
+deldir("sd:/atmosphere/contents/4200000000000811")
+deldir("sd:/atmosphere/contents/4200000000000BA6")
+deldir("sd:/atmosphere/contents/4200000000000FFF")
+deldir("sd:/atmosphere/contents/010000000007E51A")
+deldir("sd:/atmosphere/contents/420000000007E51A")
+deldir("sd:/atmosphere/contents/4200000000474442")
+deldir("sd:/atmosphere/contents/4200000000696969")
+deldir("sd:/atmosphere/contents/4200000AF1E8DA89")
+deldir("sd:/atmosphere/contents/42000062616B6101")
+deldir("sd:/atmosphere/contents/4200736372697074")
+deldir("sd:/atmosphere/contents/4206900000000012")
+deldir("sd:/atmosphere/contents/430000000000000A")
+deldir("sd:/atmosphere/contents/430000000000000B")
+deldir("sd:/atmosphere/contents/430000000000000C")
+deldir("sd:/atmosphere/contents/43000000000000FF")
+deldir("sd:/atmosphere/contents/4300000000000909")
+deldir("sd:/atmosphere/contents/5600000000000000")
+deldir("sd:/atmosphere/contents/690000000000000D")
 
 col(GRUEN)
 pl()
@@ -410,84 +413,87 @@ pl()
 p("               Paket besteht zu 100% aus Fleischnebenprodukten!")
 wait(tw = 1000)
 col(SCHWARZ)
-	deldir("sd:/bootloader")
-	deldir("sd:/switch")
-	deldir("sd:/config")
-	deldir("sd:/firmware")
-	deldir("sd:/atmo")
-	deldir("sd:/btpair")
-	deldir("sd:/games")
-	deldir("sd:/modules")
-	deldir("sd:/music")
-	deldir("sd:/NSPs")
-	deldir("sd:/pegascape")
-	deldir("sd:/warmboot-mariko")
-	deldir("sd:/SaltySD")
-	deldir("sd:/scripts")
-	deldir("sd:/sept/")
-	deldir("sd:/sxos")
-	deldir("sd:/themes")
-	deldir("sd:/System Volume Information")
-	deldir("sd:/tegraexplorer")
-	deldir("sd:/tools")
-	delfile("sd:/hekate_ctcaer_6.0.5_SB.bin")
-	delfile("sd:/hekate_ctcaer_6.0.5.bin")
-	delfile("sd:/hekate_ctcaer_6.0.4_SB.bin")
-	delfile("sd:/hekate_ctcaer_6.0.4.bin")
-	delfile("sd:/hekate_ctcaer_6.0.3.bin")
-	delfile("sd:/hekate_ctcaer_6.0.2.bin")
-	delfile("sd:/hekate_ctcaer_6.0.1.bin")
-	delfile("sd:/hekate_ctcaer_6.0.0.bin")
-	delfile("sd:/fusee.bin")
-	delfile("sd:/boot.dat")
-	delfile("sd:/boot.ini")
-	delfile("sd:/exosphere.ini")
-	delfile("sd:/payload.bin")
-	delfile("sd:/startup.te")
-	delfile("sd:/hbmenu.nro")
+
+deldir("sd:/bootloader")
+deldir("sd:/switch")
+deldir("sd:/config")
+deldir("sd:/firmware")
+deldir("sd:/atmo")
+deldir("sd:/btpair")
+deldir("sd:/games")
+deldir("sd:/modules")
+deldir("sd:/music")
+deldir("sd:/NSPs")
+deldir("sd:/pegascape")
+deldir("sd:/warmboot-mariko")
+deldir("sd:/SaltySD")
+deldir("sd:/scripts")
+deldir("sd:/sept/")
+deldir("sd:/sxos")
+deldir("sd:/themes")
+deldir("sd:/System Volume Information")
+deldir("sd:/tegraexplorer")
+deldir("sd:/tools")
+delfile("sd:/hekate_ctcaer_6.0.5_SB.bin")
+delfile("sd:/hekate_ctcaer_6.0.5.bin")
+delfile("sd:/hekate_ctcaer_6.0.4_SB.bin")
+delfile("sd:/hekate_ctcaer_6.0.4.bin")
+delfile("sd:/hekate_ctcaer_6.0.3.bin")
+delfile("sd:/hekate_ctcaer_6.0.2.bin")
+delfile("sd:/hekate_ctcaer_6.0.1.bin")
+delfile("sd:/hekate_ctcaer_6.0.0.bin")
+delfile("sd:/fusee.bin")
+delfile("sd:/boot.dat")
+delfile("sd:/boot.ini")
+delfile("sd:/exosphere.ini")
+delfile("sd:/payload.bin")
+delfile("sd:/startup.te")
+delfile("sd:/hbmenu.nro")
 }
 
 wait(tw = 1000)
 clear()
 
-if (fse("sd:/SwitchBros_BasisPaket")) {
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl()
-	col(GELB)
-	pl("                  Das SwitchBros. Paket wird nun installiert!")
-	pl()
-	pl()
-	pl()
-	pl("     Wir haben eben die neueste Version vom SB-Updater entwickelt.")
-	pl()
-	pl("     Es dauert zwar viel laenger, aber es ist ein Erlebnis fuer sich.")
-	pl()
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl()
-	col(GELB)
-	p("                        Bis dahin") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 1000) p("      BITTE warten!")
-	col(SCHWARZ)
-	deldir("sd:/SwitchBros_BasisPaket/switch/switchbrosupdater/")
-	copydir("sd:/SwitchBros_BasisPaket/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/bootloader", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/NSPs", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
-	copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
-	copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
-	copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
+if (fse("sd:/SwitchBros_BasisPaket")){
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GELB)
+pl("                  Das SwitchBros. Paket wird nun installiert!")
+pl()
+pl()
+pl()
+pl("     Wir haben eben die neueste Version vom SB-Updater entwickelt.")
+pl()
+pl("     Es dauert zwar viel laenger, aber es ist ein Erlebnis fuer sich.")
+pl()
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
 
-	delfile("sd:/atmosphere/stratosphere.romfs.sbu");
-	delfile("sd:/atmosphere/fusee-secondary.bin.sbu");
-	delfile("sd:/sept/payload.bin.sbu");
-	delfile("sd:/payload.bin.sbu");
+col(GELB)
+p("                        Bis dahin") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 1000) p("      BITTE warten!")
+col(SCHWARZ)
+
+deldir("sd:/SwitchBros_BasisPaket/switch/switchbrosupdater/")
+copydir("sd:/SwitchBros_BasisPaket/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/bootloader", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/NSPs", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
+copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
+copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
+copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
+
+delfile("sd:/atmosphere/stratosphere.romfs.sbu");
+delfile("sd:/atmosphere/fusee-secondary.bin.sbu");
+delfile("sd:/sept/payload.bin.sbu");
+delfile("sd:/payload.bin.sbu");
 }
 
 wait(tw = 2000)
@@ -513,14 +519,14 @@ resChip = menu(menuOptionsChip, 0)
 
 clear()
 
-if (resChip == 0) {
+if (resChip == 0){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                   Modchip relevante Daten werden entfernt...")
+col(SCHWARZ)
 
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                   Modchip relevante Daten werden entfernt...")
-	col(SCHWARZ)
 	deldir("sd:/bootloader/memloader")
 	delfile("sd:/payload.bin")
 	delfile("sd:/boot.dat")
@@ -532,14 +538,14 @@ if (resChip == 0) {
 wait(tw = 1000)
 clear()
 
-if (resChip == 1) {
+if (resChip == 1){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("            Modchip relevante Daten werden hinzugefuegt/entfernt...")
+col(SCHWARZ)
 
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("            Modchip relevante Daten werden hinzugefuegt/entfernt...")
-	col(SCHWARZ)
 	copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
 	copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
@@ -554,14 +560,14 @@ if (resChip == 1) {
 wait(tw = 1000)
 clear()
 
-if (resChip == 2) {
+if (resChip == 2){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                 Modchip relevante Daten werden hinzugefuegt...")
+col(SCHWARZ)
 
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                 Modchip relevante Daten werden hinzugefuegt...")
-	col(SCHWARZ)
 	copyfile("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
 	copyfile("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
 	copyfile("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
@@ -598,30 +604,32 @@ resSystem = menu(menuOptionsSystem, 0)
 
 clear()
 
-if (resSystem == 0) {
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                     Basis (Standard) wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
+if (resSystem == 0){
+pl()
+pl()
+col(GRUEN)
+pl("                     Basis (Standard) wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/b/config", "sd:/")
 }
 
 clear()
 
-if (resSystem == 1) {
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                      Basis + Android wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
+if (resSystem == 1){
+pl()
+pl()
+col(GRUEN)
+pl("                      Basis + Android wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ba/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
@@ -629,48 +637,50 @@ if (resSystem == 1) {
 
 clear()
 
-if (resSystem == 2) {
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                       Basis + Linux wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-	menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-	resLIN = menu(menuOptionsLIN, 0)
+if (resSystem == 2){
+pl()
+pl()
+col(GRUEN)
+pl("                       Basis + Linux wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-	if (resLIN == 0) {
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-    }
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+}
 
-    if (resLIN == 1) {
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-    }
+if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
 }
 
 clear()
 
-if (resSystem == 3) {
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                       Basis + LAKKA wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
+if (resSystem == 3){
+pl()
+pl()
+col(GRUEN)
+pl("                       Basis + LAKKA wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bl/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
@@ -678,15 +688,16 @@ if (resSystem == 3) {
 
 clear()
 
-if (resSystem == 4) {
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                     Basis + LibreELEC wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
+if (resSystem == 4){
+pl()
+pl()
+col(GRUEN)
+pl("                     Basis + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/be/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/be/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
@@ -694,50 +705,52 @@ if (resSystem == 4) {
 
 clear()
 
-if (resSystem == 5) {
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                Basis + Android + Linux wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-	menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-	resLIN = menu(menuOptionsLIN, 0)
+if (resSystem == 5){
+pl()
+pl()
+col(GRUEN)
+pl("                Basis + Android + Linux wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-	if (resLIN == 0) {
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	}
 
-	if (resLIN == 1) {
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	}
 }
 
 clear()
 
-if (resSystem == 6) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("                  Basis + Android + LAKKA wird installiert...")
-  pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
+if (resSystem == 6){
+pl()
+pl()
+col(GRUEN)
+pl("                  Basis + Android + LAKKA wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bla/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
@@ -746,15 +759,16 @@ if (resSystem == 6) {
 
 clear()
 
-if (resSystem == 7) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("                Basis + Android + LibreELEC wird installiert...")
-  pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
+if (resSystem == 7){
+pl()
+pl()
+col(GRUEN)
+pl("                Basis + Android + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bae/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bae/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
@@ -763,91 +777,94 @@ if (resSystem == 7) {
 
 clear()
 
-if (resSystem == 8) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("              Basis + Android + Linux + LAKKA wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
+if (resSystem == 8){
+pl()
+pl()
+col(GRUEN)
+pl("              Basis + Android + Linux + LAKKA wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-    }
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	}
 
-    if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-    }
+	if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	}
 }
 
 clear()
 
-if (resSystem == 9) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("            Basis + Android + Linux + LibreELEC wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
+if (resSystem == 9){
+pl()
+pl()
+col(GRUEN)
+pl("            Basis + Android + Linux + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
 
-    if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
+	if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
 }
 
 clear()
 
-if (resSystem == 10) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("            Basis + Android + LAKKA + LibreELEC wird installiert...")
-  pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
+if (resSystem == 10){
+pl()
+pl()
+col(GRUEN)
+pl("            Basis + Android + LAKKA + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bale/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bale/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
@@ -857,162 +874,167 @@ if (resSystem == 10) {
 
 clear()
 
-if (resSystem == 11) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("                  Basis + Android + Linux + LAKKA + LibreELEC")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
+if (resSystem == 11){
+pl()
+pl()
+col(GRUEN)
+pl("                  Basis + Android + Linux + LAKKA + LibreELEC")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
 
-    if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
+}
+
+clear()
+
+if (resSystem == 12){
+pl()
+pl()
+col(GRUEN)
+pl("                   Basis + Linux + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+	}
+
+if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 }
 
 clear()
 
-if (resSystem == 12) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("                   Basis + Linux + LibreELEC wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
+if (resSystem == 13){
+pl()
+pl()
+col(GRUEN)
+pl("             Basis + Linux + LAKKA + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-    }
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
 
-    if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-    }
+if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
 }
 
 clear()
 
-if (resSystem == 13) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("             Basis + Linux + LAKKA + LibreELEC wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
+if (resSystem == 14){
+pl()
+pl()
+col(GRUEN)
+pl("                 Basis + Linux + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
+if (resLIN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
 
-    if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
+if (resLIN == 1){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
 }
 
 clear()
 
-if (resSystem == 14) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("                 Basis + Linux + LibreELEC wird installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl("      Welche Linux Distro soll genutzt werden?")
-	pl()
-	pl()
-	col(SILBER)
-  menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
-  resLIN = menu(menuOptionsLIN, 0)
-
+if (resSystem == 15){
+pl()
+pl()
+col(GRUEN)
+pl("                 Basis + LAKKA + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
 col(SCHWARZ)
 
-    if (resLIN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-
-    if (resLIN == 1) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-    }
-}
-
-clear()
-
-if (resSystem == 15) {
-	pl()
-	pl()
-  col(GRUEN)
-	pl("                 Basis + LAKKA + LibreELEC wird installiert...")
-  pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ble/bootloader", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/ble/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
@@ -1021,18 +1043,19 @@ if (resSystem == 15) {
 
 clear()
 
-if (resSystem == 16) {
-	pl()
-	pl()
-	col(GRUEN)
-	pl("          Deine alte hekate_ipl.ini und nyx.ini werden installiert...")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
-	if(fse("sd:/backup/SB/bootloader")){
-		copyfile("sd:/backup/SB/bootloader/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
-		copyfile("sd:/backup/SB/bootloader/nyx.ini", "sd:/bootloader/nyx.ini")
+if (resSystem == 16){
+pl()
+pl()
+col(GRUEN)
+pl("          Deine alte hekate_ipl.ini und nyx.ini werden installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+if(fse("sd:/backup/SB/bootloader")){
+	copyfile("sd:/backup/SB/bootloader/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
+	copyfile("sd:/backup/SB/bootloader/nyx.ini", "sd:/bootloader/nyx.ini")
 	}
 }
 
@@ -1041,8 +1064,8 @@ pl()
 pl()
 col(GRUEN)
 pl("                 Druecke eine beliebige Taste um fortzufahren!")
-pause()
 
+pause()
 clear()
 
 pl()
@@ -1066,19 +1089,20 @@ pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 col(SCHWARZ)
-copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/atmosphere", "sd:/")
-copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/config", "sd:/")
-copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/switch", "sd:/")
-copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/themes", "sd:/")
-copyfile("sd:/SwitchBros_BasisPaket/switchbros/theme/ThemeApps.txt", "sd:/")
+
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/switch", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/themes", "sd:/")
+	copyfile("sd:/SwitchBros_BasisPaket/switchbros/theme/ThemeApps.txt", "sd:/")
 
 pl()
 pl()
 pl()
 col(GRUEN)
 pl("                 Druecke eine beliebige Taste um fortzufahren!")
-pause()
 
+pause()
 clear()
 
 pl()
@@ -1117,904 +1141,927 @@ resTesla = menu(menuOptionsTesla, 3)
 
 clear()
 
-if (resTesla == 0) {
-	pl()
-	pl()
-	pl()
-	col(ROT)
-	pl("         Tesla-Overlay Menue inkl. aller Module wird deinstalliert...")
-	pl()
-	pl()
-	pl()
-	col(GELB)
-	pl("  Derzeit befinden sich alle unsere Mitarbeiter im Gespraech.")
-	pl()
-	pl("  Dein Anliegen wurde soeben vermerkt und ein Mitarbeiter wird sich")
-	pl()
-	pl("  zeitnah um deine CFW kuemmern!    Glaube einfach ganz fest daran!")
-	col(SCHWARZ)
-	deldir("sd:/switch/.overlays")
-	deldir("sd:/atmosphere/contents/420000000007E51A")
-	deldir("sd:/config/Tesla")
-	deldir("sd:/switch/appstore/.get/packages/Tesla-Menu")
-	deldir("sd:/switch/appstore/.get/packages/dns-mitm_manager")
+if (resTesla == 0){
+pl()
+pl()
+pl()
+col(ROT)
+pl("         Tesla-Overlay Menue inkl. aller Module wird deinstalliert...")
+pl()
+pl()
+pl()
+col(GELB)
+pl("  Derzeit befinden sich alle unsere Mitarbeiter im Gespraech.")
+pl()
+pl("  Dein Anliegen wurde soeben vermerkt und ein Mitarbeiter wird sich")
+pl()
+pl("  zeitnah um deine CFW kuemmern!    Glaube einfach ganz fest daran!")
+col(SCHWARZ)
+
+deldir("sd:/switch/.overlays")
+deldir("sd:/atmosphere/contents/420000000007E51A")
+deldir("sd:/config/Tesla")
+deldir("sd:/switch/appstore/.get/packages/Tesla-Menu")
+deldir("sd:/switch/appstore/.get/packages/dns-mitm_manager")
+deldir("sd:/atmosphere/contents/00FF0000000002AA")
+deldir("sd:/config/BootSoundNX")
+deldir("sd:/atmosphere/contents/054e4f4558454000")
+deldir("sd:/atmosphere/contents/010000000000000D")
+deldir("sd:/atmosphere/contents/0100000000001013")
+deldir("sd:/switch/breeze")
+deldir("sd:/switch/EdiZon")
+deldir("sd:/switch/appstore/.get/packages/EdiZon")
+deldir("sd:/atmosphere/contents/0100000000000352")
+deldir("sd:/switch/appstore/.get/packages/emuiibo")
+deldir("sd:/config/fastCFWswitch")
+deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
+deldir("sd:/atmosphere/contents/0100000000000F12")
+deldir("sd:/config/Fizeau")
+deldir("sd:/switch/Fizeau")
+deldir("sd:/switch/appstore/.get/packages/Fizeau")
+deldir("sd:/atmosphere/contents/4200000000000010")
+deldir("sd:/switch/ldnmitm_config")
+deldir("sd:/switch/appstore/.get/packages/ldn_mitm")
+deldir("sd:/atmosphere/contents/010000000000bd00")
+deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
+deldir("sd:/atmosphere/exefs_patches/btm_patches")
+deldir("sd:/config/MissionControl")
+deldir("sd:/switch/appstore/.get/packages/MissionControl")
+deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
+deldir("sd:/atmosphere/contents/0000000000534C56")
+deldir("sd:/SaltySD")
+deldir("sd:/switch/appstore/.get/packages/SaltyNX")
+deldir("sd:/switch/appstore/.get/packages/fpslocker")
+deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
+deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
+deldir("sd:/config/sys-clk")
+deldir("sd:/switch/sys-clk")
+deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
+deldir("sd:/switch/sys-clk-Editor")
+deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
+deldir("sd:/atmosphere/contents/690000000000000D")
+deldir("sd:/config/sys-con")
+deldir("sd:/switch/appstore/.get/packages/sys-con")
+deldir("sd:/atmosphere/contents/00FF0000A53BB665")
+deldir("sd:/config/sysdvr")
+deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
+deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+deldir("sd:/switch/SysDVR-conf")
+deldir("sd:/atmosphere/contents/420000000000000E")
+deldir("sd:/config/sys-ftpd")
+deldir("sd:/switch/appstore/.get/packages/sys-ftpd-light")
+deldir("sd:/atmosphere/contents/4200000000000000")
+deldir("sd:/switch/appstore/.get/packages/sys-tune")
+deldir("sd:/switch/appstore/.get/packages/QuickNTP")
+deldir("sd:/atmosphere/contents/0100BF500207C000")
+deldir("sd:/atmosphere/contents/01009EE0111CC000")
+deldir("sd:/atmosphere/contents/010092A0172E4000")
+deldir("sd:/switch/MemTesterNX")
+deldir("sd:/switch/MicroMemBench")
+deldir("sd:/switch/ReverseNX-Tool")
+delfile("sd:/atmosphere/kips/loader.kip")
+}
+
+clear()
+
+if (resTesla == 1){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("          Tesla-Overlay Menue + Standard Module wird installiert...")
+pl()
+pl()
+pl()
+col(GELB)
+pl("   Wir haben ein Wettrennen gestartet, um zu sehen, wer zuerst einschlaeft")
+pl()
+pl("       - die Installation oder wir?")
+col(SCHWARZ)
+
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
+}
+
+clear()
+
+if (resTesla == 2){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("          Tesla-Overlay Menue + 4IFIR OverClockingSystem wird installiert...")
+pl()
+pl()
+pl()
+col(GELB)
+pl("   Die Installation haelt uns in einer Zeitschleife gefangen")
+pl()
+pl("       - BITTE rette uns!")
+col(SCHWARZ)
+
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/SaltySD", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
+}
+
+clear()
+
+if (resTesla == 3){
+pl()
+pl()
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("         Tesla-Overlay Menue und einzelne Module manuell installieren!")
+pl()
+pl()
+pl("               Tesla-Overlay Menue wird automatisch installiert!")
+pl("      Du musst nur noch entscheiden welche Module du dabei haben willst!")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                 Druecke eine beliebige Taste um fortzufahren!")
+
+pause()
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                              Modul - BootSoundNX (NICHT FW16)")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  BootSoundNX kann eine mp3 Datei beim Start der Konsole abspielen lassen.")
+pl()
+col(WEISS)
+pl("  Moechtest du [BootSoundNX] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/00FF0000000002AA")
 	deldir("sd:/config/BootSoundNX")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                              Modul - DNS-MITM")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  DNS-MITM erlaubt es die Hosts Datei von atmosphere neu zu laden")
+pl()
+col(WEISS)
+pl("  Moechtest du [DNS-MITM] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/DNS-MITM_Manager/switch", "sd:/")
+}
+
+if (resYN == 1){
+	delfile("sd:/switch/.overlays/DNS-MITM_Manager.ovl")
+	deldir("sd:/switch/appstore/.get/packages/dns-mitm_manager")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                               Modul - EdiZon")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit EdiZon kannst du Cheats in Spielen aufrufen und nutzen.")
+pl("  Einfach Tesla-Overlay oeffnen und zu EdiZon scrollen.")
+pl()
+col(WEISS)
+pl("  Moechtest du [EdiZon] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/054e4f4558454000")
 	deldir("sd:/atmosphere/contents/010000000000000D")
 	deldir("sd:/atmosphere/contents/0100000000001013")
+	delfile("sd:/switch/.overlays/ovlEdiZon.ovl")
 	deldir("sd:/switch/breeze")
 	deldir("sd:/switch/EdiZon")
 	deldir("sd:/switch/appstore/.get/packages/EdiZon")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - Emuiibo")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit Emuiibo kannst du Amiibos emulieren und im Spiel dann aufrufen.")
+pl("  Die Amiibos werden mit der App Amiigo bereitgestellt.")
+pl()
+col(WEISS)
+pl("  Moechtest du [Emuiibo] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/0100000000000352")
+	delfile("sd:/switch/.overlays/emuiibo.ovl")
 	deldir("sd:/switch/appstore/.get/packages/emuiibo")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                             Modul - fastCFWswitch")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit fastCFWswitch kannst du, aus der CFW, in die Systeme/Payloads wechseln.")
+pl()
+col(ROT)
+p("  Achtung: ")col(GELB)p("Funktioniert nur eingeschraenkt mit V2 (2019) / Lite / OLED!")pl()
+pl()
+pl()
+pl("  Das Modul wurde bereits bei der Systemauswahl installiert!")
+pl()
+col(WEISS)
+pl("  Moechtest du [fastCFWswitch] behalten?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/config/fastCFWswitch")
+	delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
 	deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - Fizeau")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit Fizeau kannst du dein Display anpassen um fast OLED feeling zu bekommen.")
+pl("  Dieses Modul lohnt sich daher nicht auf einer OLED Konsole, weshalb du es")
+pl("  als Besitzer einer OLED Konsole ruhig deinstallieren kannst.")
+pl()
+col(WEISS)
+pl("  Moechtest du [Fizeau] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/0100000000000F12")
 	deldir("sd:/config/Fizeau")
 	deldir("sd:/switch/Fizeau")
+	delfile("sd:/switch/.overlays/Fizeau.ovl")
 	deldir("sd:/switch/appstore/.get/packages/Fizeau")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - ldn_mitm")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit ldnmitm hast du die Moeglichkeit mit anderen ueber den lokalen Modus")
+pl("  deines Spiels, zusammen zu spielen. Und zwar Online")
+pl("  Der lokale Modus wird so gesehen online gemacht.")
+pl()
+col(WEISS)
+pl("  Moechtest du [ldnmitm] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/4200000000000010")
 	deldir("sd:/switch/ldnmitm_config")
+	delfile("sd:/switch/.overlays/ldnmitm_config.ovl")
 	deldir("sd:/switch/appstore/.get/packages/ldn_mitm")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                            Modul - MissionControl")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit MissionControl kannst du einen PS4/PS5 oder Xbox One S/X Controller mit")
+pl("  deiner Switch koppeln. Fast alle Controller die ECHTES Bluetooth besitzen,")
+pl("  sollten mit der Switch verbunden werden koennen!")
+pl()
+pl()
+pl()
+col(WEISS)
+pl("  Moechtest du [MissionControl] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/010000000000bd00")
 	deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
-	deldir("sd:/atmosphere/exefs_patches/btm_patches")
 	deldir("sd:/config/MissionControl")
 	deldir("sd:/switch/appstore/.get/packages/MissionControl")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                             Modul - ovlSysmodule")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit ovlSysmodule kannst du alle Tesla-Overlay Module im laufenden Betrieb")
+pl("  einschalten/ausschalten.")
+pl()
+col(WEISS)
+pl("  Moechtest du [ovlSysmodule] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
+}
+
+if (resYN == 1){
+	delfile("sd:/switch/.overlays/ovlSysmodules.ovl")
 	deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                             Modul - QuickNTP")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit dem QuickNTP Overlay kannst du Datum und Zeit der Konsole mit einem")
+pl("  Zeit-Server synchronisieren.")
+pl()
+col(WEISS)
+pl("  Moechtest du [QuickNTP] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
+}
+
+if (resYN == 1){
+	delfile("sd:/switch/.overlays/QuickNTP.ovl")
+	deldir("sd:/switch/appstore/.get/packages/QuickNTP")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                             Modul - SaltyNX")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit SaltyNX kannst du Plug-ins und mods nutzen!")
+pl("  Ein FPS Plug-in das die FPS ueber Status-Monitor-Overlay zeigt,")
+pl("  ist schon dabei")
+pl()
+col(WEISS)
+pl("  Moechtest du [SaltyNX] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/SaltySD", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/0000000000534C56")
 	deldir("sd:/SaltySD")
+	delfile("sd:/switch/.overlays/FPSLocker.ovl")
 	deldir("sd:/switch/appstore/.get/packages/SaltyNX")
 	deldir("sd:/switch/appstore/.get/packages/fpslocker")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                        Modul - Status-Monitor-Overlay")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit Status-Monitor-Overlay kannst du dir Infos deiner Konsole anzeigen")
+pl("  lassen.")
+col(WEISS)
+pl("  Moechtest du [Status-Monitor-Overlay] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
+}
+
+if (resYN == 1){
+	delfile("sd:/switch/.overlays/Status-Monitor-Overlay.ovl")
 	deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - sys-clk")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit sys-clk kannst du deine Konsole uebertakten oder auch untertakten.")
+pl("  Du kannst die Taktrate von CPU, GPU und RAM einstellen.")
+pl("  Im config Ordner befindet sich eine Datei in der pro Titel die")
+pl("  Einstellungen festgelegt werden koennen!")
+pl()
+col(WEISS)
+pl("  Moechtest du [sys-clk] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
 	deldir("sd:/config/sys-clk")
 	deldir("sd:/switch/sys-clk")
+	delfile("sd:/switch/.overlays/sys-clk-overlay.ovl")
 	deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                            Modul - sys-clk-Editor")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit dem sys-clk-Editor kannst du die Einstellungen pro Titel vornehmen und")
+pl("  diese in die config von sys-clk eintragen lassen.")
+pl()
+col(WEISS)
+pl("  Moechtest du [sys-clk-Editor] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/switch/sys-clk-Editor")
 	deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - sys-con")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit sys-con kannst du Controller anderer Hersteller PS, XBOX etc. ueber.")
+pl("  USB mit der Konsole Verbinden.")
+pl()
+col(WEISS)
+pl("  Moechtest du [sys-con] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/690000000000000D")
 	deldir("sd:/config/sys-con")
 	deldir("sd:/switch/appstore/.get/packages/sys-con")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - SysDVR")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit SysDVR kannst du ein Spiel an deinen PC uebetragen und aufnehmen.")
+pl()
+col(WEISS)
+pl("  Moechtest du [SysDVR] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/00FF0000A53BB665")
 	deldir("sd:/config/sysdvr")
 	deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
 	deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
+	delfile("sd:/switch/.overlays/sysdvr-overlay.ovl")
 	deldir("sd:/switch/SysDVR-conf")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - sys-ftpd-light")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit sys-ftpd-light kannst du ein Spiel an deinen PC uebetragen und aufnehmen.")
+pl()
+col(WEISS)
+pl("  Moechtest du [sys-ftpd-light] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/420000000000000E")
 	deldir("sd:/config/sys-ftpd")
 	deldir("sd:/switch/appstore/.get/packages/sys-ftpd-light")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                Modul - Sys-Tune")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit Sys- kannst du Audio (Musik) im Hintergrund abspielen! Der Player kann ueber")
+pl("  Das Tesla-Overlay Menue aufgerufen werden.")
+pl()
+col(ROT)
+p("  Achtung: ") color(GELB) p("Es kann passieren dass manche Spiele zum bluescreen führen wenn mehr") pl()
+pl("  als zwei Audiokanaele in Benutzung sind! ")
+pl("  Deaktiviere dazu VORHER im Tesla-Overlay Menue Sys-Tune und starte dann das Spiel.")
+pl()
+col(WEISS)
+pl("  Moechtest du [Sys-Tune] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/atmosphere", "sd:/")
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/switch", "sd:/")
+}
+
+if (resYN == 1){
 	deldir("sd:/atmosphere/contents/4200000000000000")
 	deldir("sd:/switch/appstore/.get/packages/sys-tune")
-	deldir("sd:/switch/appstore/.get/packages/QuickNTP")
-	deldir("sd:/atmosphere/contents/0100BF500207C000")
-	deldir("sd:/atmosphere/contents/01009EE0111CC000")
-	deldir("sd:/atmosphere/contents/010092A0172E4000")
-	deldir("sd:/switch/MemTesterNX")
-	deldir("sd:/switch/MicroMemBench")
-	deldir("sd:/switch/ReverseNX-Tool")
-    delfile("sd:/atmosphere/kips/loader.kip")
+	delfile("sd:/switch/.overlays/sys-tune-overlay.ovl")
 }
 
 clear()
 
-if (resTesla == 1) {
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("          Tesla-Overlay Menue + Standard Module wird installiert...")
-	pl()
-	pl()
-	pl()
-	col(GELB)
-	pl("   Wir haben ein Wettrennen gestartet, um zu sehen, wer zuerst einschlaeft")
-	pl()
-	pl("       - die Installation oder wir?")
-	col(SCHWARZ)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
-}
+pl()
+pl()
+pl()
+col(GELB)
+pl("                         4IFIR OC (Overclocking) Modul")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Das 4IFIR OC ist ein sehr durchdachtes Uebertaktungs System von Cooler3D")
+pl("  Es besteht aus implementiertem Code im Source von atmosphere und einigen")
+pl("  Modulen/Patches/Plugins im Tesla-Overlay, SaltyNX, etc.")
+pl()
+pl("  Verbraucht mehr Akku also ist Docked/Ladekabel die beste Option.")
+pl()
+col(WEISS)
+pl("  Moechtest du [4IFIR] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
 
 clear()
 
-if (resTesla == 2) {
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("          Tesla-Overlay Menue + 4IFIR OverClockingSystem wird installiert...")
-	pl()
-	pl()
-	pl()
-	col(GELB)
-	pl("   Die Installation haelt uns in einer Zeitschleife gefangen")
-	pl()
-	pl("       - BITTE rette uns!")
-	col(SCHWARZ)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
+if (resYN == 0){
+pl()
+pl()
+pl()
+col(GELB)
+pl("             4IFIR wird installiert! Dauert einen Moment...")
+col(SCHWARZ)
+	  
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/atmosphere", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/config", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/SaltySD", "sd:/")
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
 }
 
-clear()
-
-if (resTesla == 3) {
-	pl()
-	pl()
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	col(GELB)
-	pl("         Tesla-Overlay Menue und einzelne Module manuell installieren!")
-	pl()
-	pl()
-	pl("               Tesla-Overlay Menue wird automatisch installiert!")
-	pl("      Du musst nur noch entscheiden welche Module du dabei haben willst!")
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	col(SCHWARZ)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
-
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                 Druecke eine beliebige Taste um fortzufahren!")
-	pause()
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                              Modul - BootSoundNX (NICHT FW16)")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-	col(GELB)
-    pl("  BootSoundNX kann eine mp3 Datei beim Start der Konsole abspielen lassen.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [BootSoundNX] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/00FF0000000002AA")
-      deldir("sd:/config/BootSoundNX")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                              Modul - DNS-MITM")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-	col(GELB)
-    pl("  DNS-MITM erlaubt es die Hosts Datei von atmosphere neu zu laden")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [DNS-MITM] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/DNS-MITM_Manager/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      delfile("sd:/switch/.overlays/DNS-MITM_Manager.ovl")
-      deldir("sd:/switch/appstore/.get/packages/dns-mitm_manager")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                               Modul - EdiZon")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit EdiZon kannst du Cheats in Spielen aufrufen und nutzen.")
-    pl("  Einfach Tesla-Overlay oeffnen und zu EdiZon scrollen.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [EdiZon] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/054e4f4558454000")
-      deldir("sd:/atmosphere/contents/010000000000000D")
-      deldir("sd:/atmosphere/contents/0100000000001013")
-      delfile("sd:/switch/.overlays/ovlEdiZon.ovl")
-      deldir("sd:/switch/breeze")
-      deldir("sd:/switch/EdiZon")
-      deldir("sd:/switch/appstore/.get/packages/EdiZon")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - Emuiibo")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Emuiibo kannst du Amiibos emulieren und im Spiel dann aufrufen.")
-    pl("  Die Amiibos werden mit der App Amiigo bereitgestellt.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [Emuiibo] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-  if (resYN == 0) {
-    copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/atmosphere", "sd:/")
-    copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/emuiibo", "sd:/")
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/emuiibo/switch", "sd:/")
-  }
-
-  if (resYN == 1) {
-    deldir("sd:/atmosphere/contents/0100000000000352")
-		delfile("sd:/switch/.overlays/emuiibo.ovl")
-		deldir("sd:/switch/appstore/.get/packages/emuiibo")
-  }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             Modul - fastCFWswitch")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit fastCFWswitch kannst du, aus der CFW, in die Systeme/Payloads wechseln.")
-    pl()
-    col(ROT)
-    p("  Achtung: ")col(GELB)p("Funktioniert nur eingeschraenkt mit V2 (2019) / Lite / OLED!")pl()
-    pl()
-    pl()
-    pl("  Das Modul wurde bereits bei der Systemauswahl installiert!")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [fastCFWswitch] behalten?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-		copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/fastCFWswitch/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-		deldir("sd:/config/fastCFWswitch")
-		delfile("sd:/switch/.overlays/0_fastCFWswitch.ovl")
-		deldir("sd:/switch/appstore/.get/packages/fastCFWswitch")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - Fizeau")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Fizeau kannst du dein Display anpassen um fast OLED feeling zu bekommen.")
-    pl("  Dieses Modul lohnt sich daher nicht auf einer OLED Konsole, weshalb du es")
-    pl("  als Besitzer einer OLED Konsole ruhig deinstallieren kannst.")
-	pl()
-    col(WEISS)
-    pl("  Moechtest du [Fizeau] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Fizeau/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/0100000000000F12")
-      deldir("sd:/config/Fizeau")
-      deldir("sd:/switch/Fizeau")
-      delfile("sd:/switch/.overlays/Fizeau.ovl")
-      deldir("sd:/switch/appstore/.get/packages/Fizeau")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - ldn_mitm")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit ldnmitm hast du die Moeglichkeit mit anderen ueber den lokalen Modus")
-    pl("  deines Spiels, zusammen zu spielen. Und zwar Online")
-    pl("  Der lokale Modus wird so gesehen online gemacht.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [ldnmitm] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ldnmitm/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/4200000000000010")
-      deldir("sd:/switch/ldnmitm_config")
-      delfile("sd:/switch/.overlays/ldnmitm_config.ovl")
-      deldir("sd:/switch/appstore/.get/packages/ldn_mitm")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                            Modul - MissionControl")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit MissionControl kannst du einen PS4/PS5 oder Xbox One S/X Controller mit")
-    pl("  deiner Switch koppeln. Fast alle Controller die ECHTES Bluetooth besitzen,")
-    pl("  sollten mit der Switch verbunden werden koennen!")
-    pl()
-    pl()
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [MissionControl] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-    copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/atmosphere", "sd:/")
-    copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/config", "sd:/")
-    copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/MissionControl/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/010000000000bd00")
-      deldir("sd:/atmosphere/exefs_patches/bluetooth_patches")
-      deldir("sd:/config/MissionControl")
-      deldir("sd:/switch/appstore/.get/packages/MissionControl")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             Modul - ovlSysmodule")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit ovlSysmodule kannst du alle Tesla-Overlay Module im laufenden Betrieb")
-    pl("  einschalten/ausschalten.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [ovlSysmodule] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      delfile("sd:/switch/.overlays/ovlSysmodules.ovl")
-      deldir("sd:/switch/appstore/.get/packages/ovlsysmodule")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             Modul - QuickNTP")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit dem QuickNTP Overlay kannst du Datum und Zeit der Konsole mit einem")
-    pl("  Zeit-Server synchronisieren.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [QuickNTP] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      delfile("sd:/switch/.overlays/QuickNTP.ovl")
-      deldir("sd:/switch/appstore/.get/packages/QuickNTP")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                             Modul - SaltyNX")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit SaltyNX kannst du Plug-ins und mods nutzen!")
-    pl("  Ein FPS Plug-in das die FPS ueber Status-Monitor-Overlay zeigt,")
-    pl("  ist schon dabei")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [SaltyNX] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/SaltySD", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/SaltyNX/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/0000000000534C56")
-      deldir("sd:/SaltySD")
-      delfile("sd:/switch/.overlays/FPSLocker.ovl")
-      deldir("sd:/switch/appstore/.get/packages/SaltyNX")
-      deldir("sd:/switch/appstore/.get/packages/fpslocker")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                        Modul - Status-Monitor-Overlay")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Status-Monitor-Overlay kannst du dir Infos deiner Konsole anzeigen")
-    pl("  lassen.")
-    col(WEISS)
-    pl("  Moechtest du [Status-Monitor-Overlay] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      delfile("sd:/switch/.overlays/Status-Monitor-Overlay.ovl")
-      deldir("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - sys-clk")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit sys-clk kannst du deine Konsole uebertakten oder auch untertakten.")
-    pl("  Du kannst die Taktrate von CPU, GPU und RAM einstellen.")
-    pl("  Im config Ordner befindet sich eine Datei in der pro Titel die")
-    pl("  Einstellungen festgelegt werden koennen!")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [sys-clk] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/00FF0000636C6BFF")
-      deldir("sd:/config/sys-clk")
-      deldir("sd:/switch/sys-clk")
-      delfile("sd:/switch/.overlays/sys-clk-overlay.ovl")
-      deldir("sd:/switch/appstore/.get/packages/sys-clk-manager")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                            Modul - sys-clk-Editor")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit dem sys-clk-Editor kannst du die Einstellungen pro Titel vornehmen und")
-    pl("  diese in die config von sys-clk eintragen lassen.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [sys-clk-Editor] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/sys-clk-Editor")
-      deldir("sd:/switch/appstore/.get/packages/sys-clk-Editor")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - sys-con")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit sys-con kannst du Controller anderer Hersteller PS, XBOX etc. ueber.")
-    pl("  USB mit der Konsole Verbinden.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [sys-con] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/690000000000000D")
-      deldir("sd:/config/sys-con")
-      deldir("sd:/switch/appstore/.get/packages/sys-con")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - SysDVR")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit SysDVR kannst du ein Spiel an deinen PC uebetragen und aufnehmen.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [SysDVR] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sysdvr-overlay/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/00FF0000A53BB665")
-      deldir("sd:/config/sysdvr")
-      deldir("sd:/switch/appstore/.get/packages/SysDVR-conf")
-      deldir("sd:/switch/appstore/.get/packages/sysdvr-overlay")
-      delfile("sd:/switch/.overlays/sysdvr-overlay.ovl")
-      deldir("sd:/switch/SysDVR-conf")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - sys-ftpd-light")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit sys-ftpd-light kannst du ein Spiel an deinen PC uebetragen und aufnehmen.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [sys-ftpd-light] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/420000000000000E")
-      deldir("sd:/config/sys-ftpd")
-      deldir("sd:/switch/appstore/.get/packages/sys-ftpd-light")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                Modul - Sys-Tune")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Sys- kannst du Audio (Musik) im Hintergrund abspielen! Der Player kann ueber")
-    pl("  Das Tesla-Overlay Menue aufgerufen werden.")
-    pl()
-    col(ROT)
-    p("  Achtung: ") color(GELB) p("Es kann passieren dass manche Spiele zum bluescreen führen wenn mehr") pl()
-    pl("  als zwei Audiokanaele in Benutzung sind! ")
-    pl("  Deaktiviere dazu VORHER im Tesla-Overlay Menue Sys-Tune und starte dann das Spiel.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [Sys-Tune] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-tune/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/atmosphere/contents/4200000000000000")
-      deldir("sd:/switch/appstore/.get/packages/sys-tune")
-      delfile("sd:/switch/.overlays/sys-tune-overlay.ovl")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                         4IFIR OC (Overclocking) Modul")
-    pl()
-    col(NAVAJO)
-    pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Das 4IFIR OC ist ein sehr durchdachtes Uebertaktungs System von Cooler3D")
-    pl("  Es besteht aus implementiertem Code im Source von atmosphere und einigen")
-    pl("  Modulen/Patches/Plugins im Tesla-Overlay, SaltyNX, etc.")
-    pl()
-    pl("  Frisst gut Akku also ist Docked/Ladekabel die beste Option.")
-    pl()
-    col(WEISS)
-    pl("  Moechtest du [4IFIR] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 0)
-
-    clear()
-
-    if (resYN == 0) {
-      pl()
-      pl()
-      pl()
-      col(GELB)
-      pl("             4IFIR wird installiert! Dauert einen Moment...")
-      col(SCHWARZ)
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/atmosphere", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/config", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/SaltySD", "sd:/")
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      col(SCHWARZ)
-      delfile("sd:/atmosphere/kips/loader.kip")
-    }
+if (resYN == 1){
+	delfile("sd:/atmosphere/kips/loader.kip")
+}
 }
 
 wait(tw = 3000)
@@ -2041,61 +2088,64 @@ pl("########### ########### ########## ### # ### ########## ########### ########
 pl()
 pl()
 pl()
-
 col(SILBER)
+
 menuOptionsTinfoil = ["     [HBMENU] Tinfoil im HBMenu (empfohlen)", "     [HOMESCREEN] Tinfoil auf dem Homescreen", "     [NICHTS] Tinfoil deinstallieren"]
 resTinfoil = menu(menuOptionsTinfoil, 0)
 
 clear()
 
-if (resTinfoil == 0) {
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                      Tinfoil wird im HBMenu installiert...")
-	pl()
-	pl()
-	pl()
-	col(GELB)
-	pl("     Wir haben unser Bestes gegeben, aber die Konsole braucht eine Weile,")
-	pl()
-	pl("               um all diese wunderbaren Updates zu verarbeiten.")
-	pl()
-	pl()
-	pl()
-	pl("             Sei gnaedig mit ihr oder schenk sie doch einfach uns.")
-	col(SCHWARZ)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu/switch", "sd:/")
+if (resTinfoil == 0){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                      Tinfoil wird im HBMenu installiert...")
+pl()
+pl()
+pl()
+col(GELB)
+pl("     Wir haben unser Bestes gegeben, aber die Konsole braucht eine Weile,")
+pl()
+pl("               um all diese wunderbaren Updates zu verarbeiten.")
+pl()
+pl()
+pl()
+pl("             Sei gnaedig mit ihr oder schenk sie doch einfach uns.")
+col(SCHWARZ)
+
+copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu/switch", "sd:/")
 }
 
 wait(tw = 2000)
 clear()
 
-if (resTinfoil == 1) {
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                 Tinfoil wird auf dem Homescreen installiert...")
-	pl()
-	pl()
-	pl()
-	col(GELB)
-	pl("     Wir haben eine Petition gestartet, um die Wartezeit fuer")
-	pl("     Installationen zu verkuerzen.")
-	pl()
-	pl("             Bisher hat nur unser Kater unterschrieben.")
-	col(SCHWARZ)
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
+if (resTinfoil == 1){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                 Tinfoil wird auf dem Homescreen installiert...")
+pl()
+pl()
+pl()
+col(GELB)
+pl("     Wir haben eine Petition gestartet, um die Wartezeit fuer")
+pl("     Installationen zu verkuerzen.")
+pl()
+pl("             Bisher hat nur unser Kater unterschrieben.")
+col(SCHWARZ)
+
+copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
 }
 
 wait(tw = 2000)
 col(SCHWARZ)
-if (fse("sd:/backup/SB/tinfoil/locations.conf")) {
+
+if (fse("sd:/backup/SB/tinfoil/locations.conf")){
 	copyfile ("sd:/backup/SB/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf")
 }
 if (fse("sd:/backup/SB/tinfoil/options.json")){
@@ -2104,19 +2154,20 @@ if (fse("sd:/backup/SB/tinfoil/options.json")){
 
 clear()
 
-if (resTinfoil == 2) {
-	pl()
-	pl()
-	pl()
-	col(ROT)
-	pl("                         Tinfoil wird deinstalliert...")
-	pl()
-	pl()
-	pl()
-	col(SCHWARZ)
-	deldir("sd:/switch/tinfoil")
-	delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][15.0][v0].nsp")
-	delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][16.0][v0].nsp")
+if (resTinfoil == 2){
+pl()
+pl()
+pl()
+col(ROT)
+pl("                         Tinfoil wird deinstalliert...")
+pl()
+pl()
+pl()
+col(SCHWARZ)
+
+deldir("sd:/switch/tinfoil")
+delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][15.0][v0].nsp")
+delfile("sd:/NSPs/Tinfoil [050000BADDAD0000][16.0][v0].nsp")
 }
 
 clear()
@@ -2135,205 +2186,210 @@ pl("########### ########### ########## ### # ### ########## ########### ########
 pl()
 pl()
 pl()
-
 col(SILBER)
+
 menuOptionsHBApps = ["     [ALLES] Alle Zusatz-Apps installieren", "     [MANUELL] Zusatz-Apps einzeln installieren (empfohlen)"]
 resHBApps = menu(menuOptionsHBApps, 1)
 
 clear()
 
-if (resHBApps == 0) {
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                     Alle Zusatz-Apps werden installiert...")
-	pl()
-	pl()
-	pl()
-	col(GELB)
-	pl("     Du meldest dich ausserhalb unserer CFW Zeiten!")
-	pl()
-	pl("     Bitte Kontaktiere uns kostenfrei, innerhalb unserer CFW Zeiten:")
-	pl()
-	pl("     Mo - Fr von 5:30 - 5:31, wir freuen uns so auf deinen Anruf!")
-	pl("                              und sind immer fuer dich da!")
-	col(SCHWARZ)
+if (resHBApps == 0){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                     Alle Zusatz-Apps werden installiert...")
+pl()
+pl()
+pl()
+col(GELB)
+pl("     Du meldest dich ausserhalb unserer CFW Zeiten!")
+pl()
+pl("     Bitte Kontaktiere uns kostenfrei, innerhalb unserer CFW Zeiten:")
+pl()
+pl("     Mo - Fr von 5:30 - 5:31, wir freuen uns so auf deinen Anruf!")
+pl("                              und sind immer fuer dich da!")
+col(SCHWARZ)
+
+copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
+copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
+}
+
+clear()
+
+if (resHBApps == 1){
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GELB)
+pl("     Bestimme selbst welche Zusatz-Apps installiert werden sollen indem du")
+pl("     eine nach der anderen installierst/deinstallierst!")
+pl()
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                 Druecke eine beliebige Taste um fortzufahren!")
+
+pause()
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                 APP - Chiaki")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit Chiaki kannst du deine PlayStation auf die Switch streamen.")
+pl()
+col(SILBER)
+pl("  Moechtest du [Chiaki] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
+}
+
+if (resYN == 1){
+	deldir("sd:/switch/chiaki")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                 APP - fake08")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  fake08 ist ein einfacher pico8 Emulator.")
+pl()
+col(SILBER)
+pl("  Moechtest du [fake08] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
-	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
+}
+
+if (resYN == 1){
+	deldir("sd:/switch/fake08")
+}
+
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                 APP - haku33")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit haku33 kannst du deine Konsole so zuruecksetzen als kaeme sie gerade")
+pl("  aus der Box = ALLES ist weg!!! OutOfTheBox Reinigung")
+pl()
+col(SILBER)
+pl("  Moechtest du [haku33] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
 }
 
-clear()
-
-if (resHBApps == 1) {
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl()
-	col(GELB)
-	pl("     Bestimme selbst welche Zusatz-Apps installiert werden sollen indem du")
-	pl("     eine nach der anderen installierst/deinstallierst!")
-	pl()
-	pl()
-	col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-	pl()
-	pl()
-	pl()
-	col(GRUEN)
-	pl("                 Druecke eine beliebige Taste um fortzufahren!")
-	pause()
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - Chiaki")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit Chiaki kannst du deine PlayStation auf die Switch streamen.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [Chiaki] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/chiaki")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - fake08")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  fake08 ist ein einfacher pico8 Emulator.")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [fake08] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/fake08")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                                 APP - haku33")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit haku33 kannst du deine Konsole so zuruecksetzen als kaeme sie gerade")
-    pl("  aus der Box = ALLES ist weg!!! OutOfTheBox Reinigung")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [haku33] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/haku33")
-    }
-
-clear()
-
-    pl()
-    pl()
-    pl()
-    col(GELB)
-    pl("                           APP - TencentSwitcherGui")
-    pl()
-    col(NAVAJO)
-	pl("########### ########### ########## ### # ### ########## ########### ###########")
-    pl()
-    col(GELB)
-    pl("  Mit TencentSwitcherGui kannst du eine chinesische Switch zumindest wieder.")
-    pl("  auf englisch stellen! Bei Tencent Switch gibt es NUR noch chinesisch")
-    pl()
-    col(SILBER)
-    pl("  Moechtest du [TencentSwitcherGui] installieren?")
-    pl()
-    pl()
-    menuOptionsYN = ["Ja", "Nein"]
-    resYN = menu(menuOptionsYN, 1)
-
-    clear()
-    col(SCHWARZ)
-
-    if (resYN == 0) {
-      copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
-    }
-
-    if (resYN == 1) {
-      deldir("sd:/switch/TencentSwitcherGui")
-    }
+if (resYN == 1){
+	deldir("sd:/switch/haku33")
 }
 
-if (fse("sd:/backup/SB/dbi.config")) {
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                           APP - TencentSwitcherGui")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit TencentSwitcherGui kannst du eine chinesische Switch zumindest wieder.")
+pl("  auf englisch stellen! Bei Tencent Switch gibt es NUR noch chinesisch")
+pl()
+col(SILBER)
+pl("  Moechtest du [TencentSwitcherGui] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+clear()
+col(SCHWARZ)
+
+if (resYN == 0){
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
+}
+
+if (resYN == 1){
+	deldir("sd:/switch/TencentSwitcherGui")
+}
+}
+
+if (fse("sd:/backup/SB/dbi.config")){
 	copyfile("sd:/backup/SB/dbi.config", "sd:/switch/DBI/dbi.config")
 }
 if (fse("sd:/backup/SB/IconGrabber/config.json")){
 	copyfile("sd:/backup/SB/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
 }
-if (fse("sd:/backup/SB/fastCFWSwitch/config.ini")) {
+if (fse("sd:/backup/SB/fastCFWSwitch/config.ini")){
 	copyfile("sd:/backup/SB/fastCFWSwitch/config.ini", "sd:/config/fastCFWSwitch/config.ini")
 }
-if (fse("sd:/backup/SB/Fizeau/config.ini")) {
+if (fse("sd:/backup/SB/Fizeau/config.ini")){
 	copyfile("sd:/backup/SB/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
 }
-if (fse("sd:/backup/SB/ftpd/ftpd.cfg")) {
+if (fse("sd:/backup/SB/ftpd/ftpd.cfg")){
 	copyfile("sd:/backup/SB/ftpd/ftpd.cfg", "sd:/config/ftpd/ftpd.cfg")
 }
-if (fse("sd:/backup/SB/sys-ftpd/config.ini")) {
+if (fse("sd:/backup/SB/sys-ftpd/config.ini")){
 	copyfile("sd:/backup/SB/sys-ftpd/config.ini", "sd:/config/sys-ftpd/config.ini")
 }
 if (fse("sd:/backup/SB/bootlogo")){
@@ -2370,16 +2426,16 @@ pl("     Bissl fuers Paket und der Rest ist die Liebe zu unserer Community")
 pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
-
 col(SCHWARZ)
+
 removemacfolders()
 pl()
 pl()
 pl()
 col(GRUEN)
 pl("                 Druecke eine beliebige Taste um fortzufahren!")
-pause()
 
+pause()
 clear()
 
 pl()
@@ -2397,19 +2453,19 @@ pl()
 pl()
 pl()
 p("                    Bitte warten") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 1000) p("     es dauert einen Moment")
+col(SCHWARZ)
 
 wait(tw = 3000)
 clear()
-
-col(SCHWARZ)
 fixattrib()
+
 pl()
 pl()
 pl()
 col(GRUEN)
 pl("                 Druecke eine beliebige Taste um fortzufahren!")
-pause()
 
+pause()
 clear()
 
 pl()
@@ -2434,6 +2490,7 @@ pl()
 col(PINK)
 p("                            Tatort-Reiniger am Werk!")
 col(SCHWARZ)
+
 delfile("sd:/startup.te")
 delfile("sd:/bootloader/ini/!switchbros_updater.ini")
 delfile("sd:/bootloader/ini/switchbros_updater.ini")
@@ -2456,8 +2513,8 @@ pl()
 pl()
 col(GRUEN)
 pl("                 Druecke eine beliebige Taste um fortzufahren!")
-pause()
 
+pause()
 clear()
 
 pl()
@@ -2488,11 +2545,13 @@ pl("               Deine Switch wird in 5 Sek. automatisch neu gestartet.")
 pl()
 pl()
 pl()
+
 wait(tw = 3000)
 col(BECKY) p("                        5...") wait(tw = 1000) col(BLAU) p("  4...") wait(tw = 1000) col(ROT) p("  3...") wait(tw = 1000) col(ORANGE) p("  2...") wait(tw = 1000) col(GELB) p("  1...") wait(tw = 1000) col(WEISS) p("  0") wait(tw = 1000)
 
 col(SCHWARZ)
-if (is_erista()) {
+
+if (is_erista()){
 	payload("sd:/bootloader/update.bin")
 }.else(){
 	reboot_ofw()
