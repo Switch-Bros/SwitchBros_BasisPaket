@@ -1059,13 +1059,7 @@ if(fse("sd:/backup/SB/bootloader")){
 	}
 }
 
-pl()
-pl()
-pl()
-col(GRUEN)
-pl("                 Druecke eine beliebige Taste um fortzufahren!")
-
-pause()
+wait(tw = 5000)
 clear()
 
 pl()
@@ -1096,13 +1090,7 @@ col(SCHWARZ)
 	copydir("sd:/SwitchBros_BasisPaket/switchbros/theme/themes", "sd:/")
 	copyfile("sd:/SwitchBros_BasisPaket/switchbros/theme/ThemeApps.txt", "sd:/")
 
-pl()
-pl()
-pl()
-col(GRUEN)
-pl("                 Druecke eine beliebige Taste um fortzufahren!")
-
-pause()
+wait(tw = 5000)
 clear()
 
 pl()
@@ -1131,7 +1119,6 @@ pl("  SwitchBros. Paket, durch das ausfuehren dieses Scripts reaktiviert werden.
 pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
 pl()
 pl()
 
@@ -1320,7 +1307,6 @@ copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", 
 copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
 copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
 
-pl()
 pl()
 pl()
 col(GRUEN)
@@ -2087,7 +2073,6 @@ col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 pl()
 pl()
-pl()
 col(SILBER)
 
 menuOptionsTinfoil = ["     [HBMENU] Tinfoil im HBMenu (empfohlen)", "     [HOMESCREEN] Tinfoil auf dem Homescreen", "     [NICHTS] Tinfoil deinstallieren"]
@@ -2185,7 +2170,6 @@ col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 pl()
 pl()
-pl()
 col(SILBER)
 
 menuOptionsHBApps = ["     [ALLES] Alle Zusatz-Apps installieren", "     [MANUELL] Zusatz-Apps einzeln installieren (empfohlen)"]
@@ -2232,7 +2216,6 @@ pl()
 pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
 pl()
 pl()
 col(GRUEN)
@@ -2429,7 +2412,7 @@ pl("########### ########### ########## ### # ### ########## ########### ########
 col(SCHWARZ)
 
 removemacfolders()
-pl()
+
 pl()
 pl()
 col(GRUEN)
@@ -2457,15 +2440,10 @@ col(SCHWARZ)
 
 wait(tw = 3000)
 clear()
+
 fixattrib()
 
-pl()
-pl()
-pl()
-col(GRUEN)
-pl("                 Druecke eine beliebige Taste um fortzufahren!")
-
-pause()
+wait(tw = 3000)
 clear()
 
 pl()
@@ -2508,13 +2486,7 @@ deldir("sd:/SwitchBros_BasisPaket")
 delfile("sd:/switch/switchbros-updater/update.te")
 delfile("sd:/switch/switchbros-updater/startup.te")
 
-pl()
-pl()
-pl()
-col(GRUEN)
-pl("                 Druecke eine beliebige Taste um fortzufahren!")
-
-pause()
+wait(tw = 3000)
 clear()
 
 pl()
@@ -2548,8 +2520,6 @@ pl()
 
 wait(tw = 3000)
 col(BECKY) p("                        5...") wait(tw = 1000) col(BLAU) p("  4...") wait(tw = 1000) col(ROT) p("  3...") wait(tw = 1000) col(ORANGE) p("  2...") wait(tw = 1000) col(GELB) p("  1...") wait(tw = 1000) col(WEISS) p("  0") wait(tw = 1000)
-
-col(SCHWARZ)
 
 if (is_erista()){
 	payload("sd:/bootloader/update.bin")
