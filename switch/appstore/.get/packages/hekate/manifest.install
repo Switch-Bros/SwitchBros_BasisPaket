@@ -1,4 +1,4 @@
-U: hekate_ctcaer_6.0.4.bin
+U: hekate_ctcaer_6.0.5.bin
 U: bootloader/update.bin
 U: bootloader/res/icon_payload.bmp
 U: bootloader/res/icon_switch.bmp
@@ -11,5 +11,6 @@ U: bootloader/sys/res.pak
 U: bootloader/sys/l4t/sc7exit.bin
 U: bootloader/sys/l4t/sc7entry.bin
 U: bootloader/sys/l4t/bpmpfw_b01.bin
+U: bootloader/sys/l4t/bpmpfw.bin
 U: bootloader/sys/l4t/mtc_tbl_b01.bin
 U: bootloader/sys/l4t/sc7exit_b01.bin
