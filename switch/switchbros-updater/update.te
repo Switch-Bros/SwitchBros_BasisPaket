@@ -490,10 +490,11 @@ copyfile("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
 copyfile("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 copyfile("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
 
-delfile("sd:/atmosphere/stratosphere.romfs.sbu");
-delfile("sd:/atmosphere/fusee-secondary.bin.sbu");
-delfile("sd:/sept/payload.bin.sbu");
-delfile("sd:/payload.bin.sbu");
+delfile("sd:/atmosphere/stratosphere.romfs.sbu")
+delfile("sd:/atmosphere/fusee-secondary.bin.sbu")
+delfile("sd:/sept/payload.bin.sbu")
+delfile("sd:/payload.bin.sbu")
+delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
 }
 
 wait(tw = 2000)
