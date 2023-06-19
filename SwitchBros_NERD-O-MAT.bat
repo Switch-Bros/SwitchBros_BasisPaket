@@ -14,7 +14,6 @@ set cfw=AMS
 set cfwname=Atmosphere
 set theme_flag=0
 set theme=0
-set ftpd=0
 set fizeau=0
 set icograb=0
 set sd=%1
@@ -106,7 +105,7 @@ if not exist "%SBBAK%" (
     mkdir "%SBBAK%" >nul 2>&1
 )
 
-set "folders=bootloader fastCFWSwitch Fizeau IconGrabber ftpd sys-ftpd tinfoil bootlogo DBI"
+set "folders=bootloader fastCFWSwitch Fizeau IconGrabber sys-ftpd tinfoil bootlogo DBI"
 
 for %%i in (%folders%) do (
     if not exist "%SBBAK%\%%i" (
@@ -128,9 +127,6 @@ xcopy /I /Y "%sd%:\config\Fizeau\config.ini" "%SBBAK%\Fizeau\" >nul 2>&1
 )
 if exist "%sd%:\config\IconGrabber\config.json" (
 xcopy /I /Y "%sd%:\config\IconGrabber\config.json" "%SBBAK%\IconGrabber\" >nul 2>&1
-)
-if exist "%sd%:\config\ftpd\ftpd.cfg" (
-xcopy /I /Y "%sd%:\config\ftpd\ftpd.cfg" "%SBBAK%\ftpd\" >nul 2>&1
 )
 if exist "%sd%:\config\sys-ftpd\config.ini" (
 xcopy /I /Y "%sd%:\config\sys-ftpd\config.ini" "%SBBAK%\sys-ftpd\" >nul 2>&1
@@ -538,7 +534,6 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
 if exist "%SB-Backup%\Fizeau\config.ini" (xcopy "%SB-Backup%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%SB-Backup%\ftpd\ftpd.cfg" (xcopy "%SB-Backup%\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\sys-ftpd\config.ini" (xcopy "%SB-Backup%\sys-ftpd\config.ini" "%sd%:\config\sys-ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\icongrabber\config.json" (xcopy "%SB-Backup%\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 3"
@@ -1135,7 +1130,6 @@ if exist "%SB-Backup%\bootloader\hekate_ipl.ini" (xcopy "%SB-Backup%\bootloader\
 if exist "%SB-Backup%\bootloader\nyx.ini" (xcopy "%SB-Backup%\bootloader\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\fastcfwswitch\config.ini" (xcopy "%SB-Backup%\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\Fizeau\config.ini" (xcopy "%SB-Backup%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%SB-Backup%\ftpd\ftpd.cfg" (xcopy "%SB-Backup%\ftpd\ftpd.cfg" "%sd%:\config\ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\sys-ftpd\config.ini" (xcopy "%SB-Backup%\sys-ftpd\config.ini" "%sd%:\config\sys-ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\icongrabber\config.json" (xcopy "%SB-Backup%\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
@@ -1490,6 +1484,7 @@ echo      16 = sys-ftpd-light (FTP Verbindung im Hintergrund)
 echo      17 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
 echo      18 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
 echo      19 = 4IFIR OC (Switch Uebertaktungs-System)
+echo      20 = UltraHand Overlay (Dateien, configs bearbeiten)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1519,6 +1514,7 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="17" GOTO systune
 	if "%teslamods%"=="18" GOTO sysdvr
 	if "%teslamods%"=="19" GOTO fourifir
+	if "%teslamods%"=="19" GOTO ultrahand
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -2120,6 +2116,36 @@ set /p fourifir=     Bitte triff deine Auswahl:
 	GOTO fourifir
 	)
 	if "%fourifir%"=="3" GOTO teslamanuell
+
+REM ============================================================
+:ultrahand
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll UltraHand Overlay installiert oder deinstalliert werden?
+echo.
+echo      1 = UltraHand Overlay installieren
+echo      2 = UltraHand Overlay deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zum naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "ultrahand="
+set /p ultrahand=     Bitte triff deine Auswahl: 
+	if "%ultrahand%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO ultrahand
+	)
+	if "%ultrahand%"=="2" (
+	del /s /q "%sd%:\switch\.overlays\Ultrahand.ovl"
+	GOTO ultrahand
+	)
+	if "%ultrahand%"=="3" GOTO teslamanuell
+
 
 REM ============================================================
 :zusatzapps
