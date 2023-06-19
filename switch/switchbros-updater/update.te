@@ -139,7 +139,6 @@ mkdir("sd:/backup/SB/bootloader")
 mkdir("sd:/backup/SB/fastCFWSwitch")
 mkdir("sd:/backup/SB/Fizeau")
 mkdir("sd:/backup/SB/IconGrabber")
-mkdir("sd:/backup/SB/ftpd")
 mkdir("sd:/backup/SB/sys-ftpd")
 mkdir("sd:/backup/SB/tinfoil")
 mkdir("sd:/backup/SB/DBI")
@@ -158,9 +157,6 @@ if (fse("sd:/config/Fizeau/config.ini")){
 }
 if (fse("sd:/config/icongrabber/config.json")){
 	copyfile("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
-}
-if (fse("sd:/config/ftpd/ftpd.cfg")){
-	copyfile("sd:/config/ftpd/ftpd.cfg", "sd:/backup/SB/ftpd/ftpd.cfg")
 }
 if (fse("sd:/config/sys-ftpd/config.ini")){
 	copyfile("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
@@ -2051,6 +2047,48 @@ if (resYN == 1){
 }
 }
 
+clear()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                        Modul - UltraHand Overlay")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Mit UltraHand kannst du Dateien auf der SD-Karte bearbeiten!")
+pl("  Erstelle eigene Konfigurationen oder geteilte!")
+pl("  Schwer zu erklaeren was es ist, muss man gesehen haben!")
+pl()
+col(WEISS)
+pl("  Moechtest du [UltraHand] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+clear()
+
+if (resYN == 0){
+pl()
+pl()
+pl()
+col(GELB)
+pl("                      UltraHand Overlay wird installiert!")
+col(SCHWARZ)
+	  
+	copydir("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
+}
+
+if (resYN == 1){
+	delfile("sd:/switch/.overlays/Ultrahand.ovl")
+}
+}
+
 wait(tw = 3000)
 clear()
 
@@ -2370,9 +2408,6 @@ if (fse("sd:/backup/SB/fastCFWSwitch/config.ini")){
 if (fse("sd:/backup/SB/Fizeau/config.ini")){
 	copyfile("sd:/backup/SB/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
 }
-if (fse("sd:/backup/SB/ftpd/ftpd.cfg")){
-	copyfile("sd:/backup/SB/ftpd/ftpd.cfg", "sd:/config/ftpd/ftpd.cfg")
-}
 if (fse("sd:/backup/SB/sys-ftpd/config.ini")){
 	copyfile("sd:/backup/SB/sys-ftpd/config.ini", "sd:/config/sys-ftpd/config.ini")
 }
@@ -2403,6 +2438,7 @@ pl()
 pl("     Ich nenne ihn 'Socki'")
 pl()
 pl()
+pl("     FunFact:")
 pl("     Unglaubliche 1001 Naechte haben WIR geschuftet wie die HAUSELFEN")
 pl("     um euch dieses SwitchBros. Paket praesentieren zu koennen")
 pl()
