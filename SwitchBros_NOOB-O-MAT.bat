@@ -8,7 +8,6 @@ REM RIESEN DANK!!! an diesen tollen Entwickler!
 REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
-set wd=%temp%\sdfiles
 set clear=0
 set cfw=AMS
 set cfwname=Atmosphere
@@ -183,7 +182,6 @@ echo      Das Programm schliesst sich von selbst, falls du zu bloed bist die Ein
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-if exist "%wd%" (RD /S /Q "%wd%\*")
 powershell -Command "Start-Sleep -Seconds 10"
 exit
 
@@ -254,7 +252,7 @@ if exist "%sd%:/SB.ico" (
 
 	if exist "%sd%:\bootloader\sys" (RD /S /Q "%sd%:\bootloader\sys")
 	if exist "%sd%:\bootloader\payloads" (RD /S /Q "%sd%:\bootloader\payloads")
-	if exist "%sd%:\bootloader\*.ini" (DEL /F "%sd%:\bootloader\*.ini)
+	if exist "%sd%:\bootloader\*.ini" (DEL /F "%sd%:\bootloader\*.ini")
 	if exist "%sd%:\bootloader\*.bin" (DEL /F "%sd%:\bootloader\*.bin")
 	if exist "%sd%:\bootloader\*.bmp" (DEL /F "%sd%:\bootloader\*.bmp")
 

@@ -339,7 +339,7 @@ if exist "%sd%:/SB.ico" (
 
 	if exist "%sd%:\bootloader\sys" (RD /S /Q "%sd%:\bootloader\sys")
 	if exist "%sd%:\bootloader\payloads" (RD /S /Q "%sd%:\bootloader\payloads")
-	if exist "%sd%:\bootloader\*.ini" (DEL /F "%sd%:\bootloader\*.ini)
+	if exist "%sd%:\bootloader\*.ini" (DEL /F "%sd%:\bootloader\*.ini")
 	if exist "%sd%:\bootloader\*.bin" (DEL /F "%sd%:\bootloader\*.bin")
 	if exist "%sd%:\bootloader\*.bmp" (DEL /F "%sd%:\bootloader\*.bmp")
 
