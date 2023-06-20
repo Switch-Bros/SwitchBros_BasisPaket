@@ -252,16 +252,6 @@ delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
 delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5_SB.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5.bin")
-<<<<<<< Updated upstream
-delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4_SB.bin")
-delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4.bin")
-delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.3.bin")
-delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.2.bin")
-delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.1.bin")
-delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.0.bin")
-delfile("sd:/bootloader/payloads/hekate.bin")
-=======
->>>>>>> Stashed changes
 delfile("sd:/bootloader/payloads/fusee.bin")
 delfile("sd:/bootloader/hekate_ipl.ini")
 delfile("sd:/bootloader/nyx.ini")
