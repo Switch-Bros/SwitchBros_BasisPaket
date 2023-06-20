@@ -2,9 +2,9 @@
 ## 119
 **16.0.3 wird voll unterstützt**
 
-* [**Aktualisiert**] [hekate 6.0.4 + Nyx 1.5.3](https://github.com/CTCaer/hekate) - JETZT komplett DEUTSCH
+* [**Aktualisiert**] [hekate 6.0.5 + Nyx 1.5.4](https://github.com/CTCaer/hekate) - JETZT komplett DEUTSCH
 * [**Aktualisiert**] [SwitchBros-O-Sphere 1.5.4 (pre) -1f05854bb + hbmenu 3.5.1 + hbl 2.4.3 ](https://github.com/Switch-Bros/SwitchBros-O-sphere/releases)
-    * [**Aktualisiert**] [4IFIR 1.5 Basis implementiert (OC Engine)](https://github.com/rashevskyv/4IFIR/blob/main/README_ENG.md)
+    * [**Aktualisiert**] [4IFIR 1.6 Basis inside 19.06.2023 (OC Engine)](https://github.com/rashevskyv/4IFIR/blob/main/README_ENG.md)
       * Im Source von SwitchBros-O-Sphere integriert
       * Angepasste Apps: 4IFIR.ovl, sys-clk, SaltyNX, ReverseNX.nro, MemTesterNX.nro, MicroMemBench.nro, InfoNX.ovl, FPSLocker.ovl
       * Wer 4IFIR nutzt = Auf KEINEN Fall die Apps aus dem HB-Appstore holen weil ein Update angezeigt wird!!!
@@ -17,26 +17,23 @@
 * [**Aktualisiert**] hbmenu 3.5.1 neu kompiliert mit libnx 4.4.2 = UHRZEIT wird wieder korrekt angezeigt
 * [**Aktualisiert**] hblauncher 2.4.3 neu kompiliert mit libnx 4.4.2
 * [**Aktualisiert**] SaltyNX 0.6.0
-* [**Aktualisiert**] FPSLocker 1.2.2
+* [**Aktualisiert**] FPSLocker 1.2.4
 * [**Aktualisiert**] Tesla-Menu 1.2.3
 * [**Aktualisiert**] emuiibo 1.0.0 (neueste commit von 27.05.2023)
 
 *  [**Übersetzt**] folgende Apps wurden auf deutsch übersetzt
-   * hekate 6.0.4 / nyx 1.5.3
+   * hekate 6.0.5 / nyx 1.5.4
    * TegraExplorer 4.1.0.112 
    * Enigma_RCM 1.10.0
    * hbmenu 3.5.1 
    * Daybreak 1.0.0 
-   * ftpd 3.2.0
-   * Reset_Parental_Control 1.2.0
    * IconGrabber 1.0.0 
    * AllgemeinerProblemLoeser 0.4.0
-   * DNS-Block Tester 1.0.4 (original ist 90DNS_SwitchTester) 
    * fastCFWswitch 1.3.1
 
 ----
 #### **GER**:
-## 118 (verflucht)
+## 118 (verflucht, oder nicht?)
 **16.0.3 wird voll unterstützt**
 
 * [**Aktualisiert**] [hekate 6.0.4 + Nyx 1.5.3](https://github.com/CTCaer/hekate) - JETZT komplett DEUTSCH
