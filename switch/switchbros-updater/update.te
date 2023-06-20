@@ -143,11 +143,11 @@ mkdir("sd:/backup/SB/sys-ftpd")
 mkdir("sd:/backup/SB/tinfoil")
 mkdir("sd:/backup/SB/DBI")
 
-if (fse("sd:/bootloader/hekate_ipl_.ini")){
-	copyfile("sd:/bootloader/hekate_ipl_.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
+if (fse("sd:/bootloader/hekate_ipl.ini")){
+	copyfile("sd:/bootloader/hekate_ipl.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
 }
-if (fse("sd:/bootloader/nyx_.ini")){
-	copyfile("sd:/bootloader/nyx_.ini", "sd:/backup/SB/bootloader/nyx.ini")
+if (fse("sd:/bootloader/nyx.ini")){
+	copyfile("sd:/bootloader/nyx.ini", "sd:/backup/SB/bootloader/nyx.ini")
 }
 if (fse("sd:/config/fastCFWSwitch/config.ini")){
 	copyfile("sd:/config/fastCFWSwitch/config.ini", "sd:/backup/SB/fastCFWSwitch/config.ini")
@@ -247,10 +247,12 @@ delfile("sd:/atmosphere/reboot_payload.bin")
 delfile("sd:/atmosphere/package3")
 
 deldir("sd:/bootloader/sys")
+deldir("sd:/bootloader/ini")
 delfile("sd:/bootloader/payloads/Lockpick_RCM.bin")
 delfile("sd:/bootloader/payloads/CommonProblemResolver.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5_SB.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.5.bin")
+<<<<<<< Updated upstream
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4_SB.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.4.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.3.bin")
@@ -258,6 +260,8 @@ delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.2.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.1.bin")
 delfile("sd:/bootloader/payloads/hekate_ctcaer_6.0.0.bin")
 delfile("sd:/bootloader/payloads/hekate.bin")
+=======
+>>>>>>> Stashed changes
 delfile("sd:/bootloader/payloads/fusee.bin")
 delfile("sd:/bootloader/hekate_ipl.ini")
 delfile("sd:/bootloader/nyx.ini")
@@ -435,9 +439,7 @@ deldir("sd:/themes")
 deldir("sd:/System Volume Information")
 deldir("sd:/tegraexplorer")
 deldir("sd:/tools")
-delfile("sd:/hekate_ctcaer_6.0.5_SB.bin")
 delfile("sd:/hekate_ctcaer_6.0.5.bin")
-delfile("sd:/hekate_ctcaer_6.0.4_SB.bin")
 delfile("sd:/hekate_ctcaer_6.0.4.bin")
 delfile("sd:/hekate_ctcaer_6.0.3.bin")
 delfile("sd:/hekate_ctcaer_6.0.2.bin")
@@ -495,7 +497,6 @@ delfile("sd:/atmosphere/stratosphere.romfs.sbu")
 delfile("sd:/atmosphere/fusee-secondary.bin.sbu")
 delfile("sd:/sept/payload.bin.sbu")
 delfile("sd:/payload.bin.sbu")
-delfile("sd:/bootloader/ini/hwfly_toolbox.ini")
 }
 
 wait(tw = 2000)
@@ -2050,7 +2051,6 @@ col(SCHWARZ)
 if (resYN == 1){
 	delfile("sd:/atmosphere/kips/loader.kip")
 }
-}
 
 clear()
 
@@ -2091,7 +2091,6 @@ col(SCHWARZ)
 
 if (resYN == 1){
 	delfile("sd:/switch/.overlays/Ultrahand.ovl")
-}
 }
 
 wait(tw = 3000)
@@ -2243,6 +2242,7 @@ copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
 copydir("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
+}
 }
 
 clear()
