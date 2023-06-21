@@ -552,10 +552,6 @@ echo     Entweder sind die Systeme bereits bei dir installiert, oder du moechtes
 echo     installieren = Die Partitionen dafuer nicht vergessen (Partiton nachtraeglich geht nicht)^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
-echo     Achtung Modchip Besitzer = LAKKA, Libreelec, Ubuntu Bionic und fedora werden unterstuetzt^^!
-echo.
-echo     Android und die anderen Linux Distributionen z.Zt. NICHT^^!^^!^^!
-echo -----------------------------------------------------------------------------------------------------
 echo.
 echo      0 = Basis (Standard)
 echo      1 = Basis + Android
