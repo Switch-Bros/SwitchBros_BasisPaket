@@ -45,7 +45,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-for /f "usebackq delims=" %%a in (`powershell -command "$ErrorActionPreference='Stop'; $sd = Get-WmiObject -Class Win32_Volume | Where-Object {$_.DriveType -eq 2}; foreach ($s in $sd) { 'Laufwerksbuchstabe: {0}' -f $s.DriveLetter; if ($s.Label) { 'Laufwerk: {0}' -f $s.Label }; 'Dateisystem: {0}' -f $s.FileSystem; $size = [math]::Round($s.Capacity / 1GB, 2); if ($size -ge 1) { 'Größe: {0} GB' -f $size } else { 'Groesse: {0} MB' -f ($s.Capacity / 1MB) }; 'Belegt: {0} GB' -f ([math]::Round(($s.Capacity - $s.FreeSpace) / 1GB, 2)); 'Frei: {0} GB' -f ([math]::Round($s.FreeSpace / 1GB, 2)) }"`) do (
+for /f "usebackq delims=" %%a in (`powershell -command "$ErrorActionPreference='Stop'; $sd = Get-WmiObject -Class Win32_Volume | Where-Object {$_.DriveType -eq 2}; foreach ($s in $sd) { 'Laufwerksbuchstabe: {0}' -f $s.DriveLetter; if ($s.Label) { 'Laufwerk: {0}' -f $s.Label }; 'Dateisystem: {0}' -f $s.FileSystem; $size = [math]::Round($s.Capacity / 1GB, 2); if ($size -ge 1) { 'Groesse: {0} GB' -f $size } else { 'Groesse: {0} MB' -f ($s.Capacity / 1MB) }; 'Belegt: {0} GB' -f ([math]::Round(($s.Capacity - $s.FreeSpace) / 1GB, 2)); 'Frei: {0} GB' -f ([math]::Round($s.FreeSpace / 1GB, 2)) }"`) do (
     echo %%a
 )
 
