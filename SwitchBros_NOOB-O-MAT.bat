@@ -150,7 +150,7 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      1 = SD-Karte bereinigen/einrichten und zum SwitchBros. Paket wechseln^^!
+echo      1 = SD-Karte einrichten, und SwitchBros. Paket installieren^^!
 echo.
 echo.
 echo      F = Unsicher, altes Paket behalten                             B = Dieses Skript Beenden

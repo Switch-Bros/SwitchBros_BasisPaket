@@ -8,7 +8,6 @@ REM RIESEN DANK!!! an diesen tollen Entwickler!
 REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
-set wd=%temp%\sdfiles
 set clear=0
 set cfw=AMS
 set cfwname=Atmosphere
@@ -151,27 +150,28 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      1 = SD-Karte vorbereiten und zum SwitchBros. Paket wechseln^^!
+echo      1 = SD-Karte einrichten, und SwitchBros. Paket installieren^^!
+echo.
 echo          Das GANZE Skript komplett durchgehen wenn du die CFW zum ersten Mal aufsetzt, wenn du von
 echo          einem anderen Paket kommst, oder wenn es sich um eine neue SD-Karte handelt^^! DANKE^^!
 echo.
 echo =====================================================================================================
 echo.
-echo      2 = Systeme (Linux, LAKKA, Android)^^!
+echo      2 = Systeme fuer hekate Anzeige waehlen (Linux, LAKKA, Android)^^!
 echo.
-echo      3 = Backup Ordner anlegen^^!
+echo      3 = Backup Ordner fuer dein Switch-System, auf PC anlegen^^!
 echo.
 echo      4 = Kinder-Modus^^! (Forwarder nicht auf Homescreen)
 echo.
 echo      5 = SteamAPI fuer IconGrabber App holen und eingeben^^!
 echo.
-echo      6 = Tesla-Overlay Menue^^!
+echo      6 = Tesla-Overlay Menue Module einrichten^^!
 echo.
-echo      7 = Zusatz Apps^^!
+echo      7 = Zusatz Apps installieren/deinstallieren^^!
 echo.
-echo      8 = fix ArchiveBit^^!
+echo      8 = fix ArchiveBit^^! (Archivierung und Schreibschutz aller Dateien entfernen)
 echo.
-echo      9 = USB3 Speed eintragen^^!
+echo      9 = USB3 Geschwindigkeit in Registry eintragen^^! (Switch zu PC Verbindung)
 echo.
 echo.
 echo      F = Unsicher, altes Paket behalten                             B = Dieses Skript Beenden
@@ -199,12 +199,12 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Bevor es losgeht, kann das Script fuer dich Backup-Ordner erstellen in denen du spaeter die
-echo      Backups von hekate einfuegen kannst = (BOOT0, BOOT1 und RAW GPP - Keys, etc.)
+echo      Hier kann die BAT fuer dich automatisch Backup-Ordner erstellen in denen du spaeter die
+echo      Backups die hekate erstellt, einfuegen kannst = (BOOT0, BOOT1, RAW GPP, Keys, etc.)
 echo.
 echo      Die erstellten Backups von hekate sind nicht gerade klein^^!
 echo      Gib bitte ein Laufwerk an (NICHT deine SD-Karte), dass ueber ausreichend freien Speicherplatz
-echo      verfuegt (ca. 35GB fuer v1, v2 und lite bzw. 65GB fuer OLED Konsolen)!
+echo      verfuegt (ca. 32GB fuer v1, v2 und lite, und ca. 64GB fuer OLED Konsolen)!
 echo.
 echo      Folgende (leere) Ordner werden im angegebenen Laufwerk, auf deinem PC, fuer dich angelegt:
 echo.             
@@ -215,8 +215,6 @@ echo          - Prodkeys-Devkeys (prod.keys und dev.keys)
 echo          - Partial_AES_Keys (partial_aes.keys (Mariko Chip))
 echo          - Amiibo_Keys
 echo        - SD-Karten_Backup (CFW eingerichtet = Ein Backup davon)
-echo.
-echo      Brauchst du die Ordner nicht dann druecke nur die Eingabetaste^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -268,7 +266,6 @@ echo      Das Programm schliesst sich von selbst, falls du zu bloed bist die Ein
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-if exist "%wd%" (RD /S /Q "%wd%\*")
 pause>nul 2>&1
 exit
 
@@ -549,7 +546,7 @@ echo.
 echo     Waehle die Systeme aus, die in hekate, unter "Launch",  zur Verfuegung stehen sollen^^!
 echo.
 echo     Entweder sind die Systeme bereits bei dir installiert, oder du moechtest diese spaeter
-echo     installieren = Die Partitionen dafuer nicht vergessen (Partiton nachtraeglich geht nicht)^^!
+echo     installieren = Die Partitionen dafuer nicht vergessen (Partition nachtraeglich geht nicht)^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -573,7 +570,7 @@ echo     16 = alte hekate_ipl.ini behalten (nicht empfohlen)
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo     W - Es geht erst weiter wenn du 'W' eingegeben hast^^!
-echo         Also System auswaehlen und danach (W)EITER^^!
+echo         Also Systemnummer eingeben, ENTER , dann W eingeben und ENTER^^!
 echo.
 echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
