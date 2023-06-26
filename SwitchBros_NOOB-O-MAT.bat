@@ -9,13 +9,6 @@ REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
 set wd=%temp%\sdfiles
-set clear=0
-set cfw=AMS
-set cfwname=Atmosphere
-set theme_flag=0
-set theme=0
-set fizeau=0
-set icograb=0
 set sd=%1
 REM if not defined %sd% (GOTO hauptmenue)
 
@@ -31,7 +24,7 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo                            _-== WARNUNG - WARNUNG - WARNUNG - WARNUNG ==-_
+echo                       _-== WARNUNG - WARNUNG - WARNUNG - WARNUNG - WARNUNG ==-_
 echo.
 echo      Wenn du dieses Skript (NOOB-O-MAT.bat) von deiner SD-Karte aus gestartet hast, dann
 echo          SCHLIESSE es bitte SOFORT^^! NICHT von SD-Karte aus starten^^!
