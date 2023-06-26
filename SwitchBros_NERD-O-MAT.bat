@@ -2,12 +2,13 @@
 mode con: cols=106 lines=32
 SETLOCAL ENABLEDELAYEDEXPANSION
 chcp 1252 >nul 2>&1
-title SwitchBros. NERD-O-MAT
-REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
+title SwitchBros. NERD-O-MAT v120
+REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
 REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
+set wd=%temp%\sdfiles
 set clear=0
 set cfw=AMS
 set cfwname=Atmosphere
@@ -2630,6 +2631,8 @@ echo      BITTE WARTEN...
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-powershell -Command "Start-Sleep -Seconds 7"
+
+if exist "%wd%" (RD /s /q "%wd%\*") >nul 2>nul
+powershell -Command "Start-Sleep -Seconds 3"
 exit
 )

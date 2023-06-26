@@ -2,12 +2,13 @@
 mode con: cols=106 lines=32
 SETLOCAL ENABLEDELAYEDEXPANSION
 chcp 1252 >nul 2>&1
-title SwitchBros. NOOB-O-MAT
-REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket der ebenfalls Entwickler von DBI ist!
+title SwitchBros. NOOB-O-MAT v120
+REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
 REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
 
 COLOR 0E
+set wd=%temp%\sdfiles
 set clear=0
 set cfw=AMS
 set cfwname=Atmosphere
@@ -602,7 +603,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v MaximumTransferLength /t REG_DWORD /d 00100000 /f>nul 2>&1
+reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v MaximumTransferLength /t REG_DWORD /d 00100000 /f >nul 2>&1
 
 REM ============================================================
 :aufraeumen
@@ -697,5 +698,6 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
+if exist "%wd%" (RD /s /q "%wd%\*") >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 7"
 exit
