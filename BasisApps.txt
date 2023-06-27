@@ -27,7 +27,7 @@ Themezer 2.0.0
 BootSoundNX 1.3.0
 DNS-MITM_Manager 0.2.0
 EdiZon 3.8.37
-EdiZon-Overlay 1.0.5
+EdiZon-Overlay 1.0.7
 emuiibo 1.0.0
 fastCFWswitch 1.3.1_de
 Fizeau 2.4.1
@@ -49,7 +49,7 @@ sys-tweak
 SysDVR 5.5.5
 SysDVR Overlay 1.0.9
 Tesla-Menu 1.2.3
-UltraHand-Overlay 1.1.1 (+ Cool Curves config)
+UltraHand-Overlay 1.1.3 (+ Cool Curves config)
 
 
 === Mögliche Zusatz Apps ==========
