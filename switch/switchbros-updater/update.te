@@ -145,7 +145,6 @@ md("sd:/backup/SB/bootloader")
 md("sd:/backup/SB/fastCFWSwitch")
 md("sd:/backup/SB/Fizeau")
 md("sd:/backup/SB/IconGrabber")
-md("sd:/backup/SB/sys-ftpd")
 md("sd:/backup/SB/tinfoil")
 md("sd:/backup/SB/DBI")
 
@@ -163,9 +162,6 @@ if (fse("sd:/config/Fizeau/config.ini")){
 }
 if (fse("sd:/config/icongrabber/config.json")){
 	cpf("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
-}
-if (fse("sd:/config/sys-ftpd/config.ini")){
-	cpf("sd:/config/sys-ftpd/config.ini", "sd:/backup/SB/sys-ftpd/config.ini")
 }
 if (fse("sd:/switch/tinfoil/locations.conf")){
 	cpf("sd:/switch/tinfoil/locations.conf", "sd:/backup/SB/tinfoil/locations.conf")
@@ -1276,9 +1272,6 @@ cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
 }
 
@@ -1929,51 +1922,6 @@ pl()
 pl()
 pl()
 col(GELB)
-pl("                                Modul - sys-ftpd-light")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("  Mit sys-ftpd-light kannst du Daten per FTP im Hintergrund austauschen.")
-pl()
-pl()
-pl("                       sys-ftpd-light Tastenkombination:")
-pl()
-pl()
-col(ROT)
-p("                           >")col(ORANGE)p(">")col(GELB)p(">")col(WEISS)p("  L")col(GRUEN)p(" + ")col(WEISS)p("R")col(GRUEN)p(" + ")col(WEISS)p("PLUS  ")col(GELB)p("<")col(ORANGE)p("<")col(ROT)p("<")
-pl()
-pl()
-col(WEISS)
-pl("  Moechtest du [sys-ftpd-light] installieren?")
-pl()
-pl()
-
-menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 0)
-
-cls()
-col(SCHWARZ)
-
-if (resYN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/atmosphere", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/config", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-ftpd-light/switch", "sd:/")
-}
-
-if (resYN == 1){
-	dld("sd:/atmosphere/contents/420000000000000E")
-	dld("sd:/config/sys-ftpd")
-	dld("sd:/switch/appstore/.get/packages/sys-ftpd-light")
-}
-
-cls()
-
-pl()
-pl()
-pl()
-col(GELB)
 pl("                                Modul - Sys-Tune")
 pl()
 col(NAVAJO)
@@ -2417,9 +2365,6 @@ if (fse("sd:/backup/SB/fastCFWSwitch/config.ini")){
 }
 if (fse("sd:/backup/SB/Fizeau/config.ini")){
 	cpf("sd:/backup/SB/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
-}
-if (fse("sd:/backup/SB/sys-ftpd/config.ini")){
-	cpf("sd:/backup/SB/sys-ftpd/config.ini", "sd:/config/sys-ftpd/config.ini")
 }
 if (fse("sd:/backup/SB/bootlogo")){
 	cpd ("sd:/backup/SB/bootlogo", "sd:/atmosphere/exefs_patches/")
