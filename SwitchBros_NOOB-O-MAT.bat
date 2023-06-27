@@ -98,7 +98,7 @@ if not exist "%SBBAK%" (
     mkdir "%SBBAK%" >nul 2>&1
 )
 
-set "folders=bootloader fastCFWSwitch Fizeau IconGrabber sys-ftpd tinfoil bootlogo DBI"
+set "folders=bootloader fastCFWSwitch Fizeau IconGrabber tinfoil bootlogo DBI"
 
 for %%i in (%folders%) do (
     if not exist "%SBBAK%\%%i" (
@@ -120,9 +120,6 @@ xcopy /I /Y "%sd%:\config\Fizeau\config.ini" "%SBBAK%\Fizeau\" >nul 2>&1
 )
 if exist "%sd%:\config\IconGrabber\config.json" (
 xcopy /I /Y "%sd%:\config\IconGrabber\config.json" "%SBBAK%\IconGrabber\" >nul 2>&1
-)
-if exist "%sd%:\config\sys-ftpd\config.ini" (
-xcopy /I /Y "%sd%:\config\sys-ftpd\config.ini" "%SBBAK%\sys-ftpd\" >nul 2>&1
 )
 if exist "%sd%:\switch\tinfoil\locations.conf" (
 xcopy /I /Y "%sd%:\switch\tinfoil\locations.conf" "%SBBAK%\tinfoil\" >nul 2>&1
@@ -429,7 +426,6 @@ echo ---------------------------------------------------------------------------
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 2"
 if exist "%SBBAK%\Fizeau\config.ini" (xcopy "%SBBAK%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%SBBAK%\sys-ftpd\config.ini" (xcopy "%SBBAK%\sys-ftpd\config.ini" "%sd%:\config\sys-ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 5"
 
 REM ============================================================
@@ -514,7 +510,6 @@ xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I 
 xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 
 REM ============================================================

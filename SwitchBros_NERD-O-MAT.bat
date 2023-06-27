@@ -98,7 +98,7 @@ if not exist "%SBBAK%" (
     mkdir "%SBBAK%" >nul 2>&1
 )
 
-set "folders=bootloader fastCFWSwitch Fizeau IconGrabber sys-ftpd tinfoil bootlogo DBI"
+set "folders=bootloader fastCFWSwitch Fizeau IconGrabber tinfoil bootlogo DBI"
 
 for %%i in (%folders%) do (
     if not exist "%SBBAK%\%%i" (
@@ -120,9 +120,6 @@ xcopy /I /Y "%sd%:\config\Fizeau\config.ini" "%SBBAK%\Fizeau\" >nul 2>&1
 )
 if exist "%sd%:\config\IconGrabber\config.json" (
 xcopy /I /Y "%sd%:\config\IconGrabber\config.json" "%SBBAK%\IconGrabber\" >nul 2>&1
-)
-if exist "%sd%:\config\sys-ftpd\config.ini" (
-xcopy /I /Y "%sd%:\config\sys-ftpd\config.ini" "%SBBAK%\sys-ftpd\" >nul 2>&1
 )
 if exist "%sd%:\switch\tinfoil\locations.conf" (
 xcopy /I /Y "%sd%:\switch\tinfoil\locations.conf" "%SBBAK%\tinfoil\" >nul 2>&1
@@ -525,7 +522,6 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
 if exist "%SB-Backup%\Fizeau\config.ini" (xcopy "%SB-Backup%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%SB-Backup%\sys-ftpd\config.ini" (xcopy "%SB-Backup%\sys-ftpd\config.ini" "%sd%:\config\sys-ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\icongrabber\config.json" (xcopy "%SB-Backup%\icongrabber\config.json" "%sd%:\config\icongrabber\config.json\*" /H /Y /C /R /S /E /I) >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 3"
 GOTO systempartitionen
@@ -1117,7 +1113,6 @@ if exist "%SB-Backup%\bootloader\hekate_ipl.ini" (xcopy "%SB-Backup%\bootloader\
 if exist "%SB-Backup%\bootloader\nyx.ini" (xcopy "%SB-Backup%\bootloader\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\fastcfwswitch\config.ini" (xcopy "%SB-Backup%\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\Fizeau\config.ini" (xcopy "%SB-Backup%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%SB-Backup%\sys-ftpd\config.ini" (xcopy "%SB-Backup%\sys-ftpd\config.ini" "%sd%:\config\sys-ftpd\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\icongrabber\config.json" (xcopy "%SB-Backup%\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
 
@@ -1406,7 +1401,6 @@ echo.
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
 
@@ -1428,7 +1422,6 @@ xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO zusatzapps
@@ -1467,11 +1460,10 @@ echo      12 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
 echo      13 = sys-clk (Switch Uebertakten/Untertakten)
 echo      14 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
 echo      15 = sys-con (fremd Controller ueber USB)
-echo      16 = sys-ftpd-light (FTP Verbindung im Hintergrund)
-echo      17 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
-echo      18 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
-echo      19 = 4IFIR OC (Switch Uebertaktungs-System)
-echo      20 = UltraHand Overlay (Dateien, configs bearbeiten)
+echo      16 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
+echo      17 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
+echo      18 = 4IFIR OC (Switch Uebertaktungs-System)
+echo      19 = UltraHand Overlay (Dateien, configs bearbeiten)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1497,10 +1489,9 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="13" GOTO sysclk
 	if "%teslamods%"=="14" GOTO sysclkedit
 	if "%teslamods%"=="15" GOTO syscon
-	if "%teslamods%"=="16" GOTO sysftpd
-	if "%teslamods%"=="17" GOTO systune
-	if "%teslamods%"=="18" GOTO sysdvr
-	if "%teslamods%"=="19" GOTO fourifir
+	if "%teslamods%"=="16" GOTO systune
+	if "%teslamods%"=="17" GOTO sysdvr
+	if "%teslamods%"=="18" GOTO fourifir
 	if "%teslamods%"=="19" GOTO ultrahand
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
@@ -1978,37 +1969,6 @@ set /p syscon=     Bitte triff deine Auswahl:
 	GOTO syscon
 	)
 	if "%syscon%"=="3" GOTO teslamanuell
-
-REM ============================================================
-:sysftpd
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll sys-FTPD-light installiert oder deinstalliert werden?
-echo.
-echo      1 = sys-FTPD-light installieren
-echo      2 = sys-FTPD-light deinstallieren
-echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zum naechsten Modul springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "sysftpd="
-set /p sysftpd=     Bitte triff deine Auswahl: 
-	if "%sysftpd%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\sys-ftpd-light\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO sysftpd
-	)
-	if "%sysftpd%"=="2" (
-	RD /S /Q "%sd%:\atmosphere\contents\420000000000000E"
-	RD /S /Q "%sd%:\config\sys-ftpd"
-	RD /S /Q "%sd%:\switch\appstore\.get\packages\sys-ftpd-light"
-	GOTO sysftpd
-	)
-	if "%sysftpd%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :sysdvr
