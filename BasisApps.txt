@@ -2,7 +2,7 @@ Basiert auf:
 
 Hekate 6.0.6 + Nyx 1.5.5 (Deutsch)
 SwitchBros-O-sphere 1.5.5 commit -c11fb1ba9 + hbl-2.4.3 + hbmenu-3.5.1
-4IFIR 1.6 inside (OC Suite) 19.06.2023
+4IFIR 1.7 inside (OC Suite) 23.08.2023
 TegraExplorer 4.1.0.112 (Deutsch)
 Enigma_RCM 1.10.0 (Lockpick_RCM) (Deutsch, andere Farbe)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
