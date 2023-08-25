@@ -189,7 +189,7 @@ pl("           Erstmal den ganzen Rotz von deiner SD-Karte entfernen!")
 pl()
 pl("    Alter herrscht hier ein durcheinander, besonders wenn du von CL kommst!")
 pl()
-pl("               Kommst du von CL, dann jetzt Brechreiz ausloesen!")
+pl("            Kommst du von CL, dann bitte jetzt Brechreiz ausloesen!")
 pl()
 pl()
 pl("             Zuviel altes Zeug von dem er selbst keine Ahnung hat,")
@@ -511,7 +511,7 @@ pl()
 pl()
 
 col(SILBER)
-menuOptionsChip = ["     [M0] Kein Modchip", "     [M1] Modchip (v2, lite, OLED)", "     [M2] Modchip trinketM0 (v1)"]
+menuOptionsChip = ["     [M0] Kein Modchip", "     [M1] Modchip (v1, v2, lite, OLED)", "     [M2] Modchip trinketM0 (v1)"]
 resChip = menu(menuOptionsChip, 0)
 
 cls()
@@ -529,6 +529,7 @@ col(SCHWARZ)
 	dlf("sd:/boot.dat")
 	dlf("sd:/boot.ini")
 	dlf("sd:/bootloader/payloads/hwfly_toolbox.bin")
+	dlf("sd:/bootloader/payloads/picofly_toolbox.bin")
 	dlf("sd:/bootloader/ini/hwfly_toolbox.ini")
 }
 
@@ -569,6 +570,7 @@ col(SCHWARZ)
 	cpf("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
 	cpf("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
 	dlf("sd:/bootloader/payloads/hwfly_toolbox.bin")
+	dlf("sd:/bootloader/payloads/picofly_toolbox.bin")
 	dlf("sd:/bootloader/ini/hwfly_toolbox.ini")
 }
 
@@ -648,7 +650,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -657,12 +659,18 @@ if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-}
+	}
 
 if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 	}
 }
 
@@ -716,7 +724,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -732,6 +740,13 @@ if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	}
 }
@@ -789,7 +804,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -806,6 +821,14 @@ if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	}
@@ -828,7 +851,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -845,6 +868,14 @@ if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
@@ -886,7 +917,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -904,6 +935,15 @@ if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
@@ -926,7 +966,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -944,6 +984,13 @@ if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+	}
 }
 
 cls()
@@ -962,7 +1009,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -979,6 +1026,14 @@ if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
@@ -1000,7 +1055,7 @@ pl()
 pl()
 col(SILBER)
 
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux"]
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
 resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
@@ -1016,6 +1071,13 @@ if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 }
