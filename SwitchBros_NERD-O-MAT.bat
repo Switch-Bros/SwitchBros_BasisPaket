@@ -66,7 +66,7 @@ echo.
 echo      Wenn du einen Modchip in deiner Konsole hast, dann gib es bitte hier an^^!
 echo.
 echo      0 = Nein, ich habe keinen Modchip verbaut
-echo      1 = Ja, ich habe einen Modchip verbaut (v2, lite, OLED)
+echo      1 = Ja, ich habe einen Modchip verbaut (v1, v2, lite, OLED)
 echo      2 = Ja, ich habe einen trinketm0 in meiner v1
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -627,12 +627,14 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
 set "Linux="
 set /p Linux="     Waehle deine Linux Distribution: "
+
 if /i "%Linux%"=="B" (
 xcopy "%sd%:\switchbros\system\bu\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\bionic\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -650,6 +652,20 @@ echo.
 if /i "%Linux%"=="F" (
 xcopy "%sd%:\switchbros\system\bu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+if /i "%Linux%"=="U" (
+xcopy "%sd%:\switchbros\system\bu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
 COLOR 0E
@@ -704,6 +720,7 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -738,6 +755,21 @@ xcopy "%sd%:\switchbros\system\bau\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
+if /i "%Linux%"=="U" (
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+xcopy "%sd%:\switchbros\system\bau\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
+xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO systempartitionen
 
 REM ============================================================
@@ -783,6 +815,7 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -817,6 +850,20 @@ xcopy "%sd%:\switchbros\system\balu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
+if /i "%Linux%"=="U" (
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+xcopy "%sd%:\switchbros\system\balu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO systempartitionen
@@ -832,6 +879,7 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -866,6 +914,20 @@ xcopy "%sd%:\switchbros\system\baue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
+if /i "%Linux%"=="U" (
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+xcopy "%sd%:\switchbros\system\baue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO systempartitionen
@@ -898,6 +960,7 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -932,6 +995,20 @@ xcopy "%sd%:\switchbros\system\balue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nu
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
+if /i "%Linux%"=="U" (
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+xcopy "%sd%:\switchbros\system\balue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
 xcopy "%sd%:\switchbros\system\images\android\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -948,6 +1025,7 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -982,6 +1060,20 @@ xcopy "%sd%:\switchbros\system\blu\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
+if /i "%Linux%"=="U" (
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+xcopy "%sd%:\switchbros\system\blu\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
 xcopy "%sd%:\switchbros\system\images\lakka\*" "%sd%:\" /H /Y /C /R /S /E /I
 GOTO systempartitionen
 
@@ -996,6 +1088,7 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1030,6 +1123,20 @@ xcopy "%sd%:\switchbros\system\bue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
+if /i "%Linux%"=="U" (
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+xcopy "%sd%:\switchbros\system\bue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I
 GOTO systempartitionen
 
@@ -1044,6 +1151,7 @@ echo      Welche Linux Distribution wirst du spaeter nutzen?
 echo.
 echo      B = Ubuntu Bionic (empfohlen, wenn unsicher)
 echo      F = Fedora Linux
+echo      U = Ubuntu 22.04 Linux
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1076,6 +1184,20 @@ echo.
 
 xcopy "%sd%:\switchbros\system\blue\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\system\images\fedora\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+)
+
+if /i "%Linux%"=="U" (
+COLOR 0E
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      BITTE WARTEN...^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+xcopy "%sd%:\switchbros\system\blue\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\system\images\ubuntu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 )
 
 xcopy "%sd%:\switchbros\system\images\libreelec\*" "%sd%:\" /H /Y /C /R /S /E /I
@@ -2508,6 +2630,7 @@ if %bootdat%==0 (
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (DEL /F "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
 	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (DEL /F "%sd%:\bootloader\ini\hwfly_toolbox.ini")
+	if exist "%sd%:\bootloader\payloads\picofly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\picofly_toolbox.bin")
 	if exist "%sd%:\boot.dat" (DEL /F "%sd%:\boot.dat")
 	if exist "%sd%:\boot.ini" (DEL /F "%sd%:\boot.ini") 
 	if exist "%sd%:\payload.bin" (DEL /F "%sd%:\payload.bin")
@@ -2523,7 +2646,8 @@ if %bootdat%==2 (
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (DEL /F "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
 	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (DEL /F "%sd%:\bootloader\ini\hwfly_toolbox.ini")
-	)
+	if exist "%sd%:\bootloader\payloads\picofly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\picofly_toolbox.bin")
+)
 
 cd %sd%:\
 GOTO endemutig
