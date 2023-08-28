@@ -1,5 +1,6 @@
 U: switch/.overlays/emuiibo.ovl
 U: emuiibo/overlay/lang/zh-Hant.json
+U: emuiibo/overlay/lang/pt-BR.json
 U: emuiibo/overlay/lang/zh-Hans.json
 U: emuiibo/overlay/lang/es.json
 U: emuiibo/overlay/lang/de.json
