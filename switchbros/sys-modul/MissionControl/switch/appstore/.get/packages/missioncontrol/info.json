@@ -2,7 +2,7 @@
   "title": "MissionControl",
   "author": "ndeadly",
   "category": "tool",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "url": "https://github.com/ndeadly/MissionControl/releases",
   "license": "GPLv2",
   "description": "Use controllers from other consoles",
