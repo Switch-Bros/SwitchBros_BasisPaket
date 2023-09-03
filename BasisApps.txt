@@ -28,12 +28,12 @@ BootSoundNX 1.3.0
 DNS-MITM_Manager 0.2.0
 EdiZon 3.8.37
 EdiZon-Overlay 1.0.7
-emuiibo 1.1.0
+emuiibo 1.1.1
 fastCFWswitch 1.3.1_de
 Fizeau 2.4.1
 FPS-Locker 1.2.3
 ldn-mitm 1.15.0
-Mission Control 0.9.3
+Mission Control 0.9.4
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8
