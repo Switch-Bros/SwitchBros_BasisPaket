@@ -2639,7 +2639,7 @@ if %bootdat%==1 (
 	if exist "%sd%:\bootloader\memloader" (RD /S /Q "%sd%:\bootloader\memloader")
 	if exist "%sd%:\config\Fizeau" (RD /S /Q "%sd%:\config\Fizeau")
 	if exist "%sd%:\switch\Fizeau" (RD /S /Q "%sd%:\switch\Fizeau")
-	if exist "%sd%:\switch\.overlays\5_Fizeau.ovl" (DEL /F "%sd%:\switch\.overlays\*fizeau*.ovl")
+	if exist "%sd%:\switch\.overlays\Fizeau.ovl" (DEL /F "%sd%:\switch\.overlays\*fizeau*.ovl")
 	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000F12")
 )
 if %bootdat%==2 (
