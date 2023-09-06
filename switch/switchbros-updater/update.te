@@ -552,7 +552,7 @@ col(SCHWARZ)
 	dld("sd:/atmosphere/contents/0100000000000F12")
 	dld("sd:/switch/appstore/.get/packages/Fizeau")
 	dld("sd:/switch/Fizeau")
-	dlf("sd:/switch/.overlays/5_Fizeau.ovl")
+	dlf("sd:/switch/.overlays/Fizeau.ovl")
 }
 
 wait(tw = 1000)
@@ -729,25 +729,24 @@ resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+
 if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	}
 
 if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	}
 
 if (resLIN == 2){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
 	}
 }
 
@@ -809,28 +808,25 @@ resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+
 if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	}
 
 	if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	}
 
 if (resLIN == 2){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
 	}
 }
 
@@ -856,28 +852,25 @@ resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
 if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 	if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 if (resLIN == 2){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 }
 
@@ -922,31 +915,26 @@ resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
 if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 if (resLIN == 2){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 }
 
@@ -971,25 +959,24 @@ resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+
 if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
 	}
 
 if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
     }
 
 if (resLIN == 2){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
 	}
 }
 
@@ -1014,28 +1001,25 @@ resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
 if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 if (resLIN == 2){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 }
 
@@ -1060,25 +1044,24 @@ resLIN = menu(menuOptionsLIN, 0)
 
 col(SCHWARZ)
 
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
 if (resLIN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 if (resLIN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 
 if (resLIN == 2){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/bootloader", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
 	}
 }
 
