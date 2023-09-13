@@ -1,2 +1,3 @@
-U: atmosphere/contents/4200000000000000/exefs.nsp
 U: switch/.overlays/sys-tune-overlay.ovl
+U: atmosphere/contents/4200000000000000/exefs.nsp
+U: atmosphere/contents/4200000000000000/toolbox.json
