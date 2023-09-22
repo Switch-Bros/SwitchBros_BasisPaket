@@ -486,6 +486,9 @@ cpd("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
 cpf("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
 cpf("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 cpf("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
+cpf("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin"
+cpf("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
+cpf("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
 
 dlf("sd:/atmosphere/stratosphere.romfs.sbu")
 dlf("sd:/atmosphere/fusee-secondary.bin.sbu")
@@ -544,9 +547,6 @@ col(GRUEN)
 pl("            Modchip relevante Daten werden hinzugefuegt/entfernt...")
 col(SCHWARZ)
 
-	cpf("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
-	cpf("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
-	cpf("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
 	dld("sd:/bootloader/memloader")
 	dld("sd:/config/Fizeau")
 	dld("sd:/atmosphere/contents/0100000000000F12")
@@ -566,9 +566,6 @@ col(GRUEN)
 pl("                 Modchip relevante Daten werden hinzugefuegt...")
 col(SCHWARZ)
 
-	cpf("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
-	cpf("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
-	cpf("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
 	dlf("sd:/bootloader/payloads/hwfly_toolbox.bin")
 	dlf("sd:/bootloader/payloads/picofly_toolbox.bin")
 	dlf("sd:/bootloader/ini/hwfly_toolbox.ini")
@@ -1098,7 +1095,8 @@ col(SCHWARZ)
 if(fse("sd:/backup/SB/bootloader")){
 	cpf("sd:/backup/SB/bootloader/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
 	cpf("sd:/backup/SB/bootloader/nyx.ini", "sd:/bootloader/nyx.ini")
-	}
+}.else(){
+  cpd("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
 }
 
 wait(tw = 5000)
