@@ -1356,41 +1356,6 @@ pl()
 pl()
 pl()
 col(GELB)
-pl("                              Modul - BootSoundNX (NICHT FW16)")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("  BootSoundNX kann eine mp3 Datei beim Start der Konsole abspielen lassen.")
-pl()
-col(WEISS)
-pl("  Moechtest du [BootSoundNX] installieren?")
-pl()
-pl()
-
-menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 1)
-
-cls()
-col(SCHWARZ)
-
-if (resYN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
-}
-
-if (resYN == 1){
-	dld("sd:/atmosphere/contents/00FF0000000002AA")
-	dld("sd:/config/BootSoundNX")
-}
-
-cls()
-
-pl()
-pl()
-pl()
-col(GELB)
 pl("                              Modul - DNS-MITM")
 pl()
 col(NAVAJO)
