@@ -2204,7 +2204,6 @@ col(SCHWARZ)
 cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
 }
 }
 
@@ -2293,40 +2292,6 @@ if (resYN == 0){
 
 if (resYN == 1){
 	dld("sd:/switch/fake08")
-}
-
-cls()
-
-pl()
-pl()
-pl()
-col(GELB)
-pl("                                 APP - haku33")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("  Mit haku33 kannst du deine Konsole so zuruecksetzen als kaeme sie gerade")
-pl("  aus der Box = ALLES ist weg!!! OutOfTheBox Reinigung")
-pl()
-col(SILBER)
-pl("  Moechtest du [haku33] installieren?")
-pl()
-pl()
-
-menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 1)
-
-cls()
-col(SCHWARZ)
-
-if (resYN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/haku33/switch", "sd:/")
-}
-
-if (resYN == 1){
-	dld("sd:/switch/haku33")
 }
 
 cls()

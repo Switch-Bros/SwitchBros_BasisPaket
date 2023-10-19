@@ -2225,7 +2225,6 @@ echo.
 
 xcopy "%sd%:\switchbros\zusatzapps\chiaki\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\fake08\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\zusatzapps\haku33\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\zusatzapps\TencentSwitcherGui\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 
 GOTO attributeundmac
@@ -2243,8 +2242,7 @@ echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^!
 echo.
 echo      1 = chiaki (PS4/PS5 auf der Switch streamen)
 echo      2 = fake08 (Pico8 Emulator)
-echo      3 = haku33 (OutOfTheBox Reinigung)
-echo      4 = TencentSwitcherGui (Chinesisch auf englisch stellen)
+echo      3 = TencentSwitcherGui (Chinesisch auf englisch stellen)
 echo.
 echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -2257,8 +2255,7 @@ set "datenapps="
 set /p datenapps=     Waehle deine Zusatz-App(s): 
 	if "%datenapps%"=="1" GOTO chiaki
 	if "%datenapps%"=="2" GOTO fake08
-	if "%datenapps%"=="3" GOTO haku33
-	if "%datenapps%"=="4" GOTO tencentswitcher
+	if "%datenapps%"=="3" GOTO tencentswitcher
 	if /i "%datenapps%"=="W" GOTO attributeundmac
 	if /i "%datenapps%"=="H" GOTO hauptmenue
 
@@ -2319,35 +2316,6 @@ set /p fake08=     Bitte triff deine Auswahl:
 	GOTO fake08
 	)
 	if "%fake08%"=="3" GOTO zusatzapps
-
-REM ============================================================
-:haku33
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll haku33 installiert oder deinstalliert werden?
-echo.
-echo      1 = haku33 installieren
-echo      2 = haku33 deinstallieren
-echo.
-echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
-echo      Enter = zur naechsten App springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "haku33="
-set /p haku33=     Bitte triff deine Auswahl: 
-	if "%haku33%"=="1" (
-	xcopy "%sd%:\switchbros\zusatzapps\haku33\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO haku33
-	)
-	if "%haku33%"=="2" (
-	RD /S /Q "%sd%:\switch\haku33"
-	GOTO haku33
-	)
-	if "%haku33%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :tencentswitcher
