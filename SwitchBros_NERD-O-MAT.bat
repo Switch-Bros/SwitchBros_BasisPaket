@@ -1567,7 +1567,6 @@ echo     Sonst machen die Module ja keinen Sinn^^!
 echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
-echo       1 = BootSoundNX (Bootsound beim Systemstart)
 echo       2 = DNS-MITM Manager (Hosts Datei neu laden)
 echo       3 = Edizon (Cheats nutzen)
 echo       4 = emuiibo (damit kann man virtuelle amiibos nutzen)
@@ -1596,7 +1595,6 @@ echo.
 
 set "teslamods="
 set /p teslamods="     Waehle das Tesla-Overlay Modul: "
-	if "%teslamods%"=="1" GOTO bootsoundnx
 	if "%teslamods%"=="2" GOTO dnsmitm
 	if "%teslamods%"=="3" GOTO edizon
 	if "%teslamods%"=="4" GOTO emuiibo
@@ -1617,36 +1615,6 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="19" GOTO ultrahand
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
-
-REM ============================================================
-:bootsoundnx
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll BootSoundNX installiert oder deinstalliert werden?
-echo.
-echo      1 = BootSoundNX installieren
-echo      2 = BootSoundNX deinstallieren
-echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zum naechsten Modul springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "bootsoundnx="
-set /p bootsoundnx="     Bitte triff deine Auswahl: "
-	if "%bootsoundnx%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO bootsoundnx
-	)
-	if "%bootsoundnx%"=="2" (
-	RD /S /Q "%sd%:\atmosphere\contents\00FF0000000002AA"
-	RD /S /Q "%sd%:\config\BootSoundNX"
-	GOTO bootsoundnx
-	)
-	if "%bootsoundnx%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :dnsmitm
