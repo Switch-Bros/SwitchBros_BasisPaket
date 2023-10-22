@@ -98,7 +98,7 @@ if not exist "%SBBAK%" (
     mkdir "%SBBAK%" >nul 2>&1
 )
 
-set "folders=bootloader fastCFWSwitch Fizeau IconGrabber tinfoil bootlogo DBI"
+set "folders=bootloader Fizeau IconGrabber tinfoil bootlogo DBI"
 
 for %%i in (%folders%) do (
     if not exist "%SBBAK%\%%i" (
@@ -111,9 +111,6 @@ xcopy /I /Y "%sd%:\bootloader\hekate_ipl.ini" "%SBBAK%\bootloader\" >nul 2>&1
 )
 if exist "%sd%:\bootloader\nyx.ini" (
 xcopy /I /Y "%sd%:\bootloader\nyx.ini" "%SBBAK%\bootloader\" >nul 2>&1
-)
-if exist "%sd%:\config\fastCFWSwitch\config.ini" (
-xcopy /I /Y "%sd%:\config\fastCFWSwitch\config.ini" "%SBBAK%\fastCFWSwitch\" >nul 2>&1
 )
 if exist "%sd%:\config\Fizeau\config.ini" (
 xcopy /I /Y "%sd%:\config\Fizeau\config.ini" "%SBBAK%\Fizeau\" >nul 2>&1
@@ -1233,7 +1230,6 @@ echo.
 
 if exist "%SB-Backup%\bootloader\hekate_ipl.ini" (xcopy "%SB-Backup%\bootloader\hekate_ipl.ini" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\bootloader\nyx.ini" (xcopy "%SB-Backup%\bootloader\nyx.ini" "%sd%:\bootloader\nyx.ini" /H /Y /C /R /S /E /I) >nul 2>nul
-if exist "%SB-Backup%\fastcfwswitch\config.ini" (xcopy "%SB-Backup%\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\Fizeau\config.ini" (xcopy "%SB-Backup%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
 if exist "%SB-Backup%\icongrabber\config.json" (xcopy "%SB-Backup%\icongrabber\config.json" "%sd%:\config\icongrabber\*" /H /Y /C /R /S /E /I) >nul 2>nul
 GOTO systempartitionen
@@ -1476,6 +1472,7 @@ echo.
 	RD /S /Q "%sd%:\switch\appstore\.get\packages\SaltyNX" >nul 2>nul
 	RD /S /Q "%sd%:\switch\appstore\.get\packages\fpslocker" >nul 2>nul
 	RD /S /Q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay" >nul 2>nul
+	RD /S /Q "%sd%:\switch\studious-pancake" >nul 2>nul
 	RD /S /Q "%sd%:\atmosphere\contents\00FF0000636C6BFF" >nul 2>nul
 	RD /S /Q "%sd%:\config\sys-clk" >nul 2>nul
 	RD /S /Q "%sd%:\switch\sys-clk" >nul 2>nul
@@ -1517,7 +1514,7 @@ echo.
 
 	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\fastCFWswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1539,7 +1536,7 @@ echo.
 
 xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\fastCFWswitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1570,7 +1567,7 @@ echo.
 echo       2 = DNS-MITM Manager (Hosts Datei neu laden)
 echo       3 = Edizon (Cheats nutzen)
 echo       4 = emuiibo (damit kann man virtuelle amiibos nutzen)
-echo       5 = fastCFWswitch (Launcher fuer Payloads (nicht fuer Modchip))
+echo       5 = Studious-Pancake (Launcher fuer Payloads und Systeme)
 echo       6 = Fizeau (Bildschirmanzeige optimieren/verbessern)
 echo       7 = ldn_mitm (LAN-Play App)
 echo       8 = MissionControl (fremd Controller ueber Bluetooth)
@@ -1598,7 +1595,7 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="2" GOTO dnsmitm
 	if "%teslamods%"=="3" GOTO edizon
 	if "%teslamods%"=="4" GOTO emuiibo
-	if "%teslamods%"=="5" GOTO fastcfwswitch
+	if "%teslamods%"=="5" GOTO pancake
 	if "%teslamods%"=="6" GOTO fizeau
 	if "%teslamods%"=="7" GOTO ldnmitm
 	if "%teslamods%"=="8" GOTO missioncontrol
@@ -1714,36 +1711,34 @@ set /p emuiibo="     Bitte triff deine Auswahl: "
 	if "%emuiibo%"=="3" GOTO teslamanuell
 
 REM ============================================================
-:fastcfwswitch
+:pancake
 COLOR 0E
 cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Soll fastCFWSwitch installiert oder deinstalliert werden?
+echo      Soll Studious-Pancake installiert oder deinstalliert werden?
 echo.
-echo      1 = fastCFWSwitch installieren
-echo      2 = fastCFWSwitch deinstallieren
+echo      1 = Studious-Pancake installieren
+echo      2 = Studious-Pancake deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set "fastcfwswitch="
-set /p fastcfwswitch=     Bitte triff deine Auswahl: 
-	if "%fastcfwswitch%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\fastCFWSwitch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	if exist "%sd%:\switchbros\backup\fastcfwswitch\config.ini" (xcopy "%sd%:\switchbros\backup\fastcfwswitch\config.ini" "%sd%:\config\fastCFWSwitch\*" /H /Y /C /R /S /E /I) >nul 2>nul
-	GOTO fastcfwswitch
+set "pancake="
+set /p pancake=     Bitte triff deine Auswahl: 
+	if "%pancake%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO pancake
 	)
-	if "%fastcfwswitch%"=="2" (
-	RD /S /Q "%sd%:\config\fastCFWSwitch"
-	RD /S /Q "%sd%:\switch\appstore\.get\packages\fastCFWSwitch"
-	del "%sd%:\switch\.overlays\0_fastCFWswitch.ovl"
-	GOTO fastcfwswitch
+	if "%pancake%"=="2" (
+	RD /S /Q "%sd%:\switch\studious-pancake"
+	del "%sd%:\switch\.overlays\0_studious-pancake.ovl"
+	GOTO pancake
 	)
-	if "%fastcfwswitch%"=="3" GOTO teslamanuell
+	if "%pancake%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :fizeau
