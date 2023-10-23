@@ -1735,7 +1735,7 @@ set /p pancake=     Bitte triff deine Auswahl:
 	)
 	if "%pancake%"=="2" (
 	RD /S /Q "%sd%:\switch\studious-pancake"
-	del "%sd%:\switch\.overlays\0_studious-pancake.ovl"
+	del "%sd%:\switch\.overlays\studious-pancake.ovl"
 	GOTO pancake
 	)
 	if "%pancake%"=="3" GOTO teslamanuell
