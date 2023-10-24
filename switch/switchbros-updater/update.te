@@ -1064,9 +1064,6 @@ if(fse("sd:/backup/SB/bootloader")){
 }
 }
 
-col(SCHWARZ)
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/pancake/switch", "sd:/")
-
 wait(tw = 5000)
 cls()
 
@@ -1099,6 +1096,11 @@ col(SCHWARZ)
 	cpf("sd:/SwitchBros_BasisPaket/switchbros/theme/ThemeApps.txt", "sd:/")
 
 wait(tw = 5000)
+cls()
+
+col(SCHWARZ)
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/pancake/switch", "sd:/")
+
 cls()
 
 pl()
