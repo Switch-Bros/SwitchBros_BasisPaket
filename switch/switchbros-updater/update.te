@@ -232,6 +232,7 @@ dld("sd:/atmosphere/contents/010000000007E51A")
 dld("sd:/atmosphere/contents/420000000007E51A")
 dld("sd:/atmosphere/contents/4200000000000000")
 dld("sd:/atmosphere/contents/4200000000000010")
+dld("sd:/atmosphere/contents/420000000000000B")
 dld("sd:/atmosphere/contents/420000000000000E")
 dld("sd:/atmosphere/contents/690000000000000D")
 dld("sd:/atmosphere/exefs_patches")
@@ -380,6 +381,7 @@ dld("sd:/atmosphere/contents/054e4f4558454000")
 dld("sd:/atmosphere/contents/2200000000000100")
 dld("sd:/atmosphere/contents/4100000000000324")
 dld("sd:/atmosphere/contents/4200000000000000")
+dld("sd:/atmosphere/contents/420000000000000B")
 dld("sd:/atmosphere/contents/420000000000000E")
 dld("sd:/atmosphere/contents/420000000000000F")
 dld("sd:/atmosphere/contents/4200000000000811")
@@ -1214,6 +1216,7 @@ dld("sd:/switch/appstore/.get/packages/QuickNTP")
 dld("sd:/atmosphere/contents/0100BF500207C000")
 dld("sd:/atmosphere/contents/01009EE0111CC000")
 dld("sd:/atmosphere/contents/010092A0172E4000")
+dld("sd:/atmosphere/contents/420000000000000B")
 dld("sd:/switch/MemTesterNX")
 dld("sd:/switch/MicroMemBench")
 dld("sd:/switch/ReverseNX-Tool")
@@ -1321,6 +1324,41 @@ col(GRUEN)
 pl("                 Druecke eine beliebige Taste um fortzufahren!")
 
 pause()
+
+cls()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                              Modul - sys-patch")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("    Mit dem Modul/Overlay sys-patch ist es moeglich SigPatches zu erstellen")
+pl()
+col(WEISS)
+pl("  Moechtest du [sys-patch] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+cls()
+col(SCHWARZ)
+
+if (resYN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/switch", "sd:/")
+}
+
+if (resYN == 1){
+	dld("sd:/switch/atmosphere/contents/420000000000000B")
+	dlf("sd:/switch/.overlays/sys-patch-overlay.ovl")
+}
+
 cls()
 
 pl()

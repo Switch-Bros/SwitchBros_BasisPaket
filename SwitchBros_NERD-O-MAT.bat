@@ -320,6 +320,7 @@ if exist "%sd%:/SB.ico" (
 	if exist "%sd%:\atmosphere\contents\4200000000000000" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000000")
 	if exist "%sd%:\atmosphere\contents\4200000000000010" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000010")
 	if exist "%sd%:\atmosphere\contents\420000000000000E" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000E")
+	if exist "%sd%:\atmosphere\contents\420000000000000B" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000B")
 	if exist "%sd%:\atmosphere\contents\690000000000000D" (RD /S /Q "%sd%:\atmosphere\contents\690000000000000D")
 
 	if exist "%sd%:\bootloader\sys" (RD /S /Q "%sd%:\bootloader\sys")
@@ -422,6 +423,7 @@ if exist "%sd%:\atmosphere\contents\054e4f4558454000" (RD /S /Q "%sd%:\atmospher
 if exist "%sd%:\atmosphere\contents\2200000000000100" (RD /S /Q "%sd%:\atmosphere\contents\2200000000000100")
 if exist "%sd%:\atmosphere\contents\4100000000000324" (RD /S /Q "%sd%:\atmosphere\contents\4100000000000324")
 if exist "%sd%:\atmosphere\contents\4200000000000000" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000000")
+if exist "%sd%:\atmosphere\contents\420000000000000B" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000B")
 if exist "%sd%:\atmosphere\contents\420000000000000E" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000E")
 if exist "%sd%:\atmosphere\contents\420000000000000F" (RD /S /Q "%sd%:\atmosphere\contents\420000000000000F")
 if exist "%sd%:\atmosphere\contents\4200000000000010" (RD /S /Q "%sd%:\atmosphere\contents\4200000000000010")
@@ -1497,6 +1499,7 @@ echo.
 	RD /S /Q "%sd%:\atmosphere\contents\0100BF500207C000" >nul 2>nul
 	RD /S /Q "%sd%:\atmosphere\contents\01009EE0111CC000" >nul 2>nul
 	RD /S /Q "%sd%:\atmosphere\contents\010092A0172E4000" >nul 2>nul
+	RD /S /Q "%sd%:\atmosphere\contents\420000000000000B" >nul 2>nul
 	RD /S /Q "%sd%:\switch\MemTesterNX" >nul 2>nul
 	RD /S /Q "%sd%:\switch\MicroMemBench" >nul 2>nul
 	RD /S /Q "%sd%:\switch\ReverseNX-Tool" >nul 2>nul
@@ -1563,6 +1566,7 @@ echo     Sonst machen die Module ja keinen Sinn^^!
 echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
+echo       1 = sys-patch (SigPatches erstellen/ueberpruefen)
 echo       2 = DNS-MITM Manager (Hosts Datei neu laden)
 echo       3 = Edizon (Cheats nutzen)
 echo       4 = emuiibo (damit kann man virtuelle amiibos nutzen)
@@ -1591,6 +1595,7 @@ echo.
 
 set "teslamods="
 set /p teslamods="     Waehle das Tesla-Overlay Modul: "
+	if "%teslamods%"=="1" GOTO syspatch
 	if "%teslamods%"=="2" GOTO dnsmitm
 	if "%teslamods%"=="3" GOTO edizon
 	if "%teslamods%"=="4" GOTO emuiibo
@@ -1611,6 +1616,37 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="19" GOTO ultrahand
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
+
+REM ============================================================
+:syspatch
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll DNS-MITM Manager installiert oder deinstalliert werden?
+echo      Bitte BEACHTEN: DNS-MITM Manager ist KEIN Spielzeug^^! NUR benutzen wenn du weisst wie^^!
+echo.
+echo      1 = DNS-MITM Manager installieren
+echo      2 = DNS-MITM Manager deinstallieren
+echo.
+echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      Enter = zum naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "syspatch="
+set /p syspatch="     Bitte triff deine Auswahl: "
+	if "%syspatch%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\sys-patch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO syspatch
+	)
+	if "%syspatch%"=="2" (
+	RD /S /Q "%sd%:\switch\atmosphere\contents\420000000000000B"
+	del "%sd%:\switch\.overlays\sys-patch-overlay.ovl"
+	GOTO syspatch
+	)
+	if "%syspatch%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :dnsmitm
