@@ -42,13 +42,13 @@ sys-clk OC 1.0.3
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
 sys-con 0.6.4
-sys-ftpd-light
+sys-patch 1.5.0
 sys-tune 1.2.2
 sys-tweak 
 SysDVR 5.5.5
 SysDVR Overlay 1.0.9
 Tesla-Menu 1.2.3
-UltraHand-Overlay 1.4.0(+ Cool Curves config)
+UltraHand-Overlay 1.4.1 (+ Cool Curves config)
 
 
 === Mögliche Zusatz Apps ==========
