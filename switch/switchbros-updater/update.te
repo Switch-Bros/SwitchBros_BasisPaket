@@ -1207,6 +1207,7 @@ dld("sd:/config/sysdvr")
 dld("sd:/switch/appstore/.get/packages/SysDVR-conf")
 dld("sd:/switch/appstore/.get/packages/sysdvr-overlay")
 dld("sd:/switch/SysDVR-conf")
+dld("sd:/atmosphere/contents/420000000000000B")
 dld("sd:/atmosphere/contents/420000000000000E")
 dld("sd:/config/sys-ftpd")
 dld("sd:/switch/appstore/.get/packages/sys-ftpd-light")
@@ -1253,6 +1254,8 @@ cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/"
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/atmosphere", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
 }
 
@@ -1291,6 +1294,8 @@ cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/atmosphere", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/config", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-con/switch", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/atmosphere", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
 }
 
