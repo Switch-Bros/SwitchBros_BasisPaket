@@ -2061,6 +2061,7 @@ col(SCHWARZ)
 if (resYN == 1){
 	dlf("sd:/switch/.overlays/Ultrahand.ovl")
 }
+}
 
 wait(tw = 3000)
 cls()
@@ -2210,7 +2211,6 @@ col(SCHWARZ)
 cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/chiaki/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/fake08/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/TencentSwitcherGui/switch", "sd:/")
-}
 }
 
 cls()
