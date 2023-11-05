@@ -2,7 +2,7 @@ Basiert auf:
 
 Hekate 6.0.7 + Nyx 1.5.6 (Deutsch)
 SwitchBros-O-sphere 1.6.2 commit -080fa742b + hbl-2.4.4 + hbmenu-3.6.0
-4IFIR 1.8 inside (OC Suite) 19.10.2023 (erstmal raus genommen) 
+4IFIR 1.8 inside (OC Suite) 05.11.2023
 TegraExplorer 4.1.1.112 (Deutsch)
 Enigma_RCM 1.10.1 (Lockpick_RCM) (Deutsch, andere Farbe)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
@@ -28,7 +28,7 @@ DNS-MITM_Manager 0.2.0
 EdiZon 3.8.37
 EdiZon-Overlay 1.0.7
 emuiibo 1.1.0
-Fizeau 2.4.1
+Fizeau 2.4.2
 FPS-Locker 1.2.5
 ldn-mitm 1.16.0 (nightly)
 Mission Control 0.10.0
@@ -48,7 +48,7 @@ sys-tweak
 SysDVR 5.5.5
 SysDVR Overlay 1.0.9
 Tesla-Menu 1.2.3
-UltraHand-Overlay 1.4.3 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.4.4 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========
