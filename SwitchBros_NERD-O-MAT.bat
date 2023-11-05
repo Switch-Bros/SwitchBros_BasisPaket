@@ -1441,9 +1441,12 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
     RD /S /Q "%sd%:\switch\.overlays" >nul 2>nul
+	RD /S /Q "%sd%:\switch\.packages" >nul 2>nul
 	RD /S /Q "%sd%:\atmosphere\contents\420000000007E51A" >nul 2>nul
 	RD /S /Q "%sd%:\config\Tesla" >nul 2>nul
+	RD /S /Q "%sd%:\config\Ultrahand" >nul 2>nul
 	RD /S /Q "%sd%:\switch\appstore\.get\packages\Tesla-Menu" >nul 2>nul
+	RD /S /Q "%sd%:\switch\appstore\.get\packages\nx-ovlloader" >nul 2>nul
 	RD /S /Q "%sd%:\switch\appstore\.get\packages\dns-mitm_manager" >nul 2>nul
 	RD /S /Q "%sd%:\atmosphere\contents\00FF0000000002AA" >nul 2>nul
 	RD /S /Q "%sd%:\config\BootSoundNX" >nul 2>nul
@@ -1516,7 +1519,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-	xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1537,7 +1540,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1552,7 +1555,7 @@ GOTO zusatzapps
 REM ============================================================
 :teslamodintro
 COLOR 0E
-xcopy "%sd%:\switchbros\sys-modul\Tesla-menu\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO teslamanuell
 
 REM ============================================================
@@ -1586,7 +1589,6 @@ echo      15 = sys-con (fremd Controller ueber USB)
 echo      16 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
 echo      17 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
 echo      18 = 4IFIR OC (Switch Uebertaktungs-System)
-echo      19 = UltraHand Overlay (Dateien, configs bearbeiten)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1615,7 +1617,6 @@ set /p teslamods="     Waehle das Tesla-Overlay Modul: "
 	if "%teslamods%"=="16" GOTO systune
 	if "%teslamods%"=="17" GOTO sysdvr
 	if "%teslamods%"=="18" GOTO fourifir
-	if "%teslamods%"=="19" GOTO ultrahand
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -2185,36 +2186,6 @@ set /p fourifir=     Bitte triff deine Auswahl:
 	GOTO fourifir
 	)
 	if "%fourifir%"=="3" GOTO teslamanuell
-
-REM ============================================================
-:ultrahand
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll UltraHand Overlay installiert oder deinstalliert werden?
-echo.
-echo      1 = UltraHand Overlay installieren
-echo      2 = UltraHand Overlay deinstallieren
-echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
-echo      Enter = zum naechsten Modul springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "ultrahand="
-set /p ultrahand=     Bitte triff deine Auswahl: 
-	if "%ultrahand%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO ultrahand
-	)
-	if "%ultrahand%"=="2" (
-	del /s /q "%sd%:\switch\.overlays\Ultrahand.ovl"
-	GOTO ultrahand
-	)
-	if "%ultrahand%"=="3" GOTO teslamanuell
-
 
 REM ============================================================
 :zusatzapps

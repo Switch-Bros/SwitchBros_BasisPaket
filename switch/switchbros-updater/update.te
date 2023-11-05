@@ -1158,9 +1158,12 @@ pl("  zeitnah um deine CFW kuemmern!    Glaube einfach ganz fest daran!")
 col(SCHWARZ)
 
 dld("sd:/switch/.overlays")
+dld("sd:/switch/.packages")
 dld("sd:/atmosphere/contents/420000000007E51A")
 dld("sd:/config/Tesla")
+dld("sd:/config/Ultrahand")
 dld("sd:/switch/appstore/.get/packages/Tesla-Menu")
+dld("sd:/switch/appstore/.get/packages/nx-ovlloader")
 dld("sd:/switch/appstore/.get/packages/dns-mitm_manager")
 dld("sd:/atmosphere/contents/00FF0000000002AA")
 dld("sd:/config/BootSoundNX")
@@ -1241,9 +1244,9 @@ pl()
 pl("       - die Installation oder wir?")
 col(SCHWARZ)
 
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/atmosphere", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/pancake/switch", "sd:/")
@@ -1276,9 +1279,9 @@ pl()
 pl("       - Es wird ein Bestseller, das kannst du uns Glauben!")
 col(SCHWARZ)
 
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/atmosphere", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/atmosphere", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/EdiZon/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/pancake/switch", "sd:/")
@@ -1319,9 +1322,9 @@ col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 col(SCHWARZ)
 
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/config", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/atmosphere", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
 
 pl()
 pl()
@@ -2024,47 +2027,6 @@ col(SCHWARZ)
 
 if (resYN == 1){
 	dlf("sd:/atmosphere/kips/loader.kip")
-}
-
-cls()
-
-pl()
-pl()
-pl()
-col(GELB)
-pl("                        Modul - UltraHand Overlay")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("  Mit UltraHand kannst du Dateien auf der SD-Karte bearbeiten!")
-pl("  Erstelle eigene Konfigurationen und Teile sie mit anderen!")
-pl("  Schwer zu erklaeren was es ist, muss man gesehen haben!")
-pl()
-col(WEISS)
-pl("  Moechtest du [UltraHand] installieren?")
-pl()
-pl()
-
-menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 0)
-
-cls()
-
-if (resYN == 0){
-pl()
-pl()
-pl()
-col(GELB)
-pl("                      UltraHand Overlay wird installiert!")
-col(SCHWARZ)
-	  
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
-}
-
-if (resYN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
 }
 }
 
