@@ -1,0 +1,5 @@
+This menu allows you to select the power voltage for GPU frequencies, available for selection in 4IFIR.
+
+Keep in mind, that when you select a custom voltage for a frequency - the GPU Undervolt Mode will no longer apply to that frequency.
+
+You can manually set voltage for each frequency or use Reset all to [...] menu to reset all GPU values to the specified preset's defaults.

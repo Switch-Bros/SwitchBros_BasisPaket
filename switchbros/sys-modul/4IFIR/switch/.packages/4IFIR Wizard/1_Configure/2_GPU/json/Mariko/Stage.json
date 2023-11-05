@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Overvolt",
+        "hex": "00"
+    },
+    {
+        "name": "Base",
+        "hex": "01"
+    },
+    {
+        "name": "Stage",
+        "hex": "02"
+    }
+]

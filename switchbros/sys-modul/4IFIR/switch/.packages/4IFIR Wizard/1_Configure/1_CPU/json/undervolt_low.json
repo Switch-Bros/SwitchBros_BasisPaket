@@ -1,0 +1,26 @@
+[
+    {
+        "name": "0 - Base undervolting",
+        "hex": "00"
+    },
+    {
+        "name": "1 - Unsafe",
+        "hex": "01",
+        "color": "Orange"
+    },
+    {
+        "name": "2 - Unsafe",
+        "hex": "02",
+        "color": "Orange"
+    },
+    {
+        "name": "3 - Unsafe",
+        "hex": "03",
+        "color": "Orange"
+    },
+    {
+        "name": "4 - Unsafe",
+        "hex": "04",
+        "color": "Orange"
+    }
+]
