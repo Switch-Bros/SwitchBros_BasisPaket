@@ -2064,7 +2064,7 @@ col(SCHWARZ)
 }
 
 if (resYN == 1){
-	dlf("sd:/switch/.overlays/Ultrahand.ovl")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Tesla-menu/switch", "sd:/")
 }
 }
 
