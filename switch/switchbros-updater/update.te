@@ -1778,11 +1778,13 @@ col(SCHWARZ)
 
 if (resYN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/switch", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/Status-Monitor-Overlay/config", "sd:/")
 }
 
 if (resYN == 1){
 	dlf("sd:/switch/.overlays/Status-Monitor-Overlay.ovl")
 	dld("sd:/switch/appstore/.get/packages/Status-Monitor-Overlay")
+	dld("sd:/config/status-monitor")
 }
 
 cls()

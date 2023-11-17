@@ -1994,6 +1994,7 @@ set /p statmon=     Bitte triff deine Auswahl:
 	)
 	if "%statmon%"=="2" (
 	RD /S /Q "%sd%:\switch\appstore\.get\packages\Status-Monitor-Overlay"
+	RD /S /Q "%sd%:\config\status-monitor"
 	del "%sd%:\switch\.overlays\Status-Monitor-Overlay.ovl"
 	GOTO statmon
 	)
