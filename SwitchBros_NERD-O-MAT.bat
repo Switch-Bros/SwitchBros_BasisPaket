@@ -1315,6 +1315,7 @@ echo.
 
 RD /S /Q "%sd%:\switch\tinfoil" >nul 2>nul
 del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp" >nul 2>nul
+del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][16.0][v0].nsp" >nul 2>nul
 GOTO themepaketinst
 
 REM ============================================================

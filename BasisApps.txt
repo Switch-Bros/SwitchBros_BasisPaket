@@ -57,7 +57,7 @@ Chiaki 2.1.1
 Fake-08 0.0.2.20
 TencentSwitcherGUI 0.1.2
 
-Tinfoil 16.2
+Tinfoil 17
 
 
 === Gute Zusatz-Apps aus HB-Appstore ===
