@@ -48,7 +48,7 @@ sys-tweak
 SysDVR 5.5.5
 SysDVR Overlay 1.0.9
 Tesla-Menu 1.2.3
-UltraHand-Overlay 1.4.8 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.4.9 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========
@@ -57,7 +57,7 @@ Chiaki 2.1.1
 Fake-08 0.0.2.20
 TencentSwitcherGUI 0.1.2
 
-Tinfoil 17
+Tinfoil 17 v2
 
 
 === Gute Zusatz-Apps aus HB-Appstore ===
