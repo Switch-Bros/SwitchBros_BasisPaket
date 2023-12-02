@@ -613,9 +613,6 @@ if %bootdat%==0 (
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (DEL /F "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
 	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (DEL /F "%sd%:\bootloader\ini\hwfly_toolbox.ini")
-	if exist "%sd%:\boot.dat" (DEL /F "%sd%:\boot.dat")
-	if exist "%sd%:\boot.ini" (DEL /F "%sd%:\boot.ini") 
-	if exist "%sd%:\payload.bin" (DEL /F "%sd%:\payload.bin")
 	)
 if %bootdat%==1 (
 	if exist "%sd%:\bootloader\memloader" (RD /S /Q "%sd%:\bootloader\memloader")
