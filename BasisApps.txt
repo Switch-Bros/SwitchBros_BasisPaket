@@ -1,7 +1,7 @@
 Basiert auf:
 
 Hekate 6.0.7 + Nyx 1.5.6 (Deutsch)
-SwitchBros-O-sphere 1.6.2 commit -895c8cd26 + hbl-2.4.4 + hbmenu-3.6.0
+SwitchBros-O-sphere 1.6.2 commit -b1da7c254 + hbl-2.4.4 + hbmenu-3.6.0
 4IFIR 1.9 inside (OC Suite) 10.11.2023
 TegraExplorer 4.2.1 (Deutsch)
 Enigma_RCM 1.10.1 (Lockpick_RCM) (Deutsch, andere Farbe)
@@ -12,7 +12,7 @@ AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
 SwitchBros Updater 2.24.3-SB (Downloads haben Zeitanzeige)
 DNS-Block Tester 1.0.4 (Deutsch) (90DNS Tester) 
 Daybreak 1.0.0_de (Deutsch)
-DBI 654
+DBI 658
 HB-AppStore 2.3.2
 IconGrabber 1.0.1 (Deutsch) 
 JKSV 02/23/2023
@@ -29,7 +29,7 @@ EdiZon 3.8.37
 EdiZon-Overlay 1.0.7
 emuiibo 1.1.0
 Fizeau 2.4.2
-FPS-Locker 1.2.5a
+FPS-Locker 1.2.7
 ldn-mitm 1.16.0 (nightly)
 Mission Control 0.10.0
 nx-ovlloader 1.0.7
