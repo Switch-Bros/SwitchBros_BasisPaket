@@ -1,0 +1,11 @@
+{
+  "title": "NX-FPS",
+  "author": "MasaGratoR",
+  "category": "tool",
+  "version": "1.5.5",
+  "url": "https://github.com/masagrator/NX-FPS/",
+  "license": "MIT",
+  "description": "SaltyNX plugin that collects FPS data",
+  "details": "SaltyNX plugin that collects FPS data in Nintendo Switch games.",
+  "changelog": ""
+}
