@@ -1,10 +1,10 @@
 Basiert auf:
 
-Hekate 6.1.0 + Nyx 1.6.0 (Deutsch)
-SwitchBros-O-sphere 1.6.2 commit -2b074e966 + hbl-2.4.4 + hbmenu-3.6.0
+Hekate 6.1.1 + Nyx 1.6.1 (Deutsch)
+SwitchBros-O-sphere 1.7.0 commit -e219ec4b5 + hbl-2.4.4 + hbmenu-3.6.0
 4IFIR 1.9 inside (OC Suite) 10.11.2023
 TegraExplorer 4.2.1 (Deutsch)
-Enigma_RCM 1.10.1 (Lockpick_RCM) (Deutsch, andere Farbe)
+Enigma_RCM 1.9.12 (Lockpick_RCM) (Deutsch, andere Farbe)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
 
 === Basis Apps ====================
@@ -16,7 +16,7 @@ DBI 658
 HB-AppStore 2.3.2
 IconGrabber 1.0.1 (Deutsch) 
 JKSV 02/23/2023
-linkalho 2.1.0 (Deutsch) 
+linkalho 2.2.0 (Deutsch) 
 NX-Activity-Log 1.4.0
 NXThemeInstaller 2.7.1 (Deutsch)
 Themezer 2.0.0
@@ -29,7 +29,7 @@ EdiZon 3.8.37
 EdiZon-Overlay 1.0.7
 emuiibo 1.1.0
 Fizeau 2.4.2
-FPS-Locker 1.2.8
+FPS-Locker 1.2.8a
 ldn-mitm 1.16.0 (nightly)
 Mission Control 0.10.0
 nx-ovlloader 1.0.7
