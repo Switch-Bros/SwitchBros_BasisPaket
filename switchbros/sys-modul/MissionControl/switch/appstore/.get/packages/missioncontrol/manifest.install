@@ -12,6 +12,7 @@ U: atmosphere/exefs_patches/btm_patches/18D29F36EFBD14C6187F1E337749326DBC6BB205
 U: atmosphere/exefs_patches/btm_patches/B517E72EBBE1EB0223C3DF26E0017F727F9AD776.ips
 U: atmosphere/exefs_patches/btm_patches/5C60D97B9800074FE755847EE2380477A751BDAE.ips
 U: atmosphere/exefs_patches/btm_patches/A0542C24E727081A6A63208700C9CE2952B6914C.ips
+U: atmosphere/exefs_patches/btm_patches/0A2E87DB96AC17AC6260A878D215A20D9EDF0917.ips
 U: atmosphere/exefs_patches/btm_patches/29B9122754BCEE48E4225933979F233939A49CF2.ips
 U: atmosphere/exefs_patches/btm_patches/1D460F761919B94522A10B3EB98F4EC75FBDBC4F.ips
 U: atmosphere/exefs_patches/btm_patches/4B92BF76660CCD6DE63528EFDE37147BA5997B09.ips
@@ -47,6 +48,7 @@ U: atmosphere/exefs_patches/bluetooth_patches/9E95C91568327AD850AC0C2246F1078DE7
 U: atmosphere/exefs_patches/bluetooth_patches/4F57845D1DC166A46C42D5AF45164196DC7CD198.ips
 U: atmosphere/exefs_patches/bluetooth_patches/874B8CD62BF6715648382BBADB70790558FB3F35.ips
 U: atmosphere/exefs_patches/bluetooth_patches/CCE16D29FE9BCB44AC40BB1703D586FE467496CE.ips
+U: atmosphere/exefs_patches/bluetooth_patches/2C0A323887EF342C448A72DDCC4CD737A298CD46.ips
 U: atmosphere/exefs_patches/bluetooth_patches/2FB16085E21E54B90E88ED2F98CCC850334E128E.ips
 U: atmosphere/contents/010000000000bd00/exefs.nsp
 U: atmosphere/contents/010000000000bd00/mitm.lst
