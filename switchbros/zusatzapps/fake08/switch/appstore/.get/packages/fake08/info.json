@@ -1,0 +1,11 @@
+{
+  "title": "Fake-08",
+  "author": "jtothebell",
+  "category": "emu",
+  "version": "0.0.2.20",
+  "url": "https://github.com/jtothebell/fake-08/releases",
+  "license": "MIT",
+  "description": "A Pico-8 player/emulator for consoles.",
+  "details": "A Pico 8 player for homebrew consoles. Not related to or supported by Lexaloffle Software. Latest release includes releases for Nintendo 3DS, Nintendo Switch, Sony PS Vita, Nintendo Wii U, the Miyoo CFW for bittboy and similar consoles, and the Miyoo Mini.\\n\\nThe goal of Fake-08 is to make Pico-8 games playable on platforms that aren't officially supported. As such, I will only be providing builds for platforms that won't run Pico-8 proper.",
+  "changelog": "0.0.2.20\\n\\nAll Platforms\\n\\nAdd support for new stat values (46-56) for audio (thanks @fringd )\\nRewrite text rendering to support custom fonts and most remaining P8SCII control codes (audio control codes are parsed, but not played) and speed up text rendering (probably only noticeable on slow platforms like Bittboy and 3ds)\\nAdd a corssfade between notes to more closely match PICO-8 behavior and fix some audio clipping (thanks @fringd )\\nAdd custom instrument support (thanks @fringd )\\nadd inext function to z8lua"
+}
