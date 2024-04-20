@@ -5,7 +5,7 @@ SwitchBros-O-sphere 1.7.0 commit -e219ec4b5 + hbl-2.4.4 + hbmenu-3.6.0
 4IFIR 1.9 inside (OC Suite) 10.11.2023
 TegraExplorer 4.2.1 (Deutsch)
 Enigma_RCM 1.9.12 (Lockpick_RCM) (Deutsch, andere Farbe)
-AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.0 (Deutsch)
+AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 (Deutsch)
 
 === Basis Apps ====================
 
