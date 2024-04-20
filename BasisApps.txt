@@ -27,15 +27,15 @@ Themezer 2.0.0
 DNS-MITM_Manager 0.2.0
 EdiZon 3.8.37
 EdiZon-Overlay 1.0.7
-emuiibo 1.1.0
+emuiibo 1.1.1
 Fizeau 2.4.2
 FPS-Locker 1.2.8a
 ldn-mitm 1.16.0 (nightly)
-Mission Control 0.10.0
+Mission Control 0.11.0
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8
-SaltyNX 0.7.2
+SaltyNX 0.7.3
 Status-Monitor-Overlay 1.0.3a
 Studious-Pancake 1.0.0
 sys-clk OC 1.0.3
@@ -48,7 +48,7 @@ sys-tweak
 SysDVR 6.0
 SysDVR Overlay 1.0.10
 Tesla-Menu 1.2.3
-UltraHand-Overlay 1.4.9 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.5.0 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========
