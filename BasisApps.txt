@@ -48,7 +48,7 @@ sys-tweak
 SysDVR 6.0
 SysDVR Overlay 1.0.10
 Tesla-Menu 1.2.3
-UltraHand-Overlay 1.5.0 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.5.2 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========
