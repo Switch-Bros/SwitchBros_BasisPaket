@@ -35,7 +35,7 @@ Mission Control 0.11.0
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8
-SaltyNX 0.7.3
+SaltyNX 0.7.4
 Status-Monitor-Overlay 1.0.3a
 Studious-Pancake 1.0.0
 sys-clk OC 1.0.3
