@@ -2,10 +2,10 @@
   "title": "EdiZon-Overlay",
   "author": "proferabg, WerWolv",
   "category": "_misc",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "url": "https://github.com/proferabg/EdiZon-Overlay",
   "license": "GPLv2",
   "description": "Toggle cheats in a convenient overlay.",
   "details": "EdiZon-Overlay is a Tesla-Menu overlay that enabled you to toggle cheats without ever having to leave the game. It also provides useful stats like temperatures, clock speeds, local IP address, and Wi-Fi signal strength.",
-  "changelog": "1.0.7\\n\\nSquashed some more crashing issues!\\nFixed mismatched cheats when hiding and showing the overlay.\\nAdded a way to disable submenu logic for those who requested it.\\n\\n1.0.6\\n\\nUsing latest libnx and libtesla which fixes most crashes."
+  "changelog": "1.0.8\\n\\nUpdated libnx\\nFixed temperature rendering\\nAdded Enabling Cheats by Default on Overlay Open\\n\\n1.0.7\\n\\nSquashed some more crashing issues!\\nFixed mismatched cheats when hiding and showing the overlay.\\nAdded a way to disable submenu logic for those who requested it.\\n\\n1.0.6\\n\\nUsing latest libnx and libtesla which fixes most crashes."
 }
