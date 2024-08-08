@@ -15,7 +15,7 @@ Daybreak 1.0.0_de (Deutsch)
 DBI 658
 HB-AppStore 2.3.2
 IconGrabber 1.0.1 (Deutsch) 
-JKSV 02/23/2023
+JKSV 07/18/2024
 linkalho 2.2.0 (Deutsch) 
 NX-Activity-Log 1.4.0
 NXThemeInstaller 2.7.1 (Deutsch)
@@ -29,8 +29,8 @@ EdiZon 3.8.37
 EdiZon-Overlay 1.0.8
 emuiibo 1.1.1
 Fizeau 2.5.3
-FPS-Locker 1.2.8a
-ldn-mitm 1.16.0 (nightly)
+FPS-Locker 2.0.0
+ldn-mitm 1.17.0
 Mission Control 0.11.1
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
@@ -38,10 +38,10 @@ QuickNTP 1.2.8
 SaltyNX 0.7.4
 Status-Monitor-Overlay 1.1.1
 Studious-Pancake 1.0.0
-sys-clk OC 1.0.3
+sys-clk 2.0.0-rc
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
-sys-con 0.6.4
+sys-con 1.2.2
 sys-patch 1.5.0
 sys-tune 1.2.2
 sys-tweak 

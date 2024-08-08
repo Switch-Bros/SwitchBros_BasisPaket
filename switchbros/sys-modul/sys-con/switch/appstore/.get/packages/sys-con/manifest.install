@@ -1,10 +1,5 @@
-U: config/sys-con/config_xboxone.ini
-U: config/sys-con/config_dualshock4.ini
-U: config/sys-con/config_xboxorig.ini
-U: config/sys-con/config_dualshock3.ini
-U: config/sys-con/example.ini
-U: config/sys-con/config_xbox360.ini
-U: config/sys-con/config_global.ini
 U: atmosphere/contents/690000000000000D/exefs.nsp
 U: atmosphere/contents/690000000000000D/toolbox.json
 U: atmosphere/contents/690000000000000D/flags/boot2.flag
+U: config/sys-con/config.ini
+U: switch/sys-con.nro
