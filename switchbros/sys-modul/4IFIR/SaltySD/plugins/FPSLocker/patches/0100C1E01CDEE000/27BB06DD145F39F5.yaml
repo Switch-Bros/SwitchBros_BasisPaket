@@ -1,0 +1,25 @@
+# Raccoo Venture 1.0.3
+# BID: 27BB06DD145F39F5
+
+unsafeCheck: true
+
+ALL_FPS:
+  # _UnityEngine.Rendering.OnDemandRendering_TypeInfo
+  -
+    type: write
+    address: [MAIN, 0x3482FB0, 0xB8, 0]
+    value_type: int32
+    value: 1
+  # maxFixedDeltaTime, ref: UnityEngine.Time::get_timeScale
+  -
+    type: write
+    address: [MAIN, 0x38D2780, 0x100]
+    value_type: float
+    value: 0.0666666666
+  # fixedDeltaTime
+  # Fixes an issue with player character jittering at different refresh rates
+  -
+    type: evaluate_write
+    address: [MAIN, 0x38D2780, 0x48]
+    value_type: float
+    value: "1 / FPS_TARGET"

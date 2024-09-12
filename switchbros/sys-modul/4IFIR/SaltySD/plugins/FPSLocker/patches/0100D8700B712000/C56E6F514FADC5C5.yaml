@@ -1,0 +1,24 @@
+# Modern Combat Blackout 1.1.9
+# BID: C56E6F514FADC5C5
+
+unsafeCheck: true
+
+ALL_FPS:
+  -
+    type: evaluate_write
+    address: [MAIN, 0x14284E0]
+    value_type: int32
+    value: FPS_LOCK_TARGET
+  -
+    type: evaluate_write
+    address: [MAIN, 0x155C640, 0x7E8, 0x49C]
+    value_type: int32
+    value: [FPS_LOCK_TARGET, FRAMETIME_TARGET]
+  -
+    type: evaluate_write
+    address: [MAIN, 0x14E2320, 0x944]
+    value_type: float
+    value: "(5/6) * FPS_TARGET"
+  -
+    type: block
+    what: timing

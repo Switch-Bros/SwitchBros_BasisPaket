@@ -1,0 +1,12 @@
+# Agatha Christie - Hercule Poirot: The London Case 1.0.2
+# BID: 8F72E0D61C4BA0B1
+
+unsafeCheck: true
+
+ALL_FPS:
+  # fixedDeltaTime
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6421720, 0x48]
+    value_type: float
+    value: "FRAMETIME_TARGET / 1000"

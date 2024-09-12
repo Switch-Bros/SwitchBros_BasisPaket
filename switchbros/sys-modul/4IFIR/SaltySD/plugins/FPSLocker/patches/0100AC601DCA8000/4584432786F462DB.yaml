@@ -1,0 +1,27 @@
+# GYLT 1.2
+# BID: 4584432786F462DB
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget (1000/FPS) cutted to 2 decimals
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6EE85F8, 0]
+    value_type: float
+    value: ["TruncDec(FRAMETIME_TARGET, 2)", "TruncDec(FRAMETIME_TARGET, 2)"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6F16298, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  # r.VSync
+  -
+    type: write
+    address: [MAIN, 0x6719188, 0]
+    value_type: uint32
+    value: [0, 0]
+  -
+    type: block
+    what: timing

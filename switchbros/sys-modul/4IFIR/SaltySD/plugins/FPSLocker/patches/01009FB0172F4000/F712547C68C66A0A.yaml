@@ -1,0 +1,27 @@
+# SpongeBob SquarePants: The Cosmic Shake 1.0.7
+# BID: F712547C68C66A0A
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget (1000/FPS) cutted to 1 decimal
+  -
+    type: evaluate_write
+    address: [MAIN, 0x83D18D8, 0]
+    value_type: float
+    value: ["TruncDec(FRAMETIME_TARGET, 1)", "TruncDec(FRAMETIME_TARGET, 1)"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x83FF4B8, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  # r.VSync
+  -
+    type: write
+    address: [MAIN, 0x7C02C68, 0]
+    value_type: uint32
+    value: [0, 0]
+  -
+    type: block
+    what: timing

@@ -1,0 +1,21 @@
+# Solar Ash 1.06.0
+# BID: 0959D87753F9FED4
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget (1000/FPS) rounded to two decimals
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6577290, 0]
+    value_type: float
+    value: ["TruncDec(FRAMETIME_TARGET, 2)", "TruncDec(FRAMETIME_TARGET, 2)"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x65A2138, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  -
+    type: block
+    what: timing

@@ -1,0 +1,27 @@
+# Choo-Choo Charles 1.0.1
+# BID: 406F004D76F961F3
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.VSync
+  -
+    type: write
+    address: [MAIN, 0x6DC65E8, 0]
+    value_type: int32
+    value: [0, 0]
+  # r.DynamicRes.FrameTimeBudget (1000/FPS) cutted to 2 decimals
+  -
+    type: evaluate_write
+    address: [MAIN, 0x7594F48, 0]
+    value_type: float
+    value: ["TruncDec(FRAMETIME_TARGET, 2)", "TruncDec(FRAMETIME_TARGET, 2)"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x75C2C08, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  -
+    type: block
+    what: timing

@@ -1,0 +1,15 @@
+# Sonic Frontiers 1.4.1
+# BID: D7A05D106FF46FC0
+
+# FPS Lock is used to determine dynamic resolution timing too
+# Turn off Window Sync for better performance
+
+unsafeCheck: true
+
+ALL_FPS:
+  # Internal FPS Lock
+  -
+    type: evaluate_write
+    address: [MAIN, 0x4CA3F20, 0x14]
+    value_type: float
+    value: FPS_TARGET

@@ -1,0 +1,28 @@
+# ドラゴンクエストX　目覚めし五つの種族　オフライン 2.0.1
+# Dragon Quest X Offline 2.0.1
+# BID: 13F322A6161F787C
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget (1000/FPS) cutted to 2 decimals
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6E8C028, 0]
+    value_type: float
+    value: ["TruncDec(FRAMETIME_TARGET, 2)", "TruncDec(FRAMETIME_TARGET, 2)"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6EB9418, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  # r.VSync
+  -
+    type: write
+    address: [MAIN, 0x66F5360, 0]
+    value_type: uint32
+    value: [0, 0]
+  -
+    type: block
+    what: timing

@@ -1,0 +1,121 @@
+# Xenoblade Chronicles 3 2.2.0
+# BID: 82D187FE9EF9BE92
+
+unsafeCheck: true
+
+MASTER_WRITE:
+  # Redirect DR frametime target reading to .bss code cave [MAIN, 0x236AB00]
+  -
+    type: bytes
+    main_offset: 0x124F518
+    value_type: uint32
+    value:
+      - 0xF00088C8
+      - 0xBD4B0100
+  # Original DR frametime target
+  -
+    type: bytes
+    main_offset: 0x236AB00
+    value_type: float
+    value:
+      - 0.0166666666
+  # Fix crash when gathering big amount of ether for > 30 FPS
+  - # Code cave at 0x1295DA0
+    type: bytes
+    main_offset: 0x67360
+    value_type: uint32
+    value: 0x9448BA90
+  - # Push fixed 1/30 float to game speed pointer late enough to not affect it 
+    type: bytes
+    main_offset: 0x1295DA0
+    value_type: uint32
+    value:
+      - 0xF9400015
+      - 0x1E2E1001
+      - 0x1E27D002
+      - 0x1E221821
+      - 0xBD0216A1
+      - 0xD65F03C0
+ALL_FPS:
+  # vsync
+  -
+    type: evaluate_write
+    address: [MAIN, 0x1B42DB0]
+    value_type: int32
+    value: [VSYNC_TARGET, VSYNC_TARGET]
+  # DR Timing (relative to vsync)
+  -
+    type: evaluate_write
+    address: [MAIN, 0x236AB00]
+    value_type: float
+    value: "((1 / FPS_TARGET) / VSYNC_TARGET) * 0.78"
+  # UI speed
+  -
+    type: evaluate_write
+    address: [MAIN, 0x1BA1A90, 128]
+    value_type: float
+    value: "1 / FPS_TARGET"
+  -
+    type: compare
+    compare_address: [MAIN, 0x1BA1A98]
+    compare_type: "!="
+    compare_value_type: int8
+    compare_value: 0
+    address: [MAIN, 0x1B42DB0]
+    value_type: int32
+    value: [2, 2]
+  -
+    type: evaluate_compare
+    compare_address: [MAIN, 0x1BA1A98]
+    compare_type: "!="
+    compare_value_type: int8
+    compare_value: 0
+    address: [MAIN, 0x236AB00]
+    value_type: float
+    value: "(1 / 30) / 2"
+  -
+    type: evaluate_compare
+    compare_address: [MAIN, 0x1BA1A98]
+    compare_type: "!="
+    compare_value_type: int8
+    compare_value: 0
+    address: [MAIN, 0x1BA1A90, 128]
+    value_type: float
+    value: "(1 / 30) / 2"
+ALL_REFRESH_RATES:
+  -
+    type: compare
+    compare_address: [MAIN, 0x1BA1A98]
+    compare_type: "!="
+    compare_value_type: int8
+    compare_value: 0
+    address: [MAIN, 0x1B42DB0]
+    value_type: int32
+    value: [1, 1]
+  -
+    type: evaluate_compare
+    compare_address: [MAIN, 0x1BA1A98]
+    compare_type: "!="
+    compare_value_type: int8
+    compare_value: 0
+    address: [MAIN, 0x236AB00]
+    value_type: float
+    value: "1 / 30"
+  -
+    type: evaluate_compare
+    compare_address: [MAIN, 0x1BA1A98]
+    compare_type: "!="
+    compare_value_type: int8
+    compare_value: 0
+    address: [MAIN, 0x1BA1A90, 128]
+    value_type: float
+    value: "1 / 30"
+  -
+    type: compare
+    compare_address: [MAIN, 0x1BA1A98]
+    compare_type: "!="
+    compare_value_type: int8
+    compare_value: 0
+    address: [MAIN]
+    value_type: refresh_rate
+    value: 30

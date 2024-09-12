@@ -1,0 +1,21 @@
+# Ghostrunner 1.8
+# BID: D3DD5B220DCEB626
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget = 0.93 * (1000/FPS)
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6B0C480, 0]
+    value_type: float
+    value: ["0.93 * FRAMETIME_TARGET", "0.93 * FRAMETIME_TARGET"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6B35A08, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  -
+    type: block
+    what: timing

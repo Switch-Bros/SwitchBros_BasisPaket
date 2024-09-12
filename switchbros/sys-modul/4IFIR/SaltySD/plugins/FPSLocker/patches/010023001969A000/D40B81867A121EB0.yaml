@@ -1,0 +1,27 @@
+# Session: Skate Sim 1.1.3
+# BID: D40B81867A121EB0
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget = 0.81 * (1000/FPS)
+  -
+    type: evaluate_write
+    address: [MAIN, 0x7249868, 0]
+    value_type: float
+    value: ["0.81 * FRAMETIME_TARGET", "0.81 * FRAMETIME_TARGET"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x7277438, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  # r.VSync
+  -
+    type: write
+    address: [MAIN, 0x6A7D0C8, 0]
+    value_type: uint32
+    value: [0, 0]
+  -
+    type: block
+    what: timing

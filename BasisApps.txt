@@ -1,8 +1,8 @@
 Basiert auf:
 
-Hekate 6.1.1 + Nyx 1.6.1 (Deutsch)
-SwitchBros-O-sphere 1.7.0 commit -e219ec4b5 + hbl-2.4.4 + hbmenu-3.6.0
-4IFIR 1.9 inside (OC Suite) 10.11.2023
+Hekate 6.2.1 + Nyx 1.6.3 (Deutsch)
+SwitchBros-O-sphere 1.7.1 commit -e219ec4b5 + hbl-2.4.4 + hbmenu-3.6.0
+4IFIR inside (OC Suite) 01.09.2024
 TegraExplorer 4.2.1 (Deutsch)
 Enigma_RCM 1.9.12 (Lockpick_RCM) (Deutsch, andere Farbe)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 (Deutsch)
@@ -15,7 +15,7 @@ Daybreak 1.0.0_de (Deutsch)
 DBI 658
 HB-AppStore 2.3.2
 IconGrabber 1.0.1 (Deutsch) 
-JKSV 07/18/2024
+JKSV 08/06/2024
 linkalho 2.2.0 (Deutsch) 
 NX-Activity-Log 1.4.0
 NXThemeInstaller 2.7.1 (Deutsch)
@@ -29,53 +29,53 @@ EdiZon 3.8.37
 EdiZon-Overlay 1.0.8
 emuiibo 1.1.1
 Fizeau 2.5.3
-FPS-Locker 2.0.0
+FPS-Locker 2.0.1
 ldn-mitm 1.17.0
 Mission Control 0.11.1
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8
-SaltyNX 0.7.4
-Status-Monitor-Overlay 1.1.1
+SaltyNX 0.9.2
+Status-Monitor-Overlay 1.1.3
 Studious-Pancake 1.0.0
-sys-clk 2.0.0-rc
+sys-clk-OC 2.0.0-rc
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
-sys-con 1.2.2
+sys-con 1.4.1
 sys-patch 1.5.0
 sys-tune 1.2.2
 sys-tweak 
 SysDVR 6.1.1
 SysDVR Overlay 1.0.11
 Tesla-Menu 1.2.3
-UltraHand-Overlay 1.6.8 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.7.5 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========
 
 Chiaki 2.1.1
-Fake-08 0.0.2.20
+Fake-08 0.2.20
 TencentSwitcherGUI 0.1.2
 
-Tinfoil 17 v3
+Tinfoil 18
 
 
 === Gute Zusatz-Apps aus HB-Appstore ===
 
-Amiibo Generator 1.4.0
-Amiigo 2.3.1
-Batch Uninstaller 1.3.0
-GoldLeaf 0.10.1
-Homebrew-Details 1.05
-MelonDS release6fix1
-MiiPort 0.1.1
-Moonlight-Switch 0.12.1
-Neumann 0.0.22
-NX-Locale-Switcher 1.1.2
-NX-Shell 4.01
-NXGallery 2.0.0
-NXMP v0.6.3 Rev7
-Switch FTP Client 1.0.7
-Switch SMB Client 1.0.1
-Switch-Remote-Play 1.0.0
-Vgedit 2.1
+Amiibo Generator
+Amiigo
+Batch Uninstaller
+GoldLeaf
+Homebrew-Details
+MelonDS
+MiiPort
+Moonlight-Switch
+Neumann
+NX-Locale-Switcher
+NX-Shell
+NXGallery
+NXMP
+Switch FTP Client
+Switch SMB Client
+Switch-Remote-Play
+Vgedit

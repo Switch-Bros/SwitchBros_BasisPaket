@@ -1,0 +1,12 @@
+# From Space 1.3.480
+# BID: 9806FB67CE24E904
+
+unsafeCheck: true
+
+ALL_FPS:
+  # UnityEngine.Application::targetFrameRate (to adjust Dynamic Resolution)
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6F3F760]
+    value_type: int32
+    value: FPS_TARGET

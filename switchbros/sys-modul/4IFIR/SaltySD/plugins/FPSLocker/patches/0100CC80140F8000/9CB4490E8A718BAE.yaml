@@ -1,0 +1,21 @@
+# Triangle Strategy 1.1.0
+# BID: 9CB4490E8A718BAE
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget ((1000/FPS) * 0.945)
+  -
+    type: evaluate_write
+    address: [MAIN, 0x7473838, 0]
+    value_type: float
+    value: ["0.945 * FRAMETIME_TARGET", "0.945 * FRAMETIME_TARGET"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x74A1408, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  -
+    type: block
+    what: timing

@@ -1,0 +1,27 @@
+# Ironsmith: Medieval Simulator 1.1.0
+# BID: D2A5A1FC6EEADF31
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget (1000/FPS) cutted to 2 decimals
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6C25F58, 0]
+    value_type: float
+    value: ["TruncDec(FRAMETIME_TARGET, 2)", "TruncDec(FRAMETIME_TARGET, 2)"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x6C538E8, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  # r.VSync
+  -
+    type: write
+    address: [MAIN, 0x64578D8, 0]
+    value_type: uint32
+    value: [0, 0]
+  -
+    type: block
+    what: timing

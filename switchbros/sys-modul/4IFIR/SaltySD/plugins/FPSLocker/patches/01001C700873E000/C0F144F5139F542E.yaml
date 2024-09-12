@@ -1,0 +1,19 @@
+# GOD EATER 3 2.5.1
+# BID: C0F144F5139F542E
+
+unsafeCheck: true
+
+MASTER_WRITE:
+  # Remove double buffer
+  -
+    type: bytes
+    main_offset: 0xEA22EC
+    value_type: uint32
+    value: 0xB20007E8
+ALL_FPS:
+  # DUMMY
+  -
+    type: write
+    address: [MAIN, 0xA7FA900]
+    value_type: uint8
+    value: 0

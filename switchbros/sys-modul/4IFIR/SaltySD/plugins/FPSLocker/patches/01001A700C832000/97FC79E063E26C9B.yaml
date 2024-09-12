@@ -1,0 +1,19 @@
+# Fate/EXTELLA LINK 1.0.2
+# BID: 97FC79E063E26C9B
+
+unsafeCheck: true
+
+MASTER_WRITE:
+  # Remove double buffer
+  -
+    type: bytes
+    main_offset: 0x6B41E4
+    value_type: uint32
+    value: 0xB20007E8
+ALL_FPS:
+  # DUMMY
+  -
+    type: write
+    address: [MAIN, 0x4740500]
+    value_type: uint8
+    value: 0

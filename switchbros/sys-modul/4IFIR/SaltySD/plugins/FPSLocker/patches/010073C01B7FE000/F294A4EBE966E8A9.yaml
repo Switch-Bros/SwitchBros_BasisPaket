@@ -1,0 +1,27 @@
+# The Smurfs 2: The Prisoner of the Green Stone 1.03.03
+# BID: F294A4EBE966E8A9
+
+unsafeCheck: true
+
+ALL_FPS:
+  # r.DynamicRes.FrameTimeBudget (1000/FPS) cutted to 2 decimals
+  -
+    type: evaluate_write
+    address: [MAIN, 0x75B2628, 0]
+    value_type: float
+    value: ["TruncDec(FRAMETIME_TARGET, 2)", "TruncDec(FRAMETIME_TARGET, 2)"]
+  # t.MaxFPS
+  -
+    type: evaluate_write
+    address: [MAIN, 0x75E02F8, 0]
+    value_type: float
+    value: [FPS_LOCK_TARGET, FPS_LOCK_TARGET]
+  # r.VSync
+  -
+    type: write
+    address: [MAIN, 0x6DE2CE8, 0]
+    value_type: uint32
+    value: [0, 0]
+  -
+    type: block
+    what: timing
