@@ -20,11 +20,11 @@ In der App könnt ihr auch die aktuellste Firmware runterladen und installieren,
 [Euer SwitchBros. Team](https://discord.com/invite/switchbros)
 
 # Keines der Programme/Apps ist von uns entwickelt worden!
-Wir Übsersetzen vieles und passen manche Apps an unser Paket an!
+Wir Übersetzen vieles und passen manche Apps an unser Paket an!
 
 Alles im Paket kann sich JEDER von der jeweiligen Originalseite holen und selber zusammenstellen = funktionierende CFW!
 
-Den besten Guide findet ihr hier: https://rentry.co/CFWGuides
+Eine sehr gute Anleitung dazu, findet ihr hier: https://rentry.co/CFWGuides
 
 
 
