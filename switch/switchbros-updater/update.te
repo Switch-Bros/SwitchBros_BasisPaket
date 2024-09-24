@@ -245,6 +245,8 @@ dlf("sd:/atmosphere/stratosphere.romfs")
 dlf("sd:/atmosphere/hbl.nsp")
 dlf("sd:/atmosphere/reboot_payload.bin")
 dlf("sd:/atmosphere/package3")
+dlf("sd:/atmosphere/kips/loader.kip")
+dld("sd:/atmosphere/kips")
 
 dld("sd:/bootloader/sys")
 dld("sd:/bootloader/ini")
