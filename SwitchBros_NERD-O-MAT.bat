@@ -1516,6 +1516,7 @@ echo.
 	RD /S /Q "%sd%:\switch\MicroMemBench" >nul 2>nul
 	RD /S /Q "%sd%:\switch\ReverseNX-Tool" >nul 2>nul
     del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
+	RD /S /Q "%sd%:\atmosphere\kips" >nul 2>nul
 
 REM ============================================================
 :teslastandard
@@ -1636,11 +1637,10 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Soll DNS-MITM Manager installiert oder deinstalliert werden?
-echo      Bitte BEACHTEN: DNS-MITM Manager ist KEIN Spielzeug^^! NUR benutzen wenn du weisst wie^^!
+echo      Soll sys-patch installiert oder deinstalliert werden?
 echo.
-echo      1 = DNS-MITM Manager installieren
-echo      2 = DNS-MITM Manager deinstallieren
+echo      1 = sys-patch installieren
+echo      2 = sys-patch deinstallieren
 echo.
 echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
@@ -1656,6 +1656,7 @@ set /p syspatch="     Bitte triff deine Auswahl: "
 	if "%syspatch%"=="2" (
 	RD /S /Q "%sd%:\switch\atmosphere\contents\420000000000000B"
 	del "%sd%:\switch\.overlays\sys-patch-overlay.ovl"
+	del "%sd%:\config\sys-patch\config.ini"
 	GOTO syspatch
 	)
 	if "%syspatch%"=="3" GOTO teslamanuell
@@ -2188,11 +2189,13 @@ echo.
 set "fourifir="
 set /p fourifir=     Bitte triff deine Auswahl: 
 	if "%fourifir%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
+	RD /S /Q "%sd%:\atmosphere\kips"
 	GOTO fourifir
 	)
 	if "%fourifir%"=="2" (
 	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
+	RD /S /Q "%sd%:\atmosphere\kips"
 	GOTO fourifir
 	)
 	if "%fourifir%"=="3" GOTO teslamanuell
