@@ -1,7 +1,0 @@
-GPU Undervolt Mode allows you to control the internal 4IFIR algorithms to either overvolt or undervolt GPU.
-
-Overvolt (0) - increases the GPU power consuptions. Might improve RAM stability on higher clocks
-
-Base (1) - sets the default power control algorithms.
-
-Stage (2) - decreses the power consumption of the GPU.

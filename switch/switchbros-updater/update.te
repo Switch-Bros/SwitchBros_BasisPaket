@@ -1225,6 +1225,7 @@ dld("sd:/switch/MicroMemBench")
 dld("sd:/switch/ReverseNX-Tool")
 dld("sd:/switch/RaytracingNX")
 dlf("sd:/atmosphere/kips/loader.kip")
+dld("sd:/atmosphere/kips")
 }
 
 cls()
@@ -2021,14 +2022,13 @@ col(GELB)
 pl("                4IFIR wird installiert! Dauert einen Moment...")
 col(SCHWARZ)
 	  
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/atmosphere", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/config", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/SaltySD", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/4IFIR/switch", "sd:/")
+	dlf("sd:/atmosphere/kips/loader.kip")
+	dld("sd:/atmosphere/kips")
 }
 
 if (resYN == 1){
 	dlf("sd:/atmosphere/kips/loader.kip")
+	dld("sd:/atmosphere/kips")
 }
 }
 

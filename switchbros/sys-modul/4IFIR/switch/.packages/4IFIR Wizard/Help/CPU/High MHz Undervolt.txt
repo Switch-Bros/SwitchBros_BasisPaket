@@ -1,9 +1,0 @@
-----------!!! WARNING !!!----------
-This feature is experimental. Unsafe values may prevent your console from booting into the OS.
-User discretion is advised.
-----------!!! WARNING !!!----------
-
-
-This menu allows you to set undervolting mode for frequencies from 16XX MHz and up.
-
-The higher the value, the more agressive undervolting is appied to the CPU.
