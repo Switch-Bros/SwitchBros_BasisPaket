@@ -335,20 +335,8 @@ if exist "%sd%:/SB.ico" (
 	if exist "%sd%:\tegraexplorer" (RD /S /Q "%sd%:\tegraexplorer")
 	if exist "%sd%:\firmware" (RD /S /Q "%sd%:\firmware")
 
-	if exist "%sd%:\switch\daybreak" (RD /S /Q "%sd%:\switch\daybreak")
 	if exist "%sd%:\switch\.overlays" (RD /S /Q "%sd%:\switch\.overlays")
-	if exist "%sd%:\switch\switchbros-updater\*.zip" (DEL /F "%sd%:\switch\switchbros-updater\*.zip")
-	if exist "%sd%:\switch\switchbros-updater\switchbros-updater.nro" (DEL /F "%sd%:\switch\switchbros-updater\switchbros-updater.nro")
-	if exist "%sd%:\switch\switchbros-updater\switchbros-updater.bin" (DEL /F "%sd%:\switch\switchbros-updater\switchbros-updater.bin")
-	if exist "%sd%:\switch\daybreak.nro" (DEL /F "%sd%:\switch\daybreak.nro")
-	if exist "%sd%:\switch\MicroMemBench" (RD /S /Q "%sd%:\switch\MicroMemBench")
-	if exist "%sd%:\switch\MicroMemTest" (RD /S /Q "%sd%:\switch\MicroMemTest")
-	if exist "%sd%:\switch\RaytracingNX" (RD /S /Q "%sd%:\switch\RaytracingNX")
-	if exist "%sd%:\switch\ReverseNX-Tool" (RD /S /Q "%sd%:\switch\ReverseNX-Tool")
-	if exist "%sd%:\switch\MicroMemBench.nro" (DEL /F "%sd%:\switch\MicroMemBench.nro")
-	if exist "%sd%:\switch\MicroMemTest.nro" (DEL /F "%sd%:\switch\MicroMemTest.nro")
-	if exist "%sd%:\switch\RaytracingNX.nro" (DEL /F "%sd%:\switch\RaytracingNX.nro")
-	if exist "%sd%:\switch\ReverseNX-Tool.nro" (DEL /F "%sd%:\switch\ReverseNX-Tool.nro")
+	if exist "%sd%:\switch" (RD /S /Q "%sd%:\switch")
 
 	if exist "%sd%:\*.nro" (DEL /F "%sd%:\*.nro")
 	if exist "%sd%:\*.ini" (DEL /F "%sd%:\*.ini")
@@ -1530,11 +1518,8 @@ echo ---------------------------------------------------------------------------
 echo.
 
 	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-patch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
@@ -1551,13 +1536,10 @@ echo ---------------------------------------------------------------------------
 echo.
 
 xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\EdiZon\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\MissionControl\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\sys-con\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\sys-patch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO zusatzapps
@@ -2189,13 +2171,11 @@ echo.
 set "fourifir="
 set /p fourifir=     Bitte triff deine Auswahl: 
 	if "%fourifir%"=="1" (
-	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
-	RD /S /Q "%sd%:\atmosphere\kips"
+	xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO fourifir
 	)
 	if "%fourifir%"=="2" (
 	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
-	RD /S /Q "%sd%:\atmosphere\kips"
 	GOTO fourifir
 	)
 	if "%fourifir%"=="3" GOTO teslamanuell
