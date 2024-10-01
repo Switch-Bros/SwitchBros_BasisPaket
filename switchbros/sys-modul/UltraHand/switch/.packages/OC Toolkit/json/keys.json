@@ -1,0 +1,26 @@
+[
+  {
+    "name": "L+R+DUP",
+    "value": "L+R+DUP"
+  },
+  {
+    "name": "L+R+DDOWN",
+    "value": "L+R+DDOWN"
+  },
+  {
+    "name": "ZL+ZR+DUP",
+    "value": "ZL+ZR+DUP"
+  },
+  {
+    "name": "ZL+ZR+DDOWN",
+    "value": "ZL+ZR+DDOWN"
+  },
+  {
+    "name": "PLUS+MINUS",
+    "value": "PLUS+MINUS"
+  },
+  {
+    "name": "L+DDOWN+RS",
+    "value": "L+DDOWN+RSTICK"
+  }
+]
