@@ -153,7 +153,7 @@ echo      4 = Kinder-Modus^^! (Forwarder nicht auf Homescreen)
 echo.
 echo      5 = SteamAPI fuer IconGrabber App holen und eingeben^^!
 echo.
-echo      6 = Tesla-Overlay Menue Module einrichten^^!
+echo      6 = UltraHand-Overlay Menue Module einrichten (vorher Tesla-Overlay)^^!
 echo.
 echo      7 = Zusatz Apps installieren/deinstallieren^^!
 echo.
@@ -1403,14 +1403,14 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Das Tesla-Overlay Menue kannst du auf deiner Switch aufrufen ueber: 
+echo     Das UltraHand-Overlay Menue (Tesla-Overlay) kannst du auf deiner Switch aufrufen ueber: 
 echo.
-echo                          ZL + ZR + PLUS Taste 
+echo                          ZL + ZR + DPAD RUNTER Taste 
 echo.
-echo     0 = kein Tesla-Overlay, keine Module^^!
-echo     1 = Tesla-Overlay Menue + Standard System-Module^^!
-echo     2 = Tesla-Overlay Menue + 4IFIR Uebertaktungs-System^^!
-echo     3 = Tesla-Overlay Menue + Module einzeln + 4IFIR Uebertaktungs-System (empfohlen)^^!
+echo     0 = kein UltraHand-Overlay, keine Module^^!
+echo     1 = UltraHand-Overlay Menue + Standard System-Module^^!
+echo     2 = UltraHand-Overlay Menue + Uebertaktungs-System^^!
+echo     3 = UltraHand-Overlay Menue (Zwei Versionen) + Module einzeln (empfohlen)^^!
 echo.
 echo     W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1419,7 +1419,7 @@ echo     H = Zurueck zum Hauptmenue
 echo -----------------------------------------------------------------------------------------------------
 echo.
 
-set /p sysmod="     Waehle deine Tesla-Overlay Version: "
+set /p sysmod="     Waehle deine UltraHand-Overlay Version: "
 	if "%sysmod%"=="0" GOTO teslanull
 	if "%sysmod%"=="1" GOTO teslastandard
 	if "%sysmod%"=="2" GOTO tesla4ifir
@@ -1547,8 +1547,45 @@ GOTO zusatzapps
 REM ============================================================
 :teslamodintro
 COLOR 0E
-xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-GOTO teslamanuell
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo     Waehle hier die UltraHand-Overlay Basis aus die du haben moechtest^^!
+echo.
+echo     Du kannst NUR hier zwischen zwei verschiedenen UltraHand-Overlays auswaehlen^^! 
+echo.
+echo     Einmal STANDARD = Die Version wie immer, und dann die Module die du willst^^!
+echo.
+echo     Einmal PLUS = Die Version reserviert sich 2MB Systemspeicher und ist fuer Overlay Power User
+echo                   gedacht, und dann die Module die du willst^^!
+echo                   Sollte es zu Problemen kommen dann bitte wieder die STANDARD Version drueber
+echo                   installieren^^! 
+echo.
+echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
+echo.
+echo       1 = UltraHand-Overlay STANDARD
+echo       2 = UltraHand-Overlay PLUS
+echo.
+echo       W = Ueberspringen und im Skript weiter gehen^^!
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo       H = Zurueck zum Hauptmenue
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "ultrahand="
+set /p ultrahand="     Waehle deine UltraHand-Overlay Basis: "
+	if "%ultrahand%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamodintro
+	)
+	if "%ultrahand%"=="2" (
+	xcopy "%sd%:\switchbros\sys-modul\UltraHandP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamodintro
+	)
+	if "%ultrahand%"=="W" GOTO teslamanuell
+	if "%ultrahand%"=="H" GOTO hauptmenue
 
 REM ============================================================
 :teslamanuell
@@ -1557,9 +1594,7 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Waehle hier die Module die du im Tesla-Overlay haben moechtest^^! 
-echo     Das Tesla-Overlay ist in diesem Schritt bereits installiert^^! 
-echo     Sonst machen die Module ja keinen Sinn^^! 
+echo     Waehle hier die Module die du im UltraHand-Overlay haben moechtest^^! 
 echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
@@ -1571,7 +1606,7 @@ echo       5 = Studious-Pancake (Launcher fuer Payloads und Systeme)
 echo       6 = Fizeau (Bildschirmanzeige optimieren/verbessern)
 echo       7 = ldn_mitm (LAN-Play App)
 echo       8 = MissionControl (fremd Controller ueber Bluetooth)
-echo       9 = ovlSysmodule (Tesla-Overlay module aktivieren/deaktivieren)
+echo       9 = ovlSysmodule (UltraHand-Overlay module aktivieren/deaktivieren)
 echo      10 = QuickNTP (Datum und Zeit mit Zeit-Server synchronisieren)
 echo      11 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
 echo      12 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
@@ -1590,7 +1625,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 set "teslamods="
-set /p teslamods="     Waehle das Tesla-Overlay Modul: "
+set /p teslamods="     Waehle das UltraHand-Overlay Modul: "
 	if "%teslamods%"=="1" GOTO syspatch
 	if "%teslamods%"=="2" GOTO dnsmitm
 	if "%teslamods%"=="3" GOTO edizon
@@ -1624,7 +1659,7 @@ echo.
 echo      1 = sys-patch installieren
 echo      2 = sys-patch deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1656,7 +1691,7 @@ echo.
 echo      1 = DNS-MITM Manager installieren
 echo      2 = DNS-MITM Manager deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1686,7 +1721,7 @@ echo.
 echo      1 = EdiZon installieren
 echo      2 = EdiZon deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1721,7 +1756,7 @@ echo.
 echo      1 = emuiibo installieren
 echo      2 = emuiibo deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1752,7 +1787,7 @@ echo.
 echo      1 = Studious-Pancake installieren
 echo      2 = Studious-Pancake deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1782,7 +1817,7 @@ echo.
 echo      1 = Fizeau installieren
 echo      2 = Fizeau deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1816,7 +1851,7 @@ echo.
 echo      1 = ldnmitm installieren
 echo      2 = ldnmitm deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1881,7 +1916,7 @@ echo.
 echo      1 = ovl-Sysmodul installieren
 echo      2 = ovl-Sysmodul deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1911,7 +1946,7 @@ echo.
 echo      1 = QuickNTP installieren
 echo      2 = QuickNTP deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1941,7 +1976,7 @@ echo.
 echo      1 = SaltyNX installieren
 echo      2 = SaltyNX deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -1973,7 +2008,7 @@ echo.
 echo      1 = Status-Monitor-Overlay installieren
 echo      2 = Status-Monitor-Overlay deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -2004,7 +2039,7 @@ echo.
 echo      1 = sys-clk installieren
 echo      2 = sys-clk deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -2037,7 +2072,7 @@ echo.
 echo      1 = sys-clk-Editor installieren
 echo      2 = sys-clk-Editor deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -2067,7 +2102,7 @@ echo.
 echo      1 = sys-con installieren
 echo      2 = sys-con deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -2098,7 +2133,7 @@ echo.
 echo      1 = sysDVR installieren
 echo      2 = sysDVR deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -2132,7 +2167,7 @@ echo.
 echo      1 = sys-tune installieren
 echo      2 = sys-tune deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.
@@ -2163,7 +2198,7 @@ echo.
 echo      1 = 4IFIR OC installieren
 echo      2 = 4IFIR OC deinstallieren
 echo.
-echo      3 = Zurueck zum Tesla-Overlay Einzelmodul Menue^^!
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
 echo      Enter = zum naechsten Modul springen^^!
 echo -----------------------------------------------------------------------------------------------------
 echo.

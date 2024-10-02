@@ -484,10 +484,11 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Das Tesla-Overlay Menue, mit einigen Standard Modulen, wird installiert^^!
+echo      Das UltraHand-Overlay Menue (Tesla-Overlay), mit einigen Standard Modulen, wird installiert^^!
 echo.
 echo      Wir empfehlen dir unseren SwitchBros-Updater im hbmenu zu starten sobald die
-echo      SD-Karte in deiner Switch ist, und du die CFW gestartet hast^^!
+echo      SD-Karte in deiner Switch ist, und du die CFW gestartet hast um das Paket deinen Wuenschen
+echo      entsprechend anzupassen^^!
 echo.
 echo      BITTE WARTEN...^^!
 echo.
