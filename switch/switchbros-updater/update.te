@@ -425,6 +425,10 @@ dld("sd:/tools")
 dlf("sd:/hekate_ctcaer_6.0.5.bin")
 dlf("sd:/hekate_ctcaer_6.0.6.bin")
 dlf("sd:/hekate_ctcaer_6.0.7.bin")
+dlf("sd:/hekate_ctcaer_6.1.0.bin")
+dlf("sd:/hekate_ctcaer_6.1.1.bin")
+dlf("sd:/hekate_ctcaer_6.2.0.bin")
+dlf("sd:/hekate_ctcaer_6.2.1.bin")
 dlf("sd:/fusee.bin")
 dlf("sd:/boot.dat")
 dlf("sd:/boot.ini")
@@ -1234,7 +1238,6 @@ col(SCHWARZ)
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/atmosphere", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/pancake/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/atmosphere", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/switch", "sd:/")
@@ -1978,51 +1981,6 @@ if (resYN == 1){
 	dld("sd:/switch/appstore/.get/packages/sys-tune")
 	dlf("sd:/switch/.overlays/sys-tune-overlay.ovl")
 }
-
-cls()
-
-pl()
-pl()
-pl()
-col(GELB)
-pl("                        Modul - 4IFIR OC (Overclocking)")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("  Das 4IFIR OC ist ein sehr durchdachtes Uebertaktungs System von Cooler3D")
-pl("  Es besteht aus implementiertem Code im Source von atmosphere und einigen")
-pl("  Modulen/Patches/Plugins im Tesla-Overlay, SaltyNX, etc.")
-pl()
-pl("  Verbraucht mehr Akku also ist Docked/Ladekabel die beste Option.")
-pl()
-col(WEISS)
-pl("  Moechtest du [4IFIR] installieren?")
-pl()
-pl()
-
-menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 1)
-
-cls()
-
-if (resYN == 0){
-pl()
-pl()
-pl()
-col(GELB)
-pl("                4IFIR wird installiert! Dauert einen Moment...")
-col(SCHWARZ)
-	  
-	dlf("sd:/atmosphere/kips/loader.kip")
-	dld("sd:/atmosphere/kips")
-}
-
-if (resYN == 1){
-	dlf("sd:/atmosphere/kips/loader.kip")
-	dld("sd:/atmosphere/kips")
-}
 }
 
 wait(tw = 3000)
@@ -2126,8 +2084,7 @@ pl()
 col(SCHWARZ)
 
 dld("sd:/switch/tinfoil")
-dlf("sd:/NSPs/Tinfoil [050000BADDAD0000][15.0][v0].nsp")
-dlf("sd:/NSPs/Tinfoil [050000BADDAD0000][16.0][v0].nsp")
+dlf("sd:/NSPs/Tinfoil[050000BADDAD0000].nsp")
 }
 
 cls()
@@ -2400,8 +2357,7 @@ p("                         Der Tatort wird jetzt gereinigt!")
 col(SCHWARZ)
 
 dlf("sd:/startup.te")
-dlf("sd:/bootloader/ini/!switchbros_updater.ini")
-dlf("sd:/bootloader/ini/switchbros_updater.ini")
+dld("sd:/bootloader/ini")
 dlf("sd:/bootloader/boot/SB-Update.bmp")
 dlf("sd:/bootloader/res/icon_SB_nobox.bmp")
 dld("sd:/switch/switchbrosupdater")
