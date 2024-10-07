@@ -554,7 +554,6 @@ if exist "%sd%:\themes" (
 if exist "%sd%:\warmboot" (
 	attrib -A -R /S /D %sd%:\warmboot\*
 	attrib -A -R %sd%:\warmboot)
-if exist "%sd%:\BasisApps.txt" (attrib -A -R %sd%:\BasisApps.txt)
 if exist "%sd%:\boot.dat" (attrib -A -R %sd%:\boot.dat)
 if exist "%sd%:\boot.ini" (attrib -A -R %sd%:\boot.ini)
 if exist "%sd%:\exosphere.ini" (attrib -A -R %sd%:\exosphere.ini)
@@ -597,9 +596,8 @@ if exist "%sd%:\*.bak" (DEL /F "%sd%:\*.bak")
 if exist "%sd%:\licence" (DEL /F "%sd%:\licence")
 if exist "%sd%:\*.md" (DEL /F "%sd%:\*.md")
 if exist "%sd%:\SwitchBros_BasisPaket.zip" (DEL /F "%sd%:\SwitchBros_BasisPaket.zip")
-if exist "%sd%:\bootloader\ini\!switchbros_updater.ini" (DEL /F "%sd%:\bootloader\ini\!switchbros_updater.ini")
-if exist "%sd%:\bootloader\ini\switchbros_updater.ini" (DEL /F "%sd%:\bootloader\ini/switchbros_updater.ini")
 if exist "%sd%:\SwitchBros.txt" (DEL /F "%sd%:\SwitchBros.txt")
+if exist "%sd%:\bootloader\ini" (RD /S /Q "%sd%:\bootloader\ini")
 if exist "%sd%:\switch\switchbrosupdater" (RD /S /Q "%sd%:\switch\switchbrosupdater")
 
 if %bootdat%==0 (

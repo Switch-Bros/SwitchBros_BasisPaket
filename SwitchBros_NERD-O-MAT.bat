@@ -551,7 +551,7 @@ echo     12 = Basis + Linux + LAKKA
 echo     13 = Basis + Linux + LAKKA + LibreELEC
 echo     14 = Basis + Linux + LibreELEC
 echo     15 = Basis + LAKKA + LibreELEC
-echo     16 = alte hekate_ipl.ini behalten (nicht empfohlen)
+echo     16 = alte hekate_ipl.ini behalten (NICHT empfohlen)
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo     W - Es geht erst weiter wenn du 'W' eingegeben hast^^!
@@ -1310,8 +1310,7 @@ echo ---------------------------------------------------------------------------
 echo.
 
 RD /S /Q "%sd%:\switch\tinfoil" >nul 2>nul
-del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][15.0][v0].nsp" >nul 2>nul
-del "%sd%:\NSPs\Tinfoil [050000BADDAD0000][16.0][v0].nsp" >nul 2>nul
+del "%sd%:\NSPs\Tinfoil[050000BADDAD0000].nsp" >nul 2>nul
 GOTO themepaketinst
 
 REM ============================================================
@@ -1375,27 +1374,6 @@ move /y "%newfile%" "%textfile%"
 GOTO systemmodule
 
 REM ============================================================
-:themepaketdeinst
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-RD /S /Q "%sd%:\atmosphere\contents\00FF747765616BFF" >nul 2>nul
-RD /S /Q "%sd%:\config\icongrabber" >nul 2>nul
-RD /S /Q "%sd%:\switch\icongrabber" >nul 2>nul
-RD /S /Q "%sd%:\switch\Switch_themes_Installer" >nul 2>nul
-RD /S /Q "%sd%:\switch\ThemezerNX" >nul 2>nul
-RD /S /Q "%sd%:\switch\appstore\.get\packages\NXthemes_Installer" >nul 2>nul
-RD /S /Q "%sd%:\switch\appstore\.get\packages\ThemezerNX" >nul 2>nul
-del "%sd%:\ThemeApps.txt" >nul 2>nul
-GOTO systemmodule
-
-REM ============================================================
 :systemmodule
 xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 COLOR 0E
@@ -1405,7 +1383,7 @@ echo ---------------------------------------------------------------------------
 echo.
 echo     Das UltraHand-Overlay Menue (Tesla-Overlay) kannst du auf deiner Switch aufrufen ueber: 
 echo.
-echo                          ZL + ZR + DPAD RUNTER Taste 
+echo                    ZL + ZR + DPAD RUNTER Taste (kannst du im Overlay dann aendern)
 echo.
 echo     0 = kein UltraHand-Overlay, keine Module^^!
 echo     1 = UltraHand-Overlay Menue + Standard System-Module^^!
@@ -1518,7 +1496,6 @@ echo ---------------------------------------------------------------------------
 echo.
 
 	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\sys-patch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
@@ -1584,7 +1561,10 @@ set /p ultrahand="     Waehle deine UltraHand-Overlay Basis: "
 	xcopy "%sd%:\switchbros\sys-modul\UltraHandP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamodintro
 	)
-	if "%ultrahand%"=="W" GOTO teslamanuell
+	if "%ultrahand%"=="W" (
+	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamanuell
+	)
 	if "%ultrahand%"=="H" GOTO hauptmenue
 
 REM ============================================================
@@ -2587,8 +2567,7 @@ if exist "%sd%:\*.bak" (DEL /F "%sd%:\*.bak")
 if exist "%sd%:\*.md" (DEL /F "%sd%:\*.md")
 if exist "%sd%:\licence" (DEL /F "%sd%:\licence")
 if exist "%sd%:\SwitchBros_BasisPaket.zip" (DEL /F "%sd%:\SwitchBros_BasisPaket.zip")
-if exist "%sd%:\bootloader\ini\!switchbros_updater.ini" (DEL /F "%sd%:\bootloader\ini\!switchbros_updater.ini")
-if exist "%sd%:\bootloader\ini\switchbros_updater.ini" (DEL /F "%sd%:\bootloader\ini/switchbros_updater.ini")
+if exist "%sd%:\bootloader\ini" (RD /S /Q "%sd%:\bootloader\ini")
 if exist "%sd%:\SwitchBros.txt" (DEL /F "%sd%:\SwitchBros.txt")
 if exist "%sd%:\switch\switchbrosupdater" (RD /S /Q "%sd%:\switch\switchbrosupdater")
 
