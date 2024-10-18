@@ -2,7 +2,7 @@
   "title": "FPSLocker",
   "author": "masagrator",
   "category": "tool",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "url": "https://github.com/masagrator/FPSLocker",
   "license": "MIT",
   "description": "An overlay that allows to set custom FPS in retail games.",
