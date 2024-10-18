@@ -1,7 +1,7 @@
 Basiert auf:
 
 Hekate 6.2.2 + Nyx 1.6.4 (Deutsch)
-SwitchBros-O-sphere 1.8.0 commit -e219ec4b5 + hbl-2.4.4 + hbmenu-3.6.0
+SwitchBros-O-sphere 1.8.0 commit -c6014b533 + hbl-2.4.4 + hbmenu-3.6.0
 4IFIR = bis auf weiteres RAUS
 TegraExplorer 4.2.1 (Deutsch)
 Enigma_RCM 1.9.12 (Lockpick_RCM) (Deutsch, andere Farbe)
@@ -32,14 +32,14 @@ emuiibo 1.1.1
 Fizeau 2.6.0
 FPS-Locker 2.0.3
 ldn-mitm 1.17.0
-Mission Control 0.11.1
+Mission Control 0.12.0
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8
-SaltyNX 0.9.3
+SaltyNX 0.9.4
 Status-Monitor-Overlay 1.1.4
 Studious-Pancake 1.0.0
-sys-clk-OC 2.0.0-rc
+sys-clk-OC 1.1.0
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
 sys-con 1.4.1
