@@ -4,7 +4,7 @@ Hekate 6.2.2 + Nyx 1.6.4 (Deutsch)
 SwitchBros-O-sphere 1.8.0 commit -56162e046 + hbl-2.4.4 + hbmenu-3.6.0
 4IFIR = bis auf weiteres RAUS
 TegraExplorer 4.2.1 (Deutsch)
-Enigma_RCM 1.9.12 (Lockpick_RCM) (Deutsch, andere Farbe)
+Enigma_RCM 1.9.13 (Lockpick_RCM) (Deutsch, NICHT so scheiß Bunt)
 Lockpick_RCM 1.9.13 (FW19.0.0)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 (Deutsch)
 
@@ -42,13 +42,13 @@ Studious-Pancake 1.0.0
 sys-clk-OC 1.1.0
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
-sys-con 1.4.2
+sys-con 1.4.3
 sys-patch 1.5.3
-sys-tune 1.2.2
+sys-tune 2.0.0
 sys-tweak 
 SysDVR 6.1.1
 SysDVR Overlay 1.0.11
-UltraHand-Overlay 1.7.8 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.7.9 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========

@@ -2,7 +2,7 @@
   "title": "sys-con 1.x (2024)",
   "author": "o0Zz",
   "category": "advanced",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "url": "https://github.com/o0Zz/sys-con",
   "license": "GPLv3",
   "description": "Support for XBOX/PS/PC controllers",
