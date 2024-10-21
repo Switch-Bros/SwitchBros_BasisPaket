@@ -2,7 +2,7 @@
   "title": "QuickNTP",
   "author": "nedex",
   "category": "advanced",
-  "version": "1.2.8",
+  "version": "1.2.8-1",
   "url": "https://github.com/nedex/QuickNTP/releases",
   "license": "GPLv2",
   "description": "A Tesla plugin for Nintendo Switch to sync time with NTP servers",
