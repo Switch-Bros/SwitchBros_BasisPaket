@@ -1635,6 +1635,7 @@ echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
 echo      Soll sys-patch installiert oder deinstalliert werden?
+echo      UNBEDINGT INSTALLIEREN^^!^^!^^! Erstellt SigPatches beim Start der Konsole^^!
 echo.
 echo      1 = sys-patch installieren
 echo      2 = sys-patch deinstallieren
