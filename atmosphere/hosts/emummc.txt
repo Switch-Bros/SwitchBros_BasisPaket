@@ -3,10 +3,10 @@
 127.0.0.1 nintendo*.*
 127.0.0.1 *nintendo.*
 127.0.0.1 *nintendo*.*
-127.0.0.1 switch.*
-127.0.0.1 switch*.*
-127.0.0.1 *switch.*
-127.0.0.1 *switch*.*
+127.0.0.1 nintendoswitch.*
+127.0.0.1 nintendoswitch*.*
+127.0.0.1 *nintendoswitch.*
+127.0.0.1 *nintendoswitch*.*
 
 #   NINTENDO TELEMETRIE-SERVER
 127.0.0.1 receive-%.dg.srv.nintendo.net receive-%.er.srv.nintendo.net
@@ -14,10 +14,6 @@
 #   NINTENDO CDN-SERVER
 95.216.149.205 conntest.nintendowifi.net
 95.216.149.205 ctest.cdn.nintendo.net
-
-#   HB-APPSTORE DURCHLASSEN
-185.20.50.28 *switchbru*.*
-35.185.44.232 *apps.fortheusers*.*
 
 #   GOOGLE ANALYSE, TRACKING UND WERBUNG
 # Dieses Projekt wurde erstellt von: Evan Pratten (@ewpratten)
