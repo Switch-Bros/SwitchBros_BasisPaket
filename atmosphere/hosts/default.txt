@@ -1,2 +1,4 @@
 # Nintendo telemetry servers
 127.0.0.1 receive-%.dg.srv.nintendo.net receive-%.er.srv.nintendo.net
+127.0.0.1 sun.hac.lp1.d4c.nintendo.net
+127.0.0.1 atumn.hac.lp1.d4c.nintendo.net
