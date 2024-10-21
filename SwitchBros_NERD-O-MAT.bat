@@ -1544,7 +1544,7 @@ echo.
 echo       1 = UltraHand-Overlay STANDARD
 echo       2 = UltraHand-Overlay PLUS
 echo.
-echo       W = Ueberspringen und im Skript weiter gehen^^!
+echo       N = Diese Frage neu laden, zum aendern^^!
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo       H = Zurueck zum Hauptmenue
@@ -1555,15 +1555,15 @@ set "ultrahand="
 set /p ultrahand="     Waehle deine UltraHand-Overlay Basis: "
 	if "%ultrahand%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodintro
+	GOTO teslamanuell
 	)
 	if "%ultrahand%"=="2" (
 	xcopy "%sd%:\switchbros\sys-modul\UltraHandP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodintro
-	)
-	if "%ultrahand%"=="W" (
-	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamanuell
+	)
+	if "%ultrahand%"=="N" (
+	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO teslamodintro
 	)
 	if "%ultrahand%"=="H" GOTO hauptmenue
 
