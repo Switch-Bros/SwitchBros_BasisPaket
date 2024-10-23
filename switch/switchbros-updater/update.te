@@ -1345,9 +1345,9 @@ col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 pl()
 col(GELB)
-pl("    Mit dem Modul/Overlay sys-patch ist es moeglich SigPatches zu erstellen")
+pl("   Mit dem Modul sys-patch werden SigPatches beim Start der Konsole erstellt")
 pl()
-pl("    SOLLTE UNBEDINGT INSTALLIERT WERDEN!!!")
+pl("       SOLLTE UNBEDINGT INSTALLIERT WERDEN!!!")
 pl()
 col(WEISS)
 pl("  Moechtest du [sys-patch] installieren?")
@@ -1367,6 +1367,47 @@ if (resYN == 0){
 if (resYN == 1){
 	dld("sd:/switch/atmosphere/contents/420000000000000B")
 	dlf("sd:/switch/.overlays/sys-patch-overlay.ovl")
+}
+
+cls()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                              Modul - BootSoundNX")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("     Mit BootSoundNX wird beim Start der Konsole ein Bootsound abgespielt")
+pl()
+pl("     Keine Ahnung ob es richtig FUNKTIONIERT!!!")
+pl()
+pl("     Man muss nur eine beliebige Datei 'bootsound.mp3' nennen und in den")
+pl("     Ordner 'config/BootSoundNX/sound' packen (Am besten wenn die Datei um die")
+pl("     10 Sekunden hat um weitere Probleme zu vermeiden!")
+pl()
+col(WEISS)
+pl("  Moechtest du [BootSoundNX] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 0)
+
+cls()
+col(SCHWARZ)
+
+if (resYN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/atmosphere", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/BootSoundNX/config", "sd:/")
+}
+
+if (resYN == 1){
+	dld("sd:/switch/atmosphere/contents/00FF0000000002AA")
+	dld("sd:/switch/config/BootSoundNX")
 }
 
 cls()
@@ -2225,6 +2266,42 @@ if (resYN == 0){
 
 if (resYN == 1){
 	dld("sd:/switch/fake08")
+}
+
+cls()
+
+pl()
+pl()
+pl()
+col(GELB)
+pl("                                 APP - BatteryDesiyncFix")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("   Mit BatteryDesyncFix kannst du falsche Angaben des Akkus synchronisieren")
+pl("   BatteryDesyncFix Ist KEIN Spielzeug und sollte NUR verwendet werden wenn du")
+pl("   genau weisst was du tust!!!")
+pl("   Damit kann man auch keinen Akku reparieren!")
+pl()
+col(SILBER)
+pl("  Moechtest du [BatteryDesyncFix] installieren?")
+pl()
+pl()
+
+menuOptionsYN = ["Ja", "Nein"]
+resYN = menu(menuOptionsYN, 1)
+
+cls()
+col(SCHWARZ)
+
+if (resYN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/zusatzapps/BatteryDesyncFix/switch", "sd:/")
+}
+
+if (resYN == 1){
+	dld("sd:/switch/BatteryDesyncFix")
 }
 
 cls()
