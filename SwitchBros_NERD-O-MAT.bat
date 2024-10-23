@@ -1577,23 +1577,24 @@ echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
 echo       1 = sys-patch (SigPatches erstellen/ueberpruefen)
-echo       2 = DNS-MITM Manager (Hosts Datei neu laden)
-echo       3 = Edizon (Cheats nutzen)
-echo       4 = emuiibo (damit kann man virtuelle amiibos nutzen)
-echo       5 = Studious-Pancake (Launcher fuer Payloads und Systeme)
-echo       6 = Fizeau (Bildschirmanzeige optimieren/verbessern)
-echo       7 = ldn_mitm (LAN-Play App)
-echo       8 = MissionControl (fremd Controller ueber Bluetooth)
-echo       9 = ovlSysmodule (UltraHand-Overlay module aktivieren/deaktivieren)
-echo      10 = QuickNTP (Datum und Zeit mit Zeit-Server synchronisieren)
-echo      11 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
-echo      12 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
-echo      13 = sys-clk (Switch Uebertakten/Untertakten)
-echo      14 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
-echo      15 = sys-con (fremd Controller ueber USB)
-echo      16 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
-echo      17 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
-echo      18 = 4IFIR OC (Switch Uebertaktungs-System)
+echo       2 = BootSoundNX (Bootsound beim Start)
+echo       3 = DNS-MITM Manager (Hosts Datei neu laden)
+echo       4 = Edizon (Cheats nutzen)
+echo       5 = emuiibo (damit kann man virtuelle amiibos nutzen)
+echo       6 = Studious-Pancake (Launcher fuer Payloads und Systeme)
+echo       7 = Fizeau (Bildschirmanzeige optimieren/verbessern)
+echo       8 = ldn_mitm (LAN-Play App)
+echo       9 = MissionControl (fremd Controller ueber Bluetooth)
+echo      10 = ovlSysmodule (UltraHand-Overlay module aktivieren/deaktivieren)
+echo      11 = QuickNTP (Datum und Zeit mit Zeit-Server synchronisieren)
+echo      12 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
+echo      13 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
+echo      14 = sys-clk (Switch Uebertakten/Untertakten)
+echo      15 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
+echo      16 = sys-con (fremd Controller ueber USB)
+echo      17 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
+echo      18 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
+echo      19 = 4IFIR OC (Switch Uebertaktungs-System)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1605,23 +1606,24 @@ echo.
 set "teslamods="
 set /p teslamods="     Waehle das UltraHand-Overlay Modul: "
 	if "%teslamods%"=="1" GOTO syspatch
-	if "%teslamods%"=="2" GOTO dnsmitm
-	if "%teslamods%"=="3" GOTO edizon
-	if "%teslamods%"=="4" GOTO emuiibo
-	if "%teslamods%"=="5" GOTO pancake
-	if "%teslamods%"=="6" GOTO fizeau
-	if "%teslamods%"=="7" GOTO ldnmitm
-	if "%teslamods%"=="8" GOTO missioncontrol
-	if "%teslamods%"=="9" GOTO ovlssysmodule
-	if "%teslamods%"=="10" GOTO quickntp
-	if "%teslamods%"=="11" GOTO saltynx
-	if "%teslamods%"=="12" GOTO statmon
-	if "%teslamods%"=="13" GOTO sysclk
-	if "%teslamods%"=="14" GOTO sysclkedit
-	if "%teslamods%"=="15" GOTO syscon
-	if "%teslamods%"=="16" GOTO systune
-	if "%teslamods%"=="17" GOTO sysdvr
-	if "%teslamods%"=="18" GOTO fourifir
+	if "%teslamods%"=="2" GOTO bootsound
+	if "%teslamods%"=="3" GOTO dnsmitm
+	if "%teslamods%"=="4" GOTO edizon
+	if "%teslamods%"=="5" GOTO emuiibo
+	if "%teslamods%"=="6" GOTO pancake
+	if "%teslamods%"=="7" GOTO fizeau
+	if "%teslamods%"=="8" GOTO ldnmitm
+	if "%teslamods%"=="9" GOTO missioncontrol
+	if "%teslamods%"=="10" GOTO ovlssysmodule
+	if "%teslamods%"=="11" GOTO quickntp
+	if "%teslamods%"=="12" GOTO saltynx
+	if "%teslamods%"=="13" GOTO statmon
+	if "%teslamods%"=="14" GOTO sysclk
+	if "%teslamods%"=="15" GOTO sysclkedit
+	if "%teslamods%"=="16" GOTO syscon
+	if "%teslamods%"=="17" GOTO systune
+	if "%teslamods%"=="18" GOTO sysdvr
+	if "%teslamods%"=="19" GOTO fourifir
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -1656,6 +1658,36 @@ set /p syspatch="     Bitte triff deine Auswahl: "
 	GOTO syspatch
 	)
 	if "%syspatch%"=="3" GOTO teslamanuell
+
+REM ============================================================
+:bootsound
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll BootSoundNX installiert oder deinstalliert werden?
+echo.
+echo      1 = BootSoundNX installieren
+echo      2 = BootSoundNX deinstallieren
+echo.
+echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
+echo      Enter = zum naechsten Modul springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "bootsound="
+set /p bootsound="     Bitte triff deine Auswahl: "
+	if "%bootsound%"=="1" (
+	xcopy "%sd%:\switchbros\sys-modul\BootSoundNX\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO bootsound
+	)
+	if "%bootsound%"=="2" (
+	RD /S /Q "%sd%:\switch\atmosphere\contents\00FF0000000002AA"
+	RD /S /Q "%sd%:\switch\config\BootSoundNX"
+	GOTO bootsound
+	)
+	if "%bootsound%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :dnsmitm
@@ -2252,7 +2284,8 @@ echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^!
 echo.
 echo      1 = chiaki (PS4/PS5 auf der Switch streamen)
 echo      2 = fake08 (Pico8 Emulator)
-echo      3 = TencentSwitcherGui (Chinesisch auf englisch stellen)
+echo      3 = BatteryDesyncFix (Falsche Angaben des Akkus beheben, synchronisieren)
+echo      4 = TencentSwitcherGui (Chinesisch auf englisch stellen)
 echo.
 echo      W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -2265,7 +2298,8 @@ set "datenapps="
 set /p datenapps=     Waehle deine Zusatz-App(s): 
 	if "%datenapps%"=="1" GOTO chiaki
 	if "%datenapps%"=="2" GOTO fake08
-	if "%datenapps%"=="3" GOTO tencentswitcher
+	if "%datenapps%"=="3" GOTO batdesfix
+	if "%datenapps%"=="4" GOTO tencentswitcher
 	if /i "%datenapps%"=="W" GOTO attributeundmac
 	if /i "%datenapps%"=="H" GOTO hauptmenue
 
@@ -2326,6 +2360,35 @@ set /p fake08=     Bitte triff deine Auswahl:
 	GOTO fake08
 	)
 	if "%fake08%"=="3" GOTO zusatzapps
+
+REM ============================================================
+:batdesfix
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo      Soll BatteryDesyncFix installiert oder deinstalliert werden?
+echo.
+echo      1 = BatteryDesyncFix installieren
+echo      2 = BatteryDesyncFix deinstallieren
+echo.
+echo      3 = Zurueck zum Zusatz-Apps Uebersicht Menue^^!
+echo      Enter = zur naechsten App springen^^!
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
+set "batdesfix="
+set /p batdesfix=     Bitte triff deine Auswahl: 
+	if "%batdesfix%"=="1" (
+	xcopy "%sd%:\switchbros\zusatzapps\BatteryDesyncFix\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	GOTO batdesfix
+	)
+	if "%batdesfix%"=="2" (
+	RD /S /Q "%sd%:\switch\BatteryDesyncFix"
+	GOTO batdesfix
+	)
+	if "%batdesfix%"=="3" GOTO zusatzapps
 
 REM ============================================================
 :tencentswitcher
