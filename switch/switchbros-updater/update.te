@@ -2061,8 +2061,11 @@ pl("             Bisher hat nur unser Kater unterschrieben.")
 col(SCHWARZ)
 
 cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu/switch", "sd:/")
+
+# cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
+# cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
+# cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
 }
 
 wait(tw = 2000)
