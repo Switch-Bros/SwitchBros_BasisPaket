@@ -1244,8 +1244,8 @@ echo      dann kannst du hier auswaehlen welche Version von Tinfoil installiert 
 echo.
 echo      1 = Tinfoil im hbmenu (nicht neben anderen Spielen auf dem homescreen (empfohlen))
 echo.
-echo      2 = Tinfoil auf dem homescreen (aktualisiert sich spaeter selbst)
-echo.
+REM echo      2 = Tinfoil auf dem homescreen (aktualisiert sich spaeter selbst)
+REM echo.
 echo      W = Kein Tinfoil (Spiele manuell "ausleihen" und installieren, zum Beispiel mit der App DBI)
 echo.
 echo -----------------------------------------------------------------------------------------------------
@@ -1273,7 +1273,6 @@ echo.
 
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\tinfoilhbmenu\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%SB-Backup%\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%SB-Backup%\Tinfoil\options.json" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO themepaketinst
@@ -1292,7 +1291,6 @@ echo.
 
 xcopy "%sd%:\switchbros\kids\switch\*" "%sd%:\switch\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%sd%:\switchbros\kids\tinfoilhomescreen\*" "%sd%:\*" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\kids\NSPs\*" "%sd%:\NSPs\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%SB-Backup%\Tinfoil\locations.conf" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
 xcopy "%SB-Backup%\Tinfoil\options.json" "%sd%:\switch\tinfoil\*" /H /Y /C /R /S /E /I >nul 2>nul
 GOTO themepaketinst
