@@ -2574,6 +2574,7 @@ if exist "%sd%:\switch\switchbrosupdater" (RD /S /Q "%sd%:\switch\switchbrosupda
 
 if %bootdat%==0 (
 	if exist "%sd%:\bootloader\memloader" (RD /S /Q "%sd%:\bootloader\memloader")
+	if exist "%sd%:\bootloader\warmboot" (RD /S /Q "%sd%:\bootloader\warmboot")
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (DEL /F "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
 	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (DEL /F "%sd%:\bootloader\ini\hwfly_toolbox.ini")
@@ -2587,6 +2588,7 @@ if %bootdat%==1 (
 	if exist "%sd%:\atmosphere\contents\0100000000000F12" (RD /S /Q "%sd%:\atmosphere\contents\0100000000000F12")
 )
 if %bootdat%==2 (
+	if exist "%sd%:\bootloader\warmboot" (RD /S /Q "%sd%:\bootloader\warmboot")
 	if exist "%sd%:\bootloader\payloads\hwfly_toolbox.bin" (DEL /F "%sd%:\bootloader\payloads\hwfly_toolbox.bin")
 	if exist "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp" (DEL /F "%sd%:\bootloader\res\icon_hwfly_toolbox_nobox.bmp")
 	if exist "%sd%:\bootloader\ini\hwfly_toolbox.ini" (DEL /F "%sd%:\bootloader\ini\hwfly_toolbox.ini")
