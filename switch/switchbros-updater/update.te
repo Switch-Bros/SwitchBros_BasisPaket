@@ -1339,42 +1339,6 @@ pl()
 pl()
 pl()
 col(GELB)
-pl("                              Modul - sys-patch")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("   Mit dem Modul sys-patch werden SigPatches beim Start der Konsole erstellt")
-pl()
-pl("       SOLLTE UNBEDINGT INSTALLIERT WERDEN!!!")
-pl()
-col(WEISS)
-pl("  Moechtest du [sys-patch] installieren?")
-pl()
-pl()
-
-menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 0)
-
-cls()
-col(SCHWARZ)
-
-if (resYN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/switch", "sd:/")
-}
-
-if (resYN == 1){
-	dld("sd:/switch/atmosphere/contents/420000000000000B")
-	dlf("sd:/switch/.overlays/sys-patch-overlay.ovl")
-}
-
-cls()
-
-pl()
-pl()
-pl()
-col(GELB)
 pl("                              Modul - BootSoundNX")
 pl()
 col(NAVAJO)
