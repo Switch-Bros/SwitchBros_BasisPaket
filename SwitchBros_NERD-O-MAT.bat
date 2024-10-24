@@ -1605,59 +1605,26 @@ echo.
 
 set "teslamods="
 set /p teslamods="     Waehle das UltraHand-Overlay Modul: "
-	if "%teslamods%"=="1" GOTO syspatch
-	if "%teslamods%"=="2" GOTO bootsound
-	if "%teslamods%"=="3" GOTO dnsmitm
-	if "%teslamods%"=="4" GOTO edizon
-	if "%teslamods%"=="5" GOTO emuiibo
-	if "%teslamods%"=="6" GOTO pancake
-	if "%teslamods%"=="7" GOTO fizeau
-	if "%teslamods%"=="8" GOTO ldnmitm
-	if "%teslamods%"=="9" GOTO missioncontrol
-	if "%teslamods%"=="10" GOTO ovlssysmodule
-	if "%teslamods%"=="11" GOTO quickntp
-	if "%teslamods%"=="12" GOTO saltynx
-	if "%teslamods%"=="13" GOTO statmon
-	if "%teslamods%"=="14" GOTO sysclk
-	if "%teslamods%"=="15" GOTO sysclkedit
-	if "%teslamods%"=="16" GOTO syscon
-	if "%teslamods%"=="17" GOTO systune
-	if "%teslamods%"=="18" GOTO sysdvr
-	if "%teslamods%"=="19" GOTO fourifir
+	if "%teslamods%"=="1" GOTO bootsound
+	if "%teslamods%"=="2" GOTO dnsmitm
+	if "%teslamods%"=="3" GOTO edizon
+	if "%teslamods%"=="4" GOTO emuiibo
+	if "%teslamods%"=="5" GOTO pancake
+	if "%teslamods%"=="6" GOTO fizeau
+	if "%teslamods%"=="7" GOTO ldnmitm
+	if "%teslamods%"=="8" GOTO missioncontrol
+	if "%teslamods%"=="9" GOTO ovlssysmodule
+	if "%teslamods%"=="10" GOTO quickntp
+	if "%teslamods%"=="11" GOTO saltynx
+	if "%teslamods%"=="12" GOTO statmon
+	if "%teslamods%"=="13" GOTO sysclk
+	if "%teslamods%"=="14" GOTO sysclkedit
+	if "%teslamods%"=="15" GOTO syscon
+	if "%teslamods%"=="16" GOTO systune
+	if "%teslamods%"=="17" GOTO sysdvr
+	if "%teslamods%"=="18" GOTO fourifir
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
-
-REM ============================================================
-:syspatch
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll sys-patch installiert oder deinstalliert werden?
-echo      UNBEDINGT INSTALLIEREN^^!^^!^^! Erstellt SigPatches beim Start der Konsole^^!
-echo.
-echo      1 = sys-patch installieren
-echo      2 = sys-patch deinstallieren
-echo.
-echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
-echo      Enter = zum naechsten Modul springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "syspatch="
-set /p syspatch="     Bitte triff deine Auswahl: "
-	if "%syspatch%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\sys-patch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO syspatch
-	)
-	if "%syspatch%"=="2" (
-	RD /S /Q "%sd%:\switch\atmosphere\contents\420000000000000B"
-	del "%sd%:\switch\.overlays\sys-patch-overlay.ovl"
-	del "%sd%:\config\sys-patch\config.ini"
-	GOTO syspatch
-	)
-	if "%syspatch%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :bootsound
