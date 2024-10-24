@@ -1395,7 +1395,7 @@ pl()
 pl()
 
 menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 0)
+resYN = menu(menuOptionsYN, 1)
 
 cls()
 col(SCHWARZ)
