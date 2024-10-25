@@ -1,6 +1,0 @@
-⋯
-docked
-handheld
-retro
-stable
-test
