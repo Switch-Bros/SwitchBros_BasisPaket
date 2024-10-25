@@ -1578,25 +1578,22 @@ echo     Waehle hier die Module die du im UltraHand-Overlay haben moechtest^^!
 echo.
 echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
 echo.
-echo       1 = sys-patch (SigPatches erstellen/ueberpruefen)
-echo       2 = BootSoundNX (Bootsound beim Start)
-echo       3 = DNS-MITM Manager (Hosts Datei neu laden)
-echo       4 = Edizon (Cheats nutzen)
-echo       5 = emuiibo (damit kann man virtuelle amiibos nutzen)
-echo       6 = Studious-Pancake (Launcher fuer Payloads und Systeme)
-echo       7 = Fizeau (Bildschirmanzeige optimieren/verbessern)
-echo       8 = ldn_mitm (LAN-Play App)
-echo       9 = MissionControl (fremd Controller ueber Bluetooth)
-echo      10 = ovlSysmodule (UltraHand-Overlay module aktivieren/deaktivieren)
-echo      11 = QuickNTP (Datum und Zeit mit Zeit-Server synchronisieren)
-echo      12 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
-echo      13 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
-echo      14 = sys-clk (Switch Uebertakten/Untertakten)
-echo      15 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
-echo      16 = sys-con (fremd Controller ueber USB)
-echo      17 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
-echo      18 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
-echo      19 = 4IFIR OC (Switch Uebertaktungs-System)
+echo       1 = BootSoundNX (Bootsound beim Start)
+echo       2 = DNS-MITM Manager (Hosts Datei neu laden)
+echo       3 = Edizon (Cheats nutzen)
+echo       4 = emuiibo (damit kann man virtuelle amiibos nutzen)
+echo       5 = Fizeau (Bildschirmanzeige optimieren/verbessern)
+echo       6 = ldn_mitm (LAN-Play App)
+echo       7 = MissionControl (fremd Controller ueber Bluetooth)
+echo       8 = ovlSysmodule (UltraHand-Overlay module aktivieren/deaktivieren)
+echo       9 = QuickNTP (Datum und Zeit mit Zeit-Server synchronisieren)
+echo      10 = SaltyNX (SaltyNX gibt dir die Moeglichkeit plugins und andere Module zu starten)
+echo      11 = Status-Monitor-Overlay (Werte der Switch an anzeigen)
+echo      12 = sys-clk (Switch Uebertakten/Untertakten)
+echo      13 = sys-clk-Editor (Werte in die config.ini von sys-clk eintragen)
+echo      14 = sys-con (fremd Controller ueber USB)
+echo      15 = sys-tune (sys-tune kann Audio im Hintergrund abspielen! Manche Spiele koennen abstuerzen)
+echo      16 = SysDVR-Overlay (Switch Bildschirm auf den PC uebertragen)
 echo.
 echo       W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1611,20 +1608,18 @@ set /p teslamods="     Waehle das UltraHand-Overlay Modul: "
 	if "%teslamods%"=="2" GOTO dnsmitm
 	if "%teslamods%"=="3" GOTO edizon
 	if "%teslamods%"=="4" GOTO emuiibo
-	if "%teslamods%"=="5" GOTO pancake
-	if "%teslamods%"=="6" GOTO fizeau
-	if "%teslamods%"=="7" GOTO ldnmitm
-	if "%teslamods%"=="8" GOTO missioncontrol
-	if "%teslamods%"=="9" GOTO ovlssysmodule
-	if "%teslamods%"=="10" GOTO quickntp
-	if "%teslamods%"=="11" GOTO saltynx
-	if "%teslamods%"=="12" GOTO statmon
-	if "%teslamods%"=="13" GOTO sysclk
-	if "%teslamods%"=="14" GOTO sysclkedit
-	if "%teslamods%"=="15" GOTO syscon
-	if "%teslamods%"=="16" GOTO systune
-	if "%teslamods%"=="17" GOTO sysdvr
-	if "%teslamods%"=="18" GOTO fourifir
+	if "%teslamods%"=="5" GOTO fizeau
+	if "%teslamods%"=="6" GOTO ldnmitm
+	if "%teslamods%"=="7" GOTO missioncontrol
+	if "%teslamods%"=="8" GOTO ovlssysmodule
+	if "%teslamods%"=="9" GOTO quickntp
+	if "%teslamods%"=="10" GOTO saltynx
+	if "%teslamods%"=="11" GOTO statmon
+	if "%teslamods%"=="12" GOTO sysclk
+	if "%teslamods%"=="13" GOTO sysclkedit
+	if "%teslamods%"=="14" GOTO syscon
+	if "%teslamods%"=="15" GOTO systune
+	if "%teslamods%"=="16" GOTO sysdvr
 	if /i "%teslamods%"=="W" GOTO zusatzapps
 	if /i "%teslamods%"=="H" GOTO hauptmenue
 
@@ -1754,36 +1749,6 @@ set /p emuiibo="     Bitte triff deine Auswahl: "
 	GOTO emuiibo
 	)
 	if "%emuiibo%"=="3" GOTO teslamanuell
-
-REM ============================================================
-:pancake
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll Studious-Pancake installiert oder deinstalliert werden?
-echo.
-echo      1 = Studious-Pancake installieren
-echo      2 = Studious-Pancake deinstallieren
-echo.
-echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
-echo      Enter = zum naechsten Modul springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "pancake="
-set /p pancake=     Bitte triff deine Auswahl: 
-	if "%pancake%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO pancake
-	)
-	if "%pancake%"=="2" (
-	RD /S /Q "%sd%:\switch\studious-pancake"
-	del "%sd%:\switch\.overlays\studious-pancake.ovl"
-	GOTO pancake
-	)
-	if "%pancake%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :fizeau
@@ -2165,35 +2130,6 @@ set /p systune=     Bitte triff deine Auswahl:
 	GOTO systune
 	)
 	if "%systune%"=="3" GOTO teslamanuell
-
-REM ============================================================
-:fourifir
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Soll 4IFIR OC installiert oder deinstalliert werden?
-echo.
-echo      1 = 4IFIR OC installieren
-echo      2 = 4IFIR OC deinstallieren
-echo.
-echo      3 = Zurueck zum UltraHand-Overlay Einzelmodul Menue^^!
-echo      Enter = zum naechsten Modul springen^^!
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "fourifir="
-set /p fourifir=     Bitte triff deine Auswahl: 
-	if "%fourifir%"=="1" (
-	xcopy "%sd%:\switchbros\sys-modul\4IFIR\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO fourifir
-	)
-	if "%fourifir%"=="2" (
-	del /s /q "%sd%:\switch\atmosphere\kips\loader.kip"
-	GOTO fourifir
-	)
-	if "%fourifir%"=="3" GOTO teslamanuell
 
 REM ============================================================
 :zusatzapps

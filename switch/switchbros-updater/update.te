@@ -1493,44 +1493,6 @@ pl()
 pl()
 pl()
 col(GELB)
-pl("                           Modul - Studious-Pancake")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("       Mit Studious-Pancake kannst du, aus der CFW heraus, in die anderen")
-pl("       Systeme/Payloads wechseln.")
-pl()
-pl()
-pl("  Das Modul wurde bereits bei der Systemauswahl installiert!")
-pl()
-col(WEISS)
-pl("  Moechtest du [Studious-Pancake] behalten?")
-pl()
-pl()
-
-menuOptionsYN = ["Ja", "Nein"]
-resYN = menu(menuOptionsYN, 0)
-
-cls()
-col(SCHWARZ)
-
-if (resYN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/pancake/switch", "sd:/")
-}
-
-if (resYN == 1){
-	dlf("sd:/switch/.overlays/studious-pancake.ovl")
-	dld("sd:/switch/studious-pancake/studious-pancake")
-}
-
-cls()
-
-pl()
-pl()
-pl()
-col(GELB)
 pl("                                Modul - Fizeau")
 pl()
 col(NAVAJO)
