@@ -1557,6 +1557,8 @@ set /p ultrahand="     Waehle deine UltraHand-Overlay Basis: "
 	)
 	if "%ultrahand%"=="2" (
 	xcopy "%sd%:\switchbros\sys-modul\UltraHandP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\UltraHand\config" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+	xcopy "%sd%:\switchbros\sys-modul\UltraHand\switch" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamanuell
 	)
 	if "%ultrahand%"=="N" (
