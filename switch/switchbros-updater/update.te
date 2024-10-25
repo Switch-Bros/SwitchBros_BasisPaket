@@ -1322,8 +1322,8 @@ if (resYN == 0){
 
 if (resYN == 1){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHandP/atmosphere", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHandP/config", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHandP/switch", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
 }
 
 pl()
@@ -2454,7 +2454,7 @@ pl()
 pl()
 
 wait(tw = 3000)
-col(BECKY) p("                        5...") wait(tw = 1000) col(BLAU) p("  4...") wait(tw = 1000) col(ROT) p("  3...") wait(tw = 1000) col(ORANGE) p("  2...") wait(tw = 1000) col(GELB) p("  1...") wait(tw = 1000) col(WEISS) p("  0") wait(tw = 1000)
+col(BECKY) p("                        5...") wait(tw = 1000) col(BLAU) p("  4...") wait(tw = 1000) col(ROT) p("  3...") wait(tw = 1000) col(ORANGE) p("  2...") wait(tw = 1000) col(GELB) p("  1...") wait(tw = 1000) col(WEISS) p("  0") wait(tw = 100)
 
 if (is_erista()){
 	payload("sd:/bootloader/update.bin")
