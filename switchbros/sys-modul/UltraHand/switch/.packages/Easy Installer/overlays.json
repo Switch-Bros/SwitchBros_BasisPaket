@@ -1,111 +1,111 @@
 [
     {
-        "name": "BootSoundNX - latest",
+        "name": "BootSoundNX - neueste",
         "zip-url": "https://api.github.com/repos/TheModdersDen/BootSoundNX/releases",
         "download-entry": "1"
     },
     {
-        "name": "DNS-MITM-Manager - latest",
+        "name": "DNS-MITM-Manager - neueste",
         "zip-url": "https://api.github.com/repos/znxDomain/DNS-MITM_Manager/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "EdiZon - latest",
+        "name": "EdiZon - neueste",
         "zip-url": "https://api.github.com/repos/proferabg/EdiZon-Overlay/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "emuuibo - latest",
+        "name": "emuuibo - neueste",
         "zip-url": "https://api.github.com/repos/XorTroll/emuiibo/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "Fizeau - latest",
+        "name": "Fizeau - neueste",
         "zip-url": "https://api.github.com/repos/averne/Fizeau/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "FPSLocker - latest",
+        "name": "FPSLocker - neueste",
         "ovl-url": "https://api.github.com/repos/masagrator/FPSLocker/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "ldn-mitm - latest",
+        "name": "ldn-mitm - neueste",
         "zip-url": "https://api.github.com/repos/spacemeowx2/ldn_mitm/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "MissionControl - latest",
+        "name": "MissionControl - neueste",
         "zip-url": "https://api.github.com/repos/ndeadly/MissionControl/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "ovlSysmodul - latest",
+        "name": "ovlSysmodul - neueste",
         "ovl-url": "https://api.github.com/repos/WerWolv/ovl-sysmodules/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "Studious Pancake - latest",
+        "name": "Studious Pancake - neueste",
         "zip-url": "https://api.github.com/repos/HookedBehemoth/studious-pancake/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "QuickNTP - latest",
+        "name": "QuickNTP - neueste",
         "ovl-url": "https://api.github.com/repos/nedex/QuickNTP/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "SaltyNX - latest",
+        "name": "SaltyNX - neueste",
         "zip-url": "https://api.github.com/repos/masagrator/SaltyNX/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "Status Monitor (a) - latest",
+        "name": "Status Monitor (a) - neueste",
         "ovl-url": "https://api.github.com/repos/ppkantorski/Status-Monitor-Overlay/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "sys-con - latest",
+        "name": "sys-con - neueste",
         "zip-url": "https://api.github.com/repos/o0Zz/sys-con/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "nx-ovlloader - latest",
+        "name": "nx-ovlloader - neueste",
         "zip-url": "https://api.github.com/repos/WerWolv/nx-ovlloader/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "Switch-OC-Suite - latest",
+        "name": "Switch-OC-Suite - neueste",
         "zip-url": "https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases?per_page=1&sort=created&order=desc",
         "download-entry": "1"
     },
     {
-        "name": "SysDVR - latest",
+        "name": "SysDVR - neueste",
         "zip-url": "https://api.github.com/repos/exelix11/SysDVR/releases?per_page=1&sort=created&order=desc",
         "download-entry": "3"
     },
     {
-        "name": "SysDVR Overlay - latest",
+        "name": "SysDVR Overlay - neueste",
         "zip-url": "https://api.github.com/repos/Hartie95/sysdvr-overlay/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "sys-ftpd-light - latest",
-        "zip-url": "https://api.github.com/repos/cathery/sys-ftpd/releases/latest",
+        "name": "sys-ftpd-light - neueste",
+        "zip-url": "https://api.github.com/repos/cathery/sys-ftpd/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "sys-patch - latest",
-        "zip-url": "https://api.github.com/repos/ITotalJustice/sys-patch/releases?per_page=1&sort=created&order=desc",
+        "name": "sys-patch - neueste",
+        "zip-url": "https://api.github.com/repos/impeeza/sys-patch/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "Tetris-Overlay - latest",
+        "name": "Tetris-Overlay - neueste",
         "ovl-url": "https://api.github.com/repos/ppkantorski/Tetris-Overlay/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "TriPlayer - latest",
+        "name": "TriPlayer - neueste",
         "zip-url": "https://api.github.com/repos/DefenderOfHyrule/TriPlayer/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     }

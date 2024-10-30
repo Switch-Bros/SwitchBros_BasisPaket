@@ -15,12 +15,13 @@
         "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Cool%20Curves/package.ini"
     },
     {
-        "name": "Easy Installer - neueste",
+        "name": "SB Installer - neueste",
         "label": "Easy Installer",
         "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Easy%20Installer/package.ini",
         "file-2-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Easy%20Installer/overlays.json",
         "file-3-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Easy%20Installer/packages.json",
-        "file-4-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Easy%20Installer/music.json"
+        "file-4-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Easy%20Installer/music.json",
+        "file-5-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Easy%20Installer/nro.json"
     },
     {
         "name": "Host Guard - neueste",
