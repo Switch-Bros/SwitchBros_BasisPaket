@@ -4,7 +4,7 @@ Hekate 6.2.2 + Nyx 1.6.4 (Deutsch)
 SwitchBros-O-sphere 1.8.0 commit -56162e046 + hbl-2.4.4 + hbmenu-3.6.0
 4IFIR = bis auf weiteres RAUS
 TegraExplorer 4.2.1 (Deutsch)
-Enigma_RCM 1.9.13 (Lockpick_RCM) (Deutsch, NICHT so scheiß Bunt)
+Enigma_RCM 1.9.13 (Lockpick_RCM) (Deutsch, NICHT so scheiss Bunt)
 Lockpick_RCM 1.9.13 (FW19.0.0)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 (Deutsch)
 
@@ -13,7 +13,7 @@ AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 (Deutsch)
 SwitchBros Updater 2.24.3-SB (Downloads haben Zeitanzeige)
 DNS-Block Tester 1.0.4 (Deutsch) (90DNS Tester) 
 Daybreak 1.0.0_de (Deutsch)
-DBI 708 (portugiesisch) (aktuell ist 710 nur russisch) 
+DBI (Version kann über UltraHand-Overlay ausgewählt werden) 
 HB-AppStore 2.3.2
 IconGrabber 1.0.1 (Deutsch) 
 JKSV 08/06/2024
@@ -27,7 +27,7 @@ Themezer 2.0.0
 
 DNS-MITM_Manager 0.2.0
 EdiZon 3.8.37
-EdiZon-Overlay 1.0.8
+EdiZon-Overlay 1.0.9
 emuiibo 1.1.1
 Fizeau 2.6.0
 FPS-Locker 2.0.3
@@ -36,19 +36,19 @@ Mission Control 0.12.0
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8
-SaltyNX 0.9.4
+SaltyNX 0.10.0
 Status-Monitor-Overlay 1.1.4
 Studious-Pancake 1.0.0
 sys-clk-OC 1.1.0
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
 sys-con 1.4.3
-sys-patch 1.5.3
+sys-patch 1.5.4
 sys-tune 2.0.0
 sys-tweak 
 SysDVR 6.1.1
 SysDVR Overlay 1.0.11
-UltraHand-Overlay 1.7.9 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.8.1 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========
@@ -56,6 +56,7 @@ UltraHand-Overlay 1.7.9 (ersetzt Tesla overlay wenn installiert)
 Chiaki 2.1.1
 Fake-08 0.2.20
 TencentSwitcherGUI 0.1.2
+BatteryDesyncFix 
 
 Tinfoil 18
 
