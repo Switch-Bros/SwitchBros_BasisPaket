@@ -1,12 +1,22 @@
 [
     {
+        "name": "BootSoundNX - latest",
+        "zip-url": "https://api.github.com/repos/TheModdersDen/BootSoundNX/releases",
+        "download-entry": "1"
+    },
+    {
+        "name": "DNS-MITM-Manager - latest",
+        "zip-url": "https://api.github.com/repos/znxDomain/DNS-MITM_Manager/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
         "name": "EdiZon - latest",
         "zip-url": "https://api.github.com/repos/proferabg/EdiZon-Overlay/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "FPSLocker - latest",
-        "ovl-url": "https://api.github.com/repos/masagrator/FPSLocker/releases?per_page=1&sort=created&order=desc",
+        "name": "emuuibo - latest",
+        "zip-url": "https://api.github.com/repos/XorTroll/emuiibo/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
@@ -15,8 +25,28 @@
         "download-entry": "0"
     },
     {
-        "name": "nx-ovlloader - latest",
-        "zip-url": "https://api.github.com/repos/WerWolv/nx-ovlloader/releases?per_page=1&sort=created&order=desc",
+        "name": "FPSLocker - latest",
+        "ovl-url": "https://api.github.com/repos/masagrator/FPSLocker/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
+        "name": "ldn-mitm - latest",
+        "zip-url": "https://api.github.com/repos/spacemeowx2/ldn_mitm/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
+        "name": "MissionControl - latest",
+        "zip-url": "https://api.github.com/repos/ndeadly/MissionControl/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
+        "name": "ovlSysmodul - latest",
+        "ovl-url": "https://api.github.com/repos/WerWolv/ovl-sysmodules/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
+        "name": "Studious Pancake - latest",
+        "zip-url": "https://api.github.com/repos/HookedBehemoth/studious-pancake/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
@@ -32,6 +62,16 @@
     {
         "name": "Status Monitor (a) - latest",
         "ovl-url": "https://api.github.com/repos/ppkantorski/Status-Monitor-Overlay/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
+        "name": "sys-con - latest",
+        "zip-url": "https://api.github.com/repos/o0Zz/sys-con/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
+        "name": "nx-ovlloader - latest",
+        "zip-url": "https://api.github.com/repos/WerWolv/nx-ovlloader/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
@@ -57,6 +97,11 @@
     {
         "name": "sys-patch - latest",
         "zip-url": "https://api.github.com/repos/ITotalJustice/sys-patch/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
+        "name": "Tetris-Overlay - latest",
+        "ovl-url": "https://api.github.com/repos/ppkantorski/Tetris-Overlay/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {

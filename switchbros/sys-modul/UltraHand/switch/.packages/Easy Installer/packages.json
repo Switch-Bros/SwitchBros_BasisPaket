@@ -1,5 +1,15 @@
 [
     {
+        "name": "DBI Installer",
+        "label": "DBI",
+        "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/DBI/package.ini"
+    },
+    {
+        "name": "Tinfoil Installer",
+        "label": "Tinfoil",
+        "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Tinfoil/package.ini"
+    },
+    {
         "name": "Cool Curves - neueste",
         "label": "Cool Curves",
         "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Cool%20Curves/package.ini"
@@ -18,6 +28,11 @@
         "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Host%20Guard/package.ini",
         "file-2-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Host%20Guard/emummc.txt",
         "file-3-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Host%20Guard/sysmmc.txt"
+    },
+    {
+        "name": "SB Themes",
+        "label": "SB Themes",
+        "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Theme/package.ini"
     },
     {
         "name": "Speicher Konfiguration - neueste",
