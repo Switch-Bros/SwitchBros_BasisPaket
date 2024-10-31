@@ -1,50 +1,50 @@
 [
     {
         "name": "BatteryDesyncFix - neueste",
-		"ordner": "BatteryDesyncFix",
-        "nro-url": "https://api.github.com/repos/CTCaer/battery_desync_fix_nx/releases?per_page=1&sort=created&order=desc",
+		"nro-url": "https://api.github.com/repos/CTCaer/battery_desync_fix_nx/releases?per_page=1&sort=created&order=desc",
+        "ordner": "BatteryDesyncFix",
         "download-entry": "0"
     },
     {
         "name": "DNS-Block Tester - neueste",
-        "ordner": "DNS-Block_Tester",
         "nro-url": "https://api.github.com/repos/Switch-Bros/DNS-Block_Tester/releases?per_page=1&sort=created&order=desc",
+        "ordner": "DNS-Block_Tester",
         "download-entry": "0"
     },
     {
         "name": "fake-08 - neueste",
-        "ordner": "fake-08",
         "nro-url": "https://api.github.com/repos/jtothebell/fake-08/releases?per_page=1&sort=created&order=desc",
+        "ordner": "fake-08",
         "download-entry": "3"
     },
     {
         "name": "Hekate-Toolbox - neueste",
-        "ordner": "Hekate-Toolbox",
         "nro-url": "https://api.github.com/repos/WerWolv/Hekate-Toolbox/releases?per_page=1&sort=created&order=desc",
+        "ordner": "Hekate-Toolbox",
         "download-entry": "0"
     },
     {
         "name": "JKSV - neueste",
-        "ordner": "JKSV",
         "nro-url": "https://api.github.com/repos/J-D-K/JKSV/releases?per_page=1&sort=created&order=desc",
+        "ordner": "JKSV",
         "download-entry": "0"
     },
     {
         "name": "NX-Activity-Log - neueste",
-        "ordner": "NX-Activity-Log",
         "nro-url": "https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases?per_page=1&sort=created&order=desc",
+        "ordner": "NX-Activity-Log",
         "download-entry": "0"
     },
     {
         "name": "TencentSwitcherGUI - neueste",
-        "ordner": "TencentSwitcherGUI",
         "zip-url": "https://api.github.com/repos/CaiMiao/Tencent-switcher-GUI/releases?per_page=1&sort=created&order=desc",
+        "ordner": "TencentSwitcherGUI",
         "download-entry": "0"
     },
     {
         "name": "ThemezerNX - neueste",
-        "ordner": "ThemezerNX",
         "nro-url": "https://api.github.com/repos/suchmememanyskill/themezer-nx/releases?per_page=1&sort=created&order=desc",
+        "ordner": "ThemezerNX",
         "download-entry": "0"
     }
 ]
