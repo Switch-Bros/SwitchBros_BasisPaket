@@ -1,3 +1,7 @@
+U: SaltySD/saltysd_core32.elf
+U: SaltySD/saltysd_bootstrap.elf
+U: SaltySD/saltysd_bootstrap32_5k.elf
+U: SaltySD/saltysd_bootstrap32_3k.elf
 U: SaltySD/saltysd_core.elf
 U: SaltySD/exceptions.txt
 U: SaltySD/flags/log.flag
