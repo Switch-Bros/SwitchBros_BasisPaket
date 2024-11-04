@@ -1,11 +1,1 @@
-U: switch/breeze/profilehbm.zip
-U: switch/breeze/profile.zip
-U: switch/breeze/.Breeze.nro.star
-U: switch/breeze/Breeze.nro
-U: switch/breeze/reeze/hbmenu.nro
-U: switch/EdiZon/profile.zip
-U: switch/EdiZon/EdiZon.nro
-U: atmosphere/contents/0100000000001013/exefs.nsp1
-U: atmosphere/contents/010000000000000D/flags/boot2.flag
-U: atmosphere/contents/054e4f4558454000/exefs.nsp
-U: atmosphere/contents/054e4f4558454000/toolbox.json
+U: switch/.overlays/ovlEdiZon.ovl
