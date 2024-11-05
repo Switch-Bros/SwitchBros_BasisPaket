@@ -269,7 +269,6 @@ dld("sd:/tegraexplorer")
 dld("sd:/firmware")
 
 dld("sd:/switch/.overlays")
-dld("sd:/switch")
 
 dlf("sd:/hbmenu.nro")
 dlf("sd:/exosphere.ini")
