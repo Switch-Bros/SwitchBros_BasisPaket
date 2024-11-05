@@ -251,7 +251,6 @@ if exist "%sd%:/SB.ico" (
 	if exist "%sd%:\firmware" (RD /S /Q "%sd%:\firmware")
 
 	if exist "%sd%:\switch\.overlays" (RD /S /Q "%sd%:\switch\.overlays")
-	if exist "%sd%:\switch" (RD /S /Q "%sd%:\switch")
 
 	if exist "%sd%:\*.nro" (DEL /F "%sd%:\*.nro")
 	if exist "%sd%:\*.ini" (DEL /F "%sd%:\*.ini")
