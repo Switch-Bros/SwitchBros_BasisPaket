@@ -36,7 +36,7 @@ Mission Control 0.12.0
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8-1
-SaltyNX 1.0.0
+SaltyNX 1.0.2
 Status-Monitor-Overlay 1.1.5
 Studious-Pancake 1.0.0
 sys-clk-OC 1.1.0
@@ -48,7 +48,7 @@ sys-tune 2.0.0
 sys-tweak 
 SysDVR 6.1.1
 SysDVR Overlay 1.0.11
-UltraHand-Overlay 1.8.1 (ersetzt Tesla overlay wenn installiert)
+UltraHand-Overlay 1.8.2 (ersetzt Tesla overlay wenn installiert)
 
 
 === Mögliche Zusatz Apps ==========
