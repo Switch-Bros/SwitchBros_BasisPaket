@@ -35,18 +35,23 @@
         "download-entry": "0"
     },
     {
+        "name": "nx-ovlloader - neueste",
+        "zip-url": "https://api.github.com/repos/WerWolv/nx-ovlloader/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "0"
+    },
+    {
         "name": "ovlSysmodul - neueste",
         "ovl-url": "https://api.github.com/repos/WerWolv/ovl-sysmodules/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "Studious Pancake - neueste",
-        "zip-url": "https://api.github.com/repos/HookedBehemoth/studious-pancake/releases?per_page=1&sort=created&order=desc",
+        "name": "QuickNTP - neueste",
+        "ovl-url": "https://api.github.com/repos/nedex/QuickNTP/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
-        "name": "QuickNTP - neueste",
-        "ovl-url": "https://api.github.com/repos/nedex/QuickNTP/releases?per_page=1&sort=created&order=desc",
+        "name": "ReverseNX-RT - neueste",
+        "ovl-url": "https://github.com/masagrator/ReverseNX-RT/releases/download/2.0.0/ReverseNX-RT-ovl.ovl",
         "download-entry": "0"
     },
     {
@@ -60,18 +65,18 @@
         "download-entry": "0"
     },
     {
-        "name": "sys-con - neueste",
-        "zip-url": "https://api.github.com/repos/o0Zz/sys-con/releases?per_page=1&sort=created&order=desc",
-        "download-entry": "1"
-    },
-    {
-        "name": "nx-ovlloader - neueste",
-        "zip-url": "https://api.github.com/repos/WerWolv/nx-ovlloader/releases?per_page=1&sort=created&order=desc",
+        "name": "Studious Pancake - neueste",
+        "zip-url": "https://api.github.com/repos/HookedBehemoth/studious-pancake/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
         "name": "Switch-OC-Suite - neueste",
         "zip-url": "https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "1"
+    },
+    {
+        "name": "sys-con - neueste",
+        "zip-url": "https://api.github.com/repos/o0Zz/sys-con/releases?per_page=1&sort=created&order=desc",
         "download-entry": "1"
     },
     {
