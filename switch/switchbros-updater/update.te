@@ -1126,8 +1126,8 @@ pl()
 pl()
 
 col(SILBER)
-menuOptionsTesla = ["     [TO 0] kein UltraHand-Overlay, keine Module", "     [TO 1] UltraHand-Overlay Menue + Standard System-Module", "     [TO 2] UltraHand-Overlay Menue + 4IFIR OverClockingSystem", "     [TO 3] UltraHand-Overlay Menue + Module einzeln + 4IFIR OC (empfohlen)"]
-resTesla = menu(menuOptionsTesla, 3)
+menuOptionsTesla = ["     [TO 0] kein UltraHand-Overlay, keine Module", "     [TO 1] UltraHand-Overlay Menue + Standard System-Module", "     [TO 2] UltraHand-Overlay Menue + Module einzeln (empfohlen)"]
+resTesla = menu(menuOptionsTesla, 2)
 
 cls()
 
@@ -1241,45 +1241,12 @@ cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/atmosphere", "sd:/
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
 }
 
 cls()
 
 if (resTesla == 2){
-pl()
-pl()
-pl()
-col(GRUEN)
-pl("          UltraHand-Overlay Menue + OverClockingSystem wird installiert...")
-pl()
-pl()
-pl()
-col(GELB)
-pl("   Wir haben begonnen, ein Installation-Wartungs-Tagebuch zu fuehren.")
-pl()
-pl("       - Es wird ein Bestseller, das kannst du uns Glauben!")
-col(SCHWARZ)
-
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/pancake/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/ovlSysmodule/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/config", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-clk-Editor/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/atmosphere", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/sys-patch/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/QuickNTP/switch", "sd:/")
-}
-
-cls()
-
-if (resTesla == 3){
 pl()
 pl()
 pl()
@@ -1290,41 +1257,17 @@ col(GELB)
 pl("         UltraHand-Overlay Menue und einzelne Module manuell installieren!")
 pl()
 pl()
-pl("  Du kannst dich vorher zwischen zwei UltraHand-Overlay Versionen entscheiden,")
-pl("  und danach, wie gewohnt, die Module auswaehlen die du haben willst!")
-pl()
-pl("       Es gibt jetzt UltraHand-Overlay STANDARD und eine PLUS Version")
-pl()
-pl("    Die PLUS Version ist fuer Overlay Power User!")
-pl("    Die PLUS Version nutzt 2MB vom Systemspeicher um vielen Modulen Speicher")
-pl("    zur Verfuegung zu stellen! Bei Problemen die STANDARD Version nutzen!")
-pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(WEISS)
-pl()
-pl("  Welche [UltraHand-Overlay] Version moechtest du installieren?")
 pl()
 pl()
-
-menuOptionsYN = ["STANDARD", "PLUS"]
-resYN = menu(menuOptionsYN, 0)
 
 cls()
 col(SCHWARZ)
-
-if (resYN == 0){
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/atmosphere", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
 	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
 }
-
-if (resYN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHandP/atmosphere", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/config", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/sys-modul/UltraHand/switch", "sd:/")
-}
-
 pl()
 pl()
 col(GRUEN)
@@ -2264,6 +2207,7 @@ if (resYN == 1){
 }
 }
 
+col(SCHWARZ)
 if (fse("sd:/backup/SB/dbi.config")){
 	cpf("sd:/backup/SB/dbi.config", "sd:/switch/DBI/dbi.config")
 }

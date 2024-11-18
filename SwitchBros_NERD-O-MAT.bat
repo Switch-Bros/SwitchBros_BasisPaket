@@ -1380,12 +1380,11 @@ echo ---------------------------------------------------------------------------
 echo.
 echo     Das UltraHand-Overlay Menue (Tesla-Overlay) kannst du auf deiner Switch aufrufen ueber: 
 echo.
-echo                    ZL + ZR + DPAD RUNTER Taste (kannst du im Overlay dann aendern)
+echo                    ZL + ZR + PLUS Taste (kannst du im Overlay dann aendern)
 echo.
 echo     0 = kein UltraHand-Overlay, keine Module^^!
 echo     1 = UltraHand-Overlay Menue + Standard System-Module^^!
-echo     2 = UltraHand-Overlay Menue + Uebertaktungs-System^^!
-echo     3 = UltraHand-Overlay Menue (Zwei Versionen) + Module einzeln (empfohlen)^^!
+echo     2 = UltraHand-Overlay Menue + Module einzeln (empfohlen)^^!
 echo.
 echo     W = Ueberspringen und im Skript weiter gehen^^!
 echo.
@@ -1397,8 +1396,7 @@ echo.
 set /p sysmod="     Waehle deine UltraHand-Overlay Version: "
 	if "%sysmod%"=="0" GOTO teslanull
 	if "%sysmod%"=="1" GOTO teslastandard
-	if "%sysmod%"=="2" GOTO tesla4ifir
-	if "%sysmod%"=="3" GOTO teslamodintro
+	if "%sysmod%"=="2" GOTO teslamodintro
 	if /i "%sysmod%"=="W" GOTO attributeundmac
 	if /i "%sysmod%"=="H" GOTO hauptmenue
     
@@ -1494,29 +1492,8 @@ echo.
 
 	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\sys-patch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO zusatzapps
-
-REM ============================================================
-:tesla4ifir
-COLOR 0E
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\sys-clk\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\sys-clk-Editor\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\sys-patch\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-GOTO zusatzapps
 
 REM ============================================================
 :teslamodintro
@@ -1525,46 +1502,11 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo     Waehle hier die UltraHand-Overlay Basis aus die du haben moechtest^^!
+echo     UltraHand-Overlay wird installiert^^!
 echo.
-echo     Du kannst NUR hier zwischen zwei verschiedenen UltraHand-Overlays auswaehlen^^! 
-echo.
-echo     Einmal STANDARD = Die Version wie immer, und dann die Module die du willst^^!
-echo.
-echo     Einmal PLUS = Die Version reserviert sich 2MB Systemspeicher und ist fuer Overlay Power User
-echo                   gedacht, und dann die Module die du willst^^!
-echo                   Sollte es zu Problemen kommen dann bitte wieder die STANDARD Version drueber
-echo                   installieren^^! 
-echo.
-echo     Erst wenn du auf 'Weiter' gehst wird das Skript fortgesetzt^^! 
-echo.
-echo       1 = UltraHand-Overlay STANDARD
-echo       2 = UltraHand-Overlay PLUS
-echo.
-echo       N = Diese Frage neu laden, zum aendern^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo       H = Zurueck zum Hauptmenue
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
-set "ultrahand="
-set /p ultrahand="     Waehle deine UltraHand-Overlay Basis: "
-	if "%ultrahand%"=="1" (
 	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 	GOTO teslamanuell
 	)
-	if "%ultrahand%"=="2" (
-	xcopy "%sd%:\switchbros\sys-modul\UltraHandP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\UltraHand\config" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	xcopy "%sd%:\switchbros\sys-modul\UltraHand\switch" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamanuell
-	)
-	if "%ultrahand%"=="N" (
-	xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-	GOTO teslamodintro
-	)
-	if "%ultrahand%"=="H" GOTO hauptmenue
 
 REM ============================================================
 :teslamanuell

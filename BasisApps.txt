@@ -2,10 +2,8 @@ Basiert auf:
 
 Hekate 6.2.2 + Nyx 1.6.4 (Deutsch)
 SwitchBros-O-sphere 1.8.0 commit -f8d93fc75 + hbl-2.4.4 + hbmenu-3.6.0 + SigPatches
-4IFIR = bis auf weiteres RAUS
 TegraExplorer 4.2.1 (Deutsch)
 Enigma_RCM 1.9.13 (Lockpick_RCM) (Deutsch, NICHT so scheiss Bunt)
-Lockpick_RCM 1.9.13 (FW19.0.0)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 (Deutsch)
 
 === Basis Apps ====================
@@ -16,7 +14,7 @@ Daybreak 1.0.0_de (Deutsch)
 DBI (Version kann über UltraHand-Overlay ausgewählt werden) 
 HB-AppStore 2.3.2
 IconGrabber 1.0.1 (Deutsch) 
-JKSV 08/06/2024
+JKSV 11/05/2024
 linkalho 2.2.0 (Deutsch) 
 NX-Activity-Log 1.4.0
 NXThemeInstaller 2.7.1 (Deutsch)
@@ -29,14 +27,14 @@ DNS-MITM_Manager 0.2.0
 EdiZon 3.8.37
 EdiZon-Overlay 1.0.9
 emuiibo 1.1.1
-Fizeau 2.8.0
+Fizeau 2.8.1
 FPS-Locker 2.0.3
 ldn-mitm 1.17.0
 Mission Control 0.12.0
 nx-ovlloader 1.0.7
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8-1
-SaltyNX 1.0.3
+SaltyNX 1.0.6
 Status-Monitor-Overlay 1.1.6
 Studious-Pancake 1.0.0
 sys-clk-OC 1.1.0
