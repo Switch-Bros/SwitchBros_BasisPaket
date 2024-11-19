@@ -145,6 +145,7 @@ md("sd:/backup/SB/Fizeau")
 md("sd:/backup/SB/IconGrabber")
 md("sd:/backup/SB/tinfoil")
 md("sd:/backup/SB/DBI")
+md("sd:/backup/SB/DBIru")
 
 if (fse("sd:/bootloader/hekate_ipl.ini")){
 	cpf("sd:/bootloader/hekate_ipl.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
@@ -169,6 +170,9 @@ if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
 }
 if (fse("sd:/switch/DBI/dbi.config")){
 	cpf("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
+}
+if (fse("sd:/switch/DBIru/dbi.config")){
+	cpf("sd:/switch/DBIru/dbi.config", "sd:/backup/SB/DBIru/dbi.config")
 }
 
 wait(tw = 1000)
@@ -260,6 +264,7 @@ dlf("sd:/bootloader/patches.ini")
 
 dld("sd:/config/switchbros-helper")
 dld("sd:/config/NSPs")
+dld("sd:/config/Forwarder")
 dlf("sd:/config/switchbros-updater/ams.zip")
 dlf("sd:/config/switchbros-updater/cheats.zip")
 dlf("sd:/config/switchbros-updater/custom.zip")
@@ -411,6 +416,7 @@ dld("sd:/games")
 dld("sd:/modules")
 dld("sd:/music")
 dld("sd:/NSPs")
+dld("sd:/Forwarder")
 dld("sd:/pegascape")
 dld("sd:/warmboot-mariko")
 dld("sd:/SaltySD")
@@ -428,6 +434,7 @@ dlf("sd:/hekate_ctcaer_6.1.0.bin")
 dlf("sd:/hekate_ctcaer_6.1.1.bin")
 dlf("sd:/hekate_ctcaer_6.2.0.bin")
 dlf("sd:/hekate_ctcaer_6.2.1.bin")
+dlf("sd:/hekate_ctcaer_6.2.2.bin")
 dlf("sd:/fusee.bin")
 dlf("sd:/boot.dat")
 dlf("sd:/boot.ini")
@@ -1116,7 +1123,7 @@ col(GELB)
 pl("  Mit dem UltraHand-Overlay Menue kannst du ueberall auf bestimmte Apps zugreifen,")
 pl("  und ausfuehren um z.B. mitten im Spiel Cheats zu benutzen!")
 p()
-p("  Das Tesla-Overlay Menue inkl. gewaehlter Module, muss nach")col(ROT)p(" JEDEM ")col(GELB)p("Update vom")
+p("  Das UltraHand-Overlay Menue inkl. gewaehlter Module, muss nach")col(ROT)p(" JEDEM ")col(GELB)p("Update vom")
 pl()
 pl("  SwitchBros. Paket, durch das ausfuehren dieses Scripts reaktiviert werden.")
 pl()
@@ -1293,7 +1300,7 @@ pl("     Keine Ahnung ob es richtig FUNKTIONIERT!!!")
 pl()
 pl("     Man muss nur eine beliebige Datei 'bootsound.mp3' nennen und in den")
 pl("     Ordner 'config/BootSoundNX/sound' packen (Am besten wenn die Datei um die")
-pl("     10 Sekunden hat um weitere Probleme zu vermeiden!")
+pl("     10 Sekunden hat um weitere Probleme zu vermeiden!)")
 pl()
 col(WEISS)
 pl("  Moechtest du [BootSoundNX] installieren?")
@@ -1895,7 +1902,6 @@ if (resYN == 1){
 	dld("sd:/switch/appstore/.get/packages/sys-tune")
 	dlf("sd:/switch/.overlays/sys-tune-overlay.ovl")
 }
-}
 
 wait(tw = 3000)
 cls()
@@ -1969,12 +1975,9 @@ pl()
 pl("             Bisher hat nur unser Kater unterschrieben.")
 col(SCHWARZ)
 
-cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhbmenu/switch", "sd:/")
-
-# cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
-# cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
-# cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
+ cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/switch", "sd:/")
+ cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/tinfoilhomescreen/switch", "sd:/")
+ cpd("sd:/SwitchBros_BasisPaket/switchbros/kids/NSPs", "sd:/")
 }
 
 wait(tw = 2000)
@@ -2002,6 +2005,7 @@ col(SCHWARZ)
 
 dld("sd:/switch/tinfoil")
 dlf("sd:/NSPs/Tinfoil[050000BADDAD0000].nsp")
+dlf("sd:/Forwarder/Tinfoil[050000BADDAD0000].nsp")
 }
 
 cls()
@@ -2210,6 +2214,9 @@ if (resYN == 1){
 col(SCHWARZ)
 if (fse("sd:/backup/SB/dbi.config")){
 	cpf("sd:/backup/SB/dbi.config", "sd:/switch/DBI/dbi.config")
+}
+if (fse("sd:/backup/SB/DBIru/dbi.config")){
+	cpf("sd:/backup/SB/DBIru/dbi.config", "sd:/switch/DBIru/dbi.config")
 }
 if (fse("sd:/backup/SB/IconGrabber/config.json")){
 	cpf("sd:/backup/SB/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
