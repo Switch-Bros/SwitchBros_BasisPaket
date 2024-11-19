@@ -98,7 +98,7 @@ if not exist "%SBBAK%" (
     mkdir "%SBBAK%" >nul 2>&1
 )
 
-set "folders=bootloader Fizeau IconGrabber tinfoil bootlogo DBI"
+set "folders=bootloader Fizeau IconGrabber tinfoil bootlogo DBI DBIru"
 
 for %%i in (%folders%) do (
     if not exist "%SBBAK%\%%i" (
@@ -129,6 +129,9 @@ xcopy /I /Y "%sd%:\atmosphere\exefs_patches\bootlogo\*" "%SBBAK%\bootlogo\" >nul
 )
 if exist "%sd%:\switch\DBI\dbi.config" (
 xcopy /I /Y "%sd%:\switch\DBI\dbi.config" "%SBBAK%\DBI\" >nul 2>&1
+)
+if exist "%sd%:\switch\DBIru\dbi.config" (
+xcopy /I /Y "%sd%:\switch\DBIru\dbi.config" "%SBBAK%\DBIru\" >nul 2>&1
 )
 
 REM ============================================================
@@ -537,6 +540,9 @@ if exist "%sd%:\emuiibo" (
 if exist "%sd%:\NSPs" (
 	attrib -A -R /S /D %sd%:\NSPs\*
 	attrib -A -R %sd%:\NSPs)
+if exist "%sd%:\Forwarder" (
+	attrib -A -R /S /D %sd%:\Forwarder\*
+	attrib -A -R %sd%:\Forwarder)
 if exist "%sd%:\SaltySD" (
 	attrib -A -R /S /D %sd%:\SaltySD\*
 	attrib -A -R %sd%:\SaltySD)
