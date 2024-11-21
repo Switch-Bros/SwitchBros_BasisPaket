@@ -24,6 +24,12 @@
         "download-entry": "0"
     },
     {
+        "name": "IconGrabber - neueste",
+        "nro-url": "https://api.github.com/repos/Slluxx/IconGrabber/releases?per_page=1&sort=created&order=desc",
+        "ordner": "IconGrabber",
+        "download-entry": "0"
+    },
+    {
         "name": "JKSV - neueste",
         "nro-url": "https://api.github.com/repos/J-D-K/JKSV/releases?per_page=1&sort=created&order=desc",
         "ordner": "JKSV",
