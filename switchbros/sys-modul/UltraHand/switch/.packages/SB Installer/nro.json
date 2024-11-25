@@ -1,5 +1,17 @@
 [
     {
+        "name": "Amiibo Generator - neueste",
+		"nro-url": "https://github.com/Slluxx/AmiiboGenerator/releases/latest/download/AmiiboGenerator.nro",
+        "ordner": "AmiiboGenerator",
+        "download-entry": "0"
+    },
+    {
+        "name": "Amiigo - neueste",
+		"nro-url": "https://github.com/Slluxx/AmiiboGenerator/releases/latest/download/Amiigo.nro",
+        "ordner": "Amiigo",
+        "download-entry": "0"
+    },
+    {
         "name": "BatteryDesyncFix - neueste",
 		"nro-url": "https://api.github.com/repos/CTCaer/battery_desync_fix_nx/releases?per_page=1&sort=created&order=desc",
         "ordner": "BatteryDesyncFix",
@@ -16,6 +28,12 @@
         "nro-url": "https://api.github.com/repos/jtothebell/fake-08/releases?per_page=1&sort=created&order=desc",
         "ordner": "fake-08",
         "download-entry": "3"
+    },
+    {
+        "name": "GoldLeaf - neueste",
+		"nro-url": "https://github.com/XorTroll/Goldleaf/releases/latest/download/Goldleaf.nro",
+        "ordner": "Goldleaf",
+        "download-entry": "0"
     },
     {
         "name": "Hekate-Toolbox - neueste",
@@ -36,15 +54,33 @@
         "download-entry": "0"
     },
     {
+        "name": "MiiPort - neueste",
+		"nro-url": "https://github.com/Genwald/MiiPort/releases/latest/download/MiiPort.nro",
+        "ordner": "MiiPort",
+        "download-entry": "0"
+    },
+    {
         "name": "Moonlight Switch - neueste",
         "nro-url": "https://api.github.com/repos/XITRIX/Moonlight-Switch/releases?per_page=1&sort=created&order=desc",
         "ordner": "Moonlight Switch",
         "download-entry": "0"
     },
     {
+        "name": "Neumann - neueste",
+		"nro-url": "https://github.com/turtle-insect/Neumann/releases/latest/download/Neumann.nro",
+        "ordner": "Neumann",
+        "download-entry": "0"
+    },
+    {
         "name": "NX-Activity-Log - neueste",
         "nro-url": "https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases?per_page=1&sort=created&order=desc",
         "ordner": "NX-Activity-Log",
+        "download-entry": "0"
+    },
+    {
+        "name": "NX-Shell - neueste",
+        "nro-url": "https://github.com/joel16/NX-Shell/releases/latest/download/NX-Shell.nro",
+        "ordner": "NX-Shell",
         "download-entry": "0"
     },
     {

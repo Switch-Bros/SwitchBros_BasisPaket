@@ -20,8 +20,7 @@
         "file-1-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/package.ini",
         "file-2-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/overlays.json",
         "file-3-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/packages.json",
-        "file-4-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/music.json",
-        "file-5-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/nro.json"
+        "file-4-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/nro.json"
     },
     {
         "name": "Host Guard - neueste",
