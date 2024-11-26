@@ -90,7 +90,7 @@
         "download-entry": "0"
     },
     {
-        "name": "sys-ftpd-light - neueste",
+        "name": "sys-ftpd - neueste",
         "zip-url": "https://api.github.com/repos/cathery/sys-ftpd/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
