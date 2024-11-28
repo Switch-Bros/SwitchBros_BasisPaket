@@ -9,72 +9,84 @@ AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 (Deutsch)
 === Basis Apps ====================
 
 SwitchBros Updater 2.24.3-SB (Downloads haben Zeitanzeige)
-DNS-Block Tester 1.0.4 (Deutsch) (90DNS Tester) 
 Daybreak 1.0.0_de (Deutsch)
-DBI (Version kann über UltraHand-Overlay ausgewählt werden) 
-HB-AppStore 2.3.2
-IconGrabber 1.0.1 (Deutsch) 
-JKSV 11/05/2024
-linkalho 2.2.0 (Deutsch) 
-NX-Activity-Log 1.4.0
+DBI (Version kann über UltraHand-Overlay ausgewählt werden)
+IconGrabber 1.0.1 (Deutsch)
+linkalho 2.2.0 (Deutsch)
 NXThemeInstaller 2.7.1 (Deutsch)
-Themezer 2.0.0
+sys-patch 1.5.4
+sys-clk-OC 1.1.0 + sys-clk-manager
+UltraHand-Overlay 1.8.2 (ZL + ZR + PLUS) + folgende Pakete
+	Cool Curves 0.2.0 (Temperaturbereiche in system_settings.ini festlegen)
+	DBI 0.1.1 (siehe oben)
+	Host Guard 0.4.0 (Nintendo und andere Server BLOCKEN (emummc.txt und sysmmc.txt)
+	Memory Config 0.1.5 (Speicheroptionen für UltraHand konfigurieren)
+	Mod Alchemist 0.4.7 (Mods verwalten, konvertieren und installieren)
+	OC Toolkit 1.5.0 (Switch übertakten (Erista und Mariko))
+	SB Installer 0.3.6 (Ihr könnt die Pakete, Overlays, Apps, Themes installieren und aktualisieren)
+	Theme 1.0 (Damit kann man SB Themes holen und dann mit NXThemeInstaller installieren)
+	Tinfoil 0.1.0 (Installiert die bevorzugte Tinfoil Version (hbmenu, homescreen oder NSP)
+	Ultracam Overlay 1.1 (Tool aktiviert die UltraCam Mod in TotK (Tears of the Kingdom))
 
 
-=== System Module =================
+=== System Module, Overlays und Apps über das UltraHand-Overlay ===
 
+HB-AppStore 2.3.2 (als App über UltraHand wenn es jemand haben muss)
+
+Amiibo Generator 2.1.1
+Amiigo 2.3.2
+BatteryDesyncFix 1.5.0
+BootSoundNX 1.3.0 (1.4.0 geht nicht)
+Chiaki 2.1.1
 DNS-MITM_Manager 0.2.0
+DNS-Block Tester 1.0.4 (Deutsch) (90DNS Tester) 
 EdiZon 3.8.37
 EdiZon-Overlay 1.0.9
 emuiibo 1.1.1
+Fake-08 0.2.20
 Fizeau 2.8.1
 FPS-Locker 2.0.3
+FPS-Locker Warehouse 
+GoldLeaf 1.0.0
+Hekate-Toolbox 4.0.3
+JKSV 11/05/2024
 ldn-mitm 1.17.0
+MiiPort 0.1.1
 Mission Control 0.12.0
+Moonlight Switch 1.2.2
+Neumann 0.0.27
+NXMP 0.9.0
+NX-Activity-Log 1.4.0
+NX-Locale-Switcher 1.1.2
 nx-ovlloader 1.0.7
+NX-Shell 4.0.1
 ovl-sysmodule 1.3.0
 QuickNTP 1.2.8-1
-SaltyNX 1.1.0
+RetroArch 1.19.1
+ReverseNX-Tool 3.2.0
+ReverseNX-RT 2.1.0
+SaltyNX 1.1.1
 Status-Monitor-Overlay 1.1.6
 Studious-Pancake 1.0.0
-sys-clk-OC 1.1.0
+Switch-OC-Suite 1.9.2
 sys-clk-Editor 2.0.1
 sys-clk-Overlay 1.1
 sys-con 1.4.3 (ams 1.7-1.8)
-sys-patch 1.5.4
+sys-ftpd 1.0.5
 sys-tune 2.0.0
 sys-tweak 
 SysDVR 6.1.1
 SysDVR Overlay 1.0.11
-UltraHand-Overlay 1.8.2 (ersetzt Tesla overlay wenn installiert)
-
-
-=== Mögliche Zusatz Apps ==========
-
-Chiaki 2.1.1
-Fake-08 0.2.20
 TencentSwitcherGUI 0.1.2
-BatteryDesyncFix 
+Tetris-Overlay 0.3.2
+ThemezerNX 2.0.0
+Tinwoo Installer 
+TriPlayer 1.1.1
+vgedit 2.1
 
-Tinfoil 18
+Tinfoil 18 (Version kann im UltraHand-Overlay gewählt werden)
 
 
-=== Gute Zusatz-Apps aus HB-Appstore ===
+=== Habt ihr noch Ideen oder Wünsche welche Apps dazu sollen? ===
 
-Amiibo Generator
-Amiigo
-Batch Uninstaller
-GoldLeaf
-Homebrew-Details
-MelonDS
-MiiPort
-Moonlight-Switch
-Neumann
-NX-Locale-Switcher
-NX-Shell
-NXGallery
-NXMP
-Switch FTP Client
-Switch SMB Client
-Switch-Remote-Play
-Vgedit
+Bitte im SB Discord Server melden ;)

@@ -1,6 +1,0 @@
-U: README.md
-U: atmosphere/contents/00FF0000636C6BFF/exefs.nsp
-U: atmosphere/contents/00FF0000636C6BFF/flags/boot2.flag
-U: config/sys-clk/config.ini.template
-U: switch/sys-clk-manager.nro
-U: switch/.overlays/sys-clk-overlay.ovl

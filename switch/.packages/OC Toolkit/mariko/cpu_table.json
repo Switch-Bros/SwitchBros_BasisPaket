@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Auto",
+        "label": "Auto - default",
+        "hex": "00"
+    },
+    {
+        "name": "Default Table",
+        "label": "Default Table",
+        "hex": "01"
+    },
+    {
+        "name": "1581 MHz Tbreak",
+        "label": "1581 MHz Tbreak",
+        "hex": "02"
+    },
+    {
+        "name": "Shift Fix 1",
+        "label": "Shift Fix 1",
+        "hex": "03"
+    },
+    {
+        "name": "Shift Fix 2",
+        "label": "Shift Fix 2",
+        "hex": "04"
+    }
+]

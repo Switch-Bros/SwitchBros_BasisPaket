@@ -1,0 +1,116 @@
+[
+    {
+        "name": "Amiibo Generator - neueste",
+		"nro-url": "https://api.github.com/repos/Slluxx/AmiiboGenerator/releases?per_page=1&sort=created&order=desc",
+        "ordner": "AmiiboGenerator",
+        "download-entry": "0"
+    },
+    {
+        "name": "Amiigo - neueste",
+		"nro-url": "https://api.github.com/repos/CompSciOrBust/Amiigo/releases?per_page=1&sort=created&order=desc",
+        "ordner": "Amiigo",
+        "download-entry": "0"
+    },
+    {
+        "name": "BatteryDesyncFix - neueste",
+		"nro-url": "https://api.github.com/repos/CTCaer/battery_desync_fix_nx/releases?per_page=1&sort=created&order=desc",
+        "ordner": "BatteryDesyncFix",
+        "download-entry": "0"
+    },
+    {
+        "name": "DNS-Block Tester - neueste",
+        "nro-url": "https://api.github.com/repos/Switch-Bros/DNS-Block_Tester/releases?per_page=1&sort=created&order=desc",
+        "ordner": "DNS-Block_Tester",
+        "download-entry": "0"
+    },
+    {
+        "name": "fake-08 - neueste",
+        "nro-url": "https://api.github.com/repos/jtothebell/fake-08/releases?per_page=1&sort=created&order=desc",
+        "ordner": "fake-08",
+        "download-entry": "3"
+    },
+    {
+        "name": "GoldLeaf - neueste",
+		"nro-url": "https://api.github.com/repos/XorTroll/Goldleaf/releases?per_page=1&sort=created&order=desc",
+        "ordner": "Goldleaf",
+        "download-entry": "0"
+    },
+    {
+        "name": "Hekate-Toolbox - neueste",
+        "nro-url": "https://api.github.com/repos/WerWolv/Hekate-Toolbox/releases?per_page=1&sort=created&order=desc",
+        "ordner": "Hekate-Toolbox",
+        "download-entry": "0"
+    },
+    {
+        "name": "IconGrabber - neueste",
+        "nro-url": "https://api.github.com/repos/Slluxx/IconGrabber/releases?per_page=1&sort=created&order=desc",
+        "ordner": "IconGrabber",
+        "download-entry": "0"
+    },
+    {
+        "name": "JKSV - neueste",
+        "nro-url": "https://api.github.com/repos/J-D-K/JKSV/releases?per_page=1&sort=created&order=desc",
+        "ordner": "JKSV",
+        "download-entry": "0"
+    },
+    {
+        "name": "MiiPort - neueste",
+		"nro-url": "https://api.github.com/repos/Genwald/MiiPort/releases?per_page=1&sort=created&order=desc",
+        "ordner": "MiiPort",
+        "download-entry": "0"
+    },
+    {
+        "name": "Moonlight Switch - neueste",
+        "nro-url": "https://api.github.com/repos/XITRIX/Moonlight-Switch/releases?per_page=1&sort=created&order=desc",
+        "ordner": "Moonlight Switch",
+        "download-entry": "0"
+    },
+    {
+        "name": "Neumann - neueste",
+		"nro-url": "https://api.github.com/repos/turtle-insect/Neumann/releases?per_page=1&sort=created&order=desc",
+        "ordner": "Neumann",
+        "download-entry": "0"
+    },
+    {
+        "name": "NX-Activity-Log - neueste",
+        "nro-url": "https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases?per_page=1&sort=created&order=desc",
+        "ordner": "NX-Activity-Log",
+        "download-entry": "0"
+    },
+    {
+        "name": "NX-Locale-Switcher - neueste",
+        "nro-url": "https://github.com/HamletDuFromage/nx-locale-switcher/releases/latest/download/NX-Locale-Switcher.nro",
+        "ordner": "NX-Locale-Switcher",
+        "download-entry": "0"
+    },
+    {
+        "name": "NX-Shell - neueste",
+        "nro-url": "https://api.github.com/repos/joel16/NX-Shell/releases?per_page=1&sort=created&order=desc",
+        "ordner": "NX-Shell",
+        "download-entry": "0"
+    },
+    {
+        "name": "ReverseNX-Tool - neueste",
+        "nro-url": "https://api.github.com/repos/masagrator/ReverseNX-Tool/releases?per_page=1&sort=created&order=desc",
+        "ordner": "ReverseNX-Tool",
+        "download-entry": "0"
+    },
+    {
+        "name": "TencentSwitcherGUI - neueste",
+        "zip-url": "https://api.github.com/repos/CaiMiao/Tencent-switcher-GUI/releases?per_page=1&sort=created&order=desc",
+        "ordner": "TencentSwitcherGUI",
+        "download-entry": "0"
+    },
+    {
+        "name": "ThemezerNX - neueste",
+        "nro-url": "https://api.github.com/repos/suchmememanyskill/themezer-nx/releases?per_page=1&sort=created&order=desc",
+        "ordner": "ThemezerNX",
+        "download-entry": "0"
+    },
+    {
+        "name": "vgedit - neueste",
+        "nro-url": "https://api.github.com/repos/vgmoose/vgedit/releases?per_page=1&sort=created&order=desc",
+        "ordner": "vgedit",
+        "download-entry": "0"
+    }
+]

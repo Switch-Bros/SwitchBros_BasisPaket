@@ -1,0 +1,42 @@
+[
+    {
+        "name": "DBI Installer",
+        "label": "DBI",
+        "file-1-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/DBI/package.ini"
+    },
+    {
+        "name": "Tinfoil Installer",
+        "label": "Tinfoil",
+        "file-1-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/Tinfoil/package.ini"
+    },
+    {
+        "name": "Cool Curves - neueste",
+        "label": "Cool Curves",
+        "file-1-url": "https://github.com/Switch-Bros/Ultrahand-Overlay/blob/main/examples/Cool%20Curves/package.ini"
+    },
+    {
+        "name": "SB Installer - neueste",
+        "label": "SB Installer",
+        "file-1-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/package.ini",
+        "file-2-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/overlays.json",
+        "file-3-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/packages.json",
+        "file-4-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Installer/nro.json"
+    },
+    {
+        "name": "Host Guard - neueste",
+        "label": "Host Guard",
+        "file-1-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/Host%20Guard/package.ini",
+        "file-2-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/Host%20Guard/emummc.txt",
+        "file-3-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/Host%20Guard/sysmmc.txt"
+    },
+    {
+        "name": "SB Themes",
+        "label": "SB Themes",
+        "file-1-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/SB%20Themes/package.ini"
+    },
+    {
+        "name": "Speicher Konfiguration - neueste",
+        "label": "Memory Config",
+        "file-1-url": "https://raw.githubusercontent.com/Switch-Bros/Ultrahand-Overlay/main/examples/Memory%20Config/package.ini"
+    }
+]
