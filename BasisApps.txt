@@ -14,7 +14,7 @@ DBI (Version kann über UltraHand-Overlay ausgewählt werden)
 IconGrabber 1.0.1 (Deutsch)
 linkalho 2.2.0 (Deutsch)
 NXThemeInstaller 2.7.1 (Deutsch)
-sys-patch 1.5.4
+sys-patch 1.5.5
 sys-clk-OC 1.1.0 + sys-clk-manager
 UltraHand-Overlay 1.8.2 (ZL + ZR + PLUS) + folgende Pakete
 	Cool Curves 0.2.0 (Temperaturbereiche in system_settings.ini festlegen)
