@@ -57,13 +57,13 @@ if not exist "%sd%:\" (
 )
 
 REM ============================================================
-:modchip
+:modchipabfrage
 COLOR 0E
 cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Wenn du einen Modchip in deiner Konsole hast, dann gib es bitte hier an^^!
+echo      Ist in deiner Konsole ein Modchip verbaut?^^!
 echo.
 echo      0 = Nein, ich habe keinen Modchip verbaut
 echo      1 = Ja, ich habe einen Modchip verbaut (v2, lite, OLED)
@@ -78,13 +78,13 @@ if "%modchip%"=="1" SET bootdat=1
 if "%modchip%"=="2" SET bootdat=2
 
 REM ============================================================
-:datensichern
+:datensicherung
 COLOR 0E
 cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Backups einiger Dateien werden erstellt^^!
+echo      Eine Sicherung einiger Dateien wird erstellt^^!
 echo.
 echo      BITTE WARTEN...^^!
 echo.
@@ -98,7 +98,7 @@ if not exist "%SBBAK%" (
     mkdir "%SBBAK%" >nul 2>&1
 )
 
-set "folders=bootloader Fizeau IconGrabber tinfoil bootlogo DBI"
+set "folders=bootloader Fizeau IconGrabber tinfoil bootlogo DBI DBIru"
 
 for %%i in (%folders%) do (
     if not exist "%SBBAK%\%%i" (
@@ -106,12 +106,6 @@ for %%i in (%folders%) do (
     )
 )
 
-if exist "%sd%:\bootloader\hekate_ipl.ini" (
-xcopy /I /Y "%sd%:\bootloader\hekate_ipl.ini" "%SBBAK%\bootloader\" >nul 2>&1
-)
-if exist "%sd%:\bootloader\nyx.ini" (
-xcopy /I /Y "%sd%:\bootloader\nyx.ini" "%SBBAK%\bootloader\" >nul 2>&1
-)
 if exist "%sd%:\config\Fizeau\config.ini" (
 xcopy /I /Y "%sd%:\config\Fizeau\config.ini" "%SBBAK%\Fizeau\" >nul 2>&1
 )
@@ -130,6 +124,9 @@ xcopy /I /Y "%sd%:\atmosphere\exefs_patches\bootlogo\*" "%SBBAK%\bootlogo\" >nul
 if exist "%sd%:\switch\DBI\dbi.config" (
 xcopy /I /Y "%sd%:\switch\DBI\dbi.config" "%SBBAK%\DBI\" >nul 2>&1
 )
+if exist "%sd%:\switch\DBIru\dbi.config" (
+xcopy /I /Y "%sd%:\switch\DBIru\dbi.config" "%SBBAK%\DBI\" >nul 2>&1
+)
 
 REM ============================================================
 :hauptmenue
@@ -138,7 +135,7 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      1 = SD-Karte einrichten, und SwitchBros. Paket installieren^^!
+echo      1 = SD-Karte einrichten / SwitchBros. Paket installieren/aktualisieren^^!
 echo.
 echo.
 echo      F = Unsicher, altes Paket behalten                             B = Dieses Skript Beenden
@@ -182,7 +179,7 @@ echo ---------------------------------------------------------------------------
 echo.
 echo      Deine SD-Karte wird jetzt vorbereitet und alle dafuer Notwendigen Daten geloescht^^!
 echo.
-echo.
+echo             Deine Dateien bleiben erhalten solange du die SD-Kartenicht formatierst^^!
 echo.
 echo      BITTE WARTEN...
 echo.
@@ -404,13 +401,13 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo                    Jetzt wird das satanarchaeoluegenialkohoellische Switch Bros. Paket              
+echo                    Jetzt wird das satanarchaeoluegenialkohoellische SwitchBros. Paket              
 echo                                  direkt auf deine SD-Karte geballert^^!         
 echo.
 echo                                    Du verdienst halt nur das BESTE^^!      
 echo.
 echo.
-echo      Gleich geht es weiter^^!
+echo      Gleich geht es weiter^^! (vielleicht^^!)
 echo.
 echo      BITTE WARTEN...^^!
 echo.
@@ -423,18 +420,6 @@ powershell -Command "Start-Sleep -Seconds 5"
 
 REM ============================================================
 :nurbasissystem
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo      Die Basisvariante der hekate_ipl.ini wird erstellt^^!
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-
 xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
 
 REM ============================================================
@@ -444,7 +429,7 @@ cls
 echo.
 echo -----------------------------------------------------------------------------------------------------
 echo.
-echo      Das UltraHand-Overlay Menue, mit einigen Standard Modulen, wird installiert^^!
+echo              Das UltraHand-Overlay Menue, mit einigen Standard Modulen, wird installiert^^!
 echo.
 echo      BITTE WARTEN...^^!
 echo.
@@ -542,6 +527,18 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor\11ECA7E0 /v 
 
 REM ============================================================
 :aufraeumen
+COLOR 0E
+cls
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+echo                     Noch fix hinter uns aufräumen denn wir sind saubere Schweine^^!
+echo.
+echo      BITTE WARTEN...
+echo.
+echo -----------------------------------------------------------------------------------------------------
+echo.
+
 if exist "%sd%:\SwitchBros_BasisPaket" (RD /S /Q "%sd%:\SwitchBros_BasisPaket")
 if exist "%sd%:\switchbros" (RD /S /Q "%sd%:\switchbros")
 if exist "%sd%:\updatebak" (RD /S /Q "%sd%:\updatebak")
@@ -620,7 +617,7 @@ echo      Alles abgeschlossen^^!^^!^^!
 echo.
 echo      Viel Spass mit unserem Paket und Willkommen in der Switch Bros. Community
 echo.
-echo                     Besuche uns: https://discord.gg/switchbros
+echo                     Besuche uns: https://discord.gg/FqRs3CdnSW
 echo.
 echo.
 echo.
@@ -634,5 +631,5 @@ echo ---------------------------------------------------------------------------
 echo.
 
 if exist "%wd%" (RD /s /q "%wd%\*") >nul 2>nul
-powershell -Command "Start-Sleep -Seconds 7"
+powershell -Command "Start-Sleep -Seconds 10"
 exit
