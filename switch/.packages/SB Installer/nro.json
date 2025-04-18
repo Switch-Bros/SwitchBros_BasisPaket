@@ -79,7 +79,7 @@
     },
     {
         "name": "NX-Locale-Switcher - neueste",
-        "nro-url": "https://github.com/HamletDuFromage/nx-locale-switcher/releases/latest/download/NX-Locale-Switcher.nro",
+        "nro-url": "https://api.github.com/repos/HamletDuFromage/nx-locale-switcher/releases?per_page=1&sort=created&order=desc",
         "ordner": "NX-Locale-Switcher",
         "download-entry": "0"
     },
