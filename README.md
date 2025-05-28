@@ -8,16 +8,14 @@ SwitchBros. - The Switch Hacking, Modding and Themes Community!
 Das SwitchBros_BasisPaket ist ein AIO CFW Paket für eure Switch!
 Es ist alles enthalten was ihr braucht und wird permanent optimiert so gut es möglich ist!
 
-Ihr könnt eure SD-Karte beim ersten mal ganz leicht und einfach mit einer der beiden BAT-Dateien aufsetzen/einrichten:
+Ihr könnt eure SD-Karte beim ersten mal ganz leicht und einfach mit der BAT-Datei aufsetzen/einrichten:
 
-  > NERD-O-MAT.bat (sehr umfangreich mit vielen individuellen Einstellmöglichkeiten)
+  > SwitchBros_BasisPaket.bat
 
-  > NOOB-O-MAT.bat (beantwortet NUR zwei Fragen und eure SD-Karte wird komplett eingerichtet (Standard Einstellungen)
-  
 Später könnt ihr mit unserer App [SwitchBros-Updater](https://github.com/Switch-Bros/switchbros-updater) das Paket OHNE PC updaten!
 In der App könnt ihr auch die aktuellste Firmware runterladen und installieren, Cheats herunterladen oder Grafische Verbesserungen für Spiele (60fps mod z.B.), den geheimen Browser aufrufen und Nutzen, die App DBI aktualisieren und mehr...
 
-[Euer SwitchBros. Team](https://discord.com/invite/switchbros)
+[Euer SwitchBros. Team](https://discord.gg/XJ3GfPxWaM)
 
 # Keines der Programme/Apps ist von uns entwickelt worden!
 Wir Übersetzen vieles und passen manche Apps an unser Paket an!
