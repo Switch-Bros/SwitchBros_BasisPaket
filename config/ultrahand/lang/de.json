@@ -1,3 +1,4 @@
+
 {
     "ENGLISH": "Englisch",
     "SPANISH": "Spanisch",
@@ -9,6 +10,7 @@
     "DUTCH": "Niederländisch",
     "PORTUGUESE": "Portugiesisch",
     "RUSSIAN": "Russisch",
+    "UKRAINIAN": "Ukrainisch",
     "POLISH": "Polnisch",
     "SIMPLIFIED_CHINESE": "Vereinfachtes Chinesisch",
     "TRADITIONAL_CHINESE": "Traditionelles Chinesisch",
@@ -24,8 +26,8 @@
     "HIDE_OVERLAY": "Overlay ausblenden",
     "HIDE_PACKAGE": "Paket ausblenden",
     "LAUNCH_ARGUMENTS": "Startargumente",
-    "BOOT_COMMANDS": "Boot-Befehle",
-    "EXIT_COMMANDS": "Beenden-Befehle",
+    "BOOT_COMMANDS": "Boot Befehle",
+    "EXIT_COMMANDS": "Beenden Befehle",
     "ERROR_LOGGING": "Fehlerprotokollierung",
     "COMMANDS": "(Boot-) Befehle",
     "SETTINGS": "Optionen",
@@ -90,7 +92,7 @@
     "BOOT_ENTRY": "hekate Booteinträge",
     "GAP_1": "     ",
     "GAP_2": "  ",
-    "USERGUIDE_OFFSET": "154",
+    "USERGUIDE_OFFSET": "176",
     "SETTINGS_MENU": "Options-Menü",
     "SCRIPT_OVERLAY": "OVL-Skript wählen",
     "STAR_FAVORITE": "Favorit wählen",
