@@ -91,7 +91,7 @@
     },
     {
         "name": "sys-patch - neueste",
-        "zip-url": "https://api.github.com/repos/borntohonk/sys-patch/releases?per_page=1&sort=created&order=desc",
+        "zip-url": "https://api.github.com/repos/impeeza/sys-patch/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
