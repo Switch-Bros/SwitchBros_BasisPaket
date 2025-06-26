@@ -23,6 +23,7 @@
         "ordner": "Chiaki",
         "download-entry": "0"
     },
+	{
         "name": "DNS-Block Tester - neueste",
         "nro-url": "https://api.github.com/repos/Switch-Bros/DNS-Block_Tester/releases?per_page=1&sort=created&order=desc",
         "ordner": "DNS-Block_Tester",
