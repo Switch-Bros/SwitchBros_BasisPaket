@@ -16,7 +16,7 @@ IconGrabber 1.0.1 (Deutsch)
 linkalho 2.2.0 (Deutsch)
 NXThemeInstaller 2.8.1
 sys-patch 1.5.6
-UltraHand-Overlay 1.9.1 (ZL + ZR + PLUS) + folgende Pakete
+UltraHand-Overlay 1.9.9 (ZL + ZR + PLUS) + folgende Pakete
 	Cool Curves 0.2.0 (Temperaturbereiche in system_settings.ini festlegen)
 	DBI 0.1.1 (siehe oben)
 	Host Guard 0.4.0 (Nintendo und andere Server BLOCKEN (emummc.txt und sysmmc.txt)
