@@ -1,0 +1,30 @@
+#REQUIRE KEYS
+
+system = ["Contents", "Contents/placehld", "Contents/registered", "save"]
+
+if(mountsys("SYSTEM")) {
+	print("SYSTEM KONNTE NICHT EINGEBUNDEN WERDEN!")
+	pause()
+	exit()
+}
+
+system.foreach("x") {
+	println("Erstelle", x, "in SYSTEM")
+	mkdir("bis:/" + x)
+}
+
+user = ["Album","Contents","Contents/placehld","Contents/registered","save","saveMeta","temp"]
+
+if(mountsys("USER")) {
+	print("USER KONNTE NICHT EINGEBUNDEN WERDEN!")
+	pause()
+	exit()
+}
+
+user.foreach("x") {
+	println("Erstelle", x, "in USER")
+	mkdir("bis:/" + x)
+}
+
+println("Alles abgeschlossen!")
+pause()

@@ -1,0 +1,55 @@
+#REQUIRE SD
+#REQUIRE KEYS
+#REQUIRE VER 4.0.0
+
+partNames = ["SYSTEM", "USER"]
+menuOptions = ["Beenden"].copy()
+
+partNames.foreach("x"){
+	menuOptions.add("sysMMC " + x)
+}
+
+if (emu()){
+	partNames.foreach("x"){
+		menuOptions.add("emuMMC " + x)
+	}
+}
+
+res = menu(menuOptions, 0)
+
+if (!res){
+	exit()
+}
+
+clear()
+
+if (res % 2) {
+	mountStr = "SYSTEM"
+}.else() {
+	mountStr = "USER"
+}
+
+if (res > 2) {
+	mount = mountemu
+}.else() {
+	mount = mountsys
+}
+
+if (mount(mountStr)){
+	println("Einbinden fehlgeschlagen!")
+	pause()
+	exit()
+}
+
+cpSaveFolder = menuOptions[res]
+cpSavePath = combinepath("sd:/tegraexplorer/", cpSaveFolder)
+mkdir("sd:/tegraexplorer")
+mkdir(cpSavePath)
+
+res = copydir("bis:/save", cpSavePath)
+if (res) {
+    println("Kopiervorgang fehlgeschlagen! Fehler: ", res)
+}.else() {
+	println("Abgeschlossen!")
+}
+pause()

@@ -1,0 +1,318 @@
+#REQUIRE VER 4.0.0
+#REQUIRE MINERVA
+#REQUIRE KEYS
+#REQUIRE SD
+
+wait={t=timer()while(timer()<(t+tw)){print("Warte",(t+tw-timer()/1000),"Sekunden \r")}}
+p = println
+
+getInt = {
+	resInt = (buff[0] << 24) | (buff[1] << 16) | (buff[2] << 8) | (buff[3])
+}
+bisFileOffset = 0
+
+getBisBytes = {
+	buff = bisFileDump.slice(bisFileOffset, bisGetLen).project()
+	bisFileOffset = bisFileOffset + bisGetLen
+}
+
+getNextInt = {
+	getBisBytes(bisGetLen = 4)
+	getInt()
+}
+
+fatal = {
+	color(0xFF0000)
+	p("\n[FATAL]", fatalMsg)
+	pause()
+	exit()
+}
+
+readBisAttrs = {
+	path = combinepath(cwd(), "boot.bis")
+	bisFileRes = 1
+	if (fsexists(path)){
+		bisFileDump = readfile(path)
+		getBisBytes(bisGetLen = 0x10)
+		bisName = buff.bytestostr()
+		getBisBytes(bisGetLen = 1)
+		
+		sizes = [0,1,2,3].copy()
+		
+		sizes.foreach("x"){
+			getNextInt()
+			sizes[x] = resInt
+		}
+		
+		bisFileRes = 0
+	}
+}
+
+extractBis = {
+	color(0xFF0000)
+	p("Extrahiere boot.bis...")
+	color(0xFFFFFF)
+	i = 0
+	files = ["BOOT0.bin", "BOOT1.bin", "BCPKG2-1-Normal-Main", "BCPKG2-3-SafeMode-Main"]
+	
+	sizes.foreach("x"){
+		getBisBytes(bisGetLen = x)
+		p("Extrahiere", files[i])
+		if (writefile(combinepath(cwd(), files[i]), buff)){
+			fatal(fatalMsg = "Extrahieren von boot.bis fehlgeschlagen!")
+		}
+	
+		i = i + 1
+	}
+	
+	res = copyfile(combinepath(cwd(), "BCPKG2-1-Normal-Main"), combinepath(cwd(), "BCPKG2-2-Normal-Sub"))
+	if (!res){
+		res = copyfile(combinepath(cwd(), "BCPKG2-3-SafeMode-Main"), combinepath(cwd(), "BCPKG2-4-SafeMode-Sub"))
+	}
+	
+	if (res) {
+		fatal(fatalMsg = "Extrahieren von boot.bis fehlgeschlagen!")
+	}
+	
+	p("\n")
+}
+
+bisFiles = ["BOOT0.bin", "BOOT1.bin", "BCPKG2-1-Normal-Main", "BCPKG2-2-Normal-Sub", "BCPKG2-3-SafeMode-Main", "BCPKG2-4-SafeMode-Sub", "PRODINFO"] 
+
+backupBis = {
+	color(0xFF0000)
+	p("Sichere BIS...")
+	color(0xFFFFFF)
+	
+	mkdir(combinepath(cwd(), "backup"))
+	path = combinepath(cwd(), "backup", "bis")
+	mkdir(path)
+	bisFiles.foreach("x"){
+		print("Wird gesichert", x, "")
+		if (mmcread(combinepath(path, x), x)){
+			fatal(fatalMsg = "Sicherung von BIS fehlgeschlagen")
+		}
+		p()
+	}
+	p()
+}
+
+backupSys = {
+	color(0xFF0000)
+	p("Sichere SYSTEM...")
+	color(0xFFFFFF)
+	
+	mkdir(combinepath(cwd(), "backup"))
+	path = combinepath(cwd(), "backup", "system")
+	mkdir(path)
+
+	if (mount("SYSTEM")){
+		fatal(fatalMsg = "SYSTEM konnte nicht eingebunden werden!")
+	}
+
+	if (copydir("bis:/Contents/registered", path)){
+		fatal(fatalMsg = "Daten von registered konnten nicht kopiert werden")
+	}
+
+	if (copyfile("bis:/save/8000000000000120", combinepath(path, "8000000000000120"))){
+		fatal(fatalMsg = "Speicherdatei 120 konnte nicht kopiert werden")
+	}
+	
+	p("\n")
+}
+
+signSave = {
+	color(0xFF0000)
+	p("Signing save...")
+	color(0xFFFFFF)
+	if (mount("SYSTEM")){
+		fatal(fatalMsg = "SYSTEM konnte nicht eingebunden werden")
+	}
+	sav = readsave("bis:/save/8000000000000120")
+	if (sav.commit()){
+		fatal(fatalMsg = "Speicherdatei konnte nicht signiert werden!")
+	}
+	sav = 0 # Free sav
+}
+
+writeBis = {
+	color(0xFF0000)
+	p("Schreibe BIS...")
+	color(0xFFFFFF)
+	toRestore = bisFiles.copy()
+	toRestore - 1
+	toRestore.foreach("x"){
+		print("Wird wiederhergestellt", x + "... ")
+		if (mmcwrite(combinepath(cwd(), x), x)){
+			fatal(fatalMsg = "Schreiben von BIS fehlgeschlagen!!!")
+		}
+		p()
+	}
+	p()
+}
+
+writeSys = {
+	if (mount("SYSTEM")){
+		fatal(fatalMsg = "SYSTEM konnte nicht eingebunden werden")
+	}
+	
+	color(0xFF0000)
+	print("Loesche SYSTEM Inhalte... ")
+	color(0xFFFFFF)
+	if (deldir("bis:/Contents/registered")){
+		fatal(fatalMsg = "Fehler beim loeschen von SYSTEM!")
+	}
+	p()
+	
+	color(0xFF0000)
+	print("Kopiere registered... ")
+	color(0xFFFFFF)
+	if (copydir(combinepath(cwd(), "SYSTEM/Contents/registered"), "bis:/Contents")) {
+		fatal(fatalMsg = "Fehler beim kopieren von SYSTEM!")
+	}
+	p()
+	
+	color(0xFF0000)
+	print("Kopiere 120 Speicherdatei... ")
+	color(0xFFFFFF)
+	if (copyfile(combinepath(cwd(), "SYSTEM/save/8000000000000120"), "bis:/save/8000000000000120")) {
+		fatal(fatalMsg = "Fehler beim kopieren der Speicherdateien")
+	}
+
+	if (!fsexists("bis:/save/8000000000000000"))
+	{
+		p("\nWARNUNG: 8000000000000000 existiert nicht. Die Speicherdatei wird nicht signiert! Kopiere")
+		if (copyfile(combinepath(cwd(), "SYSTEM/save/8000000000000000"), "bis:/save/8000000000000000")) {
+			fatal(fatalMsg = "Kopieren des fs Speicherindex fehlgeschlagen")
+		}
+	}
+
+	p("\n")
+}
+
+actionRestoreBis = {
+	extractBis()
+	backupBis()
+	writeBis()
+}
+
+actionRestoreSys = {
+	backupSys()
+	writeSys()
+	signSave()
+}
+
+readBisAttrs()
+
+bootBisFound = !bisFileRes
+systemFolderFound = fsexists(combinepath(cwd(), "SYSTEM"))
+
+if ((!bootBisFound) && (!systemFolderFound)){
+	fatal(fatalMsg = "Nichts zum wiederherstellen gefunden...\nPacke die boot.bis und einen SYSTEM Ordner von emmchaccgen neben dieses Skript!")
+}
+
+if (!bootBisFound){
+	p("Boot.bis nicht gefunden. bis kann nicht weiderhergestellt werden. Beliebige Taste zum fortfahren...")
+	pause()
+}
+
+if (!systemFolderFound){
+	p("SYSTEM Ordner nicht gefunden. SYSTEM kann nicht weiderhergestellt werden. Beliebige Taste zum fortfahren...")
+	pause()
+}
+
+useSys = 1
+
+if (emu()){
+	p("Switch System Wiederherstellung\n")
+	res = menu(["Beenden", "Auf sysMMC anwenden", "Auf emuMMC anwenden"], 0)
+	if (res == 0){
+		exit()
+	}
+	if (res == 2){
+		useSys = 0
+	}
+}
+
+if (useSys){
+	mmcread = emmcread
+	mmcwrite = emmcwrite
+	mount = mountsys
+}.else() {
+	mmcread = emummcread
+	mmcwrite = emummcwrite
+	mount = mountemu
+}
+
+clear()
+p("Switch System Wiederherstellung")
+if (bootBisFound){
+	p("Ziel:", bisName)
+}
+p()
+
+res = menu(["Beenden", "BIS Wiederherstellung", "SYSTEM Wiederherstellung", "Beides Wiederherstellen"], 0)
+if (res == 0){
+	exit()
+}
+
+clear()
+
+restoreBis = 0
+restoreSystem = 0
+
+if ((res == 1) || (res == 3)){
+	if (!bootBisFound){
+		fatal(fatalMsg = "Boot.bis nicht gefunden...")
+	}
+	
+	restoreBis = 1
+}
+
+if ((res == 2) || (res == 3)){
+	if (!systemFolderFound){
+		fatal(fatalMsg = "SYSTEM Ordner nicht gefunden...")
+	}
+	
+	restoreSystem = 1
+}
+
+clear()
+p("Switch System Wiederherstellung")
+color(0xFF00)
+
+if (useSys){
+	mmcStr = "sysMMC"
+}.else() {
+	mmcStr = "emuMMC"
+}
+
+p("Wiederherstellung von BIS:", restoreBis)
+p("Wiederherstellung von SYSTEM:", restoreSystem)
+p("Wiederherstellung auf:", mmcStr)
+color(0xFFFFFF)
+p("Bereit!")
+color(0xE70000) 
+print("WARNUNG!!!\nWenn du NICHT GENAU weisst was es tut. STOP!!!\nDas fickt dein System!\nNur als LETZTEN Ausweg nutzen!\n") 
+color(0x40FF00) 
+p("Fuer Hilfe gehe zu: https://discord.gg/C29hYvh\n") 
+color(0xFFFFFF)
+wait(tw = 10000)
+p("POWER Taste zum wiederherzustellen, jede andere Taste zum Beenden")
+if (!pause().power){
+	exit()
+}
+clear()
+
+startMs = timer()
+
+if (restoreBis){
+	actionRestoreBis()
+}
+
+if (restoreSystem){
+	actionRestoreSys()
+}
+
+p("\n\nAbgeschlossen! Benoetigte Zeit", (timer() - startMs) / 1000 ,"Sekunden!\nDruecke beliebige Taste zum Beenden")
+pause()
