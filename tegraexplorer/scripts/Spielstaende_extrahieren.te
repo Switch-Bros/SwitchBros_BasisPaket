@@ -1,6 +1,6 @@
-#REQUIRE SD
-#REQUIRE KEYS
 #REQUIRE VER 4.0.0
+#REQUIRE KEYS
+#REQUIRE SD
 
 partNames = ["SYSTEM", "USER"]
 menuOptions = ["Beenden"].copy()
