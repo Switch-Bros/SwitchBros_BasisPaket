@@ -1,0 +1,1221 @@
+#REQUIRE MINERVA
+#REQUIRE SD
+
+ROT=0xFF0000
+GRUEN=0x00CC00
+BLAU=0x1034A6
+GELB=0xFDE100
+WEISS=0xFFFFFF
+SCHWARZ=0x1B1B1B
+ORANGE=0xFFA500
+BECKY=0x663399
+BRAUN=0xCC9966
+PINK=0xFF1493
+NAVAJO=0xFFDEAD
+SILBER=0xC0C0C0
+
+p=print
+pl=println
+pe={pause() exit()}
+fse=fsexists
+col=color
+cls=clear
+dlf=delfile
+dld=deldir
+cpf=copyfile
+cpd=copydir
+md=mkdir
+maj=0
+wait= {t=timer()while(timer()<(t+tw)){p()}}
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("     #####                                  ######")
+pl("    #     # #    # # #####  ####  #    #    #     # #####   ####   ####")
+pl("    #       #    # #   #   #    # #    #    #     # #    # #    # #")
+pl("     #####  #    # #   #   #      ######    ######  #    # #    #  ####")
+pl("          # # ## # #   #   #      #    #    #     # #####  #    #      #")
+pl("    #     # ##  ## #   #   #    # #    #    #     # #   #  #    # #    #  ##")
+pl("     #####  #    # #   #    ####  #    #    ######  #    #  ####   ####   ##")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GELB)
+pl("                           ***** U P D A T E R *****")
+pl()
+pl()
+pl("     Aktualisiere dein SwitchBros. Paket nur ueber deine Switch, ohne PC!")
+pl()
+pl()
+pl("     Alternative Navigation (ohne JoyCons / Switch Lite):")
+pl()
+pl()
+col(SILBER)p("       * ")col(BECKY)p("Vol +/-      : hoch/runter navigieren")pl()
+col(SILBER)p("       * ")col(BECKY)p("Power Button : Bestaetigen (A-Taste)")pl()
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("  Drueck die A-Taste um das SwitchBros. Paket zu aktualisieren!")
+pl()
+pl()
+col(ORANGE)
+pl("                                                         SwitchBros. Paket v128")
+pl()
+pl()
+col(ROT)
+pl("  Druecke B-Taste zum Abbrechen.")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+if (pause().b){
+	exit()
+}
+cls()
+
+pl()
+col(SILBER)
+pl("   ################################### # ###################################   ")
+pl("  #                                                                         #  ")
+pl(" #                 DIESE SOFTWARE DARF NICHT VERKAUFT WERDEN,                # ")
+pl(" #                                                                           # ")
+pl(" #                  WEDER EINZELN NOCH ALS TEIL EINES PAKETS.                # ")
+pl(" #                                                                           # ")
+pl(" #                                                                           # ")
+pl(" #        WENN DU FUER DIESE SOFTWARE BEZAHLT HAST, ODER SIE ALS TEIL        # ")
+pl(" #                                                                           # ")
+pl(" #       EINES PAKETS MIT FOLGEKOSTEN ERHALTEN HAST, BIST DU BETROGEN        # ")
+pl(" #                                                                           # ")
+pl(" #            WORDEN UND SOLLTEST SOFORT DEIN GELD ZURUECKFORDERN.           # ")
+pl(" #                                                                           # ")
+pl(" #                                                                           # ")
+pl(" #                   Weitere Einzelheiten findest du auf:                    # ")
+pl(" #                       https://discord.gg/switchbros                       # ")
+pl("  #                                                                         #  ")
+pl("   ################################### # ###################################   ")
+pl()
+pl()
+wait(tw = 10000)
+pl("                           Druecke A um fortzufahren")
+pause()
+
+col(SCHWARZ)
+if (is_erista()){
+	if (fse("sd:/switch/prod.keys"))
+	{
+		fwstr={fw=maj.str()+"."+min.str()+"."+pat.str()}
+		fv={a=readsave("bis:/save/8000000000000120")
+		b=a.read("/meta/imkvdb.arc")
+		c=["BYTE[]",9,8,0,0,0,0,0,1]
+		d=b.find(c)
+		if(d>0){
+			e=b.slice(d+8,4).project()
+			ver=(e[3]<<24)|(e[2]<<16)|(e[1]<<8)|(e[0])
+			pat=((ver>>16)&((1<<4)- 1))
+			min=((ver>>20)&((1<<6)- 1))
+			maj=((ver>>26)&((1<<6)- 1))
+		}.else(){p("Firmware nicht gefunden")pe()}
+		a=0 fwstr()}
+		if(mountsys("SYSTEM")){maj=0}
+		fv()
+	}.else(){
+		if (fse("sd:/config/switchbros-helper/enigma_sys.bin")){
+			payload("sd:/config/switchbros-helper/enigma_sys.bin")
+		}.else(){
+		payload("sd:/SwitchBros_BasisPaket/config/switchbros-helper/enigma_sys.bin")
+		}
+	}
+}
+
+if(fse("sd:/backup")){
+	md("sd:/backup/SB")
+}.else(){
+	md("sd:/backup")
+	md("sd:/backup/SB")
+}
+md("sd:/backup/SB/bootloader")
+md("sd:/backup/SB/Fizeau")
+md("sd:/backup/SB/IconGrabber")
+md("sd:/backup/SB/tinfoil")
+md("sd:/backup/SB/DBI")
+md("sd:/backup/SB/DBIru")
+
+if (fse("sd:/bootloader/hekate_ipl.ini")){
+	cpf("sd:/bootloader/hekate_ipl.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
+}
+if (fse("sd:/bootloader/nyx.ini")){
+	cpf("sd:/bootloader/nyx.ini", "sd:/backup/SB/bootloader/nyx.ini")
+}
+if (fse("sd:/config/Fizeau/config.ini")){
+	cpf("sd:/config/Fizeau/config.ini", "sd:/backup/SB/Fizeau/config.ini")
+}
+if (fse("sd:/config/icongrabber/config.json")){
+	cpf("sd:/config/icongrabber/config.json", "sd:/backup/SB/IconGrabber/config.json")
+}
+if (fse("sd:/switch/tinfoil/locations.conf")){
+	cpf("sd:/switch/tinfoil/locations.conf", "sd:/backup/SB/tinfoil/locations.conf")
+}
+if (fse("sd:/switch/tinfoil/options.json")){
+	cpf("sd:/switch/tinfoil/options.json", "sd:/backup/SB/tinfoil/options.json")
+}
+if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
+	cpd ("sd:/atmosphere/exefs_patches/bootlogo", "sd:/backup/SB")
+}
+if (fse("sd:/switch/DBI/dbi.config")){
+	cpf("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
+}
+if (fse("sd:/switch/DBIru/dbi.config")){
+	cpf("sd:/switch/DBIru/dbi.config", "sd:/backup/SB/DBIru/dbi.config")
+}
+
+wait(tw = 1000)
+cls()
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GELB)
+pl("           Erstmal den ganzen Rotz von deiner SD-Karte entfernen!")
+pl()
+pl("    Alter herrscht hier ein durcheinander, besonders wenn du von CL kommst!")
+pl()
+pl("            Kommst du von CL, dann bitte jetzt Brechreiz ausloesen!")
+pl()
+pl()
+pl("             Zuviel altes Zeug von dem er selbst keine Ahnung hat,")
+pl("         und WOZU immer 4.5GB downloaden, bald sind es 8GB, oder was???")
+pl()
+pl()
+col(GRUEN)
+pl("                  Keine Sorge, deine Daten bleiben erhalten!")
+pl()
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GRUEN)
+pl("                 Druecke eine beliebige Taste um fortzufahren...")
+
+pause()
+cls()
+
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("           Bitte warten! Wird zeitgleich in der Zukunft installiert!")
+pl()
+
+col(SCHWARZ)
+if (fse("sd:/SB.ico")){
+dld("sd:/atmosphere/contents/0100000000001000")
+dld("sd:/atmosphere/contents/0100000000001007")
+dld("sd:/atmosphere/contents/0100000000001013")
+dld("sd:/atmosphere/contents/010000000000000D")
+dld("sd:/atmosphere/contents/0100000000000352")
+dld("sd:/atmosphere/contents/0000000000534C56")
+dld("sd:/atmosphere/contents/00FF0000000002AA")
+dld("sd:/atmosphere/contents/00FF0000A53BB665")
+dld("sd:/atmosphere/contents/00FF0000636C6BFF")
+dld("sd:/atmosphere/contents/00FF747765616BFF")
+dld("sd:/atmosphere/contents/0100000000000F12")
+dld("sd:/atmosphere/contents/010000000000bd00")
+dld("sd:/atmosphere/contents/054e4f4558454000")
+dld("sd:/atmosphere/contents/010000000007E51A")
+dld("sd:/atmosphere/contents/420000000007E51A")
+dld("sd:/atmosphere/contents/4200000000000000")
+dld("sd:/atmosphere/contents/4200000000000010")
+dld("sd:/atmosphere/contents/420000000000000B")
+dld("sd:/atmosphere/contents/420000000000000E")
+dld("sd:/atmosphere/contents/690000000000000D")
+dld("sd:/atmosphere/exefs_patches")
+dld("sd:/atmosphere/kip_patches")
+dld("sd:/atmosphere/erpt_reports")
+dld("sd:/atmosphere/fatal_errors")
+dld("sd:/atmosphere/fatal_reports")
+dld("sd:/atmosphere/crash_errors")
+dld("sd:/atmosphere/crash_reports")
+dlf("sd:/atmosphere/stratosphere.romfs")
+dlf("sd:/atmosphere/hbl.nsp")
+dlf("sd:/atmosphere/reboot_payload.bin")
+dlf("sd:/atmosphere/package3")
+dlf("sd:/atmosphere/kips/loader.kip")
+dld("sd:/atmosphere/kips")
+
+dld("sd:/bootloader/sys")
+dld("sd:/bootloader/ini")
+dlf("sd:/bootloader/payloads/Lockpick_RCM.bin")
+dlf("sd:/bootloader/payloads/CommonProblemResolver.bin")
+dlf("sd:/bootloader/payloads/fusee.bin")
+dlf("sd:/bootloader/hekate_ipl.ini")
+dlf("sd:/bootloader/nyx.ini")
+dlf("sd:/bootloader/update.bin")
+dlf("sd:/bootloader/patches.ini")
+
+dld("sd:/config/switchbros-helper")
+dld("sd:/config/NSPs")
+dld("sd:/config/Forwarder")
+dlf("sd:/config/switchbros-updater/ams.zip")
+dlf("sd:/config/switchbros-updater/cheats.zip")
+dlf("sd:/config/switchbros-updater/custom.zip")
+
+dld("sd:/switchbros")
+dld("sd:/tegraexplorer")
+dld("sd:/firmware")
+
+dld("sd:/switch/.overlays")
+dld("sd:/switch/.packages")
+
+dlf("sd:/hbmenu.nro")
+dlf("sd:/exosphere.ini")
+dlf("sd:/SwitchBros.txt")
+dlf("sd:/SwitchBros_Nerd-O-mat.bat")
+dlf("sd:/SwitchBros_Noob-O-mat.bat")
+
+}.else(){
+
+col(GRUEN)
+pl()
+pl()
+pl()
+p("         Bitte warten...   ") wait(tw = 1000) p("der Installation geht es heute nicht so gut!")
+wait(tw = 2000)
+col(SCHWARZ)
+
+dld("sd:/backup/SB")
+dld("sd:/atmosphere/exefs_patches")
+dld("sd:/atmosphere/kip_patches")
+dld("sd:/atmosphere/erpt_reports")
+dld("sd:/atmosphere/fatal_errors")
+dld("sd:/atmosphere/fatal_reports")
+dld("sd:/atmosphere/crash_reports")
+dld("sd:/atmosphere/crash_errors")
+dld("sd:/atmosphere/hekate_kips")
+dld("sd:/atmosphere/kips")
+dld("sd:/atmosphere/hosts")
+dld("sd:/atmosphere/extras")
+dlf("sd:/atmosphere/BCT.ini")
+dlf("sd:/atmosphere/config/BCT.ini")
+dlf("sd:/atmosphere/fusee-secondary.bin")
+dlf("sd:/atmosphere/fusee-secondary_atmo.bin")
+dlf("sd:/atmosphere/hbl_atmo.nsp")
+dlf("sd:/atmosphere/fusee-secondary.bin.sig")
+dlf("sd:/atmosphere/hbl.nsp.sig")
+dlf("sd:/atmosphere/hbl.json")
+dlf("sd:/atmosphere/system_settings.ini")
+dlf("sd:/atmosphere/flags/hbl_cal_read.flag")
+dlf("sd:/atmosphere/exosphere.bin")
+dlf("sd:/atmosphere/loader.ini")
+dlf("sd:/atmosphere/stratosphere.romfs")
+dlf("sd:/atmosphere/hbl.nsp")
+dlf("sd:/atmosphere/reboot_payload.bin")
+dlf("sd:/atmosphere/package3")
+
+col(GRUEN)
+pl()
+pl()
+pl()
+pl("  Hey, unser Paket ist demnaechst auf einer illegalen DVD erhaeltlich!")
+wait(tw = 2000)
+col(SCHWARZ)
+
+dld("sd:/atmosphere/contents/0100000000000008")
+dld("sd:/atmosphere/contents/010000000000100B")
+dld("sd:/atmosphere/contents/010000000000000D")
+dld("sd:/atmosphere/contents/010000000000002b")
+dld("sd:/atmosphere/contents/0100000000000032")
+dld("sd:/atmosphere/contents/0100000000000034")
+dld("sd:/atmosphere/contents/0100000000000036")
+dld("sd:/atmosphere/contents/0100000000000037")
+dld("sd:/atmosphere/contents/010000000000003C")
+dld("sd:/atmosphere/contents/0100000000000042")
+dld("sd:/atmosphere/contents/010000000000100C")
+dld("sd:/atmosphere/contents/010000000000100D")
+dld("sd:/atmosphere/contents/0100000000001000")
+dld("sd:/atmosphere/contents/0100000000001005")
+dld("sd:/atmosphere/contents/0100000000001007")
+dld("sd:/atmosphere/contents/0100000000001013")
+dld("sd:/atmosphere/contents/0000000000534C56")
+dld("sd:/atmosphere/contents/00FF0000000002AA")
+dld("sd:/atmosphere/contents/00FF0000636C6BF2")
+dld("sd:/atmosphere/contents/00FF0000636C6BFF")
+dld("sd:/atmosphere/contents/00FF00006D7470FF")
+dld("sd:/atmosphere/contents/00FF0000A53BB665")
+dld("sd:/atmosphere/contents/00FF0012656180FF")
+dld("sd:/atmosphere/contents/01FF415446660000")
+dld("sd:/atmosphere/contents/00FF747765616BFF")
+dld("sd:/atmosphere/contents/0100000000000052")
+dld("sd:/atmosphere/contents/0100000000000081")
+dld("sd:/atmosphere/contents/0100000000000352")
+dld("sd:/atmosphere/contents/0100000000000464")
+dld("sd:/atmosphere/contents/0100000000000523")
+dld("sd:/atmosphere/contents/0100000000000901")
+dld("sd:/atmosphere/contents/0100000000000BED")
+dld("sd:/atmosphere/contents/0100000000000BEF")
+dld("sd:/atmosphere/contents/0100000000000DAD")
+dld("sd:/atmosphere/contents/0100000000000F12")
+dld("sd:/atmosphere/contents/0100000000000FAF")
+dld("sd:/atmosphere/contents/0100000000006480")
+dld("sd:/atmosphere/contents/0100000000007200")
+dld("sd:/atmosphere/contents/010000000000bd00")
+dld("sd:/atmosphere/contents/010000000000C235")
+dld("sd:/atmosphere/contents/010000000000f00f")
+dld("sd:/atmosphere/contents/010000000000FFAB")
+dld("sd:/atmosphere/contents/01000000001ED1ED")
+dld("sd:/atmosphere/contents/0532232232232000")
+dld("sd:/atmosphere/contents/054e4f4558454000")
+dld("sd:/atmosphere/contents/2200000000000100")
+dld("sd:/atmosphere/contents/4100000000000324")
+dld("sd:/atmosphere/contents/4200000000000000")
+dld("sd:/atmosphere/contents/420000000000000B")
+dld("sd:/atmosphere/contents/420000000000000E")
+dld("sd:/atmosphere/contents/420000000000000F")
+dld("sd:/atmosphere/contents/4200000000000811")
+dld("sd:/atmosphere/contents/4200000000000BA6")
+dld("sd:/atmosphere/contents/4200000000000FFF")
+dld("sd:/atmosphere/contents/010000000007E51A")
+dld("sd:/atmosphere/contents/420000000007E51A")
+dld("sd:/atmosphere/contents/4200000000474442")
+dld("sd:/atmosphere/contents/4200000000696969")
+dld("sd:/atmosphere/contents/4200000AF1E8DA89")
+dld("sd:/atmosphere/contents/42000062616B6101")
+dld("sd:/atmosphere/contents/4200736372697074")
+dld("sd:/atmosphere/contents/4206900000000012")
+dld("sd:/atmosphere/contents/430000000000000A")
+dld("sd:/atmosphere/contents/430000000000000B")
+dld("sd:/atmosphere/contents/430000000000000C")
+dld("sd:/atmosphere/contents/43000000000000FF")
+dld("sd:/atmosphere/contents/4300000000000909")
+dld("sd:/atmosphere/contents/5600000000000000")
+dld("sd:/atmosphere/contents/690000000000000D")
+
+col(GRUEN)
+pl()
+pl()
+pl()
+pl("      Sei unbesorgt, das Paket besteht zu 100% aus Fleischnebenprodukten!")
+wait(tw = 2000)
+col(SCHWARZ)
+
+dld("sd:/bootloader")
+dld("sd:/switch")
+dld("sd:/config")
+dld("sd:/firmware")
+dld("sd:/atmo")
+dld("sd:/btpair")
+dld("sd:/games")
+dld("sd:/modules")
+dld("sd:/music")
+dld("sd:/NSPs")
+dld("sd:/Forwarder")
+dld("sd:/pegascape")
+dld("sd:/warmboot-mariko")
+dld("sd:/SaltySD")
+dld("sd:/scripts")
+dld("sd:/sept/")
+dld("sd:/sxos")
+dld("sd:/themes")
+dld("sd:/System Volume Information")
+dld("sd:/tegraexplorer")
+dld("sd:/tools")
+dlf("sd:/hekate_ctcaer_6.2.0.bin")
+dlf("sd:/hekate_ctcaer_6.2.1.bin")
+dlf("sd:/hekate_ctcaer_6.2.2.bin")
+dlf("sd:/fusee.bin")
+dlf("sd:/boot.dat")
+dlf("sd:/boot.ini")
+dlf("sd:/exosphere.ini")
+dlf("sd:/payload.bin")
+dlf("sd:/startup.te")
+dlf("sd:/hbmenu.nro")
+}
+
+wait(tw = 1000)
+cls()
+
+if (fse("sd:/SwitchBros_BasisPaket")){
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GELB)
+pl("                  Das SwitchBros. Paket wird nun installiert!")
+pl()
+pl()
+pl()
+pl("         Wir haben eben die neueste Version vom SB-Updater entwickelt.")
+pl()
+pl("        Es dauert zwar viel laenger, aber es ist ein Erlebnis fuer sich.")
+pl()
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+
+col(GELB)
+p("                        Bis dahin") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 500) p(".") wait(tw = 1000) p("      BITTE warten!")
+col(SCHWARZ)
+
+dld("sd:/SwitchBros_BasisPaket/switch/switchbrosupdater/")
+cpd("sd:/SwitchBros_BasisPaket/atmosphere", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/bootloader", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/config", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/Forwarder", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/switch", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
+cpd("sd:/SwitchBros_BasisPaket/warmboot", "sd:/")
+cpf("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
+cpf("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
+cpf("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
+cpf("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
+cpf("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
+cpf("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
+
+dlf("sd:/atmosphere/stratosphere.romfs.sbu")
+dlf("sd:/atmosphere/fusee-secondary.bin.sbu")
+dlf("sd:/sept/payload.bin.sbu")
+dlf("sd:/payload.bin.sbu")
+}
+
+wait(tw = 2000)
+cls()
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GELB)
+pl("          Bitte gib an ob in deiner Konsole ein Modchip verbaut ist!")
+pl()
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+
+col(SILBER)
+menuOptionsChip = ["     [M0] Kein Modchip", "     [M1] Modchip (v1, v2, lite, OLED)", "     [M2] Modchip trinketM0 (v1)"]
+resChip = menu(menuOptionsChip, 0)
+
+cls()
+
+if (resChip == 0){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                   Modchip relevante Daten werden entfernt...")
+col(SCHWARZ)
+
+	dld("sd:/bootloader/memloader")
+	dld("sd:/bootloader/warmboot")
+	dlf("sd:/bootloader/payloads/hwfly_toolbox.bin")
+	dlf("sd:/bootloader/payloads/picofly_toolbox.bin")
+	dlf("sd:/bootloader/ini/hwfly_toolbox.ini")
+}
+
+wait(tw = 1000)
+cls()
+
+if (resChip == 1){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("            Modchip relevante Daten werden hinzugefuegt/entfernt...")
+col(SCHWARZ)
+
+	dld("sd:/bootloader/memloader")
+}
+
+wait(tw = 1000)
+cls()
+
+if (resChip == 2){
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("                 Modchip relevante Daten werden hinzugefuegt...")
+col(SCHWARZ)
+
+	dld("sd:/bootloader/warmboot")
+	dlf("sd:/bootloader/payloads/hwfly_toolbox.bin")
+	dlf("sd:/bootloader/payloads/picofly_toolbox.bin")
+	dlf("sd:/bootloader/ini/hwfly_toolbox.ini")
+}
+
+wait(tw = 1000)
+cls()
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("  Waehle hier deine Systeme aus, die du spaeter im 'Launch' Bereich vom")
+pl("  hekate Bootloader stehen haben moechtest!")
+pl()
+p("  Die Systeme werden hier")col(ROT)p(" NICHT ")col(GELB)p("installiert!")
+pl()
+pl("  Das musst du selber machen, oder du hast es bereits gemacht!")
+pl()
+pl("  Welche Systemkombination wird (spaeter) genutzt?: ")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+
+col(SILBER)
+menuOptionsSystem =
+ ["     [ 0] Basis (Standard)", "     [ 1] Basis + Android", "     [ 2] Basis + Linux", "     [ 3] Basis + LAKKA", "     [ 4] Basis + LibreELEC", "     [ 5] Basis + Android + Linux", "     [ 6] Basis + Android + LAKKA", "     [ 7] Basis + Android + LibreELEC", "     [ 8] Basis + Android + Linux + LAKKA", "     [ 9] Basis + Android + Linux + LibreELEC", "     [10] Basis + Android + LAKKA + LibreELEC", "     [11] Basis + Android + Linux + LAKKA + LibreELEC", "     [12] Basis + Linux + LAKKA", "     [13] Basis + Linux + LAKKA + LibreELEC", "     [14] Basis + Linux + LibreELEC", "     [15] Basis + LAKKA + LibreELEC", "     [16] alte Daten behalten (NICHT EMPFOHLEN)"]
+resSystem = menu(menuOptionsSystem, 0)
+
+cls()
+
+if (resSystem == 0){
+pl()
+pl()
+col(GRUEN)
+pl("                     Basis (Standard) wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 1){
+pl()
+pl()
+col(GRUEN)
+pl("                      Basis + Android wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/ba/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 2){
+pl()
+pl()
+col(GRUEN)
+pl("                       Basis + Linux wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 3){
+pl()
+pl()
+col(GRUEN)
+pl("                       Basis + LAKKA wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bl/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 4){
+pl()
+pl()
+col(GRUEN)
+pl("                     Basis + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/be/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 5){
+pl()
+pl()
+col(GRUEN)
+pl("                  Basis + Android + Linux wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 6){
+pl()
+pl()
+col(GRUEN)
+pl("                  Basis + Android + LAKKA wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bla/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 7){
+pl()
+pl()
+col(GRUEN)
+pl("                Basis + Android + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bae/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 8){
+pl()
+pl()
+col(GRUEN)
+pl("              Basis + Android + Linux + LAKKA wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+	if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 9){
+pl()
+pl()
+col(GRUEN)
+pl("            Basis + Android + Linux + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+	if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 10){
+pl()
+pl()
+col(GRUEN)
+pl("            Basis + Android + LAKKA + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bale/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 11){
+pl()
+pl()
+col(GRUEN)
+pl("                  Basis + Android + Linux + LAKKA + LibreELEC")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 12){
+pl()
+pl()
+col(GRUEN)
+pl("                   Basis + Linux + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+    }
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 13){
+pl()
+pl()
+col(GRUEN)
+pl("             Basis + Linux + LAKKA + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 14){
+pl()
+pl()
+col(GRUEN)
+pl("                 Basis + Linux + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl("      Welche Linux Distro soll genutzt werden?")
+pl()
+pl()
+col(SILBER)
+
+menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
+resLIN = menu(menuOptionsLIN, 0)
+
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
+
+if (resLIN == 0){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
+	}
+
+if (resLIN == 1){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
+	}
+
+if (resLIN == 2){
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
+	}
+}
+
+cls()
+
+if (resSystem == 15){
+pl()
+pl()
+col(GRUEN)
+pl("                 Basis + LAKKA + LibreELEC wird installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/ble/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
+	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
+}
+
+cls()
+
+if (resSystem == 16){
+pl()
+pl()
+col(GRUEN)
+pl("          Deine alte hekate_ipl.ini und nyx.ini werden installiert...")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+if(fse("sd:/backup/SB/bootloader")){
+	cpf("sd:/backup/SB/bootloader/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
+	cpf("sd:/backup/SB/bootloader/nyx.ini", "sd:/bootloader/nyx.ini")
+}.else(){
+  cpd("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
+}
+}
+
+wait(tw = 5000)
+
+col(SCHWARZ)
+if (fse("sd:/backup/SB/dbi.config")){
+	cpf("sd:/backup/SB/dbi.config", "sd:/switch/DBI/dbi.config")
+}
+if (fse("sd:/backup/SB/DBIru/dbi.config")){
+	cpf("sd:/backup/SB/DBIru/dbi.config", "sd:/switch/DBIru/dbi.config")
+}
+if (fse("sd:/backup/SB/IconGrabber/config.json")){
+	cpf("sd:/backup/SB/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
+}
+if (fse("sd:/backup/SB/Fizeau/config.ini")){
+	cpf("sd:/backup/SB/Fizeau/config.ini", "sd:/config/Fizeau/config.ini")
+}
+if (fse("sd:/backup/SB/bootlogo")){
+	cpd ("sd:/backup/SB/bootlogo", "sd:/atmosphere/exefs_patches/")
+}
+
+wait(tw = 1000)
+cls( )
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(ROT)
+pl("                        Entferne MacOS bezogenen Muell!")
+pl()
+pl()
+pl()
+col(GELB)
+pl("                   Bitte warten, dass dauert einen Moment...")
+pl()
+pl("     Wenn die Installation noch laenger dauert, werde ich anfangen, mir")
+pl("     einen Freund aus Socken zu basteln, nur um jemanden zu haben, der mich")
+pl("     in dieser Zeit der Einsamkeit begleitet.")
+pl()
+pl("     Ich nenne ihn 'Socki'")
+pl()
+pl()
+pl("     FunFact:")
+pl("     Unglaubliche 1001 Naechte haben WIR geschuftet wie die HAUSELFEN")
+pl("     um euch dieses SwitchBros. Paket praesentieren zu koennen")
+pl()
+pl("     Bissl fuers Paket und der Rest ist die Liebe zu unserer Community")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+removemacfolders()
+
+pl()
+pl()
+col(GRUEN)
+pl("                 Druecke eine beliebige Taste um fortzufahren!")
+
+pause()
+cls()
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(ROT)
+pl("                      Behebe Attribute (fix archive bit)")
+pl()
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+col(SCHWARZ)
+
+fixattrib()
+
+pl()
+pl()
+col(GRUEN)
+pl("                 Druecke eine beliebige Taste um fortzufahren!")
+
+pause()
+cls()
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+col(GELB)
+pl("         SwitchBros. Paket Installationsdaten werden jetzt entfernt...")
+pl()
+pl()
+pl("     Uebrigens haben wir der Installation die Schuld gegeben, dass sie uns von")
+pl("     unserem wahren Lebenszweck abhaelt.")
+pl()
+pl("     Waere ich doch nur Schriftsteller auf einer einsamen Insel geworden")
+pl()
+pl()
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl()
+col(PINK)
+p("                         Der Tatort wird jetzt gereinigt!")
+col(SCHWARZ)
+
+dlf("sd:/startup.te")
+dld("sd:/bootloader/ini")
+dlf("sd:/bootloader/boot/SB-Update.bmp")
+dlf("sd:/bootloader/res/icon_SB_nobox.bmp")
+dld("sd:/switch/switchbrosupdater")
+dld("sd:/System Volume Information")
+dlf("sd:/SwitchBros.txt")
+dlf("sd:/licence")
+dlf("sd:/README.md")
+dlf("sd:/SwitchBros_NERD-O-MAT.bat")
+dlf("sd:/SwitchBros_NOOB-O-MAT.bat")
+
+dld("sd:/SwitchBros_BasisPaket")
+dlf("sd:/switch/switchbros-updater/update.te")
+dlf("sd:/switch/switchbros-updater/startup.te")
+
+wait(tw = 3000)
+cls()
+
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+col(GELB)
+pl("     #####                                  ######")
+pl("    #     # #    # # #####  ####  #    #    #     # #####   ####   ####")
+pl("    #       #    # #   #   #    # #    #    #     # #    # #    # #")
+pl("     #####  #    # #   #   #      ######    ######  #    # #    #  ####")
+pl("          # # ## # #   #   #      #    #    #     # #####  #    #      #")
+pl("    #     # ##  ## #   #   #    # #    #    #     # #   #  #    # #    #  ##")
+pl("     #####  #    # #   #    ####  #    #    ######  #    #  ####   ####   ##")
+pl()
+col(NAVAJO)
+pl("########### ########### ########## ### # ### ########## ########### ###########")
+pl()
+pl()
+pl()
+col(GRUEN)
+pl("           Das neue SwitchBros. Paket wurde erfolgreich installiert!")
+pl()
+pl()
+pl("                      Alle Schritte wurden abgeschlossen!")
+pl()
+pl("             Deine Switch wird in 5 Sek. automatisch neu gestartet.")
+pl()
+pl()
+pl()
+
+wait(tw = 3000)
+col(BECKY) p("                        5...") wait(tw = 1000) col(BLAU) p("  4...") wait(tw = 1000) col(ROT) p("  3...") wait(tw = 1000) col(ORANGE) p("  2...") wait(tw = 1000) col(GELB) p("  1...") wait(tw = 1000) col(WEISS) p("  0") wait(tw = 100)
+
+if (is_erista()){
+	payload("sd:/bootloader/update.bin")
+}.else(){
+	reboot_ofw()
+}
