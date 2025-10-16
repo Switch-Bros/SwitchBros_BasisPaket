@@ -1,7 +1,7 @@
 Basiert auf:
 
 hekate 6.3.1 + Nyx 1.7.0 - DEUTSCH
-SwitchBros-O-Sphere 1.9.4 -53152a7a4 + hbmenu 3.6.0 + hbl 2.4.4
+SwitchBros-O-Sphere 1.9.5 -c5b31b075 + hbmenu 3.6.0 + hbl 2.4.4
 TegraExplorer 4.2.1 - Deutsch
 Enigma_RCM 1.9.15 (Deutsch, NICHT so scheiss Bunt = Augenfreundlich)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 - Deutsch
@@ -11,12 +11,12 @@ Nur noch EINE Installationsdatei (Batch) für PC = "SwitchBros_BasisPaket.bat" u
 
 SwitchBros Updater 2.24.3-SB (Downloads haben Zeitanzeige)
 Daybreak 1.0.0_de (Deutsch)
-DBI (Version kann über UltraHand-Overlay ausgewählt werden)
+DBI 810 deutsch (Version kann über UltraHand-Overlay ausgewählt werden)
 IconGrabber 1.0.1 (Deutsch)
 linkalho 2.2.0 (Deutsch)
 NXThemeInstaller 2.8.1
 sys-patch 1.5.6
-UltraHand-Overlay 2.0.1 (ZL + ZR + PLUS) + folgende Pakete
+UltraHand-Overlay 2.1.4 (ZL + ZR + PLUS) + folgende Pakete
 	Cool Curves 0.2.0 (Temperaturbereiche in system_settings.ini festlegen)
 	DBI 0.1.1 (siehe oben)
 	Host Guard 0.4.0 (Nintendo und andere Server BLOCKEN (emummc.txt und sysmmc.txt)
