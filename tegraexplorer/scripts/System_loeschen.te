@@ -1,0 +1,214 @@
+#REQUIRE KEYS
+is=["8000000000000120","8000000000000053","8000000000000000"]
+p=println
+pr=print
+pe={pause() exit()}
+p("System entfernen\n")
+op=["Beenden","sysMMC loeschen"].copy()
+if (emu()){op+"emuMMC loeschen"}
+r=menu(op,0)clear()
+if(r==0){exit()}
+if(r==1){
+	mount=mountsys
+	selected_target = "sysMMC"
+}
+if(r==2){
+	mount=mountemu
+	selected_target = "emuMMC"
+}
+if(mount("SYSTEM")){p("SYSTEM KONNTE NICHT EINGEBUNDEN WERDEN!")pe()}
+clear()
+
+border = {
+	setpixels(0,0,1279,19,border_color)
+	setpixels(0,700,1279,719,border_color)
+	setpixels(0,20,19,699,border_color)
+	setpixels(1260,20,1279,699,border_color)
+}
+
+i = 10
+x_pos = 10
+y_pos = 12
+
+["WARNUNG!!!", 
+	"", 
+	"Wirklich sicher, dass du alles loeschen willst?", 
+	"Folgendes wird entfernt:", 
+	"- Deine Spielstaende", 
+	"- Deine Spieldaten", 
+	"- Deine Benutzerdaten", 
+	"",
+	"Das Wiederherstellen eines eMMC-Backups ist loeschen immer vorzuziehen.",
+	"Verwenden dies nur als letzten Ausweg.",
+	"Dieses Skript soll zur Unterstuetzung beim Unbricken verwendet werden."
+].foreach("line") 
+{
+	printpos(x_pos, y_pos)
+	y_pos = y_pos + 1
+	print(line)
+}
+
+if (!fsexists("bis:/save/"+is[1]))
+{
+	[
+		"",
+		"Geraeteeinstellung-Speicherdatei (8000000000000053) fehlt!!!",
+		"Dieses Skript kann verlorene Batteriekalibrierungsdaten nicht wiederherstellen.",
+		"Das System wird mit den Standardwerten initialisiert.",
+		"Diese Werte sind unsicher fuer Switch Lite Konsolen!"
+	].foreach("line") 
+	{
+		printpos(x_pos, y_pos)
+		y_pos = y_pos + 1
+		print(line)
+	}
+}
+
+time = 5000
+y_pos = y_pos + 4
+
+while (i > 0)
+{
+	i = i - 1
+	
+	if (i % 2 == 0){
+		border_color = 0xFF0000
+	}.else() {
+		border_color = 0x000000
+	}
+	
+	border()
+	sleep(500)
+	time = time - 500
+	printpos(x_pos, y_pos)
+	print("Warte", time / 1000, "Sekunden")
+}
+
+printpos(x_pos, y_pos)
+print("Bereit zum entfernen", selected_target, "           ")
+y_pos = y_pos + 1
+printpos(x_pos, y_pos)
+print("POWER Taste um alles zu loeschen, jede andere Taste zum Beenden")
+
+result = pause(0x70F000F)
+
+if (!result.power)
+{
+	exit()
+}
+
+clear()
+color(0xFF0000)
+pr("Systemspeicherstaende werden geloescht... ")
+f=readdir("bis:/save")
+if(f.folders.len()!=0){p("Ordner im Speicher-Verzeichnis???")pe()}
+f.files.foreach("x"){if(!is.contains(x)){if(delfile("bis:/save/"+x)){p("Loeschen der Datei fehlgeschlagen: ", x)pe()}}}
+pr("Abgeschlossen!\nIndex-Speicher wird eingerichtet...")
+
+if(fsexists("bis:/save/"+is[0]))
+{
+	ba0=["BYTE[]",0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00]
+	ba120=["BYTE[]",0x20,0x01,0x00,0x00,0x00,0x00,0x00,0x80]
+	ba53=["BYTE[]",0x53,0x00,0x00,0x00,0x00,0x00,0x00,0x80]
+	imen=["BYTE[]",0x49,0x4D,0x45,0x4E,0x40,0x00,0x00,0x00,0x40,0x00,0x00,0x00]
+
+	idb=["BYTE[]",0x49,0x4D,0x4B,0x56,0x00,0x00,0x00,0x00].copy() # imkv
+
+	skip53 = !fsexists("bis:/save/"+is[1])
+
+	if(skip53)
+	{
+		idb.add(0x01) # 0x01 imen
+		pr("053 Speicherung nicht gefunden!!! Indexierung wird uebersprungen...")
+	}.else()
+	{
+		idb.add(0x02) # 0x02 imens
+	}
+
+	idb.add(0x00)
+	idb.add(0x00)
+	idb.add(0x00)
+
+	if(!skip53)
+	{
+		# 53 save
+		s=getfilesize("bis:/save/"+is[1])
+		s1=s&0xFF
+		s2=(s>>8)&0xFF
+		s3=(s>>16)&0xFF
+		s4=(s>>24)&0xFF
+		idb.addrange(imen)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba53)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba53)
+		idb.add(s1)
+		idb.add(s2)
+		idb.add(s3)
+		idb.add(s4)
+		idb.add(0x00)
+		idb.add(0x00)
+		idb.add(0x00)
+		idb.add(0x00)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+		idb.addrange(ba0)
+	}
+
+	# 120 save
+	s=getfilesize("bis:/save/"+is[0])
+	s1=s&0xFF
+	s2=(s>>8)&0xFF
+	s3=(s>>16)&0xFF
+	s4=(s>>24)&0xFF
+	idb.addrange(imen)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba120)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba120)
+	idb.add(s1)
+	idb.add(s2)
+	idb.add(s3)
+	idb.add(s4)
+	idb.add(0x00)
+	idb.add(0x00)
+	idb.add(0x00)
+	idb.add(0x00)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+	idb.addrange(ba0)
+
+	idxs=readsave("bis:/save/"+is[2])
+	if(idxs.resize("/imkvdb.arc",idb.len())){p("Fehler beim aendern der Groesse von imkvdb")pe()}
+	if(idxs.write("/imkvdb.arc",idb)){p("Fehler beim schreiben in imkvdb")pe()}
+	if(idxs.resize("/lastPublishedId",ba0.len())){p("Fehler beim aendern der Groesse von lastPublishedId")pe()}
+	if(idxs.write("/lastPublishedId",ba0)){p("Fehler beim schreiben in lastPublishedId")pe()}
+	if(idxs.commit()){p("Fehler beim uebernehmen der Index-Speicherung")pe()}
+	idxs=0
+	pr("Abgeschlossen!")
+}.else()
+{
+	pr("120 Speicherung nicht gefunden!!! Bearbeitung der Index-Speicherung wird uebersprungen!!!")
+}
+
+pr("\nLoesche Benutzerverzeichnisse...")ud=["Album","Contents","save","saveMeta","temp"]
+if(mount("USER")){p("System konnte nicht eingebunden werden!")pe()}
+ud.foreach("x"){pr("\n"+x,"")if(deldir("bis:/"+x)){p("Loeschen vom Verzeichnis fehlgeschlagen")pe()}mkdir("bis:/"+x)}
+mkdir("bis:/Contents/placehld")mkdir("bis:/Contents/registered")
+color(0x00FF00)p("\n\nAbgeschlossen!")pause()
