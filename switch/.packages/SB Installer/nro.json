@@ -78,6 +78,12 @@
         "download-entry": "0"
     },
     {
+        "name": "NRO Forwarder Tool - neueste",
+		"nro-url": "https://api.github.com/repos/TooTallNate/switch-nsp-forwarder/releases?per_page=1&sort=created&order=desc",
+        "ordner": "NRO-Forwarder",
+        "download-entry": "0"
+    },
+    {
         "name": "NX-Activity-Log - neueste",
         "nro-url": "https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases?per_page=1&sort=created&order=desc",
         "ordner": "NX-Activity-Log",
@@ -93,6 +99,12 @@
         "name": "NX-Shell - neueste",
         "nro-url": "https://api.github.com/repos/joel16/NX-Shell/releases?per_page=1&sort=created&order=desc",
         "ordner": "NX-Shell",
+        "download-entry": "0"
+    },
+    {
+        "name": "NX-ThemeInstaller - neueste",
+        "nro-url": "https://github.com/Switch-Bros/nx-links/releases/download/1/NXThemesInstaller.nro",
+        "ordner": "NX-ThemeInstaller",
         "download-entry": "0"
     },
     {
