@@ -1,7 +1,7 @@
 Basiert auf:
 
 hekate 6.4.2 + Nyx 1.8.2 - DEUTSCH
-SwitchBros-O-Sphere 1.10.1 -03bc5df45 + hbmenu 3.6.1 + hbl 2.4.5
+SwitchBros-O-Sphere 1.10.1 -89ef33474 + hbmenu 3.6.1 + hbl 2.4.5
 TegraExplorer 4.2.1 - Deutsch
 Enigma_RCM 1.9.16 (Deutsch, NICHT so scheiss Bunt = Augenfreundlich)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 - Deutsch
