@@ -1,7 +1,7 @@
 Basiert auf:
 
 hekate 6.4.2 + Nyx 1.8.2 - DEUTSCH
-SwitchBros-O-Sphere 1.10.0 -03bc5df45 + hbmenu 3.6.1 + hbl 2.4.5
+SwitchBros-O-Sphere 1.10.1 -03bc5df45 + hbmenu 3.6.1 + hbl 2.4.5
 TegraExplorer 4.2.1 - Deutsch
 Enigma_RCM 1.9.16 (Deutsch, NICHT so scheiss Bunt = Augenfreundlich)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 - Deutsch
@@ -15,7 +15,7 @@ DBI (Version kann über UltraHand-Overlay ausgewählt werden)
 linkalho 2.2.0 (Deutsch)
 NXThemeInstaller 2.8.1
 sys-patch 1.5.8 v5
-UltraHand-Overlay 2.2.0 (ZL + ZR + PLUS) + folgende Pakete
+UltraHand-Overlay 2.2.2 (ZL + ZR + PLUS) + folgende Pakete
 	Cool Curves 0.2.0 (Temperaturbereiche in system_settings.ini festlegen)
 	DBI 0.1.1 (siehe oben)
 	Host Guard 0.4.0 (Nintendo und andere Server BLOCKEN (emummc.txt und sysmmc.txt)
