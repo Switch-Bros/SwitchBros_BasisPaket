@@ -1,0 +1,109 @@
+#REQUIRE VER 4.0.0
+#REQUIRE MINERVA
+#REQUIRE KEYS
+#REQUIRE SD
+#Script_by_CostelaBR, Translated to German by SwitchBros
+
+p = println
+fatal = {
+    color(0xFF0000)
+    p("\n[FEHLER]", fatalMsg)
+    pause()
+    exit()
+}
+
+wait = {
+    t = timer()
+    while (timer() < (t + tw)) {
+        print("Warte fuer ", ((t + tw - timer()) / 1000), " Sekunden \r")
+    }
+}
+
+downgradeFix = {
+    color(0x00FF00)
+    p("Starte Downgrade Fix...")
+    color(0xFFFFFF)
+    
+    p("Einbinden der SYSTEM Partition...")
+    if (mount("SYSTEM")) {
+        fatal(fatalMsg = "SYSTEM Partition konnte nicht eingebunden werden!")
+    }
+    
+    targetFile = "bis:/save/8000000000000073"
+    if (!fsexists(targetFile)) {
+        color(0xFFFF00)
+        p("Datei 8000000000000073 in SYSTEM Partition nicht gefunden.")
+        p("Keine Aktion noetig.")
+        color(0xFFFFFF)
+        pause()
+        exit()
+    }
+    
+    color(0xFF0000)
+    p("Loesche 8000000000000073 aus SYSTEM Partition...")
+    color(0xFFFFFF)
+    
+    if (delfile(targetFile)) {
+        fatal(fatalMsg = "8000000000000073 konnte nicht geloescht werden!")
+    }
+    
+    if (fsexists(targetFile)) {
+        fatal(fatalMsg = "Loeschen der Datei fehlgeschlagen - Datei existiert weiterhin!")
+    }
+    
+    color(0x00FF00)
+    p("ERFOLG: 8000000000000073 wurde geloescht!")
+    color(0xFFFFFF)
+}
+
+clear()
+color(0x00FFFF)
+p("=== Switch Downgrade Fix ===")
+p("Dieses Script loescht die Speicherdatei 8000000000000073")
+p("aus der SYSTEM Partition um Downgrade Schutz zu verhindern.")
+p()
+color(0xFFFFFF)
+
+p("Ziel waehlen:")
+target = menu(["Beenden", "sysMMC", "emuMMC"], 0)
+
+if (target == 0) {
+    exit()
+}
+
+if (target == 1) {
+    mount = mountsys
+    mmcType = "sysMMC"
+} .else() {
+    mount = mountemu
+    mmcType = "emuMMC"
+}
+
+clear()
+color(0x00FFFF)
+p("=== Downgrade Fix Bestaetigung ===")
+color(0xFFFFFF)
+p("Ziel:", mmcType)
+p("Aktion: Loesche 8000000000000073")
+p()
+color(0xFFFF00)
+p("WARNUNG: Das modifiziert deine SYSTEM Partition!")
+p("Sei sicher du weisst was du tust bevor du weitermachst!")
+p()
+color(0xFFFFFF)
+
+wait(tw = 5000)
+p("Druecke POWER zum fortfahren, jede andere Taste zum Beenden")
+if (!pause().power) {
+    exit()
+}
+
+clear()
+downgradeFix()
+
+p()
+color(0x00FF00)
+p("Downgrade fix erfolgreich abgeschlossen!")
+color(0xFFFFFF)
+p("Druecke beliebige Taste zum Beenden")
+pause()
