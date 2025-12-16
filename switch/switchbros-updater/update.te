@@ -65,7 +65,7 @@ pl("  Drueck die A-Taste um das SwitchBros. Paket zu aktualisieren!")
 pl()
 pl()
 col(ORANGE)
-pl("                                                         SwitchBros. Paket 132")
+pl("                                                         SwitchBros. Paket 133")
 pl()
 pl()
 col(ROT)
@@ -145,13 +145,9 @@ md("sd:/backup/SB/Fizeau")
 md("sd:/backup/SB/IconGrabber")
 md("sd:/backup/SB/tinfoil")
 md("sd:/backup/SB/DBI")
-md("sd:/backup/SB/DBIru")
 
-if (fse("sd:/bootloader/hekate_ipl.ini")){
-	cpf("sd:/bootloader/hekate_ipl.ini", "sd:/backup/SB/bootloader/hekate_ipl.ini")
-}
-if (fse("sd:/bootloader/nyx.ini")){
-	cpf("sd:/bootloader/nyx.ini", "sd:/backup/SB/bootloader/nyx.ini")
+if (fse("sd:/bootloader/hekate_ipl.bak")){
+	cpf("sd:/bootloader/hekate_ipl.bak", "sd:/backup/SB/bootloader/hekate_ipl.bak")
 }
 if (fse("sd:/config/Fizeau/config.ini")){
 	cpf("sd:/config/Fizeau/config.ini", "sd:/backup/SB/Fizeau/config.ini")
@@ -170,9 +166,6 @@ if (fse("sd:/atmosphere/exefs_patches/bootlogo")){
 }
 if (fse("sd:/switch/DBI/dbi.config")){
 	cpf("sd:/switch/DBI/dbi.config", "sd:/backup/SB/DBI/dbi.config")
-}
-if (fse("sd:/switch/DBIru/dbi.config")){
-	cpf("sd:/switch/DBIru/dbi.config", "sd:/backup/SB/DBIru/dbi.config")
 }
 
 wait(tw = 1000)
@@ -475,9 +468,7 @@ cpd("sd:/SwitchBros_BasisPaket/config", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/Forwarder", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/switch", "sd:/")
 cpd("sd:/SwitchBros_BasisPaket/tegraexplorer", "sd:/")
-cpd("sd:/SwitchBros_BasisPaket/warmboot", "sd:/")
 cpf("sd:/SwitchBros_BasisPaket/exosphere.ini", "sd:/exosphere.ini")
-cpf("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 cpf("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
 cpf("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
 cpf("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
@@ -558,511 +549,15 @@ col(SCHWARZ)
 	dlf("sd:/bootloader/ini/hwfly_toolbox.ini")
 }
 
-wait(tw = 1000)
-cls()
-
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-col(GELB)
-pl("  Waehle hier deine Systeme aus, die du spaeter im 'Launch' Bereich vom")
-pl("  hekate Bootloader stehen haben moechtest!")
-pl()
-p("  Die Systeme werden hier")col(ROT)p(" NICHT ")col(GELB)p("installiert!")
-pl()
-pl("  Das musst du selber machen, oder du hast es bereits gemacht!")
-pl()
-pl("  Welche Systemkombination wird (spaeter) genutzt?: ")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl()
-
-col(SILBER)
-menuOptionsSystem =
- ["     [ 0] Basis (Standard)", "     [ 1] Basis + Android", "     [ 2] Basis + Linux", "     [ 3] Basis + LAKKA", "     [ 4] Basis + LibreELEC", "     [ 5] Basis + Android + Linux", "     [ 6] Basis + Android + LAKKA", "     [ 7] Basis + Android + LibreELEC", "     [ 8] Basis + Android + Linux + LAKKA", "     [ 9] Basis + Android + Linux + LibreELEC", "     [10] Basis + Android + LAKKA + LibreELEC", "     [11] Basis + Android + Linux + LAKKA + LibreELEC", "     [12] Basis + Linux + LAKKA", "     [13] Basis + Linux + LAKKA + LibreELEC", "     [14] Basis + Linux + LibreELEC", "     [15] Basis + LAKKA + LibreELEC", "     [16] alte Daten behalten (NICHT EMPFOHLEN)"]
-resSystem = menu(menuOptionsSystem, 0)
-
-cls()
-
-if (resSystem == 0){
-pl()
-pl()
-col(GRUEN)
-pl("                     Basis (Standard) wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 1){
-pl()
-pl()
-col(GRUEN)
-pl("                      Basis + Android wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/ba/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 2){
-pl()
-pl()
-col(GRUEN)
-pl("                       Basis + Linux wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	}
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bu/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 3){
-pl()
-pl()
-col(GRUEN)
-pl("                       Basis + LAKKA wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bl/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 4){
-pl()
-pl()
-col(GRUEN)
-pl("                     Basis + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/be/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 5){
-pl()
-pl()
-col(GRUEN)
-pl("                  Basis + Android + Linux wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	}
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bau/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 6){
-pl()
-pl()
-col(GRUEN)
-pl("                  Basis + Android + LAKKA wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bla/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 7){
-pl()
-pl()
-col(GRUEN)
-pl("                Basis + Android + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bae/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 8){
-pl()
-pl()
-col(GRUEN)
-pl("              Basis + Android + Linux + LAKKA wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-	if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	}
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balu/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 9){
-pl()
-pl()
-col(GRUEN)
-pl("            Basis + Android + Linux + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-	if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	}
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/baue/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 10){
-pl()
-pl()
-col(GRUEN)
-pl("            Basis + Android + LAKKA + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bale/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 11){
-pl()
-pl()
-col(GRUEN)
-pl("                  Basis + Android + Linux + LAKKA + LibreELEC")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/android/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	}
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/balue/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 12){
-pl()
-pl()
-col(GRUEN)
-pl("                   Basis + Linux + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-    }
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blu/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 13){
-pl()
-pl()
-col(GRUEN)
-pl("             Basis + Linux + LAKKA + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	}
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/blue/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 14){
-pl()
-pl()
-col(GRUEN)
-pl("                 Basis + Linux + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-pl()
-pl("      Welche Linux Distro soll genutzt werden?")
-pl()
-pl()
-col(SILBER)
-
-menuOptionsLIN = ["     Ubuntu Bionic", "     Fedora Linux", "     Ubuntu 22.04"]
-resLIN = menu(menuOptionsLIN, 0)
-
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/") 
-
-if (resLIN == 0){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/bionic/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/bionic/bootloader", "sd:/")
-	}
-
-if (resLIN == 1){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/fedora/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/fedora/bootloader", "sd:/")
-	}
-
-if (resLIN == 2){
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/bue/ubuntu/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/ubuntu/bootloader", "sd:/")
-	}
-}
-
-cls()
-
-if (resSystem == 15){
-pl()
-pl()
-col(GRUEN)
-pl("                 Basis + LAKKA + LibreELEC wird installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/ble/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/lakka/bootloader", "sd:/")
-	cpd("sd:/SwitchBros_BasisPaket/switchbros/system/images/libreelec/bootloader", "sd:/")
-}
-
-cls()
-
-if (resSystem == 16){
-pl()
-pl()
-col(GRUEN)
-pl("          Deine alte hekate_ipl.ini und nyx.ini werden installiert...")
-pl()
-col(NAVAJO)
-pl("########### ########### ########## ### # ### ########## ########### ###########")
-col(SCHWARZ)
-
-if(fse("sd:/backup/SB/bootloader")){
-	cpf("sd:/backup/SB/bootloader/hekate_ipl.ini", "sd:/bootloader/hekate_ipl.ini")
-	cpf("sd:/backup/SB/bootloader/nyx.ini", "sd:/bootloader/nyx.ini")
-}.else(){
-  cpd("sd:/SwitchBros_BasisPaket/switchbros/system/b/bootloader", "sd:/")
-}
-}
-
 wait(tw = 5000)
+cls()
 
 col(SCHWARZ)
+if(fse("sd:/backup/SB/bootloader")){
+	cpf("sd:/backup/SB/bootloader/hekate_ipl.bak", "sd:/bootloader/hekate_ipl.ini")
+}
 if (fse("sd:/backup/SB/dbi.config")){
 	cpf("sd:/backup/SB/dbi.config", "sd:/switch/DBI/dbi.config")
-}
-if (fse("sd:/backup/SB/DBIru/dbi.config")){
-	cpf("sd:/backup/SB/DBIru/dbi.config", "sd:/switch/DBIru/dbi.config")
 }
 if (fse("sd:/backup/SB/IconGrabber/config.json")){
 	cpf("sd:/backup/SB/IconGrabber/config.json", "sd:/config/icongrabber/config.json")
@@ -1129,8 +624,11 @@ pl()
 col(NAVAJO)
 pl("########### ########### ########## ### # ### ########## ########### ###########")
 col(SCHWARZ)
+col(SCHWARZ)
 
 fixattrib()
+
+col(SCHWARZ)
 
 pl()
 pl()
@@ -1174,6 +672,7 @@ dlf("sd:/licence")
 dlf("sd:/README.md")
 dlf("sd:/SwitchBros_NERD-O-MAT.bat")
 dlf("sd:/SwitchBros_NOOB-O-MAT.bat")
+dlf("sd:/SwitchBros_BasisPaket.bat")
 
 dld("sd:/SwitchBros_BasisPaket")
 dlf("sd:/switch/switchbros-updater/update.te")

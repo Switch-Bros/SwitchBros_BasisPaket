@@ -9,13 +9,14 @@ Nur noch EINE Installationsdatei (Batch) für PC = "SwitchBros_BasisPaket.bat" u
 
 === Basis Apps ====================
 
-SwitchBros Updater 2.24.3-SB (Downloads haben Zeitanzeige)
+SwitchBros Updater 2.25-SB (Deutsch, für SBOS 1.10.1)
 Daybreak 1.0.0_de (Deutsch)
-DBI (Version kann über UltraHand-Overlay ausgewählt werden)
-linkalho 2.2.0 (Deutsch)
-NXThemeInstaller 2.8.1
+Sphaira 1.0.0 (als Ersatz für DBI, hbmenu, HB-AppStore)
+DBI (kann über UltraHand-Overlay geholt werden, Achtung: NUR russisch)
+linkalho 2.0.2 (Deutsch, für SBOS 1.10.1)
+NXThemeInstaller 2.8.3
 sys-patch 1.5.8 v5
-UltraHand-Overlay 2.2.2 (ZL + ZR + PLUS) + folgende Pakete
+UltraHand-Overlay 2.2.4 (ZL + ZR + PLUS) + folgende Pakete
 	Cool Curves 0.2.0 (Temperaturbereiche in system_settings.ini festlegen)
 	DBI 0.1.1 (siehe oben)
 	Host Guard 0.4.0 (Nintendo und andere Server BLOCKEN (emummc.txt und sysmmc.txt)
@@ -82,7 +83,7 @@ Tinwoo Installer
 TriPlayer 1.2.0
 vgedit 2.2.1
 
-Tinfoil 20 (Version kann im UltraHand-Overlay gewählt werden)
+Tinfoil 20 (Kann im UltraHand-Overlay gewählt und geholt werden Funktioniert nicht mehr mit SBOS 1.10.1 und Firmware >20.x.x)
 
 === Habt ihr noch Ideen oder Wünsche welche Apps dazu sollen? ===
 

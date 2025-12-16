@@ -98,7 +98,7 @@ if not exist "%SBBAK%" (
     mkdir "%SBBAK%" >nul 2>&1
 )
 
-set "folders=bootloader Fizeau IconGrabber tinfoil bootlogo DBI DBIru"
+set "folders=bootloader Fizeau IconGrabber tinfoil bootlogo DBI"
 
 for %%i in (%folders%) do (
     if not exist "%SBBAK%\%%i" (
@@ -106,6 +106,9 @@ for %%i in (%folders%) do (
     )
 )
 
+if exist "%sd%:\bootloader\hekate_ipl.bak" (
+xcopy /I /Y "%sd%:\bootloader\hekate_ipl.bak" "%SBBAK%\bootloader\hekate_ipl.bak" >nul 2>&1
+)
 if exist "%sd%:\config\Fizeau\config.ini" (
 xcopy /I /Y "%sd%:\config\Fizeau\config.ini" "%SBBAK%\Fizeau\" >nul 2>&1
 )
@@ -123,9 +126,6 @@ xcopy /I /Y "%sd%:\atmosphere\exefs_patches\bootlogo\*" "%SBBAK%\bootlogo\" >nul
 )
 if exist "%sd%:\switch\DBI\dbi.config" (
 xcopy /I /Y "%sd%:\switch\DBI\dbi.config" "%SBBAK%\DBI\" >nul 2>&1
-)
-if exist "%sd%:\switch\DBIru\dbi.config" (
-xcopy /I /Y "%sd%:\switch\DBIru\dbi.config" "%SBBAK%\DBI\" >nul 2>&1
 )
 
 REM ============================================================
@@ -416,31 +416,12 @@ echo ---------------------------------------------------------------------------
 xcopy "%~dp0*" "%sd%:\" /H /Y /C /R /S /E >nul 2>nul
 powershell -Command "Start-Sleep -Seconds 2"
 if exist "%SBBAK%\Fizeau\config.ini" (xcopy "%SBBAK%\Fizeau\config.ini" "%sd%:\config\Fizeau\*" /H /Y /C /R /S /E /I) >nul 2>nul
-powershell -Command "Start-Sleep -Seconds 5"
+powershell -Command "Start-Sleep -Seconds 2"
 
 REM ============================================================
 :nurbasissystem
-xcopy "%sd%:\switchbros\system\b\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-
-REM ============================================================
-:teslaminimal
-COLOR 0E
-cls
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-echo              Das UltraHand-Overlay Menue, mit einigen Standard Modulen, wird installiert^^!
-echo.
-echo      BITTE WARTEN...^^!
-echo.
-echo -----------------------------------------------------------------------------------------------------
-echo.
-powershell -Command "Start-Sleep -Seconds 7"
-
-xcopy "%sd%:\switchbros\sys-modul\UltraHand\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\pancake\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\ovlSysmodule\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
-xcopy "%sd%:\switchbros\sys-modul\QuickNTP\*" "%sd%:\" /H /Y /C /R /S /E /I >nul 2>nul
+if exist "%SBBAK%\bootloader\hekate_ipl.bak" (xcopy "%SBBAK%\bootloader\hekate_ipl.bak" "%sd%:\bootloader\hekate_ipl.ini" /H /Y /C /R /S /E /I) >nul 2>nul
+powershell -Command "Start-Sleep -Seconds 2"
 
 REM ============================================================
 :fixattrib
