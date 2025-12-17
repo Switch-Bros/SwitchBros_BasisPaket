@@ -473,6 +473,7 @@ cpf("sd:/SwitchBros_BasisPaket/BasisApps.txt", "sd:/BasisApps.txt")
 cpf("sd:/SwitchBros_BasisPaket/payload.bin", "sd:/payload.bin")
 cpf("sd:/SwitchBros_BasisPaket/boot.dat", "sd:/boot.dat")
 cpf("sd:/SwitchBros_BasisPaket/boot.ini", "sd:/boot.ini")
+cpf("sd:/SwitchBros_BasisPaket/hbmenu.nro", "sd:/hbmenu.nro")
 
 dlf("sd:/atmosphere/stratosphere.romfs.sbu")
 dlf("sd:/atmosphere/fusee-secondary.bin.sbu")
