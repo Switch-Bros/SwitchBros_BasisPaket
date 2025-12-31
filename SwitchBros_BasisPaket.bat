@@ -2,7 +2,7 @@
 mode con: cols=106 lines=32
 SETLOCAL ENABLEDELAYEDEXPANSION
 chcp 1252 >nul 2>&1
-title SwitchBros_BasisPaket v127
+title SwitchBros_BasisPaket v133
 REM Dieses Skript basiert auf der Batch-Datei von rashevskyv's Kefir Paket!
 REM RIESEN DANK!!! an diesen tollen Entwickler!
 REM Dieses Skript wurde um einiges erweitert, ergänzt und verbessert!
