@@ -103,14 +103,8 @@
     },
     {
         "name": "NX-ThemeInstaller - neueste",
-        "nro-url": "https://github.com/Switch-Bros/nx-links/releases/download/1/NXThemesInstaller.nro",
+        "nro-url": "https://api.github.com/repos/exelix11/SwitchThemeInjector/releases?per_page=1&sort=created&order=desc",
         "ordner": "NX-ThemeInstaller",
-        "download-entry": "0"
-    },
-    {
-        "name": "ReverseNX-Tool - neueste",
-        "nro-url": "https://api.github.com/repos/masagrator/ReverseNX-Tool/releases?per_page=1&sort=created&order=desc",
-        "ordner": "ReverseNX-Tool",
         "download-entry": "0"
     },
     {

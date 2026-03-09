@@ -46,7 +46,7 @@
     },
     {
         "name": "QuickNTP - neueste",
-        "ovl-url": "https://api.github.com/repos/nedex/QuickNTP/releases?per_page=1&sort=created&order=desc",
+        "zip-url": "https://api.github.com/repos/nedex/QuickNTP/releases?per_page=1&sort=created&order=desc",
         "download-entry": "0"
     },
     {
@@ -57,12 +57,12 @@
     {
         "name": "SaltyNX - neueste",
         "zip-url": "https://api.github.com/repos/masagrator/SaltyNX/releases?per_page=1&sort=created&order=desc",
-        "download-entry": "0"
+        "download-entry": "1"
     },
     {
         "name": "Status-Monitor-Overlay - neueste",
-        "ovl-url": "https://api.github.com/repos/masagrator/Status-Monitor-Overlay/releases?per_page=1&sort=created&order=desc",
-        "download-entry": "0"
+        "zip-url": "https://api.github.com/repos/masagrator/Status-Monitor-Overlay/releases?per_page=1&sort=created&order=desc",
+        "download-entry": "1"
     },
     {
         "name": "Studious Pancake - neueste",
@@ -77,7 +77,7 @@
     {
         "name": "SysDVR - neueste",
         "zip-url": "https://api.github.com/repos/exelix11/SysDVR/releases?per_page=1&sort=created&order=desc",
-        "download-entry": "4"
+        "download-entry": "2"
     },
     {
         "name": "SysDVR Overlay - neueste",
