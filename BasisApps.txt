@@ -1,9 +1,9 @@
 Basiert auf:
 
-hekate 6.5.1 + Nyx 1.9.1 - DEUTSCH
-SwitchBros-O-Sphere 1.10.2 -335a188e0 + hbmenu 3.6.1 + hbl 2.4.5
+hekate 6.5.2 + Nyx 1.9.2 - DEUTSCH
+SwitchBros-O-Sphere 1.11.1 -ac36a87d4 + hbmenu 3.6.1 + hbl 2.4.5
 TegraExplorer 4.2.1 - Deutsch
-Enigma_RCM 1.9.16 (Deutsch, NICHT so scheiss Bunt = Augenfreundlich)
+Enigma_RCM 1.9.18 (Deutsch, NICHT so scheiss Bunt = Augenfreundlich)
 AllgemeinerProblemLoeser (CommonProblemResolver) 0.4.2 - Deutsch
 Nur noch EINE Installationsdatei (Batch) für PC = "SwitchBros_BasisPaket.bat" und das update.te Skript vom switchbros-updater für Updates direkt von der Switch aus.
 
@@ -16,7 +16,7 @@ DBI (kann über UltraHand-Overlay geholt werden, Achtung: NUR russisch)
 linkalho 2.0.2 (Deutsch, für SBOS 1.10.1)
 NXThemeInstaller 2.8.3
 sys-patch 1.5.9
-UltraHand-Overlay 2.2.9 (ZL + ZR + PLUS) + folgende Pakete
+UltraHand-Overlay 2.3.0 (ZL + ZR + PLUS) + folgende Pakete
 	Cool Curves 0.2.0 (Temperaturbereiche in system_settings.ini festlegen)
 	DBI 0.1.1 (siehe oben)
 	Host Guard 0.4.0 (Nintendo und andere Server BLOCKEN (emummc.txt und sysmmc.txt)
